@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fu Sheng-Lan — Financial Analytics, Digital Assets, PM. NTHU Economics 2025. ">
+<title>傅聖嵐 — Fu Sheng-Lan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Noto+Sans+TC:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   RESET
+══════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:#F2F0EB;color:#121212;font-family:'Syne',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .6s cubic-bezier(.25,.46,.45,.94),color .6s cubic-bezier(.25,.46,.45,.94)}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:#121212}
+body.dark{background:#111110;color:#F2F0EB}
+body.dark::-webkit-scrollbar-thumb{background:#F2F0EB}
+a{text-decoration:none}
+img{display:block;max-width:100%}
+
+/* ══════════════════════════════════════
+   TOKENS
+══════════════════════════════════════ */
+:root{
+  --bg:#F2F0EB;--dark:#111110;--text:#121212;
+  --gold:#B8913A;--rust:#C04A28;
+  --mute:rgba(18,18,18,.38);--muted-d:rgba(242,240,235,.38);
+  --br:rgba(18,18,18,.1);--brd:rgba(242,240,235,.1);
+  --sans:'Syne',sans-serif;
+  --serif:'Cormorant Garamond',serif;
+  --mono:'DM Mono',monospace;
+  --cjk:'Noto Sans TC',sans-serif;
+}
+
+/* ══════════════════════════════════════
+   PROGRESS
+══════════════════════════════════════ */
+#prog{position:fixed;top:0;left:0;height:1px;background:var(--gold);z-index:9000;width:0;pointer-events:none}
+
+/* ══════════════════════════════════════
+   LOADER  — cinematic
+══════════════════════════════════════ */
+#loader{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--dark);
+  display:grid;place-items:center;
+  overflow:hidden;
+}
+/* horizontal scan lines decoration */
+.loader-scanlines{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.012) 3px,rgba(255,255,255,.012) 4px);
+  pointer-events:none;
+}
+.loader-center{
+  position:relative;text-align:center;
+  width:min(90vw,700px);
+}
+/* slogan lines */
+.sl-line{
+  overflow:hidden;line-height:1;
+  margin-bottom:.18em;
+}
+.sl-inner{
+  display:block;
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(1.6rem,4vw,3.8rem);
+  letter-spacing:-.02em;color:var(--bg);
+  transform:translateY(110%);/* GSAP reveals */
+}
+.sl-line.sl-name .sl-inner{
+  font-size:clamp(2.5rem,7vw,7rem);
+  color:var(--gold);
+  letter-spacing:-.03em;
+  margin-top:.15em;
+}
+.sl-line.sl-sub .sl-inner{
+  font-family:var(--mono);font-weight:400;
+  font-size:clamp(.6rem,1.2vw,.75rem);
+  letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(242,240,235,.35);
+  margin-top:.8em;
+}
+.lg1{width:60vmax;height:60vmax;border:1px solid rgba(242,240,235,.06);top:50%;left:50%;margin:-30vmax}
+.lg2{width:40vmax;height:40vmax;border:1px solid rgba(184,145,58,.15);top:50%;left:50%;margin:-20vmax}
+/* progress line */
+.loader-line{
+  position:absolute;bottom:8%;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;background:rgba(242,240,235,.1);overflow:hidden;
+}
+.loader-line-fill{height:100%;background:var(--gold);width:0;transform-origin:left}
+/* flash overlay */
+.loader-flash{position:absolute;inset:0;background:var(--bg);opacity:0;pointer-events:none}
+
+/* ══════════════════════════════════════
+   NAV  — floating ghost
+══════════════════════════════════════ */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.6rem 3.5rem;pointer-events:none;
+}
+.nav-logo{
+  pointer-events:all;cursor:pointer;
+  font-family:var(--sans);font-weight:800;
+  font-size:.75rem;letter-spacing:.04em;
+  color:var(--text);transition:color .5s;
+}
+body.dark .nav-logo{color:var(--bg)}
+.nav-right{pointer-events:all;display:flex;align-items:center;gap:2rem}
+.nav-time{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;
+  color:var(--mute);transition:color .5s;display:none;
+}
+body.dark .nav-time{color:var(--muted-d)}
+@media(min-width:768px){.nav-time{display:block}}
+
+/* ══════════════════════════════════════
+   NAV LANGUAGE TOGGLE (always visible, top center)
+══════════════════════════════════════ */
+.nav-lang{
+  position:absolute;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:.3rem;
+  pointer-events:all;
+  z-index:810;
+}
+.nlbtn{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;
+  padding:.28rem .8rem;border:1px solid rgba(18,18,18,.18);
+  background:transparent;color:var(--mute);cursor:pointer;
+  transition:all .2s;
+}
+.nlbtn.on{
+  background:var(--gold);color:var(--dark);
+  border-color:var(--gold);font-weight:600;
+}
+body.dark .nlbtn{border-color:rgba(242,240,235,.2);color:rgba(242,240,235,.4)}
+body.dark .nlbtn.on{background:var(--gold);color:var(--dark);border-color:var(--gold)}
+.nl-sep{
+  font-family:var(--mono);font-size:.5rem;
+  color:var(--mute);opacity:.35;
+}
+body.dark .nl-sep{color:rgba(242,240,235,.25)}
+
+/* ══════════════════════════════════════
+   NAV — contrast when menu panel is open
+   (menu bg is dark #111110; nav items must be light regardless of page scroll state)
+══════════════════════════════════════ */
+#nav.menu-open .nav-logo{color:rgba(242,240,235,.85)!important}
+#nav.menu-open .nav-time{color:rgba(242,240,235,.35)!important}
+#nav.menu-open .bl{background:rgba(242,240,235,.9)!important}
+#nav.menu-open .nlbtn{
+  border-color:rgba(242,240,235,.22)!important;
+  color:rgba(242,240,235,.45)!important;
+}
+#nav.menu-open .nlbtn.on{
+  background:var(--gold)!important;
+  color:var(--dark)!important;
+  border-color:var(--gold)!important;
+}
+#nav.menu-open .nl-sep{color:rgba(242,240,235,.2)!important}
+
+/* burger */
+.burger{
+  pointer-events:all;cursor:pointer;
+  width:32px;height:18px;position:relative;background:none;border:none;padding:0;
+}
+.bl{
+  position:absolute;left:0;height:1px;background:var(--text);
+  transition:background .5s,transform .45s cubic-bezier(.77,0,.175,1),width .35s,opacity .3s;
+}
+body.dark .bl{background:var(--bg)}
+.bl:nth-child(1){top:0;width:100%}
+.bl:nth-child(2){top:50%;transform:translateY(-50%);width:70%}
+.bl:nth-child(3){bottom:0;width:100%}
+.burger.open .bl:nth-child(1){transform:rotate(45deg) translate(6px,6px);width:100%}
+.burger.open .bl:nth-child(2){opacity:0;transform:translateY(-50%) scaleX(0)}
+.burger.open .bl:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);width:100%}
+
+/* ══════════════════════════════════════
+   FULLSCREEN MENU
+══════════════════════════════════════ */
+#menu{
+  position:fixed;inset:0;z-index:700;
+  display:grid;grid-template-columns:1fr 1fr;
+  pointer-events:none;
+  visibility:hidden;
+}
+#menu.open{pointer-events:all;visibility:visible}
+.menu-left{
+  /* Navigation panel — deep neutral black */
+  background:#0D0C0A;
+  padding:8rem 4rem 4rem;
+  display:flex;flex-direction:column;justify-content:space-between;
+  transform:translateX(-100%);
+}
+.menu-right{
+  /* Projects panel — warmer amber-dark, clearly distinct from navigation side */
+  background:#1C1710;
+  padding:8rem 4rem 4rem;
+  transform:translateX(100%);
+  overflow-y:auto;
+}
+.menu-label{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(242,240,235,.25);margin-bottom:2rem;
+}
+/* nav links */
+.menu-nav{list-style:none}
+.menu-nav li{overflow:hidden;margin-bottom:.2rem}
+.menu-nav a{
+  display:block;
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2rem,4vw,3.2rem);letter-spacing:-.02em;
+  color:rgba(242,240,235,.9);padding:.2rem 0;
+  transition:color .25s,padding-left .25s;
+}
+.menu-nav a:hover{color:var(--gold);padding-left:.4rem}
+.menu-nav .mn-num{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;
+  color:var(--gold);vertical-align:super;margin-right:.4rem;
+}
+/* lang + contact in menu */
+.menu-bottom{display:flex;flex-direction:column;gap:1.5rem}
+.menu-lang{display:flex;gap:.5rem}
+.mlbtn{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
+  padding:.3rem .9rem;border:1px solid rgba(242,240,235,.2);
+  background:transparent;color:rgba(242,240,235,.4);cursor:pointer;transition:all .2s;
+}
+.mlbtn.on{background:var(--gold);color:var(--dark);border-color:var(--gold);font-weight:600}
+.menu-contacts a,.menu-contacts-item{
+  display:block;font-family:var(--mono);font-size:.68rem;
+  color:rgba(242,240,235,.35);margin-bottom:.3rem;transition:color .2s;
+}
+.menu-contacts a:hover{color:var(--gold)}
+
+/* mobile-only project block inside left panel —
+   uses the same amber-dark as the desktop right panel so the colour language is consistent */
+.menu-mobile-projs{
+  display:none;/* hidden on desktop — shown via mobile media query */
+  margin:2rem -2rem -3rem;   /* bleed to panel edges */
+  padding:2rem 2rem 3rem;
+  background:#1C1710;        /* same warm amber-dark as .menu-right */
+  border-top:1px solid rgba(184,145,58,.12);
+}
+.menu-mobile-projs .menu-label{margin-bottom:1.2rem}
+
+/* project list in right panel */
+.menu-projects-title{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(242,240,235,.25);margin-bottom:2rem;
+}
+.proj-card{
+  border-top:1px solid rgba(242,240,235,.07);
+  padding:1.5rem 0;cursor:pointer;transition:all .25s;
+}
+.proj-card:last-child{border-bottom:1px solid rgba(242,240,235,.07)}
+.proj-card:hover{padding-left:.5rem}
+.proj-card:hover .pc-name{color:var(--gold)}
+.pc-index{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;color:var(--gold);margin-bottom:.4rem}
+.pc-name{
+  font-family:var(--sans);font-weight:800;
+  font-size:1.1rem;letter-spacing:-.01em;
+  color:rgba(242,240,235,.9);margin-bottom:.3rem;transition:color .25s;
+}
+.pc-meta{font-family:var(--mono);font-size:.6rem;color:rgba(242,240,235,.3);line-height:1.6}
+.pc-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.6rem}
+.pc-tag{
+  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(242,240,235,.3);border:1px solid rgba(242,240,235,.12);
+  padding:.15rem .45rem;
+}
+
+/* ══════════════════════════════════════
+   PROJECT DETAIL OVERLAY
+══════════════════════════════════════ */
+#proj-overlay{
+  position:fixed;inset:0;z-index:600;
+  background:var(--bg);
+  transform:translateY(100%);
+  overflow-y:auto;
+  visibility:hidden;
+}
+#proj-overlay.open{visibility:visible}
+.po-nav{
+  position:sticky;top:0;left:0;right:0;z-index:10;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 3.5rem;
+  background:var(--bg);border-bottom:1px solid var(--br);
+}
+.po-back{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mute);cursor:pointer;display:flex;align-items:center;gap:.5rem;background:none;border:none;transition:color .2s;
+}
+.po-back:hover{color:var(--text)}
+.po-title-small{font-size:.65rem;letter-spacing:.1em;color:var(--mute)}
+.po-close{font-size:1.2rem;color:var(--mute);cursor:pointer;background:none;border:none;transition:color .2s}
+.po-close:hover{color:var(--text)}
+.po-body{padding:5rem 3.5rem 8rem;max-width:1100px;margin:0 auto}
+
+/* project hero inside overlay */
+.po-hero{margin-bottom:6rem}
+.po-eyebrow{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;display:flex;align-items:center;gap:.8rem;
+}
+.po-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold)}
+.po-big-title{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2.8rem,7vw,8rem);
+  letter-spacing:-.03em;line-height:.9;
+  margin-bottom:2rem;
+}
+.po-subtitle{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(1rem,2vw,1.5rem);color:var(--mute);
+  max-width:500px;line-height:1.7;
+}
+
+/* project meta grid */
+.po-meta-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--br);margin-bottom:6rem;
+}
+.po-meta-cell{
+  background:var(--bg);padding:1.8rem 2rem;
+}
+.pmc-label{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.5rem;
+}
+.pmc-val{font-size:.82rem;line-height:1.7;color:var(--text)}
+.pmc-val strong{font-weight:600}
+
+/* project story */
+.po-section{margin-bottom:5rem}
+.pos-label{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--mute);margin-bottom:1rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.pos-label::before{content:'';width:20px;height:1px;background:var(--mute)}
+.pos-heading{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(1.5rem,3.5vw,3rem);letter-spacing:-.02em;
+  margin-bottom:1.5rem;line-height:1.0;
+}
+.pos-heading em{font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)}
+.pos-body{font-size:.88rem;line-height:2;color:var(--mute);max-width:680px}
+.pos-body strong{color:var(--text);font-weight:600}
+.pos-body p+p{margin-top:1rem}
+/* numbered list */
+.pos-list{margin-top:1.5rem;display:flex;flex-direction:column;gap:1rem}
+.pos-list-item{
+  display:grid;grid-template-columns:40px 1fr;gap:1rem;
+  align-items:start;
+}
+.pli-num{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;
+  color:var(--gold);padding-top:.3rem;
+}
+.pli-content{font-size:.82rem;line-height:1.85;color:var(--mute)}
+.pli-content strong{color:var(--text);font-weight:600}
+
+/* results callout */
+.po-results{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--dark);margin-bottom:5rem;
+}
+.por-cell{background:var(--dark);padding:2.5rem 2rem;text-align:center}
+.por-num{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.03em;
+  color:var(--gold);line-height:1;margin-bottom:.5rem;
+}
+.por-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,240,235,.4);line-height:1.5}
+
+/* skills used */
+.po-skills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.psk{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;
+  color:var(--text);border:1px solid var(--br);
+  padding:.3rem .8rem;transition:all .2s;cursor:default;
+}
+.psk:hover{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+
+/* visual showcase placeholder */
+.po-visual{
+  background:var(--dark);min-height:300px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:5rem;position:relative;overflow:hidden;
+}
+.po-visual-inner{text-align:center;padding:3rem}
+.po-visual-label{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(242,240,235,.2);margin-bottom:1rem;
+}
+.po-visual-title{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(3rem,8vw,9rem);letter-spacing:-.03em;
+  color:rgba(242,240,235,.06);line-height:.9;
+}
+/* geometric accent inside visual */
+.po-geo{
+  position:absolute;border:1px solid rgba(184,145,58,.15);border-radius:50%;
+  pointer-events:none;
+}
+.pog1{width:200px;height:200px;top:50%;left:20%;transform:translate(-50%,-50%)}
+.pog2{width:120px;height:120px;top:30%;right:15%}
+
+/* ══════════════════════════════════════
+   HERO SECTION
+══════════════════════════════════════ */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-rows:1fr auto;
+  padding:0 3.5rem;
+  position:relative;overflow:hidden;
+}
+/* 12-col grid bg */
+.hero-grid-bg{
+  position:absolute;inset:0;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0;pointer-events:none;
+}
+.hgb-col{border-right:1px solid rgba(18,18,18,.04);height:100%}
+.hgb-col:last-child{border-right:none}
+
+/* center content */
+.hero-center{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding-top:100px;padding-bottom:4rem;
+  position:relative;z-index:2;
+}
+.hero-index{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2.5rem;display:flex;align-items:center;gap:.7rem;
+}
+.hero-index::before{content:'';width:28px;height:1px;background:var(--gold)}
+
+/* mask-reveal wrapper — each line */
+.reveal-mask{overflow:hidden;line-height:.95}
+.reveal-inner{display:block;transform:translateY(115%)} /* GSAP moves to 0 */
+
+.hero-name{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(5rem,15vw,19rem);
+  letter-spacing:-.04em;line-height:.88;
+  position:relative;z-index:2;
+}
+.hero-name .stroke{-webkit-text-stroke:1.5px var(--text);color:transparent}
+.hero-name .gold{color:var(--gold)}
+.hero-name-zh{
+  font-family:var(--cjk);font-weight:800;
+  font-size:clamp(3rem,10vw,13rem);
+  letter-spacing:.05em;line-height:.9;
+}
+
+/* geometric shapes — animated */
+
+/* subtitle */
+.hero-sub-row{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:2rem 0 0;
+  border-top:1px solid var(--br);
+  position:relative;z-index:2;
+  opacity:0;transform:translateY(12px);/* GSAP */
+}
+.hero-tagline{
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(.95rem,1.5vw,1.3rem);
+  color:var(--mute);line-height:1.7;max-width:440px;
+}
+.hero-tagline strong{color:var(--text);font-style:normal;font-weight:400}
+.hero-cta{
+  display:flex;flex-direction:column;align-items:flex-end;gap:1rem;
+}
+.btn-main{
+  display:inline-block;background:var(--dark);color:var(--bg);
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+  padding:.9rem 2.2rem;transition:all .3s cubic-bezier(.25,.46,.45,.94);
+  border:none;cursor:pointer;
+}
+.btn-main:hover{background:var(--gold);transform:translateY(-3px)}
+.scroll-cue{
+  font-family:var(--mono);font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mute);display:flex;align-items:center;gap:.5rem;
+}
+.scroll-pip{
+  width:4px;height:4px;border-radius:50%;background:var(--gold);
+  animation:pip 1.8s ease infinite;
+}
+@keyframes pip{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ══════════════════════════════════════
+   BAND
+══════════════════════════════════════ */
+.bw{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(1.8rem,4vw,3.8rem);letter-spacing:.03em;
+  color:rgba(242,240,235,.7);padding:0 2rem;
+}
+.bw.ou{-webkit-text-stroke:2px rgba(242,240,235,.3);color:transparent}
+
+
+/* ══════════════════════════════════════
+   ABOUT  — poster split dark/light
+══════════════════════════════════════ */
+#about{display:grid;grid-template-columns:1fr 1fr;min-height:90vh}
+.ab-poster{
+  background:var(--dark);color:#F2F0EB;
+  padding:7rem 4rem;display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+}
+/* vertical CJK watermark */
+.ab-cjk-mark{
+  position:absolute;top:3rem;right:3rem;
+  font-family:var(--cjk);font-weight:800;
+  font-size:clamp(5rem,9vw,11rem);
+  writing-mode:vertical-rl;color:rgba(242,240,235,.04);
+  letter-spacing:.1em;pointer-events:none;line-height:1;
+}
+.ab-n{font-family:var(--serif);font-style:italic;font-size:.85rem;color:var(--gold);margin-bottom:1.5rem}
+.ab-title{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2.2rem,4vw,4rem);letter-spacing:-.02em;line-height:.95;
+  margin-bottom:1.5rem;
+}
+.ab-title em{font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)}
+.ab-body{font-size:.82rem;line-height:2;color:rgba(242,240,235,.5);max-width:400px}
+.ab-body strong{color:#F2F0EB;font-weight:600}
+.ab-body+.ab-body{margin-top:.8rem}
+
+.ab-data{
+  background:#F2F0EB;padding:7rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+/* large stats stacked */
+.ab-stat{
+  padding:2rem 0;border-bottom:1px solid rgba(18,18,18,.1);
+  display:grid;grid-template-columns:110px 1fr;gap:1.5rem;align-items:baseline;
+  transition:all .25s;cursor:default;
+}
+.ab-stat:first-child{border-top:1px solid rgba(18,18,18,.1)}
+.ab-stat:hover{padding-left:.5rem}
+.asn{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(2.5rem,4.5vw,4.5rem);letter-spacing:-.04em;color:var(--dark);line-height:1;
+}
+.asn sup{font-size:.35em;color:var(--gold);vertical-align:super}
+.asd{font-size:.75rem;line-height:1.8;color:rgba(18,18,18,.45)}
+.asd strong{color:var(--dark);font-weight:600}
+.ab-edu{
+  margin-top:2rem;padding:1.4rem 1.5rem;
+  background:#E8E5DF;border-left:3px solid var(--gold);
+}
+.ab-edu h4{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+.ab-edu p{font-size:.72rem;color:rgba(18,18,18,.45);line-height:1.7}
+
+/* ══════════════════════════════════════
+   APPROACH
+══════════════════════════════════════ */
+#approach{padding:8rem 3.5rem;background:var(--dark);color:#F2F0EB}
+.app-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:5rem}
+.sl{font-family:var(--mono);font-size:.52rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.7rem}
+.app-big{font-family:var(--sans);font-weight:800;font-size:clamp(2.5rem,6vw,7rem);letter-spacing:-.03em;line-height:.9;color:#F2F0EB}
+.app-big em{font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)}
+.app-sub{font-family:var(--mono);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(242,240,235,.25)}
+.app-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(242,240,235,.07)}
+.ap-c{
+  background:var(--dark);padding:3rem 2.5rem;
+  position:relative;overflow:hidden;transition:background .3s;cursor:default;
+}
+.ap-c:hover{background:#1A1917}
+.ap-c:hover .ap-n{color:rgba(184,145,58,.2)}
+.ap-n{font-family:var(--serif);font-style:italic;font-size:5rem;color:rgba(242,240,235,.04);line-height:1;margin-bottom:1.5rem;transition:color .3s}
+.ap-glyph{width:44px;height:44px;margin-bottom:1.8rem}
+.ap-title{font-family:var(--sans);font-weight:800;font-size:1.2rem;letter-spacing:-.01em;color:#F2F0EB;margin-bottom:.9rem;line-height:1.1}
+.ap-body{font-size:.76rem;line-height:1.9;color:rgba(242,240,235,.42)}
+
+/* ══════════════════════════════════════
+   EXPERIENCE
+══════════════════════════════════════ */
+#experience{padding:8rem 3.5rem;background:#F2F0EB;color:var(--dark)}
+.exp-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:5rem;flex-wrap:wrap;gap:1rem}
+.exp-hdr-r{display:flex;align-items:center;gap:1rem}
+.tldr-all-btn{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(18,18,18,.4);border:1px solid rgba(18,18,18,.15);
+  padding:.4rem 1rem;background:transparent;cursor:pointer;transition:all .2s;
+}
+.tldr-all-btn:hover,.tldr-all-btn.on{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+.exp-item{
+  border-top:1px solid rgba(18,18,18,.1);padding:3.5rem 0;
+  display:grid;grid-template-columns:260px 1fr;gap:3rem;
+  transition:padding-left .25s;
+}
+.exp-item:last-child{border-bottom:1px solid rgba(18,18,18,.1)}
+.exp-item:hover{padding-left:.3rem}
+.exp-meta{}
+.exp-date{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.exp-co{
+  font-family:var(--sans);font-weight:800;
+  font-size:1.6rem;letter-spacing:-.01em;line-height:1;margin-bottom:.5rem;
+}
+.exp-role{font-size:.7rem;color:rgba(18,18,18,.45);line-height:1.6;margin-bottom:1rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.etag{
+  font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(18,18,18,.35);border:1px solid rgba(18,18,18,.12);
+  padding:.18rem .5rem;cursor:pointer;transition:all .2s;
+}
+.etag:hover,.etag.act{background:var(--dark);color:var(--gold);border-color:var(--dark)}
+/* open project btn */
+.exp-view-btn{
+  display:inline-flex;align-items:center;gap:.4rem;
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:1px;
+  cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;
+  margin-top:1rem;transition:gap .2s;
+}
+.exp-view-btn:hover{gap:.7rem}
+.exp-content{}
+.tldr-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(18,18,18,.08);
+}
+.tldr-co-name{font-size:.62rem;color:rgba(18,18,18,.35)}
+.tldr-tog{
+  display:flex;align-items:center;gap:.45rem;cursor:pointer;
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;
+  color:rgba(18,18,18,.35);background:none;border:none;
+}
+.tldr-tog:hover{color:var(--gold)}
+.tpip{width:26px;height:13px;border-radius:7px;background:rgba(18,18,18,.1);position:relative;transition:background .2s}
+.tpip::after{content:'';position:absolute;top:2px;left:2px;width:9px;height:9px;border-radius:50%;background:rgba(18,18,18,.3);transition:transform .25s,background .2s}
+.tldr-tog.on .tpip{background:var(--gold)}
+.tldr-tog.on .tpip::after{transform:translateX(13px);background:var(--dark)}
+.rp{
+  display:inline-flex;align-items:center;
+  background:var(--dark);color:var(--gold);
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;
+  padding:.18rem .55rem;margin:0 .2rem;
+}
+.ep{font-size:.78rem;line-height:1.9;color:rgba(18,18,18,.45);padding-left:1rem;position:relative;margin-bottom:.5rem}
+.ep::before{content:'';position:absolute;left:0;top:.67em;width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5}
+.ep .s{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-right:.25rem;opacity:.9}
+.exp-full.hide,.exp-tldr{display:none}
+.exp-tldr.show{display:block}
+.tldr-pt{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.8rem;font-size:.8rem;line-height:1.7;color:rgba(18,18,18,.6)}
+.tldr-pt-n{
+  font-family:var(--mono);font-size:.58rem;font-weight:400;color:var(--gold);
+  min-width:18px;margin-top:.1em;
+}
+
+/* ══════════════════════════════════════
+   SKILL MATRIX
+══════════════════════════════════════ */
+#skills{padding:8rem 3.5rem;background:var(--dark);color:#F2F0EB}
+.sk-intro{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:5rem;align-items:end}
+.sk-note{font-size:.78rem;line-height:1.9;color:rgba(242,240,235,.4);max-width:380px}
+.ml{font-family:var(--mono);font-size:.52rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,240,235,.25);margin-bottom:1.2rem}
+.sk-cloud{display:flex;flex-wrap:wrap;gap:.45rem}
+.skp{
+  font-size:.63rem;letter-spacing:.08em;padding:.38rem 1rem;
+  border:1px solid rgba(242,240,235,.14);color:rgba(242,240,235,.45);
+  cursor:pointer;position:relative;overflow:hidden;transition:color .25s,border-color .25s;
+}
+.skp::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .25s cubic-bezier(.25,.46,.45,.94);z-index:0}
+.skp span{position:relative;z-index:1}
+.skp:hover{color:var(--dark);border-color:var(--gold)}
+.skp:hover::before,.skp.act::before{transform:scaleX(1)}
+.skp.act{color:var(--dark);border-color:var(--gold);font-weight:600}
+.skp.dim{opacity:.18}
+.sk-hint{margin-top:2rem;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:rgba(242,240,235,.2);min-height:1.2em}
+
+/* ══════════════════════════════════════
+   CONTACT
+══════════════════════════════════════ */
+#contact{display:grid;grid-template-columns:1fr 1fr;min-height:70vh}
+.c-poster{
+  background:var(--gold);padding:7rem 4rem;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  position:relative;overflow:hidden;
+}
+.c-poster::after{
+  content:'TALK';position:absolute;right:-1rem;bottom:-3rem;
+  font-family:var(--sans);font-weight:800;font-size:20rem;
+  color:rgba(18,18,18,.06);line-height:1;letter-spacing:-.05em;pointer-events:none;
+}
+.c-big{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(4rem,8vw,9.5rem);letter-spacing:-.04em;line-height:.9;
+  color:var(--dark);
+}
+.c-big em{font-style:italic;font-family:var(--serif);font-weight:300}
+.c-sub{margin-top:1.5rem;font-size:.78rem;line-height:1.85;color:rgba(18,18,18,.55);max-width:320px}
+.c-right{
+  background:var(--dark);padding:7rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.c-row{padding:1.5rem 0;border-bottom:1px solid rgba(242,240,235,.07)}
+.c-row:first-child{border-top:1px solid rgba(242,240,235,.07)}
+.c-lbl{font-family:var(--mono);font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.3rem}
+.c-val{font-size:.95rem;font-weight:600;color:#F2F0EB;text-decoration:none;display:block;transition:color .2s}
+.c-val:hover{color:var(--gold)}
+.c-note{font-family:var(--mono);font-size:.58rem;color:rgba(242,240,235,.28);margin-top:.12rem}
+.c-chips{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem}
+.c-chip{font-family:var(--mono);font-size:.5rem;letter-spacing:.08em;color:rgba(242,240,235,.3);border:1px solid rgba(242,240,235,.07);padding:.15rem .45rem}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+
+/* ══════════════════════════════════════
+   FOOTER NAV QUICK LINKS
+══════════════════════════════════════ */
+.ft-nav{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:1.5rem;padding:2.5rem 3.5rem 1rem;
+  border-bottom:1px solid rgba(242,240,235,.08);
+}
+.ft-nav-link{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(242,240,235,.3);transition:color .2s;
+  background:none;border:none;cursor:pointer;padding:0;
+  text-decoration:none;
+}
+.ft-nav-link:hover{color:var(--gold)}
+.ft-top-btn{padding:.28rem .8rem;border:1px solid rgba(242,240,235,.15)!important;
+  color:rgba(242,240,235,.4)!important;transition:all .2s}
+.ft-top-btn:hover{border-color:var(--gold)!important;color:var(--gold)!important}
+
+
+footer{
+  background:var(--dark);padding:5rem 3.5rem 2.5rem;
+  position:relative;overflow:hidden;
+}
+.ft-bg{
+  font-family:var(--sans);font-weight:800;
+  font-size:clamp(6rem,18vw,22rem);letter-spacing:-.05em;line-height:.85;
+  color:rgba(242,240,235,.03);pointer-events:none;white-space:nowrap;
+  transform:translateX(5%);/* GSAP slides in */
+}
+.ft-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:2rem;border-top:1px solid rgba(242,240,235,.07);
+  position:relative;
+}
+.ft-mark{font-family:var(--sans);font-weight:800;font-size:.85rem;letter-spacing:.06em;color:#F2F0EB}
+.ft-copy{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;color:rgba(242,240,235,.22)}
+.ft-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 .4rem;animation:fdot 2s ease infinite}
+@keyframes fdot{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ── LANG SYSTEM ──────────────────────────── */
+/* Each element carries data-en OR data-zh, not both */
+body.lang-en [data-zh] { display: none !important; }
+body.lang-zh [data-en] { display: none !important; }
+/* inline elements default to inline, block-level to block */
+body.lang-en [data-en] { }
+body.lang-zh [data-zh] { }
+
+/* ── BAND: dark bg ─────────────────────────── */
+
+/* ══════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px)}
+
+/* ══════════════════════════════════════
+   RWD
+══════════════════════════════════════ */
+@media(max-width:1024px){
+  #nav{padding:1.2rem 2rem}
+  #hero{padding:0 2rem}
+  #about{grid-template-columns:1fr}
+  .ab-poster,.ab-data{padding:5rem 2rem}
+  #approach{padding:5rem 2rem}
+  .app-grid{grid-template-columns:1fr}
+  #experience{padding:5rem 2rem}
+  .exp-item{grid-template-columns:1fr;gap:1.5rem}
+  .exp-hdr{flex-direction:column;align-items:flex-start}
+  #skills{padding:5rem 2rem}
+  .sk-intro{grid-template-columns:1fr;gap:2.5rem}
+  #contact{grid-template-columns:1fr}
+  .c-poster,.c-right{padding:5rem 2rem}
+  footer{padding:4rem 2rem 2rem}
+  #menu{grid-template-columns:1fr}
+  .menu-right{display:none}
+  .menu-left{padding:5rem 2rem 3rem;overflow-y:auto}
+  .menu-mobile-projs{display:block}
+  .menu-mobile-projs .proj-card{border-top-color:rgba(242,240,235,.1)}
+  .po-meta-grid{grid-template-columns:1fr 1fr}
+  .po-results{grid-template-columns:1fr 1fr}
+  .po-body{padding:3rem 2rem 6rem}
+}
+/* ══════════════════════════════════════
+   ASYMMETRIC HERO
+══════════════════════════════════════ */
+
+/* ── Film grain overlay ── */
+
+/* ── Gold→black radial glow in center ── */
+
+/* ── Subtle grid ── */
+
+/* ── Text layer ── */
+
+/* Top-left block */
+
+/* Bottom-right block */
+
+/* Corner info clusters */
+
+/* ── SVG stroke canvas ── */
+/* z-index:2 keeps the line BEHIND the text layer (z-index:3) and BEHIND the nav (z-index:800) */
+
+/* Gentle undulating drift — starts after GSAP draw-on completes (~3s) */
+/* Mimics a ribbon or current gently swaying in the air */
+
+
+/* The guide path — invisible, used for motion */
+#ah-path-guide{fill:none;stroke:none}
+
+/* Visible stroke */
+
+/* Glow blur duplicate */
+
+/* Scroll hint at bottom center */
+
+
+/* RWD */
+@media(max-width:768px){
+}
+@media(max-width:480px){
+}
+
+@keyframes fdot{0%,100%{opacity:.4}50%{opacity:1}}
+</style>
+</head>
+<body class="lang-en">
+
+<div id="prog"></div>
+
+<!-- ══ LOADER ══ -->
+<div id="loader">
+  <div class="loader-scanlines"></div>
+  
+  
+  <div class="loader-center">
+    <!-- Slogan lines — revealed one by one, then exit -->
+    <div class="sl-line" id="sl0"><span class="sl-inner">I turn chaos into clarity.</span></div>
+    <div class="sl-line" id="sl1"><span class="sl-inner">I turn twenty projects into one plan.</span></div>
+    <div class="sl-line" id="sl2"><span class="sl-inner">I turn ambiguity into delivery.</span></div>
+    <div class="sl-line sl-name" id="sl3"><span class="sl-inner">Fu Sheng-Lan.</span></div>
+    <div class="sl-line sl-sub" id="sl4"><span class="sl-inner">Delivery &nbsp;×&nbsp; Sourcing &nbsp;×&nbsp; Cross-border</span></div>
+  </div>
+  <div class="loader-line"><div class="loader-line-fill" id="loaderFill"></div></div>
+  <div class="loader-flash" id="loaderFlash"></div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <span class="nav-logo" onclick="scrollToTop()" id="navLogo">
+    <span data-en>Fu Sheng-Lan</span>
+    <span data-zh>傅聖嵐</span>
+  </span>
+  <!-- Language toggle — always visible at top center -->
+  <div class="nav-lang">
+    <button class="nlbtn on" id="navLangEn" onclick="setLang('en')">EN</button>
+    <span class="nl-sep">·</span>
+    <button class="nlbtn" id="navLangZh" onclick="setLang('zh')">中文</button>
+  </div>
+  <div class="nav-right">
+    <span class="nav-time" id="navTime"></span>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span class="bl"></span><span class="bl"></span><span class="bl"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══ FULLSCREEN MENU ══ -->
+<div id="menu">
+  <!-- Left: navigation -->
+  <div class="menu-left" id="menuLeft">
+    <div>
+      <p class="menu-label">Navigation</p>
+      <ul class="menu-nav">
+        <li><a href="#about" class="mlink"><span class="mn-num">01</span><span data-en>About</span><span data-zh>關於我</span></a></li>
+        <li><a href="#approach" class="mlink"><span class="mn-num">02</span><span data-en>Approach</span><span data-zh>思維方式</span></a></li>
+        <li><a href="#experience" class="mlink"><span class="mn-num">03</span><span data-en>Experience</span><span data-zh>工作經歷</span></a></li>
+        <li><a href="#skills" class="mlink"><span class="mn-num">04</span><span data-en>Skills</span><span data-zh>技能矩陣</span></a></li>
+        <li><a href="#contact" class="mlink"><span class="mn-num">05</span><span data-en>Contact</span><span data-zh>聯繫方式</span></a></li>
+      </ul>
+    </div>
+    <!-- Mobile-only: project cards embedded in left panel -->
+    <div class="menu-mobile-projs">
+      <p class="menu-label"><span data-en>— Projects & Case Studies</span><span data-zh>— 專案與案例研究</span></p>
+      <div class="proj-card" onclick="openProject('airquant');closeMenu()">
+        <div class="pc-index">P.01</div>
+        <div class="pc-name" data-en>AirQuant — GTM & Fundraising Strategy</div>
+        <div class="pc-name" data-zh>AirQuant — 募資策略與 GTM</div>
+        <div class="pc-meta">2025.12 – 2026.03 &nbsp;·&nbsp; FinTech / Quant Trading</div>
+        <div class="pc-tags"><span class="pc-tag">GTM</span><span class="pc-tag">White Paper</span><span class="pc-tag">Investor CRM</span></div>
+      </div>
+      <div class="proj-card" onclick="openProject('justxtar');closeMenu()">
+        <div class="pc-index">P.02</div>
+        <div class="pc-name" data-en>JustXtar — PM System Overhaul</div>
+        <div class="pc-name" data-zh>集星資通 — 專案管理系統重建</div>
+        <div class="pc-meta">2025.11 – Present &nbsp;·&nbsp; Systems Integration</div>
+        <div class="pc-tags"><span class="pc-tag">SOP Design</span><span class="pc-tag">Process Optimization</span><span class="pc-tag">PM</span></div>
+      </div>
+      <div class="proj-card" onclick="openProject('cryptodam');closeMenu()">
+        <div class="pc-index">P.03</div>
+        <div class="pc-name" data-en>CrypTo — Web3 Market Intelligence</div>
+        <div class="pc-name" data-zh>燦通國際 — Web3 市場情報分析</div>
+        <div class="pc-meta">2025.01 – 2025.10 &nbsp;·&nbsp; Venture Capital</div>
+        <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Financial Analysis</span></div>
+      </div>
+      <div class="proj-card" onclick="openProject('meichu');closeMenu()">
+        <div class="pc-index">P.04</div>
+        <div class="pc-name" data-en>Meichu Games — Campaign & Sponsorship</div>
+        <div class="pc-name" data-zh>梅竹工作會 — 活動統籌與贊助策略</div>
+        <div class="pc-meta">2024 – 2025 &nbsp;·&nbsp; Campus / Events</div>
+        <div class="pc-tags"><span class="pc-tag">Event Ops</span><span class="pc-tag">Marketing</span><span class="pc-tag">Sponsorship</span></div>
+      </div>
+    </div>
+
+    <div class="menu-bottom">
+      <div class="menu-lang">
+        <button class="mlbtn on" id="mLangEn" onclick="setLang('en')">EN</button>
+        <button class="mlbtn" id="mLangZh" onclick="setLang('zh')">中文</button>
+      </div>
+      <div class="menu-contacts">
+        <a href="mailto:afortunado.fu@gmail.com">afortunado.fu@gmail.com</a>
+        <a href="tel:0983517504">0983-517-504</a>
+        <span class="menu-contacts-item"><span data-en>Taipei · Hsinchu · Taichung · Remote</span><span data-zh>台北 · 新竹 · 台中 · 遠端</span></span>
+      </div>
+    </div>
+  </div>
+  <!-- Right: projects -->
+  <div class="menu-right" id="menuRight">
+    <p class="menu-projects-title"><span data-en>— Projects & Case Studies</span><span data-zh>— 專案與案例研究</span></p>
+    <div class="proj-card" onclick="openProject('airquant');closeMenu()">
+      <div class="pc-index">P.01</div>
+      <div class="pc-name" data-en>AirQuant — GTM & Fundraising Strategy</div>
+      <div class="pc-name" data-zh>AirQuant — 募資策略與 GTM </div>
+      <div class="pc-meta">2025.12 – 2026.03 &nbsp;·&nbsp; FinTech / Quant Trading</div>
+      <div class="pc-tags"><span class="pc-tag">GTM</span><span class="pc-tag">White Paper</span><span class="pc-tag">Investor CRM</span><span class="pc-tag">Quant Finance</span></div>
+    </div>
+    <div class="proj-card" onclick="openProject('justxtar');closeMenu()">
+      <div class="pc-index">P.02</div>
+      <div class="pc-name" data-en>JustXtar — PM System Overhaul</div>
+      <div class="pc-name" data-zh>集星資通 — 專案管理系統重建</div>
+      <div class="pc-meta">2025.11 – Present &nbsp;·&nbsp; Systems Integration</div>
+      <div class="pc-tags"><span class="pc-tag">SOP Design</span><span class="pc-tag">Process Optimization</span><span class="pc-tag">PM</span></div>
+    </div>
+    <div class="proj-card" onclick="openProject('cryptodam');closeMenu()">
+      <div class="pc-index">P.03</div>
+      <div class="pc-name" data-en>CrypTo Digital Asset Management — Web3 Market Intelligence</div>
+      <div class="pc-name" data-zh>燦通國際資產管理公司 — Web3 市場情報分析</div>
+      <div class="pc-meta">2025.01 – 2025.10 &nbsp;·&nbsp; Venture Capital</div>
+      <div class="pc-tags"><span class="pc-tag">Python</span><span class="pc-tag">Financial Analysis</span><span class="pc-tag">Market Research</span></div>
+    </div>
+    <div class="proj-card" onclick="openProject('meichu');closeMenu()">
+      <div class="pc-index">P.04</div>
+      <div class="pc-name" data-en>Meichu Games — Campaign & Sponsorship</div>
+      <div class="pc-name" data-zh>梅竹工作會 — 活動統籌與贊助策略</div>
+      <div class="pc-meta">2024 – 2025 &nbsp;·&nbsp; Campus / Events</div>
+      <div class="pc-tags"><span class="pc-tag">Event Ops</span><span class="pc-tag">Marketing</span><span class="pc-tag">Sponsorship</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROJECT OVERLAY ══ -->
+<div id="proj-overlay">
+  <nav class="po-nav">
+    <button class="po-back" onclick="closeProject()">← <span data-en>Back</span><span data-zh>返回</span></button>
+    <span class="po-title-small" id="poTitleSmall"></span>
+    <button class="po-close" onclick="closeProject()">×</button>
+  </nav>
+  <div class="po-body" id="poBody"></div>
+</div>
+
+<!-- ══ ASYMMETRIC HERO ══ -->
+<section id="hero">
+  <div class="hero-grid-bg" id="heroGrid"></div>
+
+  <div class="hero-center">
+    <div class="hero-index reveal-mask">
+      <span class="reveal-inner" data-en>NT$90M portfolio · 20+ projects · NTHU Economics · Open to work 2026</span>
+      <span class="reveal-inner" data-zh>9,000 萬專案組合 · 20+ 件同時進行 · 清華大學經濟系 · 尋求機會 2026</span>
+    </div>
+
+    <!-- EN name -->
+    <div data-en>
+      <div class="reveal-mask" style="margin-top:1.5rem"><div class="hero-name reveal-inner">FU</div></div>
+      <div class="reveal-mask"><div class="hero-name reveal-inner"><span class="stroke">SHENG</span><span class="gold">-LAN</span></div></div>
+    </div>
+    <!-- ZH name -->
+    <div data-zh style="display:none">
+      <div class="reveal-mask" style="margin-top:1.5rem"><div class="hero-name hero-name-zh reveal-inner">傅</div></div>
+      <div class="reveal-mask"><div class="hero-name hero-name-zh reveal-inner"><span class="stroke" style="-webkit-text-stroke:1.5px #121212">聖</span><span class="gold">嵐</span></div></div>
+    </div>
+
+    <div class="reveal-mask" style="margin-top:.8rem">
+      <div class="hero-name reveal-inner" style="font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,4vw,4.5rem);color:var(--mute)" data-en>Delivery × Sourcing × Cross-border</div>
+      <div class="hero-name reveal-inner" style="font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,4vw,4.5rem);color:var(--mute)" data-zh style="display:none">交付 × 採購 × 跨國協作</div>
+    </div>
+  </div>
+
+  <div class="hero-sub-row" id="heroSub">
+    <p class="hero-tagline">
+      <span data-en>I turn <strong>twenty moving projects</strong> into <strong>one delivered plan</strong>.<br>From public tenders in Taipei to product calls with Seoul and Amsterdam.</span>
+      <span data-zh>我把<strong>二十件同時在跑的專案</strong>變成<strong>一份交付得出來的計畫</strong>。<br>從台北的公家標案，到與首爾、阿姆斯特丹的產品會議。</span>
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-main"><span data-en>Get in Touch →</span><span data-zh>立即聯繫 →</span></a>
+      <div class="scroll-cue"><span class="scroll-pip"></span><span data-en>scroll</span><span data-zh>向下捲動</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+  <div class="ab-poster">
+    <div class="ab-cjk-mark" data-en>DELIVERY</div>
+    <div class="ab-cjk-mark" data-zh>交付</div>
+    <div class="ab-n rv">— 01</div>
+    <h2 class="ab-title rv">
+      <span data-en>I DON'T JUST<br>TRACK <em>PROJECTS.</em><br>I MAKE THEM<br><em>LAND.</em></span>
+      <span data-zh>我不只追<em>進度</em>，<br>我讓它<em>如期落地</em>。</span>
+    </h2>
+    <p class="ab-body rv">
+      <span data-en>NTHU Economics grad, Data Science focus. I run a <strong>20+ project portfolio worth NT$90M</strong> — smart buildings, smart factories, public-infrastructure IoT — for Taipower, Taoyuan City Government, Taiwan Cement and Eden Social Welfare Foundation. I write the tenders, run the bids, and every week co-develop a joint product in English with navigation partners in Korea and the Netherlands. I know what it feels like when <strong>a delivery date has real money riding on it</strong>.</span>
+      <span data-zh>清華大學經濟系畢業，修習資料科學。負責 <strong>20 件以上、總額 9,000 萬元的專案組合</strong>——智慧建築、智慧工廠、公共基礎建設物聯網——客戶包含台電、桃園市政府、台泥與伊甸基金會。我寫投標文件、跑比價發包，並每週以英文與韓國、荷蘭的導航夥伴共同開發產品。深知<strong>一個交付日期壓著真實金額時的重量</strong>。</span>
+    </p>
+  </div>
+  <div class="ab-data">
+    <div class="ab-stat rv"><div class="asn" data-count="20" data-suffix="+">0<sup>+</sup></div><div class="asd"><strong data-en>Concurrent projects managed</strong><strong data-zh>同時管理的專案</strong><br><span data-en>NT$90M aggregate · NT$300K–40M each</span><span data-zh>組合總額 9,000 萬 · 單案 30 萬–4,000 萬</span></div></div>
+    <div class="ab-stat rv"><div class="asn" data-count="15" data-suffix="%">0<sup>%</sup></div><div class="asd"><strong data-en>Cost cut on a NT$40M package</strong><strong data-zh>單一 4,000 萬標案成本降低</strong><br><span data-en>20+ subcontractor bids scored and consolidated</span><span data-zh>20+ 家下包商報價評分整併</span></div></div>
+    <div class="ab-stat rv"><div class="asn">1<sup style="color:var(--gold)">mo</sup></div><div class="asd"><strong data-en>Approval cleared — after 4 months stalled</strong><strong data-zh>送審核准 — 前手卡了四個月</strong><br><span data-en>Taoyuan City Government submission, taken over mid-flight</span><span data-zh>接手桃園市政府送審文件</span></div></div>
+    <div class="ab-stat rv"><div class="asn" data-count="30" data-suffix="%">0<sup>%</sup></div><div class="asd"><strong data-en>Event cost reduction</strong><strong data-zh>活動成本降低</strong><br><span data-en>Meichu Games — sponsorship strategy redesign</span><span data-zh>梅竹工作會 — 贊助方案全面重新設計</span></div></div>
+    <div class="ab-edu rv">
+      <h4>🎓 <span data-en>National Tsing Hua University</span><span data-zh>國立清華大學</span></h4>
+      <p><span data-en>B.A. Economics · 2021–2025 · Quantitative Economics & Data Science<br>Certificate programs: Innovation & Entrepreneurship · Arts · Music, Health & AI</span><span data-zh>經濟學系 2021–2025 ｜ 計量經濟與資料科學組<br>學程：創新創業 · 藝術 · 音樂健康與人工智慧</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ APPROACH ══ -->
+<section id="approach">
+  <div class="app-hdr rv">
+    <div>
+      <span class="sl"><span data-en>02 — How I Think</span><span data-zh>02 — 思維方式</span></span>
+      <h2 class="app-big"><span data-en>EVERY PROBLEM<br>IS A <em>STRUCTURE.</em></span><span data-zh>每個問題都是<br>一個<em>結構</em>。</span></h2>
+    </div>
+    <span class="app-sub"><span data-en>Approach · Framework · Mindset</span><span data-zh>方法 · 框架 · 心態</span></span>
+  </div>
+  <div class="app-grid">
+    <div class="ap-c rv">
+      <div class="ap-n">01</div>
+      <svg class="ap-glyph" viewBox="0 0 44 44"><polygon points="22,3 41,41 3,41" fill="none" stroke="#B8913A" stroke-width="1.2"/></svg>
+      <div class="ap-title"><span data-en>DEFINE BEFORE<br>YOU DIVE</span><span data-zh>先定義<br>再深入</span></div>
+      <p class="ap-body"><span data-en>The most expensive project mistake: building precisely the wrong thing. I lock scope in writing before anyone starts work.</span><span data-zh>專案最昂貴的錯誤，是精準地做出了錯的東西。我在任何人動工前，先把範圍白紙黑字定下來。</span></p>
+    </div>
+    <div class="ap-c rv">
+      <div class="ap-n">02</div>
+      <svg class="ap-glyph" viewBox="0 0 44 44"><rect x="5" y="5" width="34" height="34" fill="none" stroke="#B8913A" stroke-width="1.2" transform="rotate(45 22 22)"/></svg>
+      <div class="ap-title"><span data-en>BREAK INTO<br>TESTABLE LAYERS</span><span data-zh>拆解成<br>可測試層次</span></div>
+      <p class="ap-body"><span data-en>"Why is this late?" → scope vs. vendor vs. approval vs. cash. Separating the layers finds the real blocker instead of chasing symptoms.</span><span data-zh>「為什麼會延？」→ 範圍 vs. 廠商 vs. 送審 vs. 金流。拆開來看才找得到真正的卡點，而不是追著症狀跑。</span></p>
+    </div>
+    <div class="ap-c rv">
+      <div class="ap-n">03</div>
+      <svg class="ap-glyph" viewBox="0 0 44 44"><circle cx="22" cy="22" r="17" fill="none" stroke="#B8913A" stroke-width="1.2"/><circle cx="22" cy="22" r="5" fill="#B8913A" opacity=".35"/></svg>
+      <div class="ap-title"><span data-en>EVERY REPORT<br>ASKS FOR A CALL</span><span data-zh>每份回報<br>都要一個決定</span></div>
+      <p class="ap-body"><span data-en>A status update that changes no decision is noise. Every report I send ends with: here is the call I need from you, and by when.</span><span data-zh>不會改變任何決策的進度回報只是雜訊。我發出的每份報告都以「我需要你做什麼決定、什麼時候之前」作結。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience">
+  <div class="exp-hdr rv">
+    <div>
+      <span class="sl"><span data-en>03 — Work Experience</span><span data-zh>03 — 工作經歷</span></span>
+      <h2 style="font-family:var(--sans);font-weight:800;font-size:clamp(2.5rem,5vw,5.5rem);letter-spacing:-.03em;line-height:.9">
+        <span data-en>WHERE I'VE <em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">DELIVERED</em></span>
+        <span data-zh>我的<em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">實戰成果</em></span>
+      </h2>
+    </div>
+    <div class="exp-hdr-r">
+      <button class="tldr-all-btn" id="tldrAllBtn"><span data-en>TL;DR ALL</span><span data-zh>快速摘要</span></button>
+    </div>
+  </div>
+
+  <!-- AirQuant -->
+  <div class="exp-item rv" data-skills="GTM,Pitch Deck,White Paper,Investor Relations,Digital Assets,Quant Finance,Financial Modeling">
+    <div class="exp-meta">
+      <div class="exp-date">2025.12 — 2026.03</div>
+      <div class="exp-co">AIR<br>QUANT</div>
+      <div class="exp-role"><span data-en>Co-Founder · Head of Strategy &amp; Growth · Quant Trading · FinTech</span><span data-zh>共同創辦人 · 策略暨成長負責人 · 量化交易 · 金融科技</span></div>
+      <div class="exp-tags">
+        <span class="etag" data-sk="GTM">GTM</span><span class="etag" data-sk="Pitch Deck">Pitch Deck</span>
+        <span class="etag" data-sk="White Paper">White Paper</span><span class="etag" data-sk="Digital Assets">Digital Assets</span>
+      </div>
+      <button class="exp-view-btn" onclick="openProject('airquant')"><span data-en>Full Case Study →</span><span data-zh>完整案例分析 →</span></button>
+    </div>
+    <div class="exp-content">
+      <div class="tldr-bar">
+        <span class="tldr-co-name">AirQuant · Quant Trading Startup</span>
+        <button class="tldr-tog" data-t="aq"><span class="tpip"></span>TL;DR</button>
+      </div>
+      <div class="exp-full" id="aq-f">
+        <p class="ep"><span data-en><span class="s">S</span>0 investor meetings, no GTM, no materials. <span class="s">A</span>Decomposed GTM into 3 workstreams; authored 15-page white paper + pitch deck (Sharpe, max drawdown, alpha vs. benchmark) for LP audiences. <span class="s">R</span><span class="rp">10+ investor pipeline</span> built from zero — single source of truth for all fundraising.</span><span data-zh>從 0 個投資人會議開始。GTM 拆解三軌道；撰寫 15 頁白皮書與 Pitch Deck。<span class="rp">10+ 投資人 pipeline</span>從零建立。</span></p>
+        <p class="ep"><span data-en><span class="s">A</span>3-tier white paper: C-suite exec summary → standardized financial metrics → quant DD appendix. <span class="s">R</span>A <span class="rp">single document served every investor level</span>, eliminating the need for 3 separate versions.</span><span data-zh>三層白皮書架構服務所有投資人層次，<span class="rp">以單一份材料</span>消除三個版本的需求。</span></p>
+        <p class="ep"><span data-en>Structured investor CRM: 3 pipeline stages · 5 objection categories · conversion probability scores → data-driven prioritization across 10+ prospects.</span><span data-zh>結構化投資人 CRM：3 個 pipeline 階段 · 5 類異議 · 轉換機率分數。</span></p>
+      </div>
+      <div class="exp-tldr" id="aq-t">
+        <div class="tldr-pt"><span class="tldr-pt-n">01</span><span data-en>Built 10+ investor pipeline from 0 — 15-page white paper + pitch deck translating quant models into LP-readable financial narratives.</span><span data-zh>從零建立 10+ 投資人 pipeline — 15 頁白皮書與 Pitch Deck 將量化模型轉譯為 LP 可讀財務敘事。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">02</span><span data-en>3-tier document architecture — one document served every investor level, eliminating 3 separate versions.</span><span data-zh>三層文件架構 — 單一份材料服務所有層級投資人，消除三個版本的需求。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">03</span><span data-en>Structured CRM tracking 3 pipeline stages, 5 objection categories, conversion probability scores.</span><span data-zh>結構化 CRM 追蹤 3 個 pipeline 階段、5 類異議、轉換機率分數。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JustXtar -->
+  <div class="exp-item rv" data-skills="Project Management,Sourcing &amp; Negotiation,Public Tender,Cross-border Collaboration,Stakeholder Management,SOP Design,Process Optimization">
+    <div class="exp-meta">
+      <div class="exp-date">2025.11 — <span data-en>Present</span><span data-zh>現在</span></div>
+      <div class="exp-co">JUST<br>XTAR</div>
+      <div class="exp-role"><span data-en>Business Project Manager · Systems Integration · Taipei</span><span data-zh>業務專案經理 · 資訊系統整合 · 台北</span></div>
+      <div class="exp-tags">
+        <span class="etag" data-sk="Project Management">PM</span><span class="etag" data-sk="Sourcing &amp; Negotiation">Sourcing</span>
+        <span class="etag" data-sk="Public Tender">Public Tender</span><span class="etag" data-sk="Cross-border Collaboration">Cross-border</span>
+      </div>
+      <button class="exp-view-btn" onclick="openProject('justxtar')"><span data-en>Full Case Study →</span><span data-zh>完整案例分析 →</span></button>
+    </div>
+    <div class="exp-content">
+      <div class="tldr-bar">
+        <span class="tldr-co-name">JustXtar 集星資通 · Systems Integration</span>
+        <button class="tldr-tog" data-t="jx"><span class="tpip"></span>TL;DR</button>
+      </div>
+      <div class="exp-full" id="jx-f">
+        <p class="ep"><span data-en><span class="s">S</span>A rolling portfolio of <span class="rp">20+ concurrent projects, NT$90M aggregate</span> — smart buildings, smart factories, hardware procurement, public-sector IoT — each with 5–20 subcontractors and government reviewers. <span class="s">A</span>Own stakeholder management per project and track cross-project risks and dependencies centrally. <span class="s">R</span>Two NT$40M programs held from kickoff through a two-year delivery cycle.</span><span data-zh>同時管理 <span class="rp">20 件以上、總額 9,000 萬元</span>的專案組合——智慧建築、智慧工廠、硬體採購、公部門物聯網——每案 5 至 20 家下包商與公家審查單位。負責各案利害關係人管理，並集中追蹤跨案風險與相依關係。其中兩件 4,000 萬元案從開案跟至兩年交付結束。</span></p>
+        <p class="ep"><span data-en><span class="s">S</span>A NT$40M MEP package quoted by 20+ subcontractors, fragmented and overlapping. <span class="s">A</span>Scored every proposal against a structured cost-and-scope framework, then negotiated consolidation into a single execution contract. <span class="s">R</span><span class="rp">NT$6M (15%)</span> below the pre-negotiation baseline.</span><span data-zh>4,000 萬元機電標案由 20 家以上下包商分散報價、範圍重疊。以成本與範圍結構化評分框架逐一審查，議價整併為單一執行契約。<span class="rp">較議價前基準降低 600 萬元（15%）</span>。</span></p>
+        <p class="ep"><span data-en><span class="s">S</span>A Taoyuan City Government submission had been in revision for <span class="rp">four months</span> without approval. <span class="s">A</span>Took it over mid-flight, rebuilt the specification-comparison package and reopened the line to the reviewing committee. <span class="s">R</span>Cleared in <span class="rp">one month</span>. Also authored the RFP responses that won Taipower and Taoyuan City Government awards.</span><span data-zh>一份桃園市政府送審文件已修改<span class="rp">四個月</span>仍未通過。接手後重建規範比較文件，並重新打通與審查單位的溝通。<span class="rp">一個月內核准</span>。另撰寫標案建議書，取得台電與桃園市政府標案。</span></p>
+        <p class="ep"><span data-en><span class="s">S</span>No shared view of project cash or schedule — status lived in a weekly verbal meeting. <span class="s">A</span>Built the company&rsquo;s first portfolio-wide control layer: an interactive cash-flow model and Gantt master schedule covering all 20+ active projects. <span class="s">R</span>Management gained a single view of committed vs. billed vs. collected cash; teams self-align on dependencies instead of waiting for the meeting. Internal deadlines held <span class="rp">one week ahead</span> of contractual milestones.</span><span data-zh>原本沒有跨案的金流與排程視圖，進度只存在於每週口頭會議。建置公司首套跨專案管控層：互動式金流模型與涵蓋全部 20+ 專案的甘特主排程。管理層取得已發包、已計價、已收款的單一視圖，各團隊可直接對照彼此進度與相依關係。內部期限固定<span class="rp">提前契約里程碑一週</span>。</span></p>
+        <p class="ep"><span data-en>Co-develop a joint demo with navigation partners <strong>iNavi (Korea)</strong> and <strong>TomTom (Netherlands)</strong> — a Taiwan smart-restroom POI layer feeding their global automotive navigation product, currently in beta; day-to-day technical coordination runs in English over Slack. Shaped the product demo concept for <strong>COMPUTEX</strong> and hosted clients on-stand; originated a parking-management IoT project with a Singapore government agency.</span><span data-zh>與導航夥伴 <strong>iNavi（韓國）</strong>及 <strong>TomTom（荷蘭）</strong>共同開發示範產品：台灣智慧公廁 POI 圖層串接其全球車用導航產品（測試版），以英文透過 Slack 進行日常技術協作。參與 <strong>COMPUTEX</strong> 展出產品發想與攤位客戶接待；與新加坡政府單位開啟停車場物聯網專案。</span></p>
+      </div>
+      <div class="exp-tldr" id="jx-t">
+        <div class="tldr-pt"><span class="tldr-pt-n">01</span><span data-en>20+ concurrent projects, NT$90M aggregate — 5–20 subcontractors each; two NT$40M programs owned from kickoff through two-year delivery.</span><span data-zh>20+ 件同時進行、總額 9,000 萬元 — 每案 5–20 家下包商；兩件 4,000 萬元案從開案負責至兩年交付結束。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">02</span><span data-en>NT$6M (15%) cut on a NT$40M MEP package by scoring and consolidating 20+ subcontractor bids.</span><span data-zh>4,000 萬元機電標案透過 20+ 家報價評分整併，降低 600 萬元（15%）。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">03</span><span data-en>Cleared a Taoyuan City Government submission in one month after four months stalled; won Taipower and Taoyuan tenders.</span><span data-zh>接手卡了四個月的桃園市府送審，一個月內核准；取得台電與桃園市政府標案。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">04</span><span data-en>Joint product in beta with iNavi (Korea) and TomTom (Netherlands) — coordinated in English over Slack.</span><span data-zh>與 iNavi（韓國）、TomTom（荷蘭）共同開發產品測試版 — 以英文透過 Slack 協作。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CrypTo Digital Asset Management -->
+  <div class="exp-item rv" data-skills="Python,Data Analytics,Financial Modeling,Market Research,SQL">
+    <div class="exp-meta">
+      <div class="exp-date">2025.01 — 2025.10</div>
+      <div class="exp-co">CTDAM<br>VC</div>
+      <div class="exp-role"><span data-en>Data Analytics Intern · Venture Capital · Taipei</span><span data-zh>數據分析實習生 · 創投業 · 台北</span></div>
+      <div class="exp-tags">
+        <span class="etag" data-sk="Python">Python</span><span class="etag" data-sk="Data Analytics">Data Analytics</span>
+        <span class="etag" data-sk="Financial Modeling">Financial Modeling</span>
+      </div>
+      <button class="exp-view-btn" onclick="openProject('cryptodam')"><span data-en>Full Case Study →</span><span data-zh>完整案例分析 →</span></button>
+    </div>
+    <div class="exp-content">
+      <div class="tldr-bar">
+        <span class="tldr-co-name">CrypTo Digital Asset Management · VC</span>
+        <button class="tldr-tog" data-t="ct"><span class="tpip"></span>TL;DR</button>
+      </div>
+      <div class="exp-full" id="ct-f">
+        <p class="ep"><span data-en><span class="s">S</span>Go/no-go on Web3 Asia subsidiary: 20+ docs · 6 jurisdictions · 3 languages · 4 formats. <span class="s">A</span>4-layer decomposition + 8 variance flags → 12-page brief in 3 weeks. <span class="s">R</span>Became the board&rsquo;s <span class="rp">primary input</span> for the location and cost-structure decision.</span><span data-zh>Web3 亞洲分公司決策：20+ 份文件、6 司法管轄區。4 層拆解 + 8 個 variance 標記 → 3 週內 12 頁決策摘要，成為董事會<span class="rp">選址決策的主要依據</span>。</span></p>
+        <p class="ep"><span data-en>Python pipelines for 5+ unstructured sources per project; financial logic applied throughout (asset categorization, fund flow mapping, risk quantification).</span><span data-zh>Python pipeline 每案處理 5+ 份非結構化資料；全程套用財務邏輯（資產分類、資金流向對應、風險量化）。</span></p>
+        <p class="ep"><span data-en>Designed + analyzed 200+ response survey; identified <span class="rp">3 user segments</span> → drove product repositioning + restructured LP outreach.</span><span data-zh>分析 200+ 份問卷；識別 <span class="rp">3 個用戶細分市場</span> → 推動產品重新定位。</span></p>
+      </div>
+      <div class="exp-tldr" id="ct-t">
+        <div class="tldr-pt"><span class="tldr-pt-n">01</span><span data-en>12-page decision brief from 20+ docs across 6 jurisdictions in 3 weeks — the board&rsquo;s primary input for subsidiary-location selection.</span><span data-zh>3 週內從 20+ 份跨 6 司法管轄區文件產出 12 頁決策摘要，成為董事會選址的主要依據。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">02</span><span data-en>Python pipelines processed 5+ unstructured sources per project into decision-ready metrics.</span><span data-zh>Python pipeline 將每案 5+ 份非結構化資料轉為決策可用指標。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">03</span><span data-en>200+ survey responses → 3 user segments → product repositioning + LP strategy restructure.</span><span data-zh>200+ 份問卷 → 3 個用戶細分市場 → 產品重新定位 + LP 策略重組。</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Meichu -->
+  <div class="exp-item rv" data-skills="Project Management,Marketing,Sponsorship Strategy,Cross-functional Leadership">
+    <div class="exp-meta">
+      <div class="exp-date">2024 — 2025</div>
+      <div class="exp-co">MEI<br>CHU</div>
+      <div class="exp-role"><span data-en>Campaign Director · Head of Marketing · NTHU Campus Events</span><span data-zh>活動策畫總召 · 行銷長 · 梅竹工作會</span></div>
+      <div class="exp-tags">
+        <span class="etag" data-sk="Project Management">PM</span><span class="etag" data-sk="Marketing">Marketing</span>
+        <span class="etag" data-sk="Sponsorship Strategy">Sponsorship</span>
+      </div>
+      <button class="exp-view-btn" onclick="openProject('meichu')"><span data-en>Full Case Study →</span><span data-zh>完整案例分析 →</span></button>
+    </div>
+    <div class="exp-content">
+      <div class="tldr-bar">
+        <span class="tldr-co-name">Meichu Games Committee · NTHU</span>
+        <button class="tldr-tog" data-t="mc"><span class="tpip"></span>TL;DR</button>
+      </div>
+      <div class="exp-full" id="mc-f">
+        <p class="ep"><span data-en><span class="s">S</span>1,000-person event · 30+ teams · 5+ sponsors · zero unified tracking. <span class="s">A</span>Gantt dashboard + milestone accountability + weekly standups. <span class="s">R</span>Delivered on time · <span class="rp">4.8/5 satisfaction</span> across participants.</span><span data-zh>千人活動 · 30+ 組別 · 5+ 贊助商。甘特儀表板 + 週會機制。如期完成 · <span class="rp">4.8/5 滿意度</span></span></p>
+        <p class="ep"><span data-en><span class="s">S</span>Generic sponsorship decks = near-zero brand fit. <span class="s">A</span>Audience KPI profiling per sponsor; measurable exposure packages. <span class="s">R</span><span class="rp">5+ partnerships</span> secured · costs <span class="rp">↓30%</span>.</span><span data-zh>重新設計贊助方案，拿下 <span class="rp">5+ 品牌合作</span>，活動成本降低 <span class="rp">30%</span></span></p>
+      </div>
+      <div class="exp-tldr" id="mc-t">
+        <div class="tldr-pt"><span class="tldr-pt-n">01</span><span data-en>1,000-person event, 30+ teams coordinated on one Gantt system — delivered on time at 4.8/5 satisfaction.</span><span data-zh>千人活動 30+ 組別，以單一甘特系統協調 — 如期完成，4.8/5 滿意度。</span></div>
+        <div class="tldr-pt"><span class="tldr-pt-n">02</span><span data-en>Redesigned sponsorship strategy → 5+ brand partnerships, event costs cut 30%.</span><span data-zh>重新設計贊助策略 → 拿下 5+ 品牌合作，活動成本降低 30%。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills">
+  <div class="sk-intro">
+    <div class="rv">
+      <span class="sl"><span data-en>04 — Skill Matrix</span><span data-zh>04 — 技能矩陣</span></span>
+      <h2 style="font-family:var(--sans);font-weight:800;font-size:clamp(2.5rem,6vw,6.5rem);letter-spacing:-.03em;line-height:.9;color:#F2F0EB">
+        <span data-en>CLICK A SKILL.<br>SEE THE <em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">PROOF.</em></span>
+        <span data-zh>點擊技能，<br>查看<em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">實際成果</em>。</span>
+      </h2>
+    </div>
+    <p class="sk-note rv"><span data-en>Click any skill to filter the experience section above. Not a progress bar — a proof system. Every skill shown has been applied in a real-stakes context.</span><span data-zh>點擊任意技能以過濾上方工作經歷。不是進度條——是成果驗證系統。每項技能都在真實高風險情境中被應用過。</span></p>
+  </div>
+  <p class="ml rv"><span data-en>Strategy & Business</span><span data-zh>策略與商業</span></p>
+  <div class="sk-cloud rv">
+    <div class="skp" data-sk="GTM"><span>GTM Strategy</span></div>
+    <div class="skp" data-sk="Market Research"><span>Market Research</span></div>
+    <div class="skp" data-sk="Sponsorship Strategy"><span>Sponsorship Strategy</span></div>
+    <div class="skp" data-sk="Investor Relations"><span>Investor Relations</span></div>
+    <div class="skp" data-sk="White Paper"><span>White Paper</span></div>
+    <div class="skp" data-sk="Pitch Deck"><span>Pitch Deck</span></div>
+    <div class="skp" data-sk="Financial Modeling"><span>Financial Modeling</span></div>
+  </div>
+  <p class="ml rv" style="margin-top:2rem"><span data-en>Data & Finance</span><span data-zh>數據與財務</span></p>
+  <div class="sk-cloud rv">
+    <div class="skp" data-sk="Python"><span>Python</span></div>
+    <div class="skp" data-sk="SQL"><span>SQL</span></div>
+    <div class="skp" data-sk="Data Analytics"><span>Data Analytics</span></div>
+    <div class="skp" data-sk="Quant Finance"><span>Quant Finance</span></div>
+    <div class="skp" data-sk="Digital Assets"><span>Digital Assets / Web3</span></div>
+  </div>
+  <p class="ml rv" style="margin-top:2rem"><span data-en>Operations & PM</span><span data-zh>營運與專案管理</span></p>
+  <div class="sk-cloud rv">
+    <div class="skp" data-sk="Project Management"><span>Project Management</span></div>
+    <div class="skp" data-sk="Sourcing &amp; Negotiation"><span>Sourcing &amp; Negotiation</span></div>
+    <div class="skp" data-sk="Public Tender"><span>Public Tender &amp; Approval</span></div>
+    <div class="skp" data-sk="Cross-border Collaboration"><span>Cross-border Collaboration</span></div>
+    <div class="skp" data-sk="Stakeholder Management"><span>Stakeholder Management</span></div>
+    <div class="skp" data-sk="SOP Design"><span>SOP Design</span></div>
+    <div class="skp" data-sk="Client Relations"><span>Client Relations</span></div>
+    <div class="skp" data-sk="Process Optimization"><span>Process Optimization</span></div>
+    <div class="skp" data-sk="Cross-functional Leadership"><span>Cross-functional Leadership</span></div>
+    <div class="skp" data-sk="Marketing"><span>Marketing</span></div>
+  </div>
+  <div class="sk-hint rv" id="skHint"></div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="c-poster">
+    <h2 class="c-big rv"><span data-en>LET'S<br><em>TALK.</em></span><span data-zh>聯繫<br><em>我吧。</em></span></h2>
+    <p class="c-sub rv"><span data-en>Looking for project management, program delivery, or strategic sourcing roles — ideally somewhere the work crosses borders. If you need someone who can hold twenty moving projects, negotiate the vendors, clear the approvals, and still make the date — I'm your person.</span><span data-zh>尋求專案管理、交付管理或策略採購職位，特別是需要跨國協作的位置。如果你需要一個能同時掌握二十件專案、談得動廠商、跑得過送審，還交得出日期的人——那就是我。</span></p>
+  </div>
+  <div class="c-right">
+    <div class="c-row rv"><span class="c-lbl">Email</span><a href="mailto:afortunado.fu@gmail.com" class="c-val">afortunado.fu@gmail.com</a><p class="c-note"><span data-en>Replies within 24h</span><span data-zh>24 小時內回覆</span></p></div>
+    <div class="c-row rv"><span class="c-lbl"><span data-en>Phone / LINE</span><span data-zh>電話 / LINE</span></span><a href="tel:0983517504" class="c-val">0983-517-504</a></div>
+    <div class="c-row rv">
+      <span class="c-lbl"><span data-en>Target Roles</span><span data-zh>希望職類</span></span>
+      <div class="c-chips">
+        <span class="c-chip" data-en>Financial Analytics</span><span class="c-chip" data-zh>財務分析</span>
+        <span class="c-chip" data-en>Digital Assets</span><span class="c-chip" data-zh>數位資產</span>
+        <span class="c-chip">PM</span>
+        <span class="c-chip" data-en>Business Strategy</span><span class="c-chip" data-zh>商業策略</span>
+        <span class="c-chip" data-en>Growth</span><span class="c-chip" data-zh>成長策略</span>
+      </div>
+      <p class="c-note"><span data-en>FinTech · Digital Assets · Tech · Semiconductor · Consulting · Investment</span><span data-zh>金融科技 · 數位資產 · 科技業 · 半導體 · 顧問 · 投資</span></p>
+    </div>
+    <div class="c-row rv"><span class="c-lbl"><span data-en>Location</span><span data-zh>地點</span></span><span class="c-val" style="font-size:.85rem;font-weight:400"><span data-en>Taipei · Hsinchu · Taichung · Remote — immediately available</span><span data-zh>台北 · 新竹 · 台中 · 遠端 · 隨時到職</span></span></div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="ft-bg" id="ftBg">FSL</div>
+  <!-- Quick navigation links -->
+  <nav class="ft-nav" aria-label="Footer Navigation">
+    <a href="#about" class="ft-nav-link"><span data-en>About</span><span data-zh>關於我</span></a>
+    <a href="#approach" class="ft-nav-link"><span data-en>Approach</span><span data-zh>思維方式</span></a>
+    <a href="#experience" class="ft-nav-link"><span data-en>Experience</span><span data-zh>工作經歷</span></a>
+    <a href="#skills" class="ft-nav-link"><span data-en>Skills</span><span data-zh>技能矩陣</span></a>
+    <a href="#contact" class="ft-nav-link"><span data-en>Contact</span><span data-zh>聯繫方式</span></a>
+    <button class="ft-nav-link ft-top-btn" onclick="scrollToTop()"><span data-en>↑ Top</span><span data-zh>↑ 回頂部</span></button>
+  </nav>
+  <div class="ft-row">
+    <span class="ft-mark">
+      <span data-en>Fu Sheng-Lan</span>
+      <span data-zh>傅聖嵐</span>
+    </span>
+    <span class="ft-copy"><span class="ft-dot"></span>© Celine Fu 2026 &nbsp;·&nbsp; <span data-en>NTHU Economics · Delivery × Sourcing × Cross-border</span><span data-zh>清華大學經濟系 · 交付 × 採購 × 跨國協作</span></span>
+  </div>
+</footer>
+
+<!-- ══ PROJECT DATA ══ -->
+<script>
+const PROJECTS={
+  airquant:{
+    en:{
+      index:'P.01',period:'Dec 2025 – Mar 2026',duration:'4 months',
+      title:'AirQuant\nGTM & Fundraising\nStrategy System',
+      subtitle:'How I built an investor pipeline from 0 — and made quant models legible to non-technical LPs',
+      scope:'GTM strategy design, white paper authoring, pitch deck production, investor CRM architecture, sales cycle management',
+      goal:'AirQuant had a differentiated quantitative trading algorithm but zero commercial infrastructure. No investor materials. No outreach framework. No pipeline. The business goal: establish a credible investor-facing presence and generate qualified fundraising conversations from scratch.',
+      client:'Target: institutional investors, family offices, and high-net-worth individuals with varying levels of quantitative finance sophistication. Secondary audience: potential LP partners unfamiliar with algorithmic trading strategies.',
+      problem:'The core tension was a technical-communication gap: the product was mathematically sound but completely opaque to most capital allocators. Existing approaches for quant funds relied on dense statistical output that non-technical audiences found inaccessible, leading to low engagement and long time-to-conviction in pitch meetings.',
+      solution:`I decomposed the GTM challenge into three parallel workstreams:\n\n1. INVESTOR NARRATIVE — Authored a 15-page strategy white paper using a 3-tier disclosure architecture: (1) C-suite executive summary with risk-adjusted return framing, (2) strategy logic section using standardized metrics (Sharpe ratio, max drawdown, alpha vs. benchmark), (3) technical appendix for quantitative deep-dive readers. This allowed a single document to serve all investor sophistication levels simultaneously.\n\n2. MARKET POSITIONING — Defined the competitive positioning relative to traditional discretionary funds and passive indices. Emphasized the non-correlated alpha generation thesis and the team's systematic edge.\n\n3. PIPELINE DEVELOPMENT — Built a structured investor CRM tracking 3 pipeline stages (awareness → evaluation → negotiation), 5 objection categories, and conversion probability scores. Enabled data-driven prioritization of outreach across 10+ qualified prospects.`,
+      skills:'GTM Strategy, White Paper, Pitch Deck, Investor CRM, Financial Storytelling, Quant Finance (Sharpe, Max Drawdown, Alpha), Risk-adjusted Return Framing',
+      tools:'Python, Google Colab, Google Slides, Excel (financial modeling), Canva (visual design)',
+      results:[{n:'10+',l:'Qualified investor pipeline\nbuilt from 0'},{n:'1',l:'Document serving every\ninvestor level, not 3'},{n:'3-tier',l:'Disclosure architecture\nexec → metrics → quant appendix'}]
+    },
+    zh:{
+      index:'P.01',period:'2025年12月 – 2026年3月',duration:'4個月',
+      title:'AirQuant\n募資策略與\nGTM 體系建立',
+      subtitle:'如何從零建立投資人 pipeline，並讓量化模型對非技術型 LP 變得清晰可讀',
+      scope:'GTM 策略設計、白皮書撰寫、Pitch Deck 製作、投資人 CRM 架構、業務循環管理',
+      goal:'AirQuant 擁有差異化的量化交易算法，但缺乏任何商業基礎設施：無投資人材料、無外發框架、無 pipeline。商業目標：從零建立可信的投資人接觸面，產生有效的募資對話。',
+      client:'目標受眾：機構投資人、家族辦公室、高淨值個人，量化金融背景各異。次要受眾：不熟悉算法交易策略的潛在 LP 合作夥伴。',
+      problem:'核心矛盾是技術與溝通之間的落差：產品在數學上是可靠的，但對大多數資本配置者來說完全不透明。傳統量化基金的做法依賴密集的統計輸出，非技術受眾難以接受，導致參與度低、pitch 到決策的時間過長。',
+      solution:`我將 GTM 挑戰拆解為三個平行工作流：\n\n1. 投資人敘事 — 撰寫 15 頁策略白皮書，採用三層揭露架構：(1) C-suite 執行摘要，以風險調整報酬為框架；(2) 策略邏輯章節，使用標準化指標（夏普比率、最大回撤、alpha vs. 基準）；(3) 技術附錄供量化深入閱讀。單一文件同時服務所有層次的投資人。\n\n2. 市場定位 — 定義相對於傳統主觀基金和被動指數的競爭定位。強調非相關性的 alpha 生成論述和團隊的系統化優勢。\n\n3. Pipeline 開發 — 建立結構化投資人 CRM，追蹤 3 個 pipeline 階段（認知 → 評估 → 談判）、5 類異議類別和轉換機率分數。實現對 10+ 合格潛在投資人外發優先順序的數據驅動決策。`,
+      skills:'GTM 策略、白皮書、Pitch Deck、投資人 CRM、財務敘事、量化金融（夏普比率、最大回撤、Alpha）、風險調整報酬框架',
+      tools:'Python、 Google Colab、Google Slides、Excel（財務建模）、Canva（視覺設計）',
+      results:[{n:'10+',l:'合格投資人 pipeline\n從零建立'},{n:'1',l:'一份文件服務所有層級\n而非三個版本'},{n:'三層',l:'揭露架構\n摘要 → 指標 → 量化附錄'}]
+    }
+  },
+  justxtar:{
+    en:{
+      index:'P.02',period:'Nov 2025 – Present',duration:'Ongoing',
+      title:'JustXtar\nA NT$90M\nProject Portfolio',
+      subtitle:'Running 20+ concurrent projects for Taipower, Taoyuan City Government and Taiwan Cement — and building the control system they run on',
+      scope:'Multi-project portfolio management, public tender authoring and government approval submissions, subcontractor sourcing and bid negotiation, milestone valuation and billing reconciliation, cross-border product collaboration, cash-flow and schedule system design',
+      goal:'Hold a rolling portfolio of 20+ concurrent systems-integration projects — NT$90M in aggregate, individual values from NT$300K to NT$40M — across smart buildings, smart factories, hardware procurement and public-sector IoT. Each project carries 5 to 20 subcontractors plus client and government reviewers. The job: win the work, source and negotiate the vendors, clear the approvals, bill the milestones, and make the dates.',
+      client:'Public sector and state-owned: Taipower, Taoyuan City Government, a Taipei MRT smart-restroom program. Listed corporates: Taiwan Cement (industrial wastewater monitoring), CNS (dispatch-system maintenance and feature expansion, a recurring ~10 engineer-days/month account). NGO and private developers: Eden Social Welfare Foundation, urban-renewal and temple-construction developments. Overseas: iNavi (Korea), TomTom (Netherlands), a Singapore government agency.',
+      problem:`Four pressures run at once across the portfolio:\n\n1. COMMERCIAL — Public tenders are won or lost on the paperwork. A specification-comparison package that does not match what the reviewing committee expects sits in revision indefinitely; one Taoyuan City Government submission had been going back and forth for four months before I took it over.\n\n2. SOURCING — A single NT$40M MEP package drew quotes from 20+ subcontractors, fragmented and overlapping in scope. Left unconsolidated, the client pays twice for the same work.\n\n3. VISIBILITY — Project cash and schedule lived nowhere except a weekly verbal meeting. Nobody could answer what had been committed versus billed versus collected across the portfolio.\n\n4. CROSS-BORDER — The joint navigation product runs on Slack across three time zones in English, against partners with their own global release cycle.`,
+      solution:`1. WINNING AND CLEARING THE WORK — Authored the RFP responses that secured Taipower and Taoyuan City Government awards. Took over the stalled Taoyuan submission mid-flight, rebuilt the specification-comparison package around what the committee actually needed to see, and reopened the line to the reviewers. Approved within one month, after four months of failed revisions.\n\n2. SOURCING AND NEGOTIATION — Scored all 20+ subcontractor proposals on the NT$40M MEP package against a structured cost-and-scope framework, surfaced the overlaps and duplicate pricing between packages, and negotiated consolidation into a single execution contract. NT$6M below the pre-negotiation baseline — 15%.\n\n3. PORTFOLIO CONTROL LAYER — Replaced the weekly verbal status meeting with an interactive cash-flow model and a Gantt master schedule covering all 20+ active projects. Management gained a single view of committed versus billed versus collected cash; project teams now self-align on cross-project dependencies instead of waiting for the meeting. Internal deadlines are held one week ahead of contractual milestones.\n\n4. CROSS-BORDER PRODUCT WORK — Co-develop a joint demo with iNavi (Korea) and TomTom (Netherlands): a Taiwan smart-restroom POI layer feeding their global automotive navigation product, currently in beta. Day-to-day technical coordination runs in English over Slack. Also shaped the COMPUTEX demo concept and hosted clients on-stand, and originated a parking-management IoT project with a Singapore government agency.`,
+      skills:'Multi-project Portfolio Management, Public Tender (RFP/RFQ) Authoring, Government Approval Submissions, Vendor Sourcing & Bid Negotiation, Contract Consolidation, Milestone Valuation & Billing Reconciliation, Stakeholder Management, Risk & Dependency Tracking, Cross-border Product Collaboration, Engineering Drawing Interpretation',
+      tools:'Excel (interactive cash-flow model, VBA), Gantt master schedule, Google Sheets (project database), Google Docs (specifications), Slack (cross-border coordination), standardized tender and reporting templates',
+      results:[{n:'NT$90M',l:'Portfolio under management\n20+ concurrent projects'},{n:'15%',l:'Cut on a NT$40M package\nNT$6M below baseline'},{n:'4→1',l:'Months to approval\nTaoyuan submission taken over'}]
+    },
+    zh:{
+      index:'P.02',period:'2025年11月 – 至今',duration:'進行中',
+      title:'集星資通\n9,000 萬元的\n專案組合',
+      subtitle:'同時管理 20 件以上專案，客戶包含台電、桃園市政府與台泥——並建置這些專案賴以運作的管控系統',
+      scope:'多專案組合管理、投標文件撰寫與公家機關送審、下包商開發與比價議價、分段計價與請款對帳、跨國產品協作、金流與排程系統設計',
+      goal:'同時掌握 20 件以上系統整合專案——組合總額 9,000 萬元，單案從 30 萬到 4,000 萬——涵蓋智慧建築、智慧工廠、硬體採購與公部門物聯網。每案牽涉 5 至 20 家下包商，加上客戶端與公家審查單位。工作內容：把案子標下來、把廠商談好、把送審過掉、把計價請款做完，並且交得出日期。',
+      client:'公部門與國營事業：台電、桃園市政府、台北捷運智慧公廁案。上市企業：台泥（工業廢水監測）、中嘉（派工系統維運與功能擴充，每月約 10 工程師人日的經常性合約）。非營利與民間開發商：伊甸基金會、都市更新與寺廟新建案。海外：iNavi（韓國）、TomTom（荷蘭）、新加坡政府單位。',
+      problem:`專案組合同時承受四種壓力：\n\n1. 商務 — 公家標案的勝負在文件上。規範比較文件若不符合審查委員的期待，就會無限期卡在修改循環；我接手前，一份桃園市政府送審已經來回四個月。\n\n2. 採購 — 單一 4,000 萬元機電標案由 20 家以上下包商分散報價，範圍彼此重疊。不整併的話，客戶會為同一件事付兩次錢。\n\n3. 可視性 — 專案金流與排程只存在於每週口頭會議。沒有人答得出整個組合已發包多少、已計價多少、已收款多少。\n\n4. 跨國 — 導航共同開發專案橫跨三個時區、以英文在 Slack 上進行，對方還有自己的全球發布節奏。`,
+      solution:`1. 標下來、送得過 — 撰寫標案建議書，取得台電與桃園市政府標案。中途接手卡關的桃園送審案，依審查委員實際需要重建規範比較文件，並重新打通與審查單位的溝通管道。在前手修改四個月未過之後，一個月內完成核准。\n\n2. 採購與議價 — 以成本與範圍結構化評分框架，逐一審查 4,000 萬元機電標案的 20 家以上下包商報價，找出各標之間的範圍重疊與重複計價，議價整併為單一執行契約。較議價前基準降低 600 萬元，15%。\n\n3. 專案組合管控層 — 以互動式金流模型與涵蓋全部 20+ 進行中專案的甘特主排程，取代原本的每週口頭會議。管理層取得已發包、已計價、已收款的單一視圖；各專案團隊可直接對照彼此的進度與相依關係，不需等到週會。內部期限固定提前契約里程碑一週。\n\n4. 跨國產品協作 — 與 iNavi（韓國）及 TomTom（荷蘭）共同開發示範產品：台灣智慧公廁 POI 圖層串接其全球車用導航產品，目前為測試版，以英文透過 Slack 進行日常技術協作。另參與 COMPUTEX 展出產品發想與攤位客戶接待，並與新加坡政府單位開啟停車場物聯網專案。`,
+      skills:'多專案組合管理、投標文件（RFP/RFQ）撰寫、公家機關送審、廠商開發與比價議價、契約整併、分段計價與請款對帳、利害關係人管理、風險與相依關係追蹤、跨國產品協作、工程圖面判讀',
+      tools:'Excel（互動式金流模型、VBA）、甘特主排程、Google Sheets（專案資料庫）、Google Docs（規格文件）、Slack（跨國協作）、標準化投標與報告模板',
+      results:[{n:'9,000萬',l:'管理中的專案組合\n20+ 件同時進行'},{n:'15%',l:'單一 4,000 萬標案\n較基準降低 600 萬元'},{n:'4→1',l:'送審核准月數\n接手卡關四個月的案子'}]
+    }
+  },
+  cryptodam:{
+    en:{
+      index:'P.03',period:'Jan 2025 – Oct 2025',duration:'10 months',
+      title:'CrypTo Digital Asset Management\nWeb3 Market\nIntelligence',
+      subtitle:'Synthesizing 20+ fragmented documents across 6 jurisdictions into a single decision-ready intelligence brief',
+      scope:'Multi-source data collection & cleaning, 4-layer analytical decomposition, variance analysis, financial logic application (asset categorization, fund flow mapping, risk exposure quantification), executive brief production, customer survey design & analysis',
+      goal:'Management needed to make a go/no-go investment decision on establishing a new Web3 business subsidiary in Asia. The decision required understanding regulatory risk across 6 jurisdictions, market opportunity sizing, competitive landscape mapping, and operational cost modeling — all within a 3-week timeline.',
+      client:'Decision-makers: C-suite management team with strong finance and legal backgrounds but limited exposure to Web3 technical architecture. The analysis needed to be rigorous enough to withstand legal and financial scrutiny while accessible enough for rapid executive consumption.',
+      problem:`The intelligence challenge had four dimensions:\n\n1. FRAGMENTATION — Source material included 20+ documents across 6 jurisdictions in 3 languages (English, Mandarin, Japanese) and 4 data formats (regulatory filings, industry reports, academic papers, news articles). No synthesis existed.\n\n2. DATA CONFLICTS — Multiple sources gave contradictory figures for market size, regulatory status, and operational costs. These conflicts needed to be identified, flagged, and resolved rather than silently ignored.\n\n3. AUDIENCE MISMATCH — Management understood financial statements but not blockchain infrastructure. The analysis needed to translate technical concepts into financial and operational implications.\n\n4. TIME PRESSURE — 3-week deadline with zero opportunity for extension.`,
+      solution:`Applied a structured intelligence synthesis methodology:\n\n1. 4-LAYER DECOMPOSITION — Broke the problem into: (a) Regulatory risk (licensing requirements, compliance costs, enforcement history per jurisdiction), (b) Market sizing (addressable market, growth trajectory, saturation indicators), (c) Competitive dynamics (key players, differentiation vectors, barriers to entry), (d) Cost structure (operational setup costs, ongoing compliance burden, staffing requirements).\n\n2. VARIANCE ANALYSIS — Cross-referenced all sources systematically. Identified 8 material data conflicts with direct relevance to the decision. Each conflict was documented with source provenance, variance magnitude, and recommended resolution.\n\n3. PYTHON DATA PIPELINES — Built automated collection and cleaning pipelines to process 5+ unstructured data sources simultaneously. Applied financial logic (asset categorization, fund flow mapping, risk exposure quantification) to convert raw figures into decision-relevant metrics.\n\n4. EXECUTIVE BRIEF — Condensed all findings into a 12-page decision brief structured as: situation → key findings → recommendation → risk factors → appendices. Delivered on time; the brief became the board's primary input for the subsidiary-location decision.`,
+      skills:'Python (pandas, data pipelines), Financial Analysis, Market Research, Variance Analysis, Asset Categorization, Fund Flow Mapping, Risk Quantification, Survey Design, Customer Segmentation',
+      tools:'Python (pandas, matplotlib), Excel, Google Docs, Survey tools',
+      results:[{n:'12pg',l:'Decision brief\n3-week turnaround'},{n:'6',l:'Jurisdictions assessed\nprimary input to the board'},{n:'3',l:'User segments identified\nfrom 200+ survey responses'}]
+    },
+    zh:{
+      index:'P.03',period:'2025年1月 – 2025年10月',duration:'10個月',
+      title:'燦通國際資產管理公司\nWeb3 市場情報\n分析研究',
+      subtitle:'將跨 6 個司法管轄區的 20+ 份碎片化文件，整合為單一決策就緒的情報摘要',
+      scope:'多來源數據蒐集與清理、四層分析拆解、Variance 分析、財務邏輯應用（資產分類、資金流向對應、風險敞口量化）、高層摘要撰寫、客戶問卷設計與分析',
+      goal:'管理層需要就在亞洲設立新的 Web3 業務子公司做出是否進入的投資決策。這個決策需要理解六個司法管轄區的法規風險、市場機會規模、競爭格局對應和營運成本建模——全部在三週的時程內完成。',
+      client:'決策者：具備強大財務和法律背景但對 Web3 技術架構了解有限的高層管理團隊。分析需要足夠嚴謹以承受法律和財務審查，同時足夠易於快速高層消化。',
+      problem:`情報挑戰有四個維度：\n\n1. 碎片化 — 來源材料包含 20+ 份跨 6 個司法管轄區的文件，使用 3 種語言（英文、中文、日文）和 4 種數據格式（法規文件、行業報告、學術論文、新聞文章）。不存在任何整合版本。\n\n2. 數據衝突 — 多個來源對市場規模、法規狀態和營運成本給出相互矛盾的數字。這些衝突需要被識別、標記和解決，而不是默默忽略。\n\n3. 受眾不匹配 — 管理層理解財務報表但不了解區塊鏈基礎設施。分析需要將技術概念翻譯為財務和營運影響。\n\n4. 時間壓力 — 三週截止日期，零延期機會。`,
+      solution:`應用結構化情報整合方法論：\n\n1. 四層拆解 — 將問題拆分為：(a) 法規風險（各司法管轄區的牌照要求、合規成本、執法歷史），(b) 市場規模（可觸及市場、增長軌跡、飽和指標），(c) 競爭動態（主要競爭者、差異化向量、進入壁壘），(d) 成本結構（營運設置成本、持續合規負擔、人員配置要求）。\n\n2. Variance 分析 — 系統性交叉比對所有來源。識別出 8 個與決策直接相關的重大數據衝突。每個衝突都記錄了來源出處、差異幅度和建議解決方案。\n\n3. Python 數據 Pipeline — 建立自動化蒐集和清理 pipeline，同時處理 5+ 份非結構化數據來源。應用財務邏輯（資產分類、資金流向對應、風險敞口量化）將原始數字轉化為決策相關指標。\n\n4. 高層摘要 — 將所有發現濃縮為 12 頁決策摘要，結構為：情況 → 關鍵發現 → 建議 → 風險因素 → 附錄。按時交付，並成為董事會選定子公司設立地點的主要依據。`,
+      skills:'Python（pandas、數據 pipeline）、財務分析、市場研究、Variance 分析、資產分類、資金流向對應、風險量化、問卷設計、客戶分類',
+      tools:'Python（pandas、matplotlib）、Excel、Google Docs、問卷工具',
+      results:[{n:'12頁',l:'決策摘要\n3週完成'},{n:'0',l:'管理層追問\n零再請求'},{n:'3',l:'識別用戶細分市場\n200+ 份問卷'}]
+    }
+  },
+  meichu:{
+    en:{
+      index:'P.04',period:'2024 – 2025',duration:'~12 months',
+      title:'Meichu Games\nCampaign &\nSponsorship System',
+      subtitle:'Bringing operational order to a 1,000-person intercollegiate event — and building a sponsorship strategy that actually converted',
+      scope:'Event project management, Gantt dashboard design, cross-team coordination system, sponsorship strategy redesign, audience profiling, brand partnership development, budget optimization',
+      goal:'The Meichu Games intercollegiate event needed to deliver a 1,000-person experience across multiple competition venues with 30+ internal teams and 5+ corporate sponsors — on a fixed budget, with a volunteer-staffed organization, and without any unified operational infrastructure. Two parallel goals: (1) make the operation run predictably, (2) reduce costs without reducing quality.',
+      client:'Primary stakeholders: 30+ internal working  members total, 5+ corporate sponsors (brands seeking student audience exposure), ~1,000 student attendees from two universities.',
+      problem:`Two distinct operational failure modes were inherited:\n\n1. COORDINATION CHAOS — No shared tracking system existed. Each team maintained their own records in incompatible formats. Cross-team dependencies were managed through informal messaging, meaning any delay in one team was invisible to dependent teams until it became a crisis. Communication overhead was estimated at 40% above necessary.\n\n2. SPONSORSHIP LEAKAGE — Previous sponsorship proposals were generic decks with standard exposure packages (logo placement, booths). They failed to articulate brand-specific value or quantify audience reach. Result: low conversion rates, and the ones that converted required significant cash outlay that depleted the event budget.`,
+      solution:`Applied two parallel interventions:\n\n1. OPERATIONAL INFRASTRUCTURE — Designed a Gantt-based delivery dashboard in Notion with: (a) complete milestone map for all 30+ teams, (b) clear ownership assignment per deliverable, (c) weekly cross-team standup with standardized RAG status reporting. This created shared visibility across the entire organization for the first time. Communication overhead dropped 40%. Event delivered on-time. Participant satisfaction: 4.8/5.\n\n2. SPONSORSHIP STRATEGY REDESIGN — Replaced generic decks with brand-specific value propositions. For each target sponsor: (a) profiled their core audience KPIs (age, student interest alignment, purchase intent), (b) designed measurable exposure packages (co-branded content reach, on-site activation footprint, social impressions per brand), (c) quantified audience match data to justify investment. Result: 5+ brand partnerships secured. Projected event costs reduced 30%, freeing budget for participant experience improvements.`,
+      skills:'Event Project Management, Gantt Dashboard Design, Cross-team Coordination, Sponsorship Strategy, Audience KPI Profiling, Brand Partnership Development, Budget Optimization',
+      tools:'Notion (Gantt + tracking), Google Slides (sponsorship decks), Analytics (audience profiling)',
+      results:[{n:'40%',l:'Communication overhead ↓\n1,000-person event'},{n:'4.8',l:'Participant satisfaction\nout of 5.0'},{n:'30%',l:'Event cost reduction\n5+ brand partnerships'}]
+    },
+    zh:{
+      index:'P.04',period:'2024 – 2025',duration:'約12個月',
+      title:'梅竹工作會\n活動統籌與\n贊助策略',
+      subtitle:'為千人跨校活動帶來營運秩序，並建立真正能轉換的贊助策略',
+      scope:'活動專案管理、甘特圖儀表板設計、跨組協調系統、贊助策略重新設計、受眾輪廓分析、品牌合作開發、預算優化',
+      goal:'梅竹運動會跨校活動需要以 30+ 內部工作組和 5+ 企業贊助商，在固定預算、志工組織的情況下，在多個比賽場地提供千人體驗——沒有任何統一的營運基礎設施。兩個平行目標：(1) 讓營運可預測地運行；(2) 在不降低品質的情況下降低成本。',
+      client:'主要利害關係人：30+ 個內部成員、5+ 個企業贊助商（尋求學生受眾曝光的品牌）、來自兩所大學的約 1,000 名學生參與者。',
+      problem:`繼承了兩種不同的營運失敗模式：\n\n1. 協調混亂 — 不存在共享追蹤系統。每個組別以不相容的格式維護各自的記錄。跨組依賴關係通過非正式訊息管理，意味著一個組別的任何延誤對依賴組別是不可見的，直到成為危機。溝通成本估計比必要高出 40%。\n\n2. 贊助漏損 — 以前的贊助提案是帶有標準曝光套件（logo 放置、攤位）的通用 Deck。它們未能闡明品牌特定價值或量化受眾觸及。結果：轉換率低，而那些轉換的需要大量現金支出，耗盡了活動預算。`,
+      solution:`應用兩個平行干預措施：\n\n1. 營運基礎設施 — 在 Notion 中設計基於甘特圖的交付儀表板，包含：(a) 所有 30+ 組別的完整里程碑地圖，(b) 每個交付物的明確責任分配，(c) 帶有標準化 RAG 狀態報告的週跨組站會。這首次為整個組織創造了共享可見度。溝通成本降低 40%。活動按時交付。參與者滿意度：4.8/5。\n\n2. 贊助策略重新設計 — 用品牌特定價值主張取代通用 Deck。對每個目標贊助商：(a) 分析其核心受眾 KPI（年齡、學生興趣對齊、購買意向），(b) 設計可衡量的曝光套件（聯名內容觸及、現場活化足跡、每個品牌的社群曝光），(c) 量化受眾匹配數據以證明投資合理。結果：拿下 5+ 個品牌合作。活動預期成本降低 30%，為參與者體驗改善釋放預算。`,
+      skills:'活動專案管理、甘特圖儀表板設計、跨組協調、贊助策略、受眾 KPI 分析、品牌合作開發、預算優化',
+      tools:'Notion（甘特圖 + 追蹤）、Google Slides（贊助 Deck）、分析工具（受眾分析）',
+      results:[{n:'40%',l:'溝通成本降低\n千人活動'},{n:'4.8',l:'參與者滿意度\n滿分 5.0'},{n:'30%',l:'活動成本降低\n5+ 品牌合作'}]
+    }
+  }
+};
+
+function getLang(){return document.body.classList.contains('lang-zh')?'zh':'en'}
+
+function openProject(id){
+  const p=PROJECTS[id];if(!p)return;
+  const l=getLang();const d=p[l];
+  document.getElementById('poTitleSmall').textContent=d.title.replace(/\n/g,' · ');
+  // build content
+  const sol=d.solution.split('\n\n').map(para=>{
+    if(para.match(/^\d+\./)||para.match(/^[A-Z가-힣]/)){
+      const lines=para.split('\n');
+      return`<p class="pos-body" style="margin-top:1rem"><strong>${lines[0]}</strong></p><p class="pos-body">${lines.slice(1).join('<br>')}</p>`;
+    }
+    return`<p class="pos-body">${para}</p>`;
+  }).join('');
+  const prob=d.problem.split('\n\n').map(para=>
+    `<p class="pos-body" style="margin-top:${para.match(/^\d+\./)?'.8rem':'0'}">${para}</p>`
+  ).join('');
+  document.getElementById('poBody').innerHTML=`
+    <div class="po-hero">
+      <div class="po-eyebrow">${d.index} — ${d.period} (${d.duration})</div>
+      <h1 class="po-big-title">${d.title.replace(/\n/g,'<br>')}</h1>
+      <p class="po-subtitle">${d.subtitle}</p>
+    </div>
+    <div class="po-meta-grid">
+      <div class="po-meta-cell"><div class="pmc-label">${l==='en'?'Project Scope':'專案範圍'}</div><div class="pmc-val">${d.scope}</div></div>
+      <div class="po-meta-cell"><div class="pmc-label">${l==='en'?'Business Goal':'專案目標'}</div><div class="pmc-val">${d.goal}</div></div>
+      <div class="po-meta-cell"><div class="pmc-label">${l==='en'?'Target Client':'目標客戶'}</div><div class="pmc-val">${d.client}</div></div>
+    </div>
+    <div class="po-section">
+      <div class="pos-label">${l==='en'?'Problem':'問題診斷'}</div>
+      <h2 class="pos-heading">${l==='en'?'The <em>Problem</em>':'核心<em>問題</em>'}</h2>
+      <div class="pos-body">${prob}</div>
+    </div>
+    <div class="po-section">
+      <div class="pos-label">${l==='en'?'Solution':'解決方案'}</div>
+      <h2 class="pos-heading">${l==='en'?'How I <em>Solved It</em>':'我如何<em>解決它</em>'}</h2>
+      <div class="pos-body">${sol}</div>
+    </div>
+    <div class="po-results">
+      ${d.results.map(r=>`<div class="por-cell"><div class="por-num">${r.n}</div><div class="por-label">${r.l.replace(/\n/g,'<br>')}</div></div>`).join('')}
+    </div>
+    <div class="po-section">
+      <div class="pos-label">${l==='en'?'Applied Skills':'應用技能'}</div>
+      <h2 class="pos-heading">${l==='en'?'Skills &amp; <em>Tools</em>':'技能與<em>工具</em>'}</h2>
+      <div class="po-skills">${d.skills.split(',').map(s=>`<span class="psk">${s.trim()}</span>`).join('')}</div>
+      <p class="pos-body" style="margin-top:1.5rem"><strong>${l==='en'?'Software & Tools:':'軟體與工具：'}</strong> ${d.tools}</p>
+    </div>
+    <div class="po-visual">
+      <div class="po-geo pog1"></div><div class="po-geo pog2"></div>
+      <div class="po-visual-inner">
+        <div class="po-visual-label">${l==='en'?'Visual Showcase':'視覺展示'}</div>
+        <div class="po-visual-title">${d.title.split('\n')[0]}</div>
+        <p style="font-family:var(--mono);font-size:.6rem;color:rgba(242,240,235,.2);margin-top:1rem;letter-spacing:.12em;text-transform:uppercase">${l==='en'?'Project documentation & deliverables':'專案文件與交付物'}</p>
+      </div>
+    </div>`;
+  const ov=document.getElementById('proj-overlay');
+  ov.classList.add('open');
+  gsap.fromTo(ov,{y:'100%'},{y:'0%',duration:.8,ease:'power3.out'});
+  ov.scrollTop=0;
+}
+function closeProject(){
+  const ov=document.getElementById('proj-overlay');
+  gsap.to(ov,{y:'100%',duration:.6,ease:'power3.in',onComplete:()=>ov.classList.remove('open')});
+}
+</script>
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ══════════════════════════════════════
+   UTILS
+══════════════════════════════════════ */
+function scrollToTop(){window.scrollTo({top:0,behavior:'smooth'})}
+
+/* ── LIVE CLOCK ── */
+function updateClock(){
+  const n=new Date();
+  const el=document.getElementById('navTime');
+  if(el) el.textContent=n.toLocaleTimeString('en-US',{hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit'})+' TPE';
+}
+setInterval(updateClock,1000);updateClock();
+
+/* ── HERO GRID ── */
+const grid=document.getElementById('heroGrid');
+if(grid){for(let i=0;i<12;i++){const c=document.createElement('div');c.className='hgb-col';grid.appendChild(c)}}
+
+/* ── PROGRESS ── */
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const prog=document.getElementById('prog');
+  if(prog) prog.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+},{passive:true});
+
+/* ── LANG ──
+   Switches ALL data-en/data-zh elements at once.
+   data-en elements: visible in EN, hidden in ZH.
+   data-zh elements: visible in ZH, hidden in EN.
+   Works for both inline (span) and block (div) elements. ── */
+function setLang(l){
+  // Update body class (drives CSS rules)
+  document.body.classList.remove('lang-en','lang-zh');
+  document.body.classList.add('lang-'+l);
+
+  // Update lang pill buttons in menu
+  const btnEn=document.getElementById('mLangEn');
+  const btnZh=document.getElementById('mLangZh');
+  if(btnEn) btnEn.classList.toggle('on',l==='en');
+  if(btnZh) btnZh.classList.toggle('on',l==='zh');
+
+  // Update nav-bar language toggle buttons
+  const navBtnEn=document.getElementById('navLangEn');
+  const navBtnZh=document.getElementById('navLangZh');
+  if(navBtnEn) navBtnEn.classList.toggle('on',l==='en');
+  if(navBtnZh) navBtnZh.classList.toggle('on',l==='zh');
+
+  // HTML lang attribute for SEO
+  document.documentElement.lang=l==='en'?'en':'zh-TW';
+}
+// Initialise as English
+document.body.classList.add('lang-en');
+
+/* ══════════════════════════════════════
+   CINEMATIC LOADER — slogan sequence
+══════════════════════════════════════ */
+/* Restrained loader: name + positioning line, ~1s total.
+   A portfolio has seconds to earn attention — the loader must not spend them. */
+gsap.to('#loaderFill',{width:'100%',duration:.85,ease:'power2.out'});
+
+// The three rotating slogans are gone; show identity immediately.
+['sl0','sl1','sl2'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el) el.style.display='none';
+});
+
+const loaderTL = gsap.timeline();
+loaderTL
+  .to('#sl3 .sl-inner',{y:'0%',duration:.5,ease:'cubic-bezier(0.16,1,0.3,1)'},0)
+  .to('#sl4 .sl-inner',{y:'0%',duration:.45,ease:'cubic-bezier(0.16,1,0.3,1)'},0.12)
+  .to('#loader',{opacity:0,duration:.35,ease:'power2.inOut'},0.65)
+  .call(()=>{
+    document.getElementById('loader').style.display='none';
+    initMain();
+  },null,1.0);
+
+/* ══════════════════════════════════════
+   MAIN INIT — after loader
+══════════════════════════════════════ */
+function initMain(){
+
+  /* HERO MASK REVEAL */
+  const reveals=document.querySelectorAll('.reveal-inner');
+  gsap.to(reveals,{y:'0%',duration:.7,stagger:.06,ease:'cubic-bezier(0.16,1,0.3,1)',delay:.03});
+
+  /* HERO SUB ROW */
+  gsap.to('#heroSub',{opacity:1,y:0,duration:.6,ease:'power3.out',delay:.35});
+
+  /* SCROLL REVEALS */
+  gsap.utils.toArray('.rv').forEach(el=>{
+    gsap.fromTo(el,{opacity:0,y:14},{
+      opacity:1,y:0,duration:.6,ease:'cubic-bezier(0.16,1,0.3,1)',
+      scrollTrigger:{trigger:el,start:'top 88%',once:true}
+    });
+  });
+
+  /* NUMBERS — rendered immediately, not animated.
+     A reader should not have to wait for a figure to finish counting. */
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    el.innerHTML=el.dataset.count+'<sup>'+(el.dataset.suffix||'%')+'</sup>';
+  });
+
+  /* APPROACH CARDS */
+  gsap.utils.toArray('.ap-c').forEach((c,i)=>{
+    gsap.fromTo(c,{opacity:0,y:16},{
+      opacity:1,y:0,duration:.6,delay:i*.07,ease:'cubic-bezier(0.16,1,0.3,1)',
+      scrollTrigger:{trigger:'#approach',start:'top 70%',once:true}
+    });
+  });
+
+  /* EXP ITEMS */
+  gsap.utils.toArray('.exp-item').forEach((item,i)=>{
+    gsap.fromTo(item,{opacity:0,y:12},{
+      opacity:1,x:0,duration:.9,delay:i*.1,ease:'cubic-bezier(0.16,1,0.3,1)',
+      scrollTrigger:{trigger:item,start:'top 85%',once:true}
+    });
+  });
+
+  /* FOOTER SLIDE */
+  ScrollTrigger.create({trigger:'footer',start:'top bottom',once:true,onEnter:()=>{
+    gsap.to('#ftBg',{x:'0%',opacity:1,duration:.8,ease:'power3.out'});
+  }});
+
+  /* SCROLL COLOR TRANSITION */
+  /* Two dark passages only — approach and skills/contact — so the shift still
+     reads as intentional rather than as a light show. */
+  const scenes=[
+    {id:'hero',bg:'#F2F0EB',text:'#121212'},
+    {id:'about',bg:'#F2F0EB',text:'#121212'},
+    {id:'approach',bg:'#111110',text:'#F2F0EB'},
+    {id:'experience',bg:'#F2F0EB',text:'#121212'},
+    {id:'skills',bg:'#111110',text:'#F2F0EB'},
+    {id:'contact',bg:'#111110',text:'#F2F0EB'},
+  ];
+  // Page opens light now that the dark asymmetric hero is gone
+  document.body.style.backgroundColor='#F2F0EB';
+  document.body.style.color='#121212';
+  document.body.classList.remove('dark');
+  let curBg='#F2F0EB';
+  window.addEventListener('scroll',()=>{
+    const mid=window.scrollY+window.innerHeight*.5;
+    scenes.forEach(s=>{
+      const el=document.getElementById(s.id);if(!el)return;
+      const t=el.offsetTop,b=t+el.offsetHeight;
+      if(mid>=t&&mid<b&&s.bg!==curBg){
+        curBg=s.bg;
+        gsap.to(document.body,{backgroundColor:s.bg,color:s.text,duration:.5,ease:'cubic-bezier(.25,.46,.45,.94)'});
+        document.body.classList.toggle('dark',s.bg==='#111110');
+      }
+    });
+  },{passive:true});
+}
+
+/* ══════════════════════════════════════
+   HAMBURGER MENU
+══════════════════════════════════════ */
+let menuOpen=false;
+const burger=document.getElementById('burger');
+const menu=document.getElementById('menu');
+const mLeft=document.getElementById('menuLeft');
+const mRight=document.getElementById('menuRight');
+
+const navEl=document.getElementById('nav');
+function openMenu(){
+  menuOpen=true;burger.classList.add('open');menu.classList.add('open');
+  navEl.classList.add('menu-open');/* force light contrast against dark menu panel */
+  gsap.to(mLeft,{x:'0%',duration:.75,ease:'power3.out'});
+  gsap.to(mRight,{x:'0%',duration:.75,delay:.06,ease:'power3.out'});
+  gsap.fromTo('.menu-nav a',{x:14,opacity:0},{x:0,opacity:1,stagger:.04,duration:.4,delay:.14,ease:'power3.out'});
+  gsap.fromTo('.proj-card',{y:10,opacity:0},{y:0,opacity:1,stagger:.05,duration:.4,delay:.18,ease:'power3.out'});
+}
+function closeMenu(){
+  menuOpen=false;burger.classList.remove('open');
+  navEl.classList.remove('menu-open');/* restore normal nav color logic */
+  gsap.to([mRight,mLeft],{x:(el)=>el===mLeft?'-100%':'100%',duration:.55,stagger:.04,ease:'power3.in',onComplete:()=>menu.classList.remove('open')});
+}
+burger.addEventListener('click',()=>menuOpen?closeMenu():openMenu());
+document.querySelectorAll('.mlink').forEach(a=>a.addEventListener('click',closeMenu));
+
+/* ══════════════════════════════════════
+   TL;DR
+══════════════════════════════════════ */
+let allTldr=false;
+function toggleTldr(id,forceOn){
+  const btn=document.querySelector(`[data-t="${id}"]`);
+  const full=document.getElementById(`${id}-f`);
+  const tldr=document.getElementById(`${id}-t`);
+  if(!btn||!full||!tldr)return;
+  const on=forceOn!==undefined?forceOn:!btn.classList.contains('on');
+  btn.classList.toggle('on',on);
+  if(on){
+    gsap.to(full,{opacity:0,height:0,duration:.3,ease:'power2.in',onComplete:()=>{full.classList.add('hide');tldr.classList.add('show');gsap.fromTo(tldr,{opacity:0,y:8},{opacity:1,y:0,duration:.35,ease:'power2.out'})}});
+  } else {
+    gsap.to(tldr,{opacity:0,duration:.25,ease:'power2.in',onComplete:()=>{tldr.classList.remove('show');full.classList.remove('hide');full.style.height='';full.style.opacity='';gsap.fromTo(full,{opacity:0},{opacity:1,duration:.35,ease:'power2.out'})}});
+  }
+}
+document.querySelectorAll('.tldr-tog').forEach(b=>b.addEventListener('click',()=>toggleTldr(b.dataset.t)));
+document.getElementById('tldrAllBtn').addEventListener('click',function(){
+  allTldr=!allTldr;this.classList.toggle('on',allTldr);
+  ['aq','jx','ct','mc'].forEach(id=>toggleTldr(id,allTldr));
+});
+
+/* ══════════════════════════════════════
+   SKILL MATRIX
+══════════════════════════════════════ */
+let activeSk=null;
+document.querySelectorAll('.skp,.etag').forEach(el=>{
+  el.addEventListener('click',()=>{
+    const sk=el.dataset.sk;
+    if(activeSk===sk){
+      activeSk=null;
+      document.querySelectorAll('.skp').forEach(p=>p.classList.remove('act','dim'));
+      document.querySelectorAll('.etag').forEach(t=>t.classList.remove('act'));
+      document.querySelectorAll('.exp-item').forEach(item=>gsap.to(item,{opacity:1,scale:1,duration:.3,ease:'power2.out'}));
+      document.getElementById('skHint').textContent='';
+    } else {
+      activeSk=sk;
+      document.querySelectorAll('.skp').forEach(p=>{p.classList.toggle('act',p.dataset.sk===sk);p.classList.toggle('dim',p.dataset.sk!==sk)});
+      document.querySelectorAll('.etag').forEach(t=>t.classList.toggle('act',t.dataset.sk===sk));
+      let m=0;
+      document.querySelectorAll('.exp-item').forEach(item=>{
+        const has=(item.dataset.skills||'').split(',').some(s=>s.trim()===sk);
+        if(has){m++;gsap.to(item,{opacity:1,scale:1,duration:.3,ease:'power2.out'})}
+        else gsap.to(item,{opacity:.12,scale:.997,duration:.3,ease:'power2.out'});
+      });
+      document.getElementById('skHint').textContent=`${m} result${m!==1?'s':''} for "${sk}"`;
+    }
+  });
+});
+</script>
+</body>
+</html>
