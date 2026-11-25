@@ -1,0 +1,218 @@
+{
+  "_說明": "個人網頁的內容來源。改這個檔就好，版面由 build_profile.py 產生。每一筆 work 的 caps 決定它會出現在哪些能力分類底下。",
+  "name": { "zh": "傅聖嵐", "en": "Fu Sheng-Lan" },
+  "tagline": {
+    "zh": "把二十件同時在跑的專案，變成一份交付得出來的計畫。",
+    "en": "I turn twenty moving projects into one delivered plan."
+  },
+  "sub": {
+    "zh": "清華大學經濟系，修習資料科學。從公家標案到跨國共同開發，從議價發包到金流管控——需要算的地方，SQL 我自己寫。",
+    "en": "NTHU Economics, data science focus. Public tenders to cross-border product work, sourcing to cash-flow control — and when the numbers matter, I write the SQL myself."
+  },
+  "contact": {
+    "email": "afortunado.fu@gmail.com",
+    "phone": "0983-517-504",
+    "location": { "zh": "台北 · 新竹 · 台中 · 遠端", "en": "Taipei · Hsinchu · Taichung · Remote" }
+  },
+  "headline": [
+    { "value": "20+", "zh": "同時管理的專案", "en": "concurrent projects",
+      "note": { "zh": "總額 9,000 萬元", "en": "NT$90M aggregate" } },
+    { "value": "15%", "zh": "單案採購成本降幅", "en": "cut on one package",
+      "note": { "zh": "4,000 萬機電案省下 600 萬", "en": "NT$6M off a NT$40M MEP package" } },
+    { "value": "4", "zh": "個組織的實戰", "en": "organisations",
+      "note": { "zh": "系統整合、創投、新創、校園活動", "en": "SI, VC, startup, campus events" } },
+    { "value": "3", "zh": "個自己上架的產品", "en": "shipped products",
+      "note": { "zh": "外加五份資料分析專題", "en": "plus five analysis case studies" } }
+  ],
+  "caps": [
+    { "id": "sourcing", "zh": "採購與議價", "en": "Sourcing & Negotiation" },
+    { "id": "risk",     "zh": "風險與管控", "en": "Risk & Controls" },
+    { "id": "cash",     "zh": "金流與財務", "en": "Cash flow & Finance" },
+    { "id": "data",     "zh": "資料分析",   "en": "Data & Analysis" },
+    { "id": "delivery", "zh": "專案交付",   "en": "Delivery" },
+    { "id": "public",   "zh": "公部門法遵", "en": "Public sector" },
+    { "id": "global",   "zh": "跨國協作",   "en": "Cross-border" },
+    { "id": "product",  "zh": "產品與成長", "en": "Product & Growth" }
+  ],
+  "orgs": [
+    { "id": "justxtar", "zh": "集星資通", "en": "JustXtar",
+      "role": { "zh": "業務專案經理 · 資訊系統整合", "en": "Business Project Manager · Systems Integration" },
+      "period": "2025.11 —", "current": true,
+      "note": { "zh": "客戶包含台電、桃園市政府、台泥、伊甸基金會", "en": "Clients incl. Taipower, Taoyuan City Government, Taiwan Cement, Eden Foundation" } },
+    { "id": "airquant", "zh": "AirQuant", "en": "AirQuant",
+      "role": { "zh": "共同創辦人 · 策略暨成長負責人", "en": "Co-Founder · Head of Strategy & Growth" },
+      "period": "2025.12 — 2026.03",
+      "note": { "zh": "量化交易新創", "en": "Quant trading startup" } },
+    { "id": "ctdam", "zh": "燦通國際資產管理", "en": "CTDAM",
+      "role": { "zh": "數據分析實習生 · 創投", "en": "Data Analytics Intern · Venture Capital" },
+      "period": "2025.01 — 2025.10",
+      "note": { "zh": "Web3 與數位資產投資", "en": "Web3 & digital assets" } },
+    { "id": "meichu", "zh": "梅竹工作會", "en": "Meichu Games Committee",
+      "role": { "zh": "活動策畫總召 · 行銷長", "en": "Campaign Director · Head of Marketing" },
+      "period": "2024 — 2025",
+      "note": { "zh": "清大千人跨校活動", "en": "1,000-person inter-university event, NTHU" } },
+    { "id": "studio", "zh": "小數據所", "en": "Small Data Lab",
+      "role": { "zh": "獨立開發 · 自有產品", "en": "Solo build · own products" },
+      "period": "2026.05 —", "current": true,
+      "note": { "zh": "三個上架產品與背後的分析", "en": "Three shipped products and the analysis behind them" } }
+  ],
+  "work": [
+    {
+      "id": "j-portfolio", "org": "justxtar", "caps": ["delivery", "risk"],
+      "title": { "zh": "20 件專案、9,000 萬元的組合管理", "en": "A 20-project, NT$90M portfolio" },
+      "result": { "zh": "兩件 4,000 萬元案從開案跟到兩年交付結束。", "en": "Two NT$40M programs held from kickoff through a two-year delivery cycle." },
+      "s": { "zh": "同時在跑 20 件以上的案子——智慧建築、智慧工廠、硬體採購、公部門物聯網——每案 5 到 20 家下包商，外加公家審查單位。", "en": "A rolling portfolio of 20+ concurrent projects — smart buildings, smart factories, hardware procurement, public-sector IoT — each with 5–20 subcontractors and government reviewers." },
+      "a": { "zh": "每案自己負責利害關係人管理，跨案的風險與相依關係集中追蹤。", "en": "Own stakeholder management per project; track cross-project risks and dependencies centrally." },
+      "r": { "zh": "單案規模從 30 萬到 4,000 萬，兩件最大的從開案帶到交付結束。", "en": "Project size NT$300K–40M; the two largest owned end to end." }
+    },
+    {
+      "id": "j-sourcing", "org": "justxtar", "caps": ["sourcing", "cash"],
+      "title": { "zh": "機電標案議價整併，省下 15%", "en": "15% off a NT$40M MEP package" },
+      "result": { "zh": "較議價前基準降低 600 萬元。", "en": "NT$6M below the pre-negotiation baseline." },
+      "s": { "zh": "4,000 萬元的機電標案由 20 家以上下包商分散報價，範圍互相重疊。", "en": "A NT$40M MEP package quoted by 20+ subcontractors, fragmented and overlapping." },
+      "a": { "zh": "用成本與範圍的結構化評分框架逐一審查每份報價，再議價整併成單一執行契約。", "en": "Scored every proposal against a structured cost-and-scope framework, then negotiated consolidation into a single execution contract." },
+      "r": { "zh": "降低 600 萬元（15%），而且範圍責任歸屬變清楚。", "en": "NT$6M (15%) saved, with scope ownership finally unambiguous." }
+    },
+    {
+      "id": "j-public", "org": "justxtar", "caps": ["public", "delivery"],
+      "title": { "zh": "卡四個月的市府送審，一個月核准", "en": "A stalled government submission cleared in one month" },
+      "result": { "zh": "另撰寫標案建議書，取得台電與桃園市政府標案。", "en": "Also authored the RFP responses that won Taipower and Taoyuan City Government awards." },
+      "s": { "zh": "一份桃園市政府的送審文件已經改了四個月還沒通過。", "en": "A Taoyuan City Government submission had been in revision for four months without approval." },
+      "a": { "zh": "中途接手，重建規範比較文件，並重新打通與審查委員的溝通管道。", "en": "Took it over mid-flight, rebuilt the specification-comparison package and reopened the line to the reviewing committee." },
+      "r": { "zh": "一個月內核准。", "en": "Cleared in one month." }
+    },
+    {
+      "id": "j-cash", "org": "justxtar", "caps": ["cash", "delivery", "data"],
+      "title": { "zh": "公司第一套跨專案金流與排程管控", "en": "The company's first portfolio-wide control layer" },
+      "result": { "zh": "內部期限固定提前契約里程碑一週。", "en": "Internal deadlines held one week ahead of contractual milestones." },
+      "s": { "zh": "原本沒有跨案的金流與排程視圖，進度只存在於每週的口頭會議裡。", "en": "No shared view of project cash or schedule — status lived in a weekly verbal meeting." },
+      "a": { "zh": "建置互動式金流模型與涵蓋全部 20+ 專案的甘特主排程。", "en": "Built an interactive cash-flow model and a Gantt master schedule covering all 20+ active projects." },
+      "r": { "zh": "管理層取得「已發包 / 已計價 / 已收款」的單一視圖；各團隊可以直接對照相依關係，不用等開會。", "en": "Management gained a single view of committed vs. billed vs. collected cash; teams self-align on dependencies instead of waiting for the meeting." }
+    },
+    {
+      "id": "j-global", "org": "justxtar", "caps": ["global", "product"],
+      "title": { "zh": "與韓國、荷蘭導航夥伴共同開發", "en": "Joint product with iNavi (Korea) and TomTom (Netherlands)" },
+      "result": { "zh": "台灣智慧公廁 POI 圖層串接其全球車用導航產品，目前測試版。", "en": "A Taiwan smart-restroom POI layer feeding their global automotive navigation product, now in beta." },
+      "s": { "zh": "要把台灣的在地資料接進國外車廠用的導航產品。", "en": "Getting Taiwanese local data into a navigation product used by global automakers." },
+      "a": { "zh": "以英文透過 Slack 進行日常技術協作；同時參與 COMPUTEX 的產品發想與攤位客戶接待。", "en": "Day-to-day technical coordination in English over Slack; shaped the COMPUTEX demo concept and hosted clients on-stand." },
+      "r": { "zh": "產品進入測試版，並與新加坡政府單位開啟停車場物聯網專案。", "en": "Product in beta; also originated a parking-management IoT project with a Singapore government agency." }
+    },
+    {
+      "id": "a-gtm", "org": "airquant", "caps": ["product"],
+      "title": { "zh": "從 0 建到 10+ 投資人 pipeline", "en": "Built a 10+ investor pipeline from zero" },
+      "result": { "zh": "成為所有募資動作的單一事實來源。", "en": "A single source of truth for all fundraising." },
+      "s": { "zh": "0 個投資人會議、沒有 GTM、沒有任何對外材料。", "en": "Zero investor meetings, no GTM, no materials." },
+      "a": { "zh": "把 GTM 拆成三個工作軌道；撰寫 15 頁白皮書與 Pitch Deck（Sharpe、最大回撤、相對基準的 alpha），對象是 LP。", "en": "Decomposed GTM into three workstreams; authored a 15-page white paper and pitch deck (Sharpe, max drawdown, alpha vs. benchmark) for LP audiences." },
+      "r": { "zh": "從零建立 10+ 投資人 pipeline。", "en": "10+ investor pipeline built from zero." }
+    },
+    {
+      "id": "a-doc", "org": "airquant", "caps": ["product"],
+      "title": { "zh": "三層白皮書，一份文件服務所有層級", "en": "A three-tier white paper" },
+      "result": { "zh": "不需要為不同層級的投資人各做一個版本。", "en": "Eliminated the need for three separate versions." },
+      "s": { "zh": "投資人從 C-level 到技術盡職調查都要看，但關心的東西完全不同。", "en": "Investors from C-suite to quant DD all needed the same story at different depths." },
+      "a": { "zh": "拆成三層：高階摘要 → 標準化財務指標 → 量化盡職調查附錄。", "en": "Three tiers: C-suite exec summary → standardized financial metrics → quant DD appendix." },
+      "r": { "zh": "單一份材料服務每一種投資人。", "en": "One document served every investor level." }
+    },
+    {
+      "id": "a-crm", "org": "airquant", "caps": ["data", "product"],
+      "title": { "zh": "結構化投資人 CRM", "en": "A structured investor CRM" },
+      "result": { "zh": "10+ 潛在投資人依資料排優先順序，不靠印象。", "en": "Data-driven prioritization across 10+ prospects." },
+      "s": { "zh": "募資進度散在對話與記憶裡，沒辦法判斷先追誰。", "en": "Fundraising status lived in conversations and memory." },
+      "a": { "zh": "設計 3 個 pipeline 階段、5 類異議分類、轉換機率分數。", "en": "Three pipeline stages, five objection categories, conversion probability scores." },
+      "r": { "zh": "排序有依據，異議也能回頭統計。", "en": "Prioritisation became repeatable, and objections became countable." }
+    },
+    {
+      "id": "c-brief", "org": "ctdam", "caps": ["data", "risk"],
+      "title": { "zh": "跨六個司法管轄區的設點決策摘要", "en": "A cross-jurisdiction decision brief" },
+      "result": { "zh": "成為董事會選址與成本結構決策的主要依據。", "en": "Became the board's primary input for the location and cost-structure decision." },
+      "s": { "zh": "Web3 亞洲分公司要不要設：20+ 份文件、6 個司法管轄區、3 種語言、4 種格式。", "en": "Go/no-go on a Web3 Asia subsidiary: 20+ documents, 6 jurisdictions, 3 languages, 4 formats." },
+      "a": { "zh": "四層拆解加上 8 個差異標記，三週內收斂成 12 頁。", "en": "Four-layer decomposition plus eight variance flags, condensed into 12 pages in three weeks." },
+      "r": { "zh": "12 頁摘要直接進董事會。", "en": "A 12-page brief went straight to the board." }
+    },
+    {
+      "id": "c-pipeline", "org": "ctdam", "caps": ["data"],
+      "title": { "zh": "非結構化資料的 Python pipeline", "en": "Python pipelines for unstructured sources" },
+      "result": { "zh": "每案 5 份以上的非結構化來源，轉成可以決策的指標。", "en": "5+ unstructured sources per project turned into decision-ready metrics." },
+      "s": { "zh": "資料散在 PDF、網頁、報表裡，每次都要重做一次。", "en": "Data arrived as PDFs, web pages and reports — re-done by hand every time." },
+      "a": { "zh": "寫 pipeline 處理，並在過程中套用財務邏輯：資產分類、資金流向對應、風險量化。", "en": "Built pipelines with financial logic applied throughout: asset categorisation, fund-flow mapping, risk quantification." },
+      "r": { "zh": "同樣的分析下一案可以直接重跑。", "en": "The same analysis became repeatable on the next deal." }
+    },
+    {
+      "id": "c-survey", "org": "ctdam", "caps": ["data", "product"],
+      "title": { "zh": "200+ 份問卷找出三個用戶分群", "en": "200+ responses, three user segments" },
+      "result": { "zh": "推動產品重新定位與 LP 溝通策略重組。", "en": "Drove product repositioning and restructured LP outreach." },
+      "s": { "zh": "產品對誰說話沒有共識。", "en": "No agreement on who the product was for." },
+      "a": { "zh": "設計並分析 200+ 份問卷，切出三個分群。", "en": "Designed and analysed a 200+ response survey, identifying three segments." },
+      "r": { "zh": "定位與 LP 策略跟著改。", "en": "Positioning and LP strategy both changed." }
+    },
+    {
+      "id": "m-event", "org": "meichu", "caps": ["delivery"],
+      "title": { "zh": "千人活動、30+ 組別的統籌", "en": "A 1,000-person event across 30+ teams" },
+      "result": { "zh": "如期完成，參與者滿意度 4.8/5。", "en": "Delivered on time at 4.8/5 satisfaction." },
+      "s": { "zh": "千人規模、30 多個組別、5 家以上贊助商，沒有統一的進度追蹤。", "en": "1,000 people, 30+ teams, 5+ sponsors, zero unified tracking." },
+      "a": { "zh": "甘特儀表板 + 里程碑責任制 + 每週站立會議。", "en": "Gantt dashboard, milestone accountability, weekly standups." },
+      "r": { "zh": "如期交付，滿意度 4.8/5。", "en": "On time, 4.8/5." }
+    },
+    {
+      "id": "m-sponsor", "org": "meichu", "caps": ["sourcing", "product"],
+      "title": { "zh": "重新設計贊助方案，成本降 30%", "en": "Sponsorship redesign, costs down 30%" },
+      "result": { "zh": "拿下 5 家以上品牌合作。", "en": "5+ brand partnerships secured." },
+      "s": { "zh": "通用的贊助提案，跟品牌幾乎沒有契合度。", "en": "Generic sponsorship decks with near-zero brand fit." },
+      "a": { "zh": "針對每一個贊助商做受眾 KPI 側寫，提出可量測的曝光方案。", "en": "Audience KPI profiling per sponsor, with measurable exposure packages." },
+      "r": { "zh": "5+ 品牌合作，活動成本降低 30%。", "en": "5+ partnerships, costs down 30%." }
+    },
+    {
+      "id": "s-birthday", "org": "studio", "caps": ["product", "data"],
+      "title": { "zh": "壽星日：台灣生日優惠整理站", "en": "Birthday Deals" },
+      "result": { "zh": "線上營運中，已累積 11,205 次收藏、4,784 次使用回報。", "en": "Live, with 11,205 saves and 4,784 usage reports." },
+      "s": { "zh": "生日優惠散在各品牌的公告與部落格懶人包裡，而且常常過期。", "en": "Birthday offers are scattered across brand announcements and blog round-ups, and go stale fast." },
+      "a": { "zh": "一個人做完企劃、前後端、資料整理與分析，154 個版本、92 支回歸測試。", "en": "Solo: product, front and back end, data curation and analysis — 154 versions, 92 regression tests." },
+      "r": { "zh": "581 筆優惠在線，兌換成功率 98%。", "en": "581 offers live, 98% redemption success rate." },
+      "link": "work/birthday-deals.html"
+    },
+    {
+      "id": "s-apps", "org": "studio", "caps": ["product"],
+      "title": { "zh": "Bandary 聽團曆與 RelateStats", "en": "Bandary and RelateStats" },
+      "result": { "zh": "兩支都已在 Google Play 上架。", "en": "Both shipped on Google Play." },
+      "s": { "zh": "看團的紀錄散在票根跟限動裡；而通訊軟體上花掉的注意力沒有人在算。", "en": "Gig history lives in ticket stubs; attention spent in chat apps goes uncounted." },
+      "a": { "zh": "Bandary：Kotlin + Compose，59,526 行。RelateStats：刻意不加網路權限，資料不離開手機。", "en": "Bandary: Kotlin + Compose, 59,526 lines. RelateStats: deliberately no INTERNET permission — data never leaves the phone." },
+      "r": { "zh": "RelateStats 的取捨是「收不到任何遙測」，所以衡量方式整套要換，這本身就是一個產品決策案例。", "en": "RelateStats trades away all telemetry, so the whole measurement approach had to change — a product decision case in itself." },
+      "link": "work/relatestats.html"
+    },
+    {
+      "id": "s-venues", "org": "studio", "caps": ["data"],
+      "title": { "zh": "21,209 家店的座標，自動長出商圈", "en": "Clustering 21,209 stores into districts" },
+      "result": { "zh": "對上人工圈的商圈 79.7%，並補出台中、台南等手工沒做到的縣市。", "en": "79.7% match against 148 hand-drawn districts, and filled in the counties the manual list never reached." },
+      "s": { "zh": "手工圈的 148 個商圈只覆蓋雙北與幾個大城市。", "en": "The 148 hand-drawn districts only covered Taipei and a few cities." },
+      "a": { "zh": "DBSCAN + haversine 分群，掃 12 組參數，用人工商圈當對照組驗收。", "en": "DBSCAN with haversine distance, 12 parameter sets, validated against the manual districts." },
+      "r": { "zh": "對不上的 30 個全是郊區購物中心——那是方法的邊界，不是模型不好。", "en": "The 30 misses are all suburban malls — the method's boundary, not a model failure." },
+      "link": "work/venue-clusters.html"
+    },
+    {
+      "id": "s-ml", "org": "studio", "caps": ["data"],
+      "title": { "zh": "投稿欄位自動預填（文字分類）", "en": "A text classifier for submission fields" },
+      "result": { "zh": "六成投稿可以自動填，其中 92.4% 正確。", "en": "64% of submissions auto-filled, 92.4% of them correct." },
+      "s": { "zh": "使用者投稿進來是一段自由文字，三個欄位要人一筆一筆判斷。", "en": "User submissions arrive as free text; three coded fields were judged by hand." },
+      "a": { "zh": "581 筆標註資料、字元 n-gram TF-IDF、五折交叉驗證，並用信心門檻換覆蓋率。", "en": "581 labelled rows, char n-gram TF-IDF, 5-fold CV, and a confidence threshold traded for coverage." },
+      "r": { "zh": "另外兩個欄位做不起來，消融實驗證明原因是資料洩漏與分類法，不是模型。", "en": "Two other fields failed; ablations showed the cause was leakage and taxonomy, not the model." },
+      "link": "work/ml-autofill.html"
+    },
+    {
+      "id": "s-billing", "org": "studio", "caps": ["cash", "risk"],
+      "title": { "zh": "機電工程請款預估與現金流", "en": "A billing forecast and cash-flow model" },
+      "result": { "zh": "手上看似有 528 萬，還原預收與保留款後實質是 −51 萬。", "en": "A NT$5.28M cash balance that, adjusted for deposit and retention, is actually −NT$509K." },
+      "s": { "zh": "一個 4,242 萬元的機電工程案，四期請款、23 家下包、到 2028 年的現金流。", "en": "A NT$42.4M MEP contract: four billing periods, 23 subcontractors, cash flow out to 2028." },
+      "a": { "zh": "把預收訂金、預付款、雙邊保留款全部還原，逐期對照計價與實際入帳。", "en": "Unwound the deposit, advances and retention held on both sides, period by period." },
+      "r": { "zh": "每收 100 元的估驗要付出去 86 元——施工期墊錢不是虧損，是在還簽約時收的訂金。順帶抓出四個待確認項目。", "en": "Per NT$100 billed, NT$86 goes out — the shortfall is the deposit being repaid, not a loss. Four open items surfaced along the way." },
+      "link": "work/billing-forecast.html"
+    }
+  ],
+  "approach": [
+    { "zh": "先定義再深入", "en": "Define before you dive",
+      "body": { "zh": "專案最昂貴的錯誤，是精準地做出了錯的東西。我在任何人動工前，先把範圍白紙黑字定下來。", "en": "The most expensive project mistake is building precisely the wrong thing. I lock scope in writing before anyone starts work." } },
+    { "zh": "拆解成可測試的層次", "en": "Break into testable layers",
+      "body": { "zh": "「為什麼會延？」→ 範圍 vs. 廠商 vs. 送審 vs. 金流。拆開來看才找得到真正的卡點，而不是追著症狀跑。", "en": "\"Why is this late?\" → scope vs. vendor vs. approval vs. cash. Separating the layers finds the real blocker instead of chasing symptoms." } },
+    { "zh": "每份回報都要一個決定", "en": "Every report asks for a call",
+      "body": { "zh": "不會改變任何決策的進度回報只是雜訊。我發出的每份報告都以「我需要你做什麼決定、什麼時候之前」作結。", "en": "A status update that changes no decision is noise. Every report I send ends with: here is the call I need from you, and by when." } }
+  ]
+}
