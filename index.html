@@ -861,6 +861,9 @@ body.lang-zh [data-zh] { }
 .stl-v{display:block;font-size:.88rem;line-height:1.6;color:var(--mute)}
 .st-updated{margin-top:1.6rem;font-size:.75rem;letter-spacing:.05em;color:var(--mute);opacity:.7}
 @media(max-width:700px){#studio{padding:5rem 6vw}}
+
+.menu-label-2{margin-top:2.2rem}
+.menu-nav-work .mn-num{color:var(--gold);opacity:.75}
 </style>
 </head>
 <body class="lang-en">
@@ -917,6 +920,17 @@ body.lang-zh [data-zh] { }
         <li><a href="#skills" class="mlink"><span class="mn-num">04</span><span data-en>Skills</span><span data-zh>技能矩陣</span></a></li>
         <li><a href="#studio" class="mlink"><span class="mn-num">05</span><span data-en>Own Products</span><span data-zh>自己做的</span></a></li>
         <li><a href="#contact" class="mlink"><span class="mn-num">06</span><span data-en>Contact</span><span data-zh>聯繫方式</span></a></li>
+      </ul>
+
+      <!-- 作品集：資料分析的細節都在這裡，由 birthday-deals/claude/analysis 產生 -->
+      <p class="menu-label menu-label-2"><span data-en>— Analysis Portfolio</span><span data-zh>— 分析作品集</span></p>
+      <ul class="menu-nav menu-nav-work">
+        <li><a href="work/" class="mlink"><span class="mn-num">W1</span><span data-en>Overview</span><span data-zh>作品集首頁</span></a></li>
+        <li><a href="work/birthday-deals.html" class="mlink"><span class="mn-num">W2</span><span data-en>Birthday Deals</span><span data-zh>壽星日</span></a></li>
+        <li><a href="work/billing-forecast.html" class="mlink"><span class="mn-num">W3</span><span data-en>Billing Forecast</span><span data-zh>機電請款預估</span></a></li>
+        <li><a href="work/ml-autofill.html" class="mlink"><span class="mn-num">W4</span><span data-en>Text Classifier</span><span data-zh>投稿欄位預填</span></a></li>
+        <li><a href="work/venue-clusters.html" class="mlink"><span class="mn-num">W5</span><span data-en>Venue Clustering</span><span data-zh>商圈自動分群</span></a></li>
+        <li><a href="work/sql-report.html" class="mlink"><span class="mn-num">W6</span><span data-en>SQL Report</span><span data-zh>十一題 SQL 報告</span></a></li>
       </ul>
     </div>
     <!-- Mobile-only: project cards embedded in left panel -->
@@ -1041,8 +1055,8 @@ body.lang-zh [data-zh] { }
       <span data-zh>我把<strong>二十件同時在跑的專案</strong>變成<strong>一份交付得出來的計畫</strong>。<br>從台北的公家標案，到與首爾、阿姆斯特丹的產品會議。</span>
     </p>
     <p class="hero-tagline hero-tagline-2">
-      <span data-en>And when the numbers matter, I write the SQL myself — <a href="https://afortunadofu-bot.github.io/birthday-deals/">three products and the analysis behind them →</a></span>
-      <span data-zh>數字要算的時候，SQL 我自己寫——<a href="https://afortunadofu-bot.github.io/birthday-deals/">三個自己做的產品與背後的分析 →</a></span>
+      <span data-en>And when the numbers matter, I write the SQL myself — <a href="work/">three products and the analysis behind them →</a></span>
+      <span data-zh>數字要算的時候，SQL 我自己寫——<a href="work/">三個自己做的產品與背後的分析 →</a></span>
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn-main"><span data-en>Get in Touch →</span><span data-zh>立即聯繫 →</span></a>
@@ -1322,7 +1336,7 @@ body.lang-zh [data-zh] { }
       <span class="stl-k"><span data-en>The studio</span><span data-zh>小數據所</span></span>
       <span class="stl-v"><span data-en>Three products: birthday deals, gig diary, relationship stats</span><span data-zh>三個產品：壽星日、Bandary 聽團曆、RelateStats</span></span>
     </a>
-    <a class="stl" href="https://afortunadofu-bot.github.io/birthday-deals/">
+    <a class="stl" href="work/">
       <span class="stl-k"><span data-en>The analysis</span><span data-zh>作品集</span></span>
       <span class="stl-v"><span data-en>SQL, clustering, a text classifier, and a real billing forecast</span><span data-zh>SQL 分析、商圈分群、文字分類器，以及一份真實專案的請款預估</span></span>
     </a>
@@ -1363,7 +1377,7 @@ body.lang-zh [data-zh] { }
     <a href="#experience" class="ft-nav-link"><span data-en>Experience</span><span data-zh>工作經歷</span></a>
     <a href="#skills" class="ft-nav-link"><span data-en>Skills</span><span data-zh>技能矩陣</span></a>
     <a href="https://afortunadofu-bot.github.io/celinefubrandpage/" class="ft-nav-link"><span data-en>Studio</span><span data-zh>小數據所</span></a>
-    <a href="https://afortunadofu-bot.github.io/birthday-deals/" class="ft-nav-link"><span data-en>Portfolio</span><span data-zh>作品集</span></a>
+    <a href="work/" class="ft-nav-link"><span data-en>Portfolio</span><span data-zh>作品集</span></a>
     <a href="#contact" class="ft-nav-link"><span data-en>Contact</span><span data-zh>聯繫方式</span></a>
     <button class="ft-nav-link ft-top-btn" onclick="scrollToTop()"><span data-en>↑ Top</span><span data-zh>↑ 回頂部</span></button>
   </nav>
@@ -1798,7 +1812,7 @@ document.querySelectorAll('.skp,.etag').forEach(el=>{
    三個站同在 afortunadofu-bot.github.io 底下＝同源，fetch 不需要 CORS。
    抓不到就維持 HTML 裡的後備值，絕對不讓這一區空著或顯示 NaN。 */
 (function () {
-  var URL = 'https://afortunadofu-bot.github.io/birthday-deals/stats.json';
+  var URL = 'work/stats.json';
   var put = function (id, v) { var el = document.getElementById(id); if (el && v != null) el.textContent = v; };
   fetch(URL, { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
