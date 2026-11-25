@@ -839,6 +839,28 @@ body.lang-zh [data-zh] { }
 }
 
 @keyframes fdot{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* ══ 自己做的（#studio）══ 新增 2026-11-25
+   數字從作品集站的 stats.json 即時抓，HTML 裡的是後備值。 */
+.hero-tagline-2{margin-top:.9rem;font-size:.95rem;color:var(--mute);opacity:.9}
+.hero-tagline-2 a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,162,77,.4)}
+.hero-tagline-2 a:hover{border-bottom-color:var(--gold)}
+#studio{padding:8rem 6vw}
+.studio-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:rgba(242,240,235,.12);margin:3rem 0 2.5rem;border:1px solid rgba(242,240,235,.12)}
+.st-box{background:var(--bg);padding:1.6rem 1.4rem;display:flex;flex-direction:column;gap:.4rem}
+.st-num{font-family:var(--sans);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.6rem);
+  letter-spacing:-.02em;color:#F2F0EB;line-height:1}
+.st-lbl{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.studio-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.stl{display:block;padding:1.5rem 1.4rem;border:1px solid rgba(242,240,235,.14);
+  text-decoration:none;transition:border-color .25s,transform .25s}
+.stl:hover{border-color:var(--gold);transform:translateY(-2px)}
+.stl-k{display:block;font-family:var(--sans);font-weight:700;font-size:1.05rem;color:#F2F0EB;margin-bottom:.4rem}
+.stl-k::after{content:" →";color:var(--gold)}
+.stl-v{display:block;font-size:.88rem;line-height:1.6;color:var(--mute)}
+.st-updated{margin-top:1.6rem;font-size:.75rem;letter-spacing:.05em;color:var(--mute);opacity:.7}
+@media(max-width:700px){#studio{padding:5rem 6vw}}
 </style>
 </head>
 <body class="lang-en">
@@ -893,7 +915,8 @@ body.lang-zh [data-zh] { }
         <li><a href="#approach" class="mlink"><span class="mn-num">02</span><span data-en>Approach</span><span data-zh>思維方式</span></a></li>
         <li><a href="#experience" class="mlink"><span class="mn-num">03</span><span data-en>Experience</span><span data-zh>工作經歷</span></a></li>
         <li><a href="#skills" class="mlink"><span class="mn-num">04</span><span data-en>Skills</span><span data-zh>技能矩陣</span></a></li>
-        <li><a href="#contact" class="mlink"><span class="mn-num">05</span><span data-en>Contact</span><span data-zh>聯繫方式</span></a></li>
+        <li><a href="#studio" class="mlink"><span class="mn-num">05</span><span data-en>Own Products</span><span data-zh>自己做的</span></a></li>
+        <li><a href="#contact" class="mlink"><span class="mn-num">06</span><span data-en>Contact</span><span data-zh>聯繫方式</span></a></li>
       </ul>
     </div>
     <!-- Mobile-only: project cards embedded in left panel -->
@@ -1016,6 +1039,10 @@ body.lang-zh [data-zh] { }
     <p class="hero-tagline">
       <span data-en>I turn <strong>twenty moving projects</strong> into <strong>one delivered plan</strong>.<br>From public tenders in Taipei to product calls with Seoul and Amsterdam.</span>
       <span data-zh>我把<strong>二十件同時在跑的專案</strong>變成<strong>一份交付得出來的計畫</strong>。<br>從台北的公家標案，到與首爾、阿姆斯特丹的產品會議。</span>
+    </p>
+    <p class="hero-tagline hero-tagline-2">
+      <span data-en>And when the numbers matter, I write the SQL myself — <a href="https://afortunadofu-bot.github.io/birthday-deals/">three products and the analysis behind them →</a></span>
+      <span data-zh>數字要算的時候，SQL 我自己寫——<a href="https://afortunadofu-bot.github.io/birthday-deals/">三個自己做的產品與背後的分析 →</a></span>
     </p>
     <div class="hero-cta">
       <a href="#contact" class="btn-main"><span data-en>Get in Touch →</span><span data-zh>立即聯繫 →</span></a>
@@ -1266,6 +1293,43 @@ body.lang-zh [data-zh] { }
 </section>
 
 <!-- ══ CONTACT ══ -->
+
+<!-- ══ OWN PRODUCTS / 自己做的 ══ -->
+<section id="studio">
+  <div class="sk-intro">
+    <div class="rv">
+      <span class="sl"><span data-en>05 — Own Products</span><span data-zh>05 — 自己做的</span></span>
+      <h2 style="font-family:var(--sans);font-weight:800;font-size:clamp(2.5rem,6vw,6.5rem);letter-spacing:-.03em;line-height:.9;color:#F2F0EB">
+        <span data-en>I ALSO BUILD<br>THE <em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">DATA.</em></span>
+        <span data-zh>資料也是<br>我<em style="font-style:italic;font-family:var(--serif);font-weight:300;color:var(--gold)">自己做的</em>。</span>
+      </h2>
+    </div>
+    <p class="sk-note rv">
+      <span data-en>Outside work I run a small studio — three shipped products, and the analysis that keeps them honest. The numbers below are fetched live from the portfolio site, so this page is never out of date.</span>
+      <span data-zh>工作之外我做了一個小工作室「小數據所」：三個已上線的產品，以及讓它們不說謊的那些分析。下面的數字是即時從作品集站抓的，所以這一頁不會過期。</span>
+    </p>
+  </div>
+
+  <div class="studio-stats rv">
+    <div class="st-box"><span class="st-num" id="s-offers">581</span><span class="st-lbl"><span data-en>offers tracked</span><span data-zh>筆優惠在追</span></span></div>
+    <div class="st-box"><span class="st-num" id="s-wishes">11,205</span><span class="st-lbl"><span data-en>saves by users</span><span data-zh>次使用者收藏</span></span></div>
+    <div class="st-box"><span class="st-num" id="s-stores">21,209</span><span class="st-lbl"><span data-en>stores clustered</span><span data-zh>家店做分群</span></span></div>
+    <div class="st-box"><span class="st-num" id="s-ml">81.7%</span><span class="st-lbl"><span data-en>classifier accuracy</span><span data-zh>分類器準確率</span></span></div>
+  </div>
+
+  <div class="studio-links rv">
+    <a class="stl" href="https://afortunadofu-bot.github.io/celinefubrandpage/">
+      <span class="stl-k"><span data-en>The studio</span><span data-zh>小數據所</span></span>
+      <span class="stl-v"><span data-en>Three products: birthday deals, gig diary, relationship stats</span><span data-zh>三個產品：壽星日、Bandary 聽團曆、RelateStats</span></span>
+    </a>
+    <a class="stl" href="https://afortunadofu-bot.github.io/birthday-deals/">
+      <span class="stl-k"><span data-en>The analysis</span><span data-zh>作品集</span></span>
+      <span class="stl-v"><span data-en>SQL, clustering, a text classifier, and a real billing forecast</span><span data-zh>SQL 分析、商圈分群、文字分類器，以及一份真實專案的請款預估</span></span>
+    </a>
+  </div>
+  <p class="st-updated rv"><span data-en>data as of </span><span data-zh>數據更新於 </span><span id="s-updated">—</span></p>
+</section>
+
 <section id="contact">
   <div class="c-poster">
     <h2 class="c-big rv"><span data-en>LET'S<br><em>TALK.</em></span><span data-zh>聯繫<br><em>我吧。</em></span></h2>
@@ -1298,6 +1362,8 @@ body.lang-zh [data-zh] { }
     <a href="#approach" class="ft-nav-link"><span data-en>Approach</span><span data-zh>思維方式</span></a>
     <a href="#experience" class="ft-nav-link"><span data-en>Experience</span><span data-zh>工作經歷</span></a>
     <a href="#skills" class="ft-nav-link"><span data-en>Skills</span><span data-zh>技能矩陣</span></a>
+    <a href="https://afortunadofu-bot.github.io/celinefubrandpage/" class="ft-nav-link"><span data-en>Studio</span><span data-zh>小數據所</span></a>
+    <a href="https://afortunadofu-bot.github.io/birthday-deals/" class="ft-nav-link"><span data-en>Portfolio</span><span data-zh>作品集</span></a>
     <a href="#contact" class="ft-nav-link"><span data-en>Contact</span><span data-zh>聯繫方式</span></a>
     <button class="ft-nav-link ft-top-btn" onclick="scrollToTop()"><span data-en>↑ Top</span><span data-zh>↑ 回頂部</span></button>
   </nav>
@@ -1727,6 +1793,25 @@ document.querySelectorAll('.skp,.etag').forEach(el=>{
     }
   });
 });
+
+/* ══ 自己做的：數字即時從作品集站抓 ══ 新增 2026-11-25
+   三個站同在 afortunadofu-bot.github.io 底下＝同源，fetch 不需要 CORS。
+   抓不到就維持 HTML 裡的後備值，絕對不讓這一區空著或顯示 NaN。 */
+(function () {
+  var URL = 'https://afortunadofu-bot.github.io/birthday-deals/stats.json';
+  var put = function (id, v) { var el = document.getElementById(id); if (el && v != null) el.textContent = v; };
+  fetch(URL, { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+    .then(function (s) {
+      var n = function (x) { return (x == null) ? null : Number(x).toLocaleString('en-US'); };
+      put('s-offers', n(s.offers));
+      put('s-wishes', n(s.wishes));
+      put('s-stores', s.geo && n(s.geo.stores));
+      put('s-ml', s.ml && s.ml.accuracy != null ? s.ml.accuracy + '%' : null);
+      put('s-updated', s.updated);
+    })
+    .catch(function () { put('s-updated', '—'); });
+})();
 </script>
 </body>
 </html>
