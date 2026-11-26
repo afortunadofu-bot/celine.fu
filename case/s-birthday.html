@@ -174,6 +174,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   color:var(--rule);font-variant-numeric:tabular-nums}
 .step p{margin:0;font-size:16.5px;line-height:1.95;color:var(--ink-2);max-width:38em}
 .step.todo p{color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
+.skills{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:0 0 34px}
+.skills-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  margin-right:6px;font-weight:600}
+.sk{font-size:12.5px;padding:3px 11px;border:1px solid var(--rule);border-radius:2px;
+  color:var(--ink);background:var(--card)}
+.fc-sk{margin:0 0 12px;font-size:12px;color:var(--muted);letter-spacing:.02em}
 .links{margin:0 0 30px;padding:20px 0 0;border-top:1px solid var(--line)}
 .links-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
   margin:0 0 10px;font-weight:600}
@@ -181,6 +187,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 .links a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
 .links a:hover{border-color:var(--accent);color:var(--accent)}
 .links a::after{content:" ↗";color:var(--muted);font-size:11px}
+.row-sk{margin:7px 0 0;font-size:12px;color:var(--muted);letter-spacing:.02em}
 .row-l{margin:6px 0 0;font-size:13px}
 .row-l a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
 .row-l a:hover{border-color:var(--accent)}
@@ -253,6 +260,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <p class="kicker"><span class="zh">自有產品 · 小數據所</span><span class="en">Own product · Small Data Lab</span><span class="kdot">·</span>2026.05 —</p>
   <h1><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></h1>
   <p class="lead"><span class="zh">線上營運中，已累積 11,205 次收藏、4,784 次使用回報。</span><span class="en">Live, with 11,205 saves and 4,784 usage reports.</span></p>
+  <div class="skills"><span class="skills-h"><span class="zh">用到的技能</span><span class="en">Skills</span></span><span class="sk">SQL</span><span class="sk">Python</span><span class="sk">資料建模</span><span class="sk">指標設計</span><span class="sk">API 串接</span><span class="sk">資料視覺化</span></div>
   <div class="bignum"><span class="bn-v" data-live="offers">581</span><span class="zh bn-l">筆優惠在線上營運</span><span class="en bn-l">offers live</span></div>
   <div class="shots shots-1"><figure><img src="../img/bd-01.jpg" alt="優惠清單：581 筆、依省最多排序、每張卡片帶使用回報與成功率" loading="lazy"><figcaption><span class="zh">優惠清單：581 筆、依省最多排序、每張卡片帶使用回報與成功率</span><span class="en">The offer list: 581 live offers, sorted by value, each card carrying usage reports and success rate</span></figcaption></figure></div>
   <div class="sts"><div class="st"><div class="st-v" data-live="wishes">11,205</div><span class="zh st-l">次使用者收藏</span><span class="en st-l">saves</span></div><div class="st"><div class="st-v" data-live="reports">4,784</div><span class="zh st-l">次使用回報</span><span class="en st-l">usage reports</span></div><div class="st"><div class="st-v" data-live="success_rate">98%</div><span class="zh st-l">兌換成功率</span><span class="en st-l">redemption success</span></div></div>

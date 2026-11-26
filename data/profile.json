@@ -201,7 +201,12 @@
    "r": {
     "zh": "單案規模從 30 萬到 4,000 萬，兩件最大的從開案帶到交付結束。",
     "en": "Project size NT$300K–40M; the two largest owned end to end."
-   }
+   },
+   "skills": [
+    "專案組合管理",
+    "相依關係追蹤",
+    "利害關係人管理"
+   ]
   },
   {
    "id": "j-sourcing",
@@ -321,7 +326,13 @@
    ],
    "figure": {
     "kind": "flow"
-   }
+   },
+   "skills": [
+    "成本與範圍評分框架",
+    "議價與整併",
+    "契約範圍界定",
+    "Excel 建模"
+   ]
   },
   {
    "id": "j-public",
@@ -431,7 +442,13 @@
    ],
    "figure": {
     "kind": "timeline"
-   }
+   },
+   "skills": [
+    "公部門送審",
+    "規範比較表",
+    "RFP 撰寫",
+    "審查溝通"
+   ]
   },
   {
    "id": "j-cash",
@@ -555,9 +572,20 @@
     "zh": "看那份請款預估分析（已去識別化）→",
     "en": "See the billing forecast →"
    },
-   "figure": {
-    "kind": "cash"
-   }
+   "skills": [
+    "現金流建模",
+    "甘特主排程",
+    "跨案風險追蹤",
+    "Excel／試算表",
+    "管理報表設計"
+   ],
+   "images": [
+    {
+     "src": "../img/jx-billing.jpg",
+     "zh": "同一套邏輯後來做成單案的請款預估與現金流模型（公司名與廠商名已代號化）",
+     "en": "The same logic, later built into a single-project billing forecast (names de-identified)"
+    }
+   ]
   },
   {
    "id": "j-global",
@@ -585,7 +613,12 @@
    "r": {
     "zh": "產品進入測試版，並與新加坡政府單位開啟停車場物聯網專案。",
     "en": "Product in beta; also originated a parking-management IoT project with a Singapore government agency."
-   }
+   },
+   "skills": [
+    "跨國協作（英文）",
+    "產品需求對接",
+    "展會策展"
+   ]
   },
   {
    "id": "a-gtm",
@@ -694,7 +727,14 @@
    ],
    "figure": {
     "kind": "tiers"
-   }
+   },
+   "skills": [
+    "GTM 拆解",
+    "財務敘事",
+    "白皮書架構",
+    "投資人 CRM",
+    "Pitch Deck"
+   ]
   },
   {
    "id": "a-doc",
@@ -721,7 +761,11 @@
    "r": {
     "zh": "單一份材料服務每一種投資人。",
     "en": "One document served every investor level."
-   }
+   },
+   "skills": [
+    "文件架構",
+    "財務敘事"
+   ]
   },
   {
    "id": "a-crm",
@@ -749,7 +793,11 @@
    "r": {
     "zh": "排序有依據，異議也能回頭統計。",
     "en": "Prioritisation became repeatable, and objections became countable."
-   }
+   },
+   "skills": [
+    "CRM 設計",
+    "轉換率分析"
+   ]
   },
   {
    "id": "c-brief",
@@ -777,7 +825,12 @@
    "r": {
     "zh": "12 頁摘要直接進董事會。",
     "en": "A 12-page brief went straight to the board."
-   }
+   },
+   "skills": [
+    "跨境文件分析",
+    "決策摘要",
+    "差異標記"
+   ]
   },
   {
    "id": "c-pipeline",
@@ -804,7 +857,12 @@
    "r": {
     "zh": "同樣的分析下一案可以直接重跑。",
     "en": "The same analysis became repeatable on the next deal."
-   }
+   },
+   "skills": [
+    "Python",
+    "資料清理",
+    "財務邏輯建模"
+   ]
   },
   {
    "id": "c-survey",
@@ -832,7 +890,12 @@
    "r": {
     "zh": "定位與 LP 策略跟著改。",
     "en": "Positioning and LP strategy both changed."
-   }
+   },
+   "skills": [
+    "問卷設計",
+    "分群分析",
+    "產品定位"
+   ]
   },
   {
    "id": "m-event",
@@ -859,7 +922,12 @@
    "r": {
     "zh": "如期交付，滿意度 4.8/5。",
     "en": "On time, 4.8/5."
-   }
+   },
+   "skills": [
+    "活動統籌",
+    "甘特排程",
+    "跨組協調"
+   ]
   },
   {
    "id": "m-sponsor",
@@ -887,7 +955,12 @@
    "r": {
     "zh": "5+ 品牌合作，活動成本降低 30%。",
     "en": "5+ partnerships, costs down 30%."
-   }
+   },
+   "skills": [
+    "贊助提案",
+    "受眾 KPI 側寫",
+    "成本談判"
+   ]
   },
   {
    "id": "s-birthday",
@@ -1043,6 +1116,14 @@
      "zh": "原始碼",
      "en": "Source"
     }
+   ],
+   "skills": [
+    "SQL",
+    "Python",
+    "資料建模",
+    "指標設計",
+    "API 串接",
+    "資料視覺化"
    ]
   },
   {
@@ -1093,6 +1174,13 @@
      "zh": "Bandary 原始碼",
      "en": "Bandary source"
     }
+   ],
+   "skills": [
+    "Kotlin",
+    "Jetpack Compose",
+    "Firebase",
+    "隱私設計",
+    "Play 上架"
    ]
   },
   {
@@ -1234,6 +1322,14 @@
      "zh": "分群程式",
      "en": "Clustering code"
     }
+   ],
+   "skills": [
+    "Python",
+    "scikit-learn",
+    "DBSCAN",
+    "空間索引 BallTree",
+    "模型評估",
+    "效能分析"
    ]
   },
   {
@@ -1279,6 +1375,13 @@
      "zh": "訓練程式",
      "en": "Training code"
     }
+   ],
+   "skills": [
+    "Python",
+    "scikit-learn",
+    "TF-IDF",
+    "交叉驗證",
+    "消融實驗"
    ]
   },
   {
@@ -1315,6 +1418,12 @@
      "zh": "看那份分析（已去識別化）",
      "en": "The analysis"
     }
+   ],
+   "skills": [
+    "現金流建模",
+    "成本拆解",
+    "情境分析",
+    "資料去識別化"
    ]
   }
  ],
