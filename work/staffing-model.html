@@ -1,0 +1,635 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.qX3cvjCP.js","assets":"assets.DblGe3uy.js","call":"call.CVoYmyGP.js","comments":"comments.JKEzJr0r.js","db":"db.DM2o29RC.js","desktop":"desktop.CXuIZ5Ts.js","dictation":"dictation.CVPpurMy.js","downloads":"downloads.D-I3pnXD.js","embed":"embed.vMwZNoAB.js","endpoints":"endpoints.BklHYiLS.js","files":"files.C9J360vx.js","mcp":"mcp.BUJKV3_8.js","network":"network.B5UA9Su4.js","paste":"paste.40xLJMHt.js","permissions":"permissions.D-Yk9Ucs.js","reads":"reads.B0yO7GRe.js","room":"room.DIwoe5_k.js","sample":"sample.D65_io2g.js","self":"artifact.qX3cvjCP.js","tts":"tts.qQVZyRWb.js","user":"user.BcLAVLEd.js"},"transforms":"_transforms.R35v8CiB.js","comments":"_comments.DDjwUq_M.js","translate":"_translate.C4pk4W1g.js"}                                                                                                                                                                        </script><script>(function(){"use strict";function or(t){return t==="cookie"||t==="query"?t:void 0}function ar(t){return typeof t=="number"&&Number.isSafeInteger(t)&&t>0?t:void 0}var Fn=3e5;function ir(t,e){try{const r=t("navigation")[0],o=[r.responseStart,r.redirectEnd-r.redirectStart,r.domContentLoadedEventStart,e(),r.connectEnd-r.domainLookupStart,r.responseStart-r.requestStart];r.requestStart>0||(o.length=4);for(let a=0;a<o.length;a++)if(o[a]>=0&&o[a]<=3e5)o[a]=o[a]|0;else{if(a<4)return;o.length=4}return o}catch{return}}var sr=["light","dark","system"];function lr(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_init;return e!==null&&typeof e=="object"}function cr(t){return t!==null&&typeof t=="object"&&t.__frame_size_poke===!0}function ur(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_host_visible;return e!==null&&typeof e=="object"&&typeof e.visible=="boolean"}function fr(t){if(t===null||typeof t!="object")return!1;const e=t.__frame_theme;if(e===null||typeof e!="object")return!1;const r=e.theme;return typeof r=="string"&&sr.includes(r)}var dr=["ok","empty","snapshot_error","snapshot_timeout","unclonable","oversize","unavailable","restore_error","withheld"],pr=["TypeError","RangeError","ReferenceError","SyntaxError","DataCloneError","QuotaExceededError","AbortError","TimeoutError","SecurityError","Error","other"];function hr(t){return typeof t=="string"&&pr.includes(t)?t:"other"}var mr=Object.freeze({until:null,now:!1}),vr="__claude_hot",yr="__claude_hot_in",_r=/^__claude_hot(?:_in)?(?::|$)/,tt=/^[0-9a-z]{1,32}$/,rt=t=>t===void 0?vr:"__claude_hot:"+t,Le=t=>t===void 0?yr:"__claude_hot_in:"+t;function gr(t,e){const r=[];for(let o=0;o<t.length;o++){const a=t.key(o);a!==null&&a!==e&&_r.test(a)&&r.push(a)}for(const o of r)t.removeItem(o)}function wr(t){try{const e=JSON.parse(t)?.tab;return typeof e=="string"&&tt.test(e)?e:void 0}catch{return}}function br(t){let e=null;try{e=Y(JSON.parse(t)?.hot)}catch{return null}return e===null||typeof e.k!="string"||!tt.test(e.k)?null:ye(e.g)?{k:e.k,g:e.g}:{k:e.k}}var In=262144,Er=5e3,St=/^[a-z0-9._:-]{1,64}$/,Sr=["none","hot-restart","hard-reload"],kr=["asset","doc","added","removed"],Rr=1500,Tr=/^[0-9a-f]{64}$/;function Y(t){return t!==null&&typeof t=="object"?t:null}function ye(t){return typeof t=="number"&&Number.isInteger(t)&&t>=0&&t<2**31}function kt(t){return t===void 0||typeof t=="number"&&Number.isFinite(t)}function Ar(t){return t===void 0||typeof t=="string"&&St.test(t)}function Rt(t){const e=Y(t);return e!==null&&(e.until===null||typeof e.until=="number"&&Number.isFinite(e.until))&&typeof e.now=="boolean"}function nt(t){const e=Y(t);return e!==null&&typeof e.ver=="string"&&e.ver.length<=128&&kt(e.seq)&&typeof e.handoff=="string"&&dr.includes(e.handoff)&&Ar(e.note)}function Tt(t){const e=Y(t);return e!==null&&ye(e.gen)&&(e.phase==="final"||e.phase==="pending")&&(e.from===null||nt(e.from))}function Or(t){const e=Y(t);return e!==null&&e.kv===1&&ye(e.gen)&&nt(e.from)&&Object.hasOwn(e,"data")}function Lr(t){const e=Y(t);return e!==null&&e.__frame_hot_snapshot===!0&&ye(e.gen)&&typeof e.timeoutMs=="number"&&e.timeoutMs>=0&&e.timeoutMs<=6e4&&(e.handoff===void 0||typeof e.handoff=="boolean")&&(e.deadline===void 0||Rt(e.deadline))&&kt(e.seq)&&(e.note===void 0||typeof e.note=="string")&&(e.key===void 0||typeof e.key=="string")}function Mr(t){const e=Y(t);return e!==null&&e.__frame_hot_start===!0&&ye(e.gen)&&nt(e.from)}function Pr(t){return typeof t=="string"&&t.length>=1&&t.length<=128}function At(t){return Y(t)!==null&&!Array.isArray(t)}function Nr(t){const e=Y(t);return e!==null&&e.__frame_cap_grant===!0&&typeof e.cap=="string"&&Pr(e.ver)&&(e.grant===void 0||At(e.grant))&&(e.budgets===void 0||At(e.budgets)&&Object.values(e.budgets).every(Number.isFinite))&&(e.brokerGen===void 0||ye(e.brokerGen))}function Cr(t){const e=Y(t);return e!==null&&e.__frame_cap_rewired===!0&&(e.caps===void 0||Array.isArray(e.caps)&&e.caps.every(r=>typeof r=="string"))&&(e.brokerGen===void 0||ye(e.brokerGen))}function Ke(t){const e=Y(t);return e!==null&&typeof e.ver=="string"&&e.ver.length<=128&&Number.isFinite(e.seq)}function Ot(t){if(t==null||typeof t=="string")return!0;const e=Y(t);return e!==null&&typeof e.doc=="string"&&typeof e.profile=="string"}function Fr(t){const e=Y(t);return e!==null&&typeof e.path=="string"&&kr.includes(e.kind)&&Ot(e.from)&&Ot(e.to)}function Ir(t){return t===null?null:Object.freeze(t.filter(Fr))}function Hr(t){const e=Y(t);return e!==null&&e.__frame_hot_update===!0&&Number.isFinite(e.id)&&Ke(e.from)&&Ke(e.to)&&(e.changed===null||Array.isArray(e.changed))&&Sr.includes(e.required)&&Rt(e.deadline)&&typeof e.verdictTimeoutMs=="number"&&e.verdictTimeoutMs>=0&&e.verdictTimeoutMs<=6e4&&(e.preflight===void 0||typeof e.preflight=="string"&&Tr.test(e.preflight))}function jr(t){const e=Y(t);return e!==null&&e.__frame_hot_readdress===!0&&Ke(e.from)&&Ke(e.to)}var _e=/^[\w.-]+\.js$/;function qr(t,e,r){return r?"inert":typeof e=="string"&&_e.test(e)?t?[e]:"inert":t?"inert":"framed"}var Lt=Object.freeze({[Symbol("claude.hot.restart")]:!0});function Mt(t,e){let r;try{r=t??sessionStorage}catch{return null}const o=rt(e?.k),a=Le(e?.k);let l=null;try{l=r.getItem(o)}catch{}try{r.removeItem(o)}catch{}try{gr(r,a)}catch{}let c=null;if(l!==null&&!(e!==null&&e.g===void 0))try{const d=JSON.parse(l);Or(d)&&(e===null||d.gen===e.g)&&(c=d)}catch{}if(c===null)try{r.removeItem(a)}catch{}return c}function Pt(){const t=/^\/_f\/([^/]{1,128})\//.exec(location.pathname);return t?t[1]:""}var Br=/^[^/\\?#]{1,128}$/,ot=t=>Br.test(t)&&t!=="."&&t!=="..";function Nt(t,e,r){const o=new URL(t),a="/_f/"+e+"/";if(!e||!o.pathname.startsWith(a)||!ot(r))return null;const l=o.search.slice(1).split("&").filter(c=>!/^__frame_t(?:=|$)/.test(c)).join("&");return o.origin+"/_f/"+r+"/"+o.pathname.slice(a.length)+(l?"?"+l:"")+o.hash}var ze="{}";function Me(t){if(!t)return null;const e={ver:t.ver,handoff:t.handoff};return t.seq!==void 0&&(e.seq=t.seq),t.note!==void 0&&(e.note=t.note),e}function Ct(t,e){return t!==null&&t.note===void 0&&e?.note!==void 0?{...t,note:e.note}:t}function Ft(t){const e=t?.k;return e!==null&&typeof e=="object"?e:void 0}function Dr(t,e,r,o=null){const a=setTimeout,l=clearTimeout,c=queueMicrotask,d=performance.now.bind(performance),N=new TextEncoder;let C=null,R=null;try{C=history,R=C.replaceState.bind(C)}catch{}const _=(...n)=>{try{console.warn(...n)}catch{}};let M=Pt(),A=null;try{A=sessionStorage}catch{}const w={storage:A,fetch:typeof fetch=="function"?fetch.bind(globalThis):null,entry:location.origin+location.pathname+location.search,ver:M,priors:[],key:o?.k};let I=o?.k;const H=typeof requestAnimationFrame=="function"?requestAnimationFrame:n=>a(()=>n(d()),16);let m=e?.data??{},Z=Me(e?.from),K=e?.gen??0,J=e!==null,B=!1,D=!1,W=null,ae=!1;const pe=new AbortController;let he=null,F=null,b=null,j=!1,z=()=>{};const $=new Promise(n=>{z=n});let ee=!1,be=!1,me=!1,s,h=null,g=null,T=!1,U=!1,q=!1,x=!1;const ie=n=>{for(const u of[rt(n),Le(n)])try{A?.removeItem(u)}catch{}},G=(n,u)=>{try{u!==null&&r.post(n,u)}catch{}},Ye=()=>q||=T&&(F===null||U),oe=()=>{const n={__frame_hot:!0,ready:F!==null,accept:b!==null,demand:!0};x=!q,x&&(n.booting=!0),ee&&(n.readData=!0),me&&(n.threw=!0),h?.assess&&(n.preflight=!0),G(n,W)};let Ie=!1,He=!1,ve=!1,se=0,je=!1;const qe=()=>{Ie||!ae||ve||(Ie=!0,G({__frame_reveal_hold:!0},"*"))},Be=()=>new Promise(n=>{let u,f=0;const y=O=>{if(u===void 0)u=O;else if(O!==u||++f>=8){n();return}try{H(y)}catch{n()}};try{H(y)}catch{n()}}),Ee=()=>{ve||(se=d()),ve=!0,G({__frame_reveal_ready:!0},"*")},Se=n=>{He||(He=!0,n.then(u=>{if(u===!1)return;let f=null;try{f=h?.settle?.()??null}catch{}return(f===null?Be():new Promise(y=>{a(y,50),Promise.resolve(f).then(y,y)}).then(Be)).then(Ee)}))},Je=()=>{if(je||!ve)return;je=!0;const n=()=>{try{h?.afterReveal?.()}catch{}};n(),Be().then(()=>{n(),Ee()})},ke=(n=!1)=>{if(j||F===null||!J||!D)return;j=!0;const u=F,f=m;c(()=>{let y;try{y=u(f)}catch(L){throw z(!1),L}let O=!1;try{O=typeof y?.then=="function"}catch{}if(!O){z(!0);return}Promise.resolve(y).then(()=>z(!0),L=>{z(!1),c(()=>{throw L})})}),Se(n?$:r.dcl.then(()=>$))},Re=n=>typeof n=="string"&&St.test(n)?n:void 0,le=n=>{const u={__frame_hot_restart:!0},f=Re(n?.note);f!==void 0&&(u.note=f),n?.required==="hard-reload"&&(u.required="hard-reload"),G(u,W)},De=Object.freeze({get data(){return D||(be=!0),!J&&!ee&&(ee=!0,D&&oe()),m},get from(){return Z},get gen(){return K},signal:pe.signal,snapshot(n){typeof n=="function"&&(he=n)},ready(n){typeof n!="function"||F!==null||(F=n,qe(),oe(),B&&G({__frame_hot_ready:!0,gen:K},W),ke())},accept(n){typeof n=="function"&&(b=n,oe())},restart(n){const u={note:n?.note,required:n?.required};if(D){le(u);return}const f=s;s={note:Re(f?.note)??u.note,required:f?.required==="hard-reload"||u.required==="hard-reload"?"hard-reload":void 0}}}),Ue=()=>{if(g===null||h===null||p>=0&&!re)return;const[n,u]=g;g=null;try{h.afterStart(n,u,ve?d()-se:void 0)}catch{}},Xe=(n,u,f)=>{n.then(y=>{y!==!1&&(g=[u,f],Ue())})},xe=n=>{e!==null&&be&&(ee=!0),m={},Z=null,K=0;try{A?.removeItem(Le(o?.k))}catch{}e!==null&&!n&&Se(r.dcl.then(()=>F!==null?$:void 0))},i=()=>{Se(r.dcl.then(()=>F!==null?$:void 0)),Xe(r.dcl,Ft(e),!1)};try{addEventListener("error",()=>{me||F!==null||(me=!0,oe())})}catch{}const v=()=>{a(()=>{!q&&Ye()&&x&&oe()},0)};try{T=document.readyState==="complete",T||addEventListener("load",()=>{T=!0,v()},{once:!0})}catch{T=!0}Ye(),$.then(()=>{U=!0,v()});let p=-1,E,te,V=!0,re=!1,_t,Qe=null;const gt=n=>{const u=Qe===null;Qe=V&&n[0]!=="withheld"?n:["withheld",n[1],ze];let f=n[0];if(V&&f!=="withheld"){const O={ver:M,handoff:f};E!==void 0&&(O.seq=E),te!==void 0&&(O.note=te);try{if(A===null)throw new Error("no storage");A.setItem(rt(I),'{"kv":1,"gen":'+p+',"from":'+JSON.stringify(O)+(_t!==void 0?',"k":'+JSON.stringify(_t):"")+',"data":'+(f==="ok"?n[2]:ze)+"}")}catch{f="unavailable"}}else{f="withheld",ie(I);try{h?.release?.()}catch{}}const y={__frame_hot_snapshotted:!0,gen:p,handoff:f,bytes:n[1]};n[3]!==void 0&&(y.errName=n[3]),G(y,W),u&&(f==="snapshot_error"||f==="unclonable"||f==="oversize")&&_("claude.hot: snapshot",f,n[3])},Te=n=>{try{return hr(n?.name)}catch{return"other"}},Ae=(n,u,f=0)=>gt(u===void 0?[n,f,ze]:[n,f,ze,Te(u)]),Rn=n=>{if(n.gen<=p)return;const u=p>=0;if(p=n.gen,E=n.seq,te=Re(n.note),typeof n.key=="string"&&tt.test(n.key)&&n.key!==I&&(ie(I),I=n.key),V&&=n.handoff!==!1,u){Qe!==null?gt(Qe):re&&G({__frame_hot_held:!0,gen:p},W);return}pe.abort();const f=Object.freeze({handoff:V,timeoutMs:n.timeoutMs,deadline:n.deadline??mr}),y=he,O=()=>{if(V)try{_t=h?.capture()}catch{}if(y===null){Ae("empty");return}let S=!1;const X=a(()=>{S||(S=!0,Ae("snapshot_timeout"))},Math.max(0,f.timeoutMs));Promise.resolve().then(()=>y(f)).then(Oe=>{if(S)return;S=!0,l(X);let ce;try{ce=JSON.stringify(Oe)}catch(wt){Ae("unclonable",wt);return}if(typeof ce!="string"){Ae("unclonable");return}let ue=ce.length;try{ue=N.encode(ce).length}catch{}if(ue>262144){Ae("oversize",void 0,ue);return}gt(["ok",ue,ce])},Oe=>{S||(S=!0,l(X),Ae("snapshot_error",Oe))})};let L=null;try{L=h?.holdForIme()??null}catch{}if(L===null)O();else{re=!0,G({__frame_hot_held:!0,gen:p},W);const S=()=>{re=!1,O()};L.then(S,S)}},Tn=n=>{if(!B||J||F===null||n.gen!==K)return;let u=null;try{u=Mt(A,o&&{k:o.k,g:n.gen})}catch{}if(u!==null&&u.gen!==n.gen){u=null;try{A?.removeItem(Le(o?.k))}catch{}}m=u?.data??{},Z=Ct(Me(u?.from??n.from),Me(n.from)),u!==null&&(K=u.gen),J=!0,B=!1,Xe($,Ft(u),!0),ke(!0)},er=n=>{const u=M,f=w.entry;let y="",O,L=null;try{if(y=location.href,O=C.state,L=Nt(y,u,n),L!==null)if(R(O,"",L),location.pathname.startsWith("/_f/"+n+"/"))L=location.href;else return{failed:"navigate event canceled"}}catch(S){return{failed:Te(S)}}M=w.ver=n,w.priors.push(u)>8&&w.priors.splice(1,1);try{w.entry=Nt(f,u,n)??f}catch{}return[L,u,f,y,O]},An=({from:n,to:u})=>{let f,y;if(!ot(u.ver))f="adopt_failed",y="not a version path segment";else if(u.ver===M)f="adopted";else if(!M||n.ver!==M)f="stale";else{const L=er(u.ver);"failed"in L?(f="adopt_failed",y=L.failed):f=L[0]===null?"adopt_skipped":"adopted"}y!==void 0&&_(`claude.hot: could not move this page's URL to its new version folder /_f/${u.ver}/ (${y})`);const O={__frame_hot_readdressed:!0,to:u.ver,at:M,outcome:f};G(O,W)};let Ze=0;const On=n=>{const u=b;if(u===null||n.id<=Ze)return;Ze=n.id;const f=h?.assess;if(n.preflight===void 0||f===void 0){tr(n,u);return}let y=!1;const O=X=>{y||(y=!0,l(S),n.id===Ze&&tr(n,u,X))},L=()=>O(f.timeout(n)),S=a(L,Rr+100);f.run(n,window).then(O,L)},tr=(n,u,f)=>{let y,O=!1,L=!1,S,X,Oe=null;const ce=P=>{if(L)return!1;if(S!==void 0&&S!==P)return _(`claude.hot: u.${P}() ignored - u.${S}() was called first`),!1;const fe=S===void 0;return S=P,fe},ue=P=>{S="restart",_(`claude.hot: ${P} - restarting`)},wt=()=>{if(!ce("adopt")||n.id!==Ze)return;const P=n.to.ver;if(et.required!=="none"){ue(`u.adopt() needs required 'none', it is '${et.required}'`);return}if(!ot(P)){ue("u.adopt() cannot address this version");return}if(!M||P===M)return;const fe=er(P);if("failed"in fe){X="adopt_failed",ue(`adopt_failed ${fe.failed}; URL not changed`);return}const[ne,Et,Pn,nr,Nn]=fe;ne===null?(X="adopt_skipped",_(`claude.hot: adopt_skipped - page already left /_f/${Et}/; URL not changed, update still applied`)):X="adopted",Oe=()=>{if(M===P){if(ne!==null)try{if(location.href!==ne)_("claude.hot: adopt_revert_skipped - update not applied; URL left where the page navigated");else{if(R(Nn,"",nr),location.href!==nr){_("claude.hot: adopt_revert_failed navigate event canceled - URL still at the new version");return}X="adopt_reverted",_("claude.hot: adopt_reverted - adopt() was called but the handler threw; URL restored")}}catch(Cn){_(`claude.hot: adopt_revert_failed ${Te(Cn)} - URL still at the new version`);return}M=w.ver=Et,w.entry=Pn,w.priors[w.priors.length-1]===Et&&w.priors.pop(),ne===null&&(X=void 0)}}},et=Object.freeze({from:{ver:n.from.ver,seq:n.from.seq},to:{ver:n.to.ver,seq:n.to.seq},changed:Ir(n.changed),required:n.required,deadline:n.deadline,adopt:wt,defer(){return ce("defer")&&et.deadline.now&&ue("u.defer() past the deadline"),Lt},restart(P){return ce("restart"),S==="restart"&&!L&&(y??=Re(P?.note),O||=P?.required==="hard-reload"),Lt},...f?.update}),Ln=(P,fe)=>{L=!0,P==="threw"?(Oe?.(),y??=Te(fe).toLowerCase()):S===void 0&&_(P==="timeout"?"claude.hot: accept handler did not answer in time - restarting":"claude.hot: accept handler settled without defer/restart/adopt - restarting");const ne={__frame_hot_verdict:!0,id:n.id};ne.verdict=P==="threw"||S===void 0||S==="restart"?"restart":S==="adopt"?"applied":"deferred",ne.verdict==="restart"&&(O&&(ne.required="hard-reload"),y!==void 0&&(ne.note=y)),X!==void 0&&(ne.verdict==="applied"||X!=="adopted")&&(ne.adopt=X),G(Object.assign(ne,f?.verdict),W)};let rr=!1;const bt=(P,fe)=>rr?!1:(rr=!0,l(Mn),Ln(P,fe),!0),Mn=a(()=>bt("timeout"),n.verdictTimeoutMs);Promise.resolve().then(()=>u(et)).then(()=>bt("settled"),P=>{!bt("threw",P)&&S==="adopt"&&le({note:Te(P).toLowerCase()}),_("claude.hot: accept",Te(P))})};try{t.hot===void 0&&Object.defineProperty(t,"hot",{value:De,writable:!1,configurable:!1,enumerable:!1})}catch{}return{hot:De,boot:w,afterConnect(){ae=!0,(e!==null||F!==null)&&qe()},onInit(n,u){W=u,D=!0;const f=Tt(n)?n:null;f?.phase==="final"&&e!==null&&e.gen===f.gen?(J=!0,Z=Ct(Z,Me(f.from)),i()):(B=f?.phase==="pending",xe(B),J=!B,K=f?.gen??0,Z=Me(f?.from)),oe(),x&&a(()=>{q||(q=!0,oe())},Er),B&&F!==null&&G({__frame_hot_ready:!0,gen:K},u),s!==void 0&&(le(s),s=void 0),ke()},onNoInit(){D=!0,xe(!1),J=!0,ke()},onShell(n){return n?.__frame_revealed===!0?(Je(),!1):Lr(n)?(Rn(n),!0):Mr(n)?(Tn(n),!0):Hr(n)?(On(n),!0):jr(n)?(An(n),!0):!1},attachExtras(n){h=n,Ue(),n.assess&&oe()},inSlot:()=>Le(I)}}var Ur=256;function at(t,e,r){for(const o of t)r(o)&&t.delete(o);t.size>=Ur&&!t.has(e)&&t.delete(t.values().next().value),t.add(e)}function Pe(t,e,r,o){try{const a=t[e];if(typeof a!="function")return;t[e]=function(...l){if(o){let d;try{d=o(this)}catch{}if(d!==void 0)return d}const c=a.apply(this,l);try{r?.(this)}catch{}return c}}catch{}}var xr=()=>{},it;function Kr(){if(it)return it;const t={media:new Set,contexts:new Set,wakeLocks:new Set,gate:null,refuse:null,onStart:null,onStop:null};it=t;const e=c=>t.gate?.(c),r=c=>{t.onStop?.(c)},o=window.HTMLMediaElement?.prototype;o&&(Pe(o,"play",c=>{at(t.media,c,d=>d.paused),t.onStart?.(c)},e),Pe(o,"pause",r));const a=window.AudioContext,l=window.AudioNode?.prototype;a&&l&&(Pe(l,"connect",c=>{const d=c.context;d instanceof a&&(at(t.contexts,d,N=>N.state==="closed"),t.onStart?.(d))}),Pe(a.prototype,"resume",void 0,e),Pe(a.prototype,"suspend",r));try{const c=window.WakeLock?.prototype,d=c?.request;c&&typeof d=="function"&&(c.request=function(...N){if(t.refuse)return t.refuse();const C=d.apply(this,N);return Promise.resolve(C).then(R=>{at(t.wakeLocks,R,_=>_.released),t.onStart?.(R)},xr),C})}catch{}return t}function zr(t){let e=window;for(let r=0;e.parent&&e.parent!==e&&r<8;r++)if(e=e.parent,t(e))return!0;return!1}function Wr(){let t=null;const e=()=>t??parent,r=o=>t?o===t:zr(a=>a===o);return{post(o,a){if(t){e().postMessage(o,a);return}let l=parent;for(let c=0;c<8&&(l.postMessage(o,a),!(!l.parent||l.parent===l));c++)l=l.parent},on(o){const a=l=>{const c=l.source;r(c)&&o(l.data,l.origin,l.isTrusted,()=>{t??=c})};return addEventListener("message",a),()=>removeEventListener("message",a)},port:o=>({post(a,l){if(l?.activation){e().postMessage(a,{targetOrigin:o,includeUserActivation:!0,...l.transfer&&{transfer:l.transfer}});return}if(l?.transfer){e().postMessage(a,o,l.transfer);return}e().postMessage(a,o)},on(a,l){const c=d=>{r(d.source)&&d.origin===o&&a(d.data,d)};return addEventListener("message",c,l),()=>removeEventListener("message",c,l)}})}}function $r(){const t={post:()=>{},on:()=>()=>{}};return{...t,port:()=>t}}var Gr=500,Vr=2e4,Yr="data-token-reads",Jr="data-frame-refused-watch",Xr="data-frame-unsupported",Qr=/(?:^|\s)stylesheet(?:\s|$)/i;function Zr(t,e){let r="";if(t instanceof HTMLScriptElement?r=t.src:t instanceof HTMLLinkElement&&Qr.test(t.rel)&&(r=t.href),!r)return null;try{const o=new URL(r);return o.origin===location.origin&&o.pathname.startsWith(e)?o.origin+o.pathname:null}catch{return null}}function en(t,e,r){if(!t||e!=="query")return;const o="/_f/"+t+"/";document.documentElement.setAttribute(Jr,"");const a=location.href,l=fetch,c=setTimeout,d={method:"HEAD",cache:"no-store",credentials:"same-origin"},N=w=>w.ok||w.status===304;let C=!1,R=!1;const _=()=>removeEventListener("error",A,!0),M=async w=>{const I=await l(w,d);if(N(I))R=!0;else if(I.status===403){const H=await l(a,d);if(N(H)){const m=(await l(w,d)).status;m===403?(R=!0,document.documentElement.setAttribute(Xr,""),r()):m<500&&(R=!0)}else H.status>=400&&H.status<500&&(R=!0)}},A=w=>{if(R||C)return;if(document.documentElement.hasAttribute(Yr)){R=!0,_();return}const I=Zr(w.target,o);I&&(C=!0,c(()=>{M(I).catch(()=>{}).finally(()=>{C=!1,R&&_()})},Gr))};addEventListener("error",A,!0),addEventListener("load",_,{once:!0}),c(_,Vr)}var It="__frame_scroll",Ht="__frame_scroll_framed",tn=150,rn=310,nn=160,on=3e4,jt="p,h1,h2,h3,h4,h5,h6,li,pre,blockquote,tr,dt,dd,figcaption,summary",qt=()=>innerWidth<=rn&&innerHeight<=nn,Bt=t=>{const e=document.createTreeWalker(t,NodeFilter.SHOW_TEXT);let r="";for(;r.length<600&&e.nextNode();)r+=e.currentNode.nodeValue.slice(0,600-r.length);const o=r.replace(/\s+/g," ").trim().slice(0,120);let a=2166136261;for(let l=0;l<o.length;l++)a=Math.imul(a^o.charCodeAt(l),16777619);return o.length>11?a>>>0||1:0},Dt=t=>{for(let e=t;e&&e!==document.scrollingElement;e=e.parentElement){const r=getComputedStyle(e).position;if(r==="fixed"||r==="sticky"||e!==t&&e.scrollTop)return!1}return!0},an=()=>{const t=[],e=[];try{for(let r=0;r<16;r++){const o=document.elementFromPoint(innerWidth/(r%2?4:2),innerHeight*(r>>1)/8+1);let a=o?.closest(jt)??o;for(;a&&!a.matches(jt)&&![...a.childNodes].some(c=>c.nodeType===3&&c.nodeValue?.trim());)a=a.parentElement;const l=a&&!e.includes(a)?Bt(a):0;l&&!t.some(c=>c[0]===l&&c[2]===a.tagName)&&Dt(a)&&(e.push(a),t.push([l,Math.round(a.getBoundingClientRect().top),a.tagName]))}}catch{}return t.sort((r,o)=>+(r[1]<0)-+(o[1]<0)),t.length?t.slice(0,3):void 0},sn=t=>{try{for(const[e,r,o]of t.a??[]){const a=document.getElementsByTagName(o);let l;for(let d=0;d<a.length&&a.length<5e3;d++)Bt(a[d])===e&&(l=l===void 0||l?.contains(a[d])?a[d]:null);const c=l?.getBoundingClientRect();if(c?.height&&l.checkVisibility?.()!==!1&&Dt(l)&&isFinite(r))return Math.max(0,Math.round(scrollY+c.top-r))}}catch{}return t.y};function ln(){try{const t=location.ancestorOrigins;return t&&(origin==="null"||t[0]!==origin)?{frame:null}:{frame:frameElement??null,nested:t&&t[1]===origin}}catch{return{frame:null}}}function cn(t){const e=t===void 0?It:It+":"+t,{frame:r,nested:o}=ln(),a=r!==null,l=()=>{try{return r.inert===!0||(o??!!r?.ownerDocument.defaultView?.frameElement)}catch{return!0}};let c;const d=()=>{if(c===void 0)try{c=location.pathname.replace(/^\/_f\/[^/]{1,128}\//,"")}catch{c=null}return c};let N;try{N=/^\/_f\/[^/]+\/(.*?)(index\.html)?$/.exec(location.pathname)?.[1]||void 0}catch{}let C=0,R=!1,_=!1,M=!1,A={y:0},w=null;const I=b=>{try{if(!a){sessionStorage.setItem(e,JSON.stringify({...b,p:N}));return}const j=d();j!==null&&!l()&&sessionStorage.setItem(Ht,JSON.stringify({...b,p:j}))}catch{}},H=b=>{if(clearTimeout(C),w===null)return;const j=w;w=null,I({y:j,a:b&&j>0?an():void 0})},m=()=>{if(R){R=!1;return}_=!0,w=scrollY,clearTimeout(C),C=setTimeout(H,tn,!0)};try{addEventListener("scroll",m,{passive:!0}),addEventListener("pagehide",()=>H())}catch{}let Z=!1;const K=()=>{if(a&&l())return null;const b=a?Ht:e;let j;try{j=sessionStorage.getItem(b)}catch{return null}if(j===null)return null;let z;try{z=JSON.parse(j)}catch{z=null}const{y:$,a:ee,p:be}=z??{};if(!(typeof $=="number"&&Number.isFinite($)&&$>=0)){try{sessionStorage.removeItem(b)}catch{}return null}if(be!==(a?d():N))return Z=!0,null;const me=s=>Array.isArray(s)&&typeof s[0]=="number"&&Number.isFinite(s[1])&&typeof s[2]=="string";return{y:$,a:Array.isArray(ee)&&ee.length<4&&ee.every(me)?ee:void 0}};let J=!1,B=-1;const D=b=>{try{const j=scrollY,z=sn(b);scrollTo({top:z,left:0,behavior:"instant"}),A=qt()?b:{y:z,a:b.a},M=!0,clearTimeout(C),w=null,I(A),B=scrollY,B!==j&&(R=!0);const $=z!==b.y&&document.readyState!=="complete";(B!==z||$)&&!J&&(J=!0,addEventListener("load",()=>{try{scrollY===B&&D(K()??A)}catch{}},{once:!0}))}catch{}},W=()=>{try{return!!location.hash}catch{return!0}};let ae=!1;const pe=()=>{try{if(ae||!qt())return;ae=!0;const b=Date.now(),j=()=>{try{removeEventListener("resize",j)}catch{}Date.now()-b>on||_||W()||D(K()??A)};addEventListener("resize",j)}catch{}};let he=!1,F=!1;return{short:()=>J,restore(){if(he)return;if(he=!0,!a&&!innerHeight&&addEventListener("resize",()=>document.readyState==="complete"&&document.querySelector(":target")?.scrollIntoView({behavior:"instant"}),{once:!0}),K()===null&&(a||Z)){I({y:0});return}if(W())return;const b=K();b!==null&&(D(b),pe())},promoted(){if(F||(F=!0,W()))return;const b=K();b!==null?(D(b),pe()):M&&D(A)}}}function un(t,e,r,o){let a=null;try{a=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:N=>N})??null}catch{}const l=window.Worker,c=l?.prototype,d=Object.freeze({Worker:l,workerOn:c?.addEventListener,workerPost:c?.postMessage,workerTerminate:c?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,now:Date.now,policy:a,origins:e});r(t).then(N=>N?.bootTopLevel?N.bootTopLevel(d,o):o.settle()).catch(()=>o.settle())}var Hn="modulepreload",jn=function(t){return"/"+t},qn={},Bn=function(e){return e.pathname.endsWith(".css")},Dn=function(e,r,o){if(r in e)return e[r];const a=o();if(!a){e[r]=void 0;return}const l=a.then(()=>{e[r]=void 0},c=>{throw e[r]=void 0,c});return e[r]=l,l},fn=function(e,r,o){let a=Promise.resolve();function l(c){const d=new Event("vite:preloadError",{cancelable:!0});if(d.payload=c,window.dispatchEvent(d),!d.defaultPrevented)throw c}return a.then(c=>{for(const d of c||[])d.status==="rejected"&&l(d.reason);return e().catch(l)})},dn=window===top,Ut=Object.getOwnPropertyDescriptor(window,"claude"),We=qr(dn,window.__FRAME_PREAMBLE?.topLevel,Ut?.writable===!1),st=typeof We=="object"&&We[0],k=st?$r():Wr();(function(){const t=Object.defineProperty,e=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let o=0;for(let a=0;a<r.length;a++){const l=r[a];try{t(e,l,{value:void 0,writable:!1,configurable:!1})}catch{try{delete e[l]}catch{}try{t(e,l,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof e[l]=="function"&&o++}if(o&&We==="framed")try{k.post({__frame_rtc_lockdown_failed:o},"*")}catch{}})();var xt=1e4,pn=35e3,hn=2e3,lt=2e3,ct=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]),mn="https://*.";function Kt(t){for(const e of ct)if(e.endsWith(":*"))try{const r=new URL(t);if(`${r.protocol}//${r.hostname}:*`===e)return!0}catch{}else if(e.startsWith(mn)){if(vn(e.slice(10),t))return!0}else if(t===e)return!0;return!1}function vn(t,e){if(!/^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(t))return!1;let r;try{r=new URL(e)}catch{return!1}if(r.protocol!=="https:"||r.port!==""||r.origin!==e)return!1;const o=r.hostname;if(!o.endsWith(`.${t}`))return!1;const a=o.slice(0,o.length-t.length-1);return/^[a-z0-9-]+$/.test(a)}var Ne=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),Ce=window.__FRAME_PREAMBLE?.transforms,ut=window.__FRAME_PREAMBLE?.comments,ft=window.__FRAME_PREAMBLE?.translate,$e=or(window.__FRAME_PREAMBLE?.cred),zt=(()=>{try{const[t]=performance.getEntriesByType("navigation"),e=t?.serverTiming?.find(r=>r.name==="frame-cred-exp");return e!==void 0&&/^\d{1,15}$/.test(e.description)?ar(Number(e.description)):void 0}catch{return}})();function Wt(t){return fn(()=>import("/_runtime/"+t),void 0)}var Ge=new Set,$t=setTimeout,yn=fetch,_n=AbortController,gn=800+800*Math.random(),wn=3e3,Ve=null,Gt=new Map;function bn(t,e){let r=Gt.get(t);return r||Gt.set(t,r=En(t,e)),r}function En(t,e){if(Ve?.has(t))return Promise.resolve("csp");if(navigator.onLine===!1)return Promise.resolve("offline");const r=new _n;let o=!1;return $t(()=>{o=!0,r.abort()},wn),yn("/_runtime/"+t,{signal:r.signal}).then(a=>(r.abort(),a.ok?/javascript/i.test(a.headers.get("content-type")??"")?e instanceof Error&&/:\d+:\d+\)?$/m.test(e.stack??"")?"eval":"served":"mime":"http"),()=>o?"timeout":Ve?.has(t)?"csp":"net")}function ge(t){if(!Ve){const e=Ve=new Set;try{document.addEventListener("securitypolicyviolation",r=>{const o=/\/_runtime\/([^/?#]+)/.exec(r.blockedURI);o&&r.disposition!=="report"&&e.add(o[1])})}catch{}}return Wt(t).catch(()=>new Promise(e=>$t(e,gn)).then(()=>Wt(t+"?r=1")).then(e=>(e!==void 0&&Ge.add(t),e)))}function Vt(t,e,r){return{contract:t.contract,changes:new Set(t.changes??[]),flags:new Set(t.flags??[]),capabilities:t.capabilities??{},capBudgets:t.capBudgets??{},brokerGen:t.brokerGen,transforms:new Map,shellOrigin:e,shell:r,mount:yt,pipe:()=>({wrap:(o,a)=>(...l)=>{try{return a(...l)}catch(c){return Promise.reject(c)}}})}}var we=null,Q=null;function Yt(t,e,r){try{Object.defineProperty(t,e,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(t,e,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var dt=!1;function Jt(t){if(t.hostBackground===!0)return 0;const e=t.hostBackgroundPaceMs;return typeof e=="number"&&e>0&&e<1/0?e:void 0}function Xt(t){const e=document.documentElement;t==="light"||t==="dark"?(e.dataset.theme=t,e.style.colorScheme=t,dt=!0):dt&&(delete e.dataset.theme,e.style.colorScheme="",dt=!1)}var de=new Map,Sn=(t,e)=>Array.isArray(t)&&t.includes(e),pt=null;function ht(){let t;const e={u:new Promise(r=>{t=r}),r:r=>{e.done=!0,t(r)},done:!1,nulled:!1};return e}function Fe(t,e){t.nulled=!0,t.ver=e,t.r(null)}function mt(t,e){for(const[r,o]of de)o.done||(e&&o.asked?e(r,o):Fe(o,t))}function Qt(){for(const t of de.values())if(t.asked&&!t.done)return!0;return!1}var kn=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),vt=!1,yt=(t,e)=>{let r=de.get(t);if(r?.nulled&&vt)r=ht(),de.set(t,r);else if(!r||r.done){r?.nulled&&Q&&k.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:t,phase:"install"}},Q);return}const o=typeof e=="function"?Object.setPrototypeOf(e,kn):Object.assign(Object.create(null),e);typeof o.then=="function"&&delete o.then,r.want=void 0,r.r(Object.freeze(o))};function Zt(){const t=Ut?.value??{};Yt(window,"claude",t);for(const e of Object.keys(Ne)){if(t[e]!==void 0){Yt(t,e,t[e]);continue}de.set(e,ht())}if(t.use===void 0){const e=r=>{if(typeof r!="string"||!Object.hasOwn(Ne,r))return Promise.resolve(null);let o=de.get(r);return o?(pt&&(o.nulled||o.want!==void 0)&&(o=pt(r,o)),o.asked=!0,o.u):Promise.resolve(t[r]??null)};try{Object.defineProperty(t,"use",{value:e,writable:!0,configurable:!0,enumerable:!1})}catch{}}return t}if(We==="framed"){let t;const e=Ce&&_e.test(Ce)?ge(Ce).catch(s=>{t={f:Ce,e:s}}):Promise.resolve(void 0),r=s=>{if(s.type==="auxclick"&&s.button!==1)return;const h=s.target,g=h&&h.closest?h.closest("a[href],area[href]"):null;if(!g)return;const T=g.getAttribute("href");if(!T)return;let U;try{U=new URL(T,document.baseURI)}catch{return}if((U.protocol==="http:"||U.protocol==="https:")&&U.origin!==location.origin){s.preventDefault();const q=(g.getAttribute("target")??"").toLowerCase(),x=s.type==="auxclick"||s.metaKey||s.ctrlKey||s.shiftKey||s.altKey||!["","_self","_top","_parent"].includes(q);k.post({__frame_nav:!0,url:U.href,newTab:x},"*")}};addEventListener("click",r,!0),addEventListener("auxclick",r,!0);const o={},a=s=>{s.isTrusted&&(o.pointer=!0)},l=s=>{s.isTrusted&&(o.click=!0)};addEventListener("pointermove",a,{capture:!0,passive:!0}),addEventListener("click",l,{capture:!0,passive:!0});const c={cb:null};addEventListener("keydown",s=>c.cb?.(s),!0);const d={cb:null};addEventListener("keydown",s=>d.cb?.(s));const N=Kr();e.then(s=>s?.installEscapeForward?.(c,h=>{Q&&k.post(h,Q)})),e.then(s=>{try{s?.installFocusKeep?.()}catch{}}),e.then(s=>{try{s?.installLightDark?.()}catch{}}),e.then(s=>{if(!s?.wireNav)return;const h=k.port("*");s.wireNav(h,()=>m&&Object.hasOwn(m,"nativeNewTab")?m.nativeNewTab:void 0),removeEventListener("click",r,!0),removeEventListener("auxclick",r,!0),removeEventListener("pointermove",a,!0),removeEventListener("click",l,!0),s.wireEngagement?.(o,h,N)});let C=null;try{C=cn(wr(window.name))}catch{}const R=document.readyState==="loading"?new Promise(s=>document.addEventListener("DOMContentLoaded",()=>s(),{once:!0})):Promise.resolve();let _="dcl",M=!1;R.then(()=>{M=!0});let A=null,w=null;try{w=br(window.name),A=Mt(null,w)}catch{}const I=Zt();let H=null;try{H=Dr(I,A,{post:(s,h)=>k.post(s,h),dcl:R},w)}catch{}e.then(s=>{try{H&&s?.installHotExtras?.(H)}catch{}});let m=null,Z=null,K=0;const J=k.on((s,h,g,T)=>{Kt(h)&&lr(s)&&(T(),m=s.__frame_init,Q=h,J(),clearTimeout(K),Z?.())});if($e){const s=zt===void 0?{__frame_cred:$e}:{__frame_cred:$e,exp:zt};for(const h of ct)try{h.includes("*")||k.post(s,h)}catch{}}k.post({__frame_connect:!0},"*");try{H?.afterConnect()}catch{}const B=setTimeout,D=clearTimeout,W=()=>new Promise(s=>B(s,0));let ae=()=>NaN,pe=()=>[];try{ae=performance.now.bind(performance),pe=performance.getEntriesByType.bind(performance)}catch{}let he=0,F=null;const b=()=>{try{k.post({__frame_alive:!0},"*"),F&&!m&&!M&&!Qt()&&ae()<pn&&(F(),k.post({__frame_init_wait:!0},"*"))}catch{}he=B(b,hn)},j=()=>D(he);addEventListener("load",j,{once:!0});const z=new Promise(s=>{Z=s,F=()=>{D(K),K=B(()=>{F=null,J(),s()},xt)},F()});b();const $=new WeakSet;addEventListener("error",s=>{s.target&&$.add(s.target)},!0);try{en(Pt(),$e,()=>{e.then(s=>{try{s?.drawRefusedNotice?.()}catch{}})})}catch{}const ee=()=>{let s=[];try{s=[...document.querySelectorAll("link[rel~=stylesheet]:not([rel~=alternate])")].filter(g=>!g.sheet&&!g.disabled&&!$.has(g)&&g.getAttribute("href")&&URL.canParse(g.href)&&(!g.media||matchMedia(g.media).matches))}catch{}let h=s.length;return h===0?Promise.resolve():new Promise(g=>{try{const T=lt-ae();T>0&&(_="sheets");const U=B(g,T>0?T<lt?T:lt:0),q=()=>{--h===0&&(D(U),g())};for(const x of s)x.addEventListener("load",q,{once:!0}),x.addEventListener("error",q,{once:!0})}catch{g()}})};R.then(()=>{try{C?.restore()}catch{}});const be=Promise.all([z,R,e]).then(s=>{if(!m||!Q)return;const h=Jt(m),g=m.hostOverlays===!0;if(!g&&!h)return;const T=s[2],U=ie=>{try{return ie?.()===!0}catch{return!1}},q={cover:U(T?.declaresCover),...m.hostSides===!0&&{sides:U(T?.declaresSides)},...T?.answerLayoutCheck&&{checks:!0},...U(T?.declaresNoJump)&&{noJump:!0}};if(g&&k.post({__frame_layout:q},Q),h===void 0)return;const x=Q;return W().then(ee).then(()=>{try{T?.watchBackground?.(ie=>k.post({__frame_layout:{...q,background:ie}},x),h)}catch{}})}),me={cb:null};k.on((s,h)=>{if(Kt(h)&&cr(s)){try{C?.promoted()}catch{}me.cb?.()}}),z.then(async()=>{if(!m||!Q){mt();try{H?.onNoInit()}catch{}return}if(Xt(m.theme),m.hostVisible===!1&&e.then(i=>i?.applyHostVisible?.(!1,N)),m.hostKeys!==void 0){const i=Q,v=m.hostKeys;e.then(p=>p?.installHostKeyForward?.(d,v,E=>k.post(E,i),k.port(i)))}try{H?.onInit(m.hot,Q)}catch{}const s=Q,h=k.port(s),g=(i,v)=>k.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:i,phase:v}},s),T=(i,v,p)=>{new Promise(E=>E(bn(v,p))).then(E=>g(i,E),()=>g(i))},U=i=>k.post({__frame_cap_recovered:{cap:i}},s);let q=m.brokerGen;const x=()=>H?.boot.ver??"",ie=x(),G=(i,v)=>{const p=x();D(v.t),v.sent=!0,v.want=p,v.t=B(()=>{v.done||(v.sent=!1,Fe(v,p))},xt),k.post({__frame_cap_want:!0,cap:i,ver:p},s)},Ye=(i,v)=>{const p=de.get(i.cap),E=Ne[i.cap];if(!v||!p||p.done||p.want!==i.ver||!_e.test(E))return;if(D(p.t),p.want=void 0,q=i.brokerGen??q,i.ver!==x()){G(i.cap,p);return}if(!i.grant||i.cap==="network"){Fe(p,i.ver);return}const te=we,V=we={...te,capabilities:{...te.capabilities,[i.cap]:i.grant},capBudgets:{...te.capBudgets,[i.cap]:{...te.capBudgets[i.cap],...i.budgets}}};ge(E).then(re=>{Ge.has(E)&&U(i.cap),V.brokerGen=q,vt=!0;try{re?.install?.(V)}catch{g(i.cap,"install")}finally{vt=!1}},re=>T(i.cap,E,re)).then(()=>{p.done||Fe(p,i.ver)})};let oe=!1,Ie=!1;k.on((i,v,p)=>{if(v!==s)return;try{if(H?.onShell(i))return}catch{}if(fr(i)&&Xt(i.__frame_theme.theme),Nr(i)&&Ye(i,p),p&&Cr(i)&&(q=i.brokerGen??q),ur(i)){const V=i.__frame_host_visible.visible;e.then(re=>re?.applyHostVisible?.(V,N))}i?.__frame_native_new_tab_off&&delete m?.nativeNewTab,i?.__frame_layout_check&&e.then(V=>V?.answerLayoutCheck?.(i,re=>k.post({__frame_layout_verdict:re},s)));const E=i?.__fc_mode;E&&typeof E=="object"&&!oe&&ut&&_e.test(ut)&&(oe=!0,ge(ut).then(V=>V.install?.(s,E.on===!0,h)).catch(()=>{}));const te=i?.__ft_cmd;te&&typeof te=="object"&&!Ie&&ft&&_e.test(ft)&&(Ie=!0,ge(ft).then(V=>V.install?.(s,te,h)).catch(()=>{}))});const He=Object.keys(m.capabilities??{}),ve=He.filter(i=>Object.hasOwn(Ne,i)).map(i=>[i,Ne[i]]).filter(i=>typeof i[1]=="string"&&_e.test(i[1])),se=s;let je=!1,qe=()=>{};const Be=new Promise(i=>{qe=()=>{je=!0,i()}}),Ee=()=>(je||(_="caps"),Be),Se=A!==null||Tt(m.hot)||m.hostVisible===!1||m.hostOverlays===!0;M&&(_="init");const Je=Jt(m)!==void 0,ke=R.then(()=>(Je&&Ee(),Je?be:void 0)).then(()=>Se?Ee():W()).then(ee).then(()=>{let i=!0;try{i=Se||Qt()}catch{}return i?Ee():void 0}).then(()=>{j();const i=ir(pe,ae);let v=!1;try{v=!C?.short()&&!location.hash&&!document.querySelector("iframe,video,object,embed")&&![...document.querySelectorAll("script")].some(p=>p.src&&p.async)&&[...document.querySelectorAll("img")].every(p=>p.complete)}catch{}k.post(i?{__frame_ready:!0,nav:i,gate:_,steady:v}:{__frame_ready:!0,gate:_,steady:v},se),e.then(p=>{p?.installSizeReporter?.(se,me,h),p?.installPaintReporter?.(h),p?.installDrawnReporter?.(h,m?.drawnAtRest===!0)}),e.then(p=>{try{p?.installTabStop?.(E=>k.post(E,se))}catch{}})}),Re=await Promise.allSettled(ve.map(([,i])=>ge(i))),le=await e;if(le?.buildBoot||(t?T("_transforms",t.f,t.e):g("_transforms")),le?.buildBoot)try{we=le.buildBoot(m,le.TRANSFORMS??{},{shellOrigin:se,mount:yt,shell:h},i=>k.post({__frame_cap_telemetry:i},se))}catch{g("_transforms","install"),we=Vt(m,se,h)}else we=Vt(m,se,h);le?.buildBoot&&Ge.has(Ce??"")&&U("_transforms");const De=we;De.brokerGen=q;try{le?.installAnchorMirror?.(h)}catch{}Re.forEach((i,v)=>{const[p,E]=ve[v];if(i.status!=="fulfilled"){T(p,E,i.reason);return}Ge.has(E)&&U(p);try{i.value?.install?.(De)}catch{g(p,"install")}});const Ue=m.capWants===!0,Xe=m.usable,xe=i=>!!x()&&Sn(Xe,i)&&!He.includes(i);Ue&&(pt=(i,v)=>{const p=x();if(!p)return v;if(!v.nulled)return v.want!==p&&G(i,v),v;if(p===v.ver&&(v.sent||!xe(i)))return v;const E=ht();return de.set(i,E),G(i,E),E}),mt(ie,Ue?(i,v)=>x()!==ie||xe(i)?G(i,v):Fe(v,ie):void 0),qe(),await ke})}else st&&(Zt(),un(st,ct,ge,{settle:mt,mount:yt}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<div style="max-width:1100px;margin:0 auto;padding:14px 18px;
+  font:14px/1.7 system-ui,-apple-system,'Noto Sans TC',sans-serif;
+  background:#fff8e6;border:1px solid #f0d9a0;border-radius:10px;color:#4a3c1a;">
+  <b>這是一份自己做的試算模型，不是官方統計。</b>
+  工時是把職務拆成工項之後逐項估出來的業界經驗值，實際落差可能到 ±20–30%，
+  用在自己的案子之前建議先記兩週工時校正；
+  法規門檻的部分來自營造業法、職業安全衛生管理辦法、公共工程品質管理作業要點
+  與幾個縣市的公告，出處連結都放在頁尾。
+  <a href="index.html" style="color:#7a5c12;">← 回作品集</a>　·　
+  <a href="../" style="color:#7a5c12;">個人網頁</a>
+  <div style="margin-top:10px;padding-top:10px;border-top:1px solid #f0d9a0;font-size:13px;">
+    <b>用到的技能與工具：</b>人力資源規劃 · 工時分析 · 法規遵循 · 專案成本控管 ·
+    試算模型（可自己改參數）· 職務拆解與尖峰對照
+  </div>
+</div>
+
+<title>分析｜工務所人力編制試算</title>
+<link rel="icon" href="../img/icon-work.svg" type="image/svg+xml">
+<link rel="alternate icon" href="../img/icon-work-32.png" sizes="32x32">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F3F0; --surface:#FCFCFB; --surface2:#E9EBE5; --surface3:#DFE2DA;
+  --ink:#191F24; --ink2:#49545C; --ink3:#78838A;
+  --line:#D9DCD3; --line2:#C4C9BD;
+  --accent:#1D4E89; --accent2:#2F6BB5; --accent-soft:#E3EAF3;
+  --good:#2E7D62; --warn:#A96C08; --crit:#A93A33;
+  --s1:#2F6BB5; --s2:#E08A0B; --s3:#12A0A2; --s4:#9B63D6; --s5:#CC4450;
+  --shadow:0 1px 2px rgba(25,31,36,.06), 0 8px 24px -16px rgba(25,31,36,.28);
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --serif:"Noto Serif TC",Georgia,"Songti TC",serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#131512; --surface:#1A1D1A; --surface2:#232620; --surface3:#2C302A;
+    --ink:#ECEEE8; --ink2:#B2B9AF; --ink3:#848C82;
+    --line:#333730; --line2:#454A41;
+    --accent:#7FA9DC; --accent2:#93B8E5; --accent-soft:#1E2B3A;
+    --good:#5FBF9C; --warn:#D9A23F; --crit:#E07A72;
+    --s1:#4A86D4; --s2:#CB8214; --s3:#0E9C9E; --s4:#A57BDE; --s5:#DA5C68;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#131512; --surface:#1A1D1A; --surface2:#232620; --surface3:#2C302A;
+  --ink:#ECEEE8; --ink2:#B2B9AF; --ink3:#848C82;
+  --line:#333730; --line2:#454A41;
+  --accent:#7FA9DC; --accent2:#93B8E5; --accent-soft:#1E2B3A;
+  --good:#5FBF9C; --warn:#D9A23F; --crit:#E07A72;
+  --s1:#4A86D4; --s2:#CB8214; --s3:#0E9C9E; --s4:#A57BDE; --s5:#DA5C68;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px 96px}
+.prose{max-width:68ch}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;line-height:1.3;margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin:0 0 10px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* header */
+header.hero{border-bottom:1px solid var(--line);background:
+  linear-gradient(var(--surface),var(--surface));
+  background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;background-color:var(--surface)}
+header.hero .inner{max-width:1080px;margin:0 auto;padding:52px 24px 40px;background:linear-gradient(100deg,var(--surface) 55%,transparent)}
+header.hero h1{font-size:clamp(30px,4.4vw,46px);letter-spacing:-.01em}
+header.hero p.lede{max-width:62ch;color:var(--ink2);margin:16px 0 0;font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:22px}
+.tag{font-family:var(--mono);font-size:12px;color:var(--ink2);background:var(--surface2);border:1px solid var(--line);padding:4px 9px;border-radius:2px}
+
+nav.toc{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.toc ul{max-width:1080px;margin:0 auto;padding:0 24px;list-style:none;display:flex;gap:22px;overflow-x:auto}
+nav.toc a{display:block;padding:12px 0;font-size:13.5px;color:var(--ink2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+nav.toc a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+
+section{padding-top:56px}
+h2.sec{font-size:26px;margin-bottom:6px}
+.sec-note{color:var(--ink2);margin:10px 0 26px;max-width:68ch}
+
+/* cards */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px 20px 18px;box-shadow:var(--shadow)}
+.card h3{font-size:19px;margin-bottom:2px}
+.card .scale-meta{font-family:var(--mono);font-size:12px;color:var(--ink3);margin:4px 0 14px}
+.hc{display:flex;align-items:baseline;gap:8px;margin:0 0 12px}
+.hc b{font-family:var(--mono);font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.hc span{font-size:13px;color:var(--ink2)}
+.roles{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.roles li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.roles li:last-child{border-bottom:0}
+.roles .v{font-family:var(--mono);color:var(--ink2);white-space:nowrap}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:640px}
+caption{text-align:left;padding:14px 16px 0;color:var(--ink3);font-size:13px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--surface2);font-size:12.5px;font-weight:700;color:var(--ink2);letter-spacing:.02em;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+tfoot td{background:var(--surface2);font-weight:700;border-top:1px solid var(--line2)}
+.sub{color:var(--ink3);font-size:12.5px;display:block}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;padding:2px 7px;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.pill.ok{color:var(--good)} .pill.warn{color:var(--warn)} .pill.no{color:var(--crit)}
+
+/* charts */
+figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px 18px 12px;box-shadow:var(--shadow)}
+figcaption{font-size:13px;color:var(--ink3);margin-top:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:2px 0 14px;font-size:13px;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.chart-scroll{overflow-x:auto}
+svg text{font-family:var(--mono);fill:var(--ink2)}
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .12s;background:var(--surface);color:var(--ink);border:1px solid var(--line2);border-radius:4px;padding:7px 10px;font-size:12.5px;box-shadow:var(--shadow);z-index:50;max-width:240px}
+#tip .tk{font-family:var(--mono);color:var(--ink3);display:block;font-size:11px}
+
+/* callouts */
+.note{border-left:3px solid var(--accent);background:var(--accent-soft);padding:14px 16px;border-radius:0 4px 4px 0;font-size:14.5px;margin:20px 0}
+.note b{color:var(--ink)}
+.warnbox{border-left:3px solid var(--warn)}
+.signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;list-style:none;padding:0;margin:0}
+.signals li{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px 18px}
+.signals h4{margin:0 0 6px;font-size:15.5px;font-family:var(--sans)}
+.signals p{margin:0;font-size:14px;color:var(--ink2)}
+.signals .fix{margin-top:8px;font-size:13.5px;color:var(--ink);border-top:1px dashed var(--line2);padding-top:8px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(280px,1fr) minmax(300px,1.15fr);gap:20px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:20px;box-shadow:var(--shadow)}
+.field{display:grid;grid-template-columns:1fr 92px;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.field:last-of-type{border-bottom:0}
+.field label{font-size:14px}
+.field label span{display:block;font-size:12px;color:var(--ink3)}
+.field input{width:100%;font-family:var(--mono);font-size:14px;text-align:right;padding:7px 9px;border:1px solid var(--line2);border-radius:3px;background:var(--ground);color:var(--ink)}
+.field.check{grid-template-columns:1fr auto}
+.field.check input{width:18px;height:18px}
+.out-h{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.stat{border:1px solid var(--line);border-radius:4px;padding:12px 14px;background:var(--surface2)}
+.stat .k{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3)}
+.stat .v{font-family:var(--mono);font-size:27px;font-weight:600;letter-spacing:-.02em;line-height:1.25}
+.stat .u{font-size:12px;color:var(--ink2)}
+.bar{height:6px;background:var(--surface3);border-radius:99px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;border-radius:99px}
+#legalList{list-style:none;padding:0;margin:0 0 14px}
+#legalList li{font-size:14px;padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}
+#legalList li:last-child{border-bottom:0}
+#legalList .lb{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:2px;border:1px solid currentColor;flex:0 0 auto;margin-top:3px}
+footer{margin-top:72px;padding-top:28px;border-top:1px solid var(--line);color:var(--ink2);font-size:13.5px}
+footer ol{padding-left:20px} footer li{margin-bottom:6px}
+@media (max-width:720px){
+  .calc{grid-template-columns:1fr}
+  header.hero .inner{padding:38px 20px 30px}
+  .wrap{padding:0 18px 72px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="hero">
+  <div class="inner">
+    <p class="eyebrow">建案工務所 · 職掌盤點與工時基準</p>
+    <h1>工務所要幾個人才夠？</h1>
+    <p class="lede">把一個建案工務所裡「工地主任」與「行政庶務」的每一件事拆開，標上頻率與單次工時，換算成月工時，再回推需要幾個人。含小型、中型、大型三級對照，以及現行法規強制編制門檻。</p>
+    <div class="meta">
+      <span class="tag">法規查證日：2026-09</span>
+      <span class="tag">工時基準：1 人月 = 150 可承載工時</span>
+      <span class="tag">適用：民間建案為主，公共工程另註</span>
+    </div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="章節">
+  <ul>
+    <li><a href="#summary">一分鐘結論</a></li>
+    <li><a href="#legal">法規強制門檻</a></li>
+    <li><a href="#director">工地主任工時</a></li>
+    <li><a href="#admin">行政庶務工時</a></li>
+    <li><a href="#others">其他職務</a></li>
+    <li><a href="#curve">人力曲線</a></li>
+    <li><a href="#dual">兼任可行性</a></li>
+    <li><a href="#signals">人力不足徵兆</a></li>
+    <li><a href="#calc">編制試算</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+<section id="summary">
+  <p class="eyebrow">結論先講</p>
+  <h2 class="sec">三種規模的工務所編制</h2>
+  <p class="sec-note">下列人數是「工地端常駐編制」，不含公司總部的工程部、採購、會計。括號內為該職務的估算月工時；單人月可承載工時以 150 小時計（名目 176 小時扣掉交通、等待、會議溢出與請假）。</p>
+  <div class="grid3">
+    <div class="card">
+      <h3>小型建案</h3>
+      <p class="scale-meta">7 層以下 · 1 億以下 · 工期 12–18 月 · 尖峰工地 20–30 人</p>
+      <p class="hc"><b>2.5–3.5</b><span>人常駐</span></p>
+      <ul class="roles">
+        <li><span>工地主任<span class="sub">可兼職安丙種</span></span><span class="v">1 人 · 89 h</span></li>
+        <li><span>現場工程師／監工</span><span class="v">0–1 人</span></li>
+        <li><span>工務行政</span><span class="v">0.5–1 人 · 68 h</span></li>
+        <li><span>職安業務主管（丙種）</span><span class="v">兼任</span></li>
+        <li><span>品管</span><span class="v">民間案非強制</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>中型建案 <span class="pill ok">主軸案例</span></h3>
+      <p class="scale-meta">10–20 層 · 2–4 億 · 工期 24–30 月 · 尖峰工地 60–120 人</p>
+      <p class="hc"><b>5–6.5</b><span>人常駐</span></p>
+      <ul class="roles">
+        <li><span>工地主任<span class="sub">不得兼其他工地</span></span><span class="v">1 人 · 141 h</span></li>
+        <li><span>現場工程師／監工</span><span class="v">2 人</span></li>
+        <li><span>工務行政</span><span class="v">1–1.5 人 · 131 h</span></li>
+        <li><span>職安人員<span class="sub">乙種＋管理員</span></span><span class="v">1 人</span></li>
+        <li><span>品管／測量</span><span class="v">0.5 人或工程師兼</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>大型／公共工程</h3>
+      <p class="scale-meta">20 層以上或 10 億以上 · 開挖 10 m＋ · 工期 30–48 月 · 尖峰 150–400 人</p>
+      <p class="hc"><b>11–16</b><span>人常駐</span></p>
+      <ul class="roles">
+        <li><span>所長／工地經理＋主任</span><span class="v">2 人 · 190 h＋</span></li>
+        <li><span>現場工程師<span class="sub">結構／機電／裝修</span></span><span class="v">3–5 人</span></li>
+        <li><span>工務行政<span class="sub">文書＋計價分工</span></span><span class="v">2 人 · 226 h</span></li>
+        <li><span>職安<span class="sub">甲種＋管理員，須專職</span></span><span class="v">2–3 人</span></li>
+        <li><span>品管／測量<span class="sub">2 億以上品管 2 人</span></span><span class="v">2–3 人</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>最關鍵的一條線：</b>中型案的工地主任月工時已達 141 小時、工務行政 131 小時，兩者都逼近單人 150 小時的天花板。這代表「一主任＋一行政」的配置在平常日勉強成立，但每逢月底估驗計價、材料送審高峰、勞檢或使照查驗，一定爆量——超時的部分通常由主任自己吞掉，或行政加班補。編制要撐得住的是尖峰，不是平均。</div>
+</section>
+
+<section id="legal">
+  <p class="eyebrow">法規</p>
+  <h2 class="sec">哪些人是法律規定「一定要有」的</h2>
+  <p class="sec-note">編制討論的底線不是老闆的成本感覺，是下面這張表。門檻一到，人就必須到位，而且部分職務不得兼任。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th style="width:15%">職務</th><th style="width:38%">設置門檻</th><th style="width:27%">專職／兼任限制</th><th style="width:20%">法源</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>工地主任</b></td>
+          <td>符合任一即應設置：<br>· 承攬金額 5,000 萬元以上<br>· 建築物高度 36 公尺以上<br>· 建築物地下室開挖 10 公尺以上<br>· 橋梁柱跨距 25 公尺以上</td>
+          <td>施工期間<b>不得同時兼任其他營造工地</b>之工地主任業務；須具工地主任執業證，每 4 年回訓換證。<span class="sub">2,000 萬–5,000 萬元工程得由專任工程人員或指定專人執行其職務。</span></td>
+          <td>營造業法 §30、§31、§32；施行細則 §18</td>
+        </tr>
+        <tr>
+          <td><b>專任工程人員</b></td>
+          <td>營造業公司必置，非按單一工地計；工程之施工計畫、開竣工文件、查驗到場說明由其簽署。</td>
+          <td>須為<b>繼續性從業人員</b>，不得於工作時間內同時從事二項以上繼續性工作；<span class="sub">同一工地不得同時兼任工地主任。</span></td>
+          <td>營造業法 §34、§35、§41</td>
+        </tr>
+        <tr>
+          <td><b>品管人員</b><span class="sub">公共工程</span></td>
+          <td>· 2,000 萬元以上未達 2 億元：至少 1 人<br>· 2 億元以上：至少 2 人<br><span class="sub">民間建案非強制，惟契約常比照要求。</span></td>
+          <td>5,000 萬元以上須<b>專職</b>、不得跨越其他標案，契約期間應在工地執行職務；2,000 萬–5,000 萬元得兼其他法規允許職務但不得跨標案。</td>
+          <td>公共工程施工品質管理作業要點 第 4 點</td>
+        </tr>
+        <tr>
+          <td><b>職業安全衛生人員</b></td>
+          <td>依<b>工地勞工總人數</b>（含承攬人、再承攬人之勞工，同期同工作場所合計）：<br>· 未滿 30 人：丙種業務主管 1<br>· 30–99 人：乙種業務主管 1＋管理員 1<br>· 100–299 人：甲種業務主管 1＋管理員 1<br>· 300–499 人：甲種 1＋管理師 1＋管理員 2<br>· 500 人以上：甲種 1＋管理師 2＋管理員 2</td>
+          <td>100 人以上之事業單位，管理人員應<b>專職常駐</b>，不得兼任其他法令所定專責（任）人員或與職安無關工作；並應設專責一級管理單位。</td>
+          <td>職業安全衛生管理辦法 §2-1、§3、§6 及附表二</td>
+        </tr>
+        <tr>
+          <td><b>丁類危險性工作場所審查</b></td>
+          <td>· 建築物高度 80 公尺以上<br>· 開挖深度 18 公尺以上且開挖面積 500 m² 以上<br>· 模板支撐高度 7 公尺以上且面積 330 m² 以上<br>· 隧道長度 1,000 公尺以上或豎坑深度 15 公尺以上<br>· 採壓氣施工作業</td>
+          <td>須於使勞工作業前經審查合格。<span class="sub">實務上等於多一個專責窗口與一整套審查文件、施工計畫與定期報備工作。</span></td>
+          <td>勞動檢查法 §26；危險性工作場所審查及檢查辦法</td>
+        </tr>
+        <tr>
+          <td><b>技術士</b></td>
+          <td>建築物施工日誌附「技術士簽章表」，載明專業工程項目應置技術士種類、人數、姓名、證號。</td>
+          <td>由工地主任按日填報施工日誌並簽章；部分縣市（如桃園）自 114 年 7 月 1 日起改為<b>線上系統每日填報</b>。</td>
+          <td>營造業法 §32 I②；內政部「建築物施工日誌」格式</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="director">
+  <p class="eyebrow">工時拆解 · 一</p>
+  <h2 class="sec">工地主任每個月花掉的時間</h2>
+  <p class="sec-note">營造業法 §32 給工地主任六款法定職責：依施工計畫書執行按圖施工、按日填報施工日誌、工地人員機具材料管理、勞工安全衛生督導與公共環境維護、緊急異常狀況通報、其他依法令應辦事項。下表把這六款展開成實際會佔用時間的動作，並依規模給出月工時（每月以 22 個工作日計）。</p>
+  <div class="tw">
+    <table>
+      <caption>單位：小時／月。日、週頻率項目已換算為月工時。</caption>
+      <thead><tr><th style="width:34%">工作項目</th><th style="width:20%">頻率與單次工時（中型）</th><th class="n">小型</th><th class="n">中型</th><th class="n">大型</th></tr></thead>
+      <tbody>
+        <tr><td>早會、派工與工班順序協調</td><td>每日 0.5 h</td><td class="n">7</td><td class="n">11</td><td class="n">15</td></tr>
+        <tr><td>現場巡查、按圖施工與品質確認</td><td>每日 1.5 h</td><td class="n">22</td><td class="n">33</td><td class="n">44</td></tr>
+        <tr><td>施工日誌審核／線上填報簽章<span class="sub">含技術士簽章表、出工人數核對</span></td><td>每日 0.3 h</td><td class="n">7</td><td class="n">7</td><td class="n">9</td></tr>
+        <tr><td>材料與機具進場點驗<span class="sub">核對送審核准品項、規格、數量</span></td><td>每日 0.4 h</td><td class="n">7</td><td class="n">9</td><td class="n">13</td></tr>
+        <tr><td>分包商協調、缺失單追蹤與複驗</td><td>每週 3 h</td><td class="n">9</td><td class="n">13</td><td class="n">22</td></tr>
+        <tr><td>進度管控、排程更新與趕工檢討</td><td>每週 2 h</td><td class="n">7</td><td class="n">9</td><td class="n">13</td></tr>
+        <tr><td>監造／業主／建築師協調會</td><td>每週 2 h</td><td class="n">7</td><td class="n">9</td><td class="n">13</td></tr>
+        <tr><td>工安巡查、勞安週會、教育訓練、自動檢查</td><td>每週 2 h</td><td class="n">7</td><td class="n">9</td><td class="n">13</td></tr>
+        <tr><td>圖說審查、施工計畫書、界面檢討</td><td>每週 2.5 h</td><td class="n">7</td><td class="n">11</td><td class="n">17</td></tr>
+        <tr><td>估驗計價審核（對上估驗、對下請款）</td><td>每月 6 h</td><td class="n">4</td><td class="n">6</td><td class="n">10</td></tr>
+        <tr><td>公部門查驗、勞檢、建管／消防會勘到場說明</td><td>每月 6 h</td><td class="n">3</td><td class="n">6</td><td class="n">10</td></tr>
+        <tr><td>異常事件、鄰損、客訴、天災停復工應變</td><td>每月 8 h</td><td class="n">4</td><td class="n">8</td><td class="n">12</td></tr>
+      </tbody>
+      <tfoot><tr><td>合計</td><td>—</td><td class="n">89</td><td class="n">141</td><td class="n">190</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="note warnbox"><b>大型案的 190 小時是一個訊號，不是一個人的工作量。</b>超過 150 小時就代表這個職位的常態是加班；超過 180 小時實務上必須分層——設所長（工地經理）負責對業主、對公司、對外協調與資源調度，工地主任專責現場執行與法定簽章。硬壓在一個人身上的結果通常是簽章品質下降與工安風險上升。</div>
+</section>
+
+<section id="admin">
+  <p class="eyebrow">工時拆解 · 二</p>
+  <h2 class="sec">工務所行政庶務每個月花掉的時間</h2>
+  <p class="sec-note">行政庶務常被當成「打打文件」，實際上它是工地與公司、業主、政府之間唯一的文件管道。下表以中型案 110 本材料送審、18 家下包為基準；送審與計價這兩項是整份工時表裡波動最大的。</p>
+  <div class="tw">
+    <table>
+      <caption>單位：小時／月。小型＝50 本送審／8 家下包；大型＝300 本送審／40 家下包。</caption>
+      <thead><tr><th style="width:34%">工作項目</th><th style="width:20%">頻率與單次工時（中型）</th><th class="n">小型</th><th class="n">中型</th><th class="n">大型</th></tr></thead>
+      <tbody>
+        <tr><td>收發文、公文簽呈、往來信件與歸檔</td><td>每日 1 h</td><td class="n">11</td><td class="n">22</td><td class="n">33</td></tr>
+        <tr><td>圖說收發與版次管理、施工圖發放回收</td><td>每週 2 h</td><td class="n">4</td><td class="n">9</td><td class="n">17</td></tr>
+        <tr><td><b>材料送審</b>：資料蒐集、表單製作、送件、追審、覆審回應、樣品送樣<span class="sub">每本 2.5–4 h，中型案月均 4 本、高峰月 8–10 本</span></td><td>每本 3 h × 月均 4 本</td><td class="n">12</td><td class="n">26</td><td class="n">50</td></tr>
+        <tr><td>對業主估驗計價：數量計算、計價單、發票請款</td><td>每月 8 h</td><td class="n">5</td><td class="n">8</td><td class="n">14</td></tr>
+        <tr><td>對下包發包、請款、扣款、保留款、履約文件</td><td>每家 0.7 h × 18 家</td><td class="n">5</td><td class="n">12</td><td class="n">22</td></tr>
+        <tr><td>出工人數與日報統計、零用金出納、月結報表</td><td>每月 10 h</td><td class="n">6</td><td class="n">10</td><td class="n">16</td></tr>
+        <tr><td>法定申報：空污費、剩餘土石方流向、廢棄物清運聯單、勞保職保、移工、危害告知</td><td>每月 10 h</td><td class="n">6</td><td class="n">10</td><td class="n">16</td></tr>
+        <tr><td>會議紀錄、進度報表、業主月報與簡報</td><td>每月 8 h</td><td class="n">4</td><td class="n">8</td><td class="n">14</td></tr>
+        <tr><td>跑件：建管、勞檢、環保、水電信與業主／公司送件</td><td>每月 8 h</td><td class="n">5</td><td class="n">8</td><td class="n">12</td></tr>
+        <tr><td>工務所庶務：識別證門禁、教育訓練簽到、耗材、飲水、宿舍、來訪接待、開工儀式</td><td>每月 10 h</td><td class="n">6</td><td class="n">10</td><td class="n">16</td></tr>
+        <tr><td>竣工文件、竣工圖、保固、使照與驗屋文件<span class="sub">後期集中發生，此處以全案攤平</span></td><td>每月 8 h</td><td class="n">4</td><td class="n">8</td><td class="n">16</td></tr>
+      </tbody>
+      <tfoot><tr><td>合計</td><td>—</td><td class="n">68</td><td class="n">131</td><td class="n">226</td></tr></tfoot>
+    </table>
+  </div>
+
+  <figure style="margin-top:24px">
+    <p class="eyebrow" style="margin-bottom:4px">中型建案 · 各職務估算月工時 vs 單人 150 小時可承載線</p>
+    <div class="chart-scroll"><svg id="chartHours" viewBox="0 0 720 320" width="100%" height="320" role="img" aria-label="中型建案各職務月工時長條圖，工地主任 141 小時、工務行政 131 小時，皆逼近 150 小時可承載線"></svg></div>
+    <figcaption>灰色虛線為單人月可承載工時 150 小時（名目 176 小時扣除交通、等待、會議溢出與請假）。超過此線者，實務上不是加班就是要加人。</figcaption>
+  </figure>
+</section>
+
+<section id="others">
+  <p class="eyebrow">工時拆解 · 三</p>
+  <h2 class="sec">其他常駐職務的工作內容與工時</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th style="width:16%">職務</th><th style="width:46%">主要工作</th><th class="n">月工時／人</th><th style="width:20%">配置建議</th></tr></thead>
+      <tbody>
+        <tr><td><b>現場工程師／監工</b></td><td>放樣與測量配合、每日盯場與工序銜接、施工日報、缺失單開立與追蹤、材料數量估算與請料、工班與機具調度、隱蔽部位自主檢查、與監造點交</td><td class="n">165–185</td><td>每 1–1.5 億工程量配 1 人；結構、機電、裝修分工</td></tr>
+        <tr><td><b>職安人員</b></td><td>自動檢查計畫與紀錄、危害告知與教育訓練、承攬商協議組織會議、高風險作業許可（動火、局限空間、高架、開挖）、勞檢與缺失改善、職災通報</td><td class="n">150–176</td><td>依工地總人數（含下包）依法配置；100 人以上須專職</td></tr>
+        <tr><td><b>品管人員</b></td><td>品質計畫與自主檢查表、材料送審與試驗（混凝土、鋼筋、樁、防水）、內部品質稽核、不合格品矯正預防、品質紀錄歸檔</td><td class="n">120–170</td><td>公共工程依金額強制；民間案常由工程師或行政兼</td></tr>
+        <tr><td><b>測量</b></td><td>基準點與樓層放樣、垂直度與標高查核、竣工測量</td><td class="n">80–160</td><td>中型案外包或工程師兼；大型案專職 1–2 人</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="curve">
+  <p class="eyebrow">時間軸</p>
+  <h2 class="sec">人力不是一條直線：中型案的階段編制</h2>
+  <p class="sec-note">用「全案平均幾人」編列預算，一定會在結構期不夠、在收尾期多出人。下圖是 27 個月中型建案的階段常駐人力。</p>
+  <figure>
+    <div class="legend" id="legendPhase"></div>
+    <div class="chart-scroll"><svg id="chartPhase" viewBox="0 0 720 340" width="100%" height="340" role="img" aria-label="中型建案五個施工階段的工務所人力堆疊柱狀圖，結構期與裝修期為人力尖峰約 6.5 人"></svg></div>
+    <figcaption>單位：人。數值為該階段常駐編制，0.5 表示兼任或半時支援。</figcaption>
+  </figure>
+  <div class="tw" style="margin-top:16px">
+    <table>
+      <thead><tr><th>階段</th><th>期間</th><th class="n">工地主任</th><th class="n">工程師</th><th class="n">工務行政</th><th class="n">職安</th><th class="n">品管／測量</th><th class="n">小計</th><th>行政庶務的重點</th></tr></thead>
+      <tbody>
+        <tr><td>前置與開工報備</td><td>1–2 月</td><td class="n">1</td><td class="n">1</td><td class="n">1</td><td class="n">0.5</td><td class="n">0</td><td class="n">3.5</td><td>開工申報、空污費申報、鄰房鑑定、施工計畫書、圍籬與臨時水電、勞保投保</td></tr>
+        <tr><td>假設工程與基礎開挖</td><td>4–6 月</td><td class="n">1</td><td class="n">2</td><td class="n">1</td><td class="n">1</td><td class="n">0.5</td><td class="n">5.5</td><td>土石方流向申報、擋土支撐與開挖監測報表、丁類審查（如適用）</td></tr>
+        <tr><td>地上結構</td><td>8–12 月</td><td class="n">1</td><td class="n">2</td><td class="n">1</td><td class="n">1</td><td class="n">0.5</td><td class="n">5.5</td><td>材料送審高峰（鋼筋、混凝土、模板、防水）、混凝土試體與試驗報告、月估驗</td></tr>
+        <tr><td>裝修與機電</td><td>6–8 月</td><td class="n">1</td><td class="n">3</td><td class="n">1.5</td><td class="n">1</td><td class="n">0</td><td class="n">6.5</td><td>送審本數與下包家數同時衝高、樣品與型錄核可、界面協調、變更追加</td></tr>
+        <tr><td>驗收、使照與交屋</td><td>2–3 月</td><td class="n">1</td><td class="n">1.5</td><td class="n">1.5</td><td class="n">0.5</td><td class="n">0</td><td class="n">4.5</td><td>竣工圖、竣工文件彙整、使照申請、保固書、驗屋缺失單與結算</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><b>注意兩個尖峰不同步：</b>現場人力的尖峰在結構期，行政文件的尖峰在<b>裝修期</b>——送審本數、下包家數、變更追加、樣品核可全部疊在一起。很多工務所在結構期把行政編制訂下來，到裝修期就開始靠加班硬撐。</div>
+</section>
+
+<section id="dual">
+  <p class="eyebrow">成本控制</p>
+  <h2 class="sec">哪些職務可以兼、哪些不能兼</h2>
+  <p class="sec-note">精簡編制的第一個念頭都是「一個人多掛幾張證」。下表是法規容許的範圍；主管機關對個案仍會依工程金額、規模與實際執行狀況認定，契約另有更嚴格約定者從契約。</p>
+  <div class="tw">
+    <table>
+      <thead><tr><th style="width:32%">組合</th><th style="width:14%">可行性</th><th>條件與風險</th></tr></thead>
+      <tbody>
+        <tr><td>工地主任 ＋ 其他工地的工地主任</td><td><span class="pill no">不可</span></td><td>施工期間不得同時兼任其他營造工地之工地主任業務；違反可處警告或停止執行業務 3 個月至 1 年。</td></tr>
+        <tr><td>專任工程人員 ＋ 同一工地工地主任</td><td><span class="pill no">不可</span></td><td>專任工程人員須為繼續性從業人員，不得同時從事二項以上繼續性工作；兩者職責分立、互相查核。</td></tr>
+        <tr><td>工地主任 ＋ 品管人員</td><td><span class="pill warn">個案認定</span></td><td>2,000 萬–5,000 萬元工程，品管人員得兼其他法規允許職務；5,000 萬元以上品管須專職，能否與工地主任並存須依個案認定。</td></tr>
+        <tr><td>工地主任／工程師 ＋ 職安業務主管</td><td><span class="pill ok">可</span></td><td>僅限工地勞工總數未滿 100 人時（丙種或乙種業務主管）；100 人以上職安管理人員須專職常駐，不得兼任其他法定專責人員。</td></tr>
+        <tr><td>工務行政 ＋ 品管文件、送審文件</td><td><span class="pill ok">可</span></td><td>民間案常見做法。風險在於送審與試驗報告的專業判讀落到非技術人員身上，退件率與重工風險升高。</td></tr>
+        <tr><td>工務行政 ＋ 兩個工地</td><td><span class="pill warn">僅限小型</span></td><td>兩案都在 1 億以下且非同期尖峰才可能成立；一旦兩案同時進入裝修期，月工時直接超過 200 小時。</td></tr>
+        <tr><td>材料送審委外代辦</td><td><span class="pill ok">可</span></td><td>送審是文件密集、可標準化、與現場施工可脫鉤的工項，中型案月均 26 小時、大型案 50 小時。委外能把行政的尖峰削掉，但需明確界定送審範圍、退件重送責任與資料提供時限。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="signals">
+  <p class="eyebrow">診斷</p>
+  <h2 class="sec">人力不足的六個早期徵兆</h2>
+  <ul class="signals">
+    <li><h4>施工日誌變成月底補</h4><p>法規要求按日填報，一旦變成回頭補，代表現場已經沒有人有餘裕即時記錄。這同時是勞檢與履約爭議時最致命的破口。</p><p class="fix">對策：日誌改由當班工程師即時填、主任隔日審；線上填報縣市尤其無法事後補。</p></li>
+    <li><h4>材料送審永遠在追進度</h4><p>送審核准落後於施工需求，開始出現「先進場再補送審」。退件一次的重工成本遠高於當初省下的人力。</p><p class="fix">對策：以施工排程回推送審時程表；高峰期加人或委外，把送審與現場脫鉤。</p></li>
+    <li><h4>估驗計價每個月都拖到最後一天</h4><p>計價文件的品質直接影響現金流。行政被日常雜務吃掉，計價就會擠到月底三天，錯誤與漏算跟著發生。</p><p class="fix">對策：把數量計算固定在每月 20 日前完成，庶務改批次處理。</p></li>
+    <li><h4>主任的時間都在開會與跑件</h4><p>當巡查時間被壓縮到每日一小時以下，品質與工安問題會從「當場發現」變成「事後補救」。</p><p class="fix">對策：對外協調與跑件移交給所長或行政；主任的現場時間視為不可挪用。</p></li>
+    <li><h4>缺失單開了沒人追</h4><p>開單量正常、結案率低，是典型的人力缺口症狀，通常出現在裝修期工班家數暴增之後。</p><p class="fix">對策：裝修期提前增補 1 名工程師，缺失追蹤指定單一負責人。</p></li>
+    <li><h4>工地行政半年換一次人</h4><p>月工時長期在 170 小時以上、又是新人接手，交接成本會吃掉省下來的薪資，文件斷層還會延伸到竣工文件。</p><p class="fix">對策：以尖峰而非平均編列人力，或用委外承接可切割的文件工項。</p></li>
+  </ul>
+</section>
+
+<section id="calc">
+  <p class="eyebrow">工具</p>
+  <h2 class="sec">用你的案子試算一次</h2>
+  <p class="sec-note">改下面的數字，右側會依同一套工時模型與法規門檻算出建議編制。預設值為前述中型案例（3 億、15 層、27 個月、110 本送審、18 家下包、尖峰 90 人）。</p>
+  <div class="calc">
+    <div class="panel">
+      <div class="field"><label for="i_amt">承攬金額 <span>萬元（含稅）</span></label><input id="i_amt" type="number" min="500" step="500" value="30000"></div>
+      <div class="field"><label for="i_dur">工期 <span>月</span></label><input id="i_dur" type="number" min="3" step="1" value="27"></div>
+      <div class="field"><label for="i_h">建築物高度 <span>公尺</span></label><input id="i_h" type="number" min="3" step="1" value="48"></div>
+      <div class="field"><label for="i_dig">地下室開挖深度 <span>公尺</span></label><input id="i_dig" type="number" min="0" step="0.5" value="12"></div>
+      <div class="field"><label for="i_pk">尖峰工地人數 <span>含下包、再承攬</span></label><input id="i_pk" type="number" min="1" step="5" value="90"></div>
+      <div class="field"><label for="i_sub">材料送審總本數 <span>全案</span></label><input id="i_sub" type="number" min="0" step="10" value="110"></div>
+      <div class="field"><label for="i_vend">下包家數 <span>同期發包</span></label><input id="i_vend" type="number" min="0" step="1" value="18"></div>
+      <div class="field check"><label for="i_pub">公共工程 <span>適用品管要點</span></label><input id="i_pub" type="checkbox"></div>
+    </div>
+    <div class="panel">
+      <div class="out-h">
+        <div class="stat"><div class="k">工地主任 月工時</div><div class="v" id="o_dir">—</div><div class="u" id="o_dir_n">—</div><div class="bar"><i id="o_dir_bar" style="background:var(--s1);width:0"></i></div></div>
+        <div class="stat"><div class="k">工務行政 月工時</div><div class="v" id="o_adm">—</div><div class="u" id="o_adm_n">—</div><div class="bar"><i id="o_adm_bar" style="background:var(--s3);width:0"></i></div></div>
+      </div>
+      <p class="eyebrow" style="margin-bottom:6px">法規強制職務</p>
+      <ul id="legalList"></ul>
+      <p class="eyebrow" style="margin-bottom:6px">建議常駐編制</p>
+      <ul class="roles" id="crewList"></ul>
+      <p style="font-size:13px;color:var(--ink3);margin:14px 0 0" id="o_total">—</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>使用說明與限制。</b>法規門檻為 2026 年 9 月查得之現行規定，實務仍以主管機關函釋、地方自治法規與契約約定為準；跨越門檻前請再向當地建管、勞檢單位確認。工時數值為依工項頻率推估的<b>業界經驗值</b>，非官方統計，會因公司制度、業主嚴格程度、監造要求、資訊化程度（線上日誌、雲端送審）而變動 ±20–30%。建議取一個實際案子做兩週的工時紀錄，用實測值取代本表的假設。</p>
+  <p style="margin-top:16px"><b>資料來源</b></p>
+  <ol>
+    <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=D0070110">營造業法</a>（全國法規資料庫）：§30 工地主任設置、§31 資格、§32 職責與不得兼任、§34–35 專任工程人員、§41 到場說明</li>
+    <li><a href="https://oba.tycg.gov.tw/News_Content.aspx?n=8703&amp;s=1277182">桃園市營造業工地主任設置及備查申請須知</a>：施行細則 §18 應置工地主任之金額與規模門檻、異動備查</li>
+    <li><a href="https://oba.tycg.gov.tw/dailyrecord.htm">桃園市建築執照工程施工日誌線上填報</a>：自 114 年 7 月 1 日起實施</li>
+    <li><a href="https://www.lawtw.com/archives/359850">內政部「建築物施工日誌」暨技術士簽章表</a>：記載欄位與簽章責任</li>
+    <li><a href="https://lawweb.pcc.gov.tw/LawContent.aspx?id=FL003734">公共工程施工品質管理作業要點</a>（工程會）：第 4 點品管人員人數與專職規定、第 6 點工作重點</li>
+    <li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0060027">職業安全衛生管理辦法</a>及<a href="https://ilabor.ntpc.gov.tw/file/fileDownload?id=280517868&amp;serverName=db62a529-25b6-42de-8acd-896ac671cabe">新北市勞工局營造工地人員配置說明</a>：勞工人數計算含承攬人、附表二人員配置</li>
+    <li><a href="https://klsio.kcg.gov.tw/cp.aspx?n=79B4A3FD29C8630F">高雄市勞動檢查處：丁類危險性工作場所</a>：建築物 80 公尺、開挖 18 公尺等門檻</li>
+    <li><a href="https://www.cop.ntpc.gov.tw/userfiles/2040800/files/1120609-%E6%96%B0%E5%8C%97%E5%BA%9C%E5%B7%A5%E6%8E%A1%E5%AD%97%E7%AC%AC1123205924%E8%99%9F.pdf">新北市政府：工地相關人員同時具兩種以上證照於同一工地兼任認定</a></li>
+    <li><a href="https://www.epd.ntpc.gov.tw/Qa?catID=1856">新北市環保局：營建工程空污費申報</a>：開工申報、完工結算與逾期罰則</li>
+    <li><a href="https://www.trendlink.com.tw/blog/field-construction-manager">聯和趨動：工地主任、專任工程人員、工地負責人的差別</a></li>
+    <li><a href="https://www.1111.com.tw/1000w/fanshome/discussTopic.asp?cat=FANS&amp;id=200231">1111 人力銀行：營造公司工地事務所行政助理工作內容分享</a></li>
+  </ol>
+</footer>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  function showTip(e,html){tip.innerHTML=html;tip.style.opacity=1;moveTip(e);}
+  function moveTip(e){var x=e.clientX+14,y=e.clientY+14;var r=tip.getBoundingClientRect();
+    if(x+r.width>window.innerWidth-8)x=e.clientX-r.width-14;
+    if(y+r.height>window.innerHeight-8)y=e.clientY-r.height-14;
+    tip.style.left=x+'px';tip.style.top=y+'px';}
+  function hideTip(){tip.style.opacity=0;}
+  function cs(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+  var SVGNS='http://www.w3.org/2000/svg';
+  function el(n,a){var e=document.createElementNS(SVGNS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+
+  /* ---------- chart 1: horizontal bars, monthly hours ---------- */
+  var hoursData=[
+    {k:'工地主任',v:141,c:'--s1',note:'法定 6 款職責展開，巡查佔 33 h'},
+    {k:'現場工程師（每人）',v:175,c:'--s2',note:'盯場、日報、缺失單、請料'},
+    {k:'工務行政',v:131,c:'--s3',note:'送審 26 h、計價 20 h 為最大宗'},
+    {k:'職安人員',v:160,c:'--s4',note:'自動檢查、教育訓練、作業許可'},
+    {k:'品管／測量',v:140,c:'--s5',note:'民間案常由工程師兼任'}
+  ];
+  function drawHours(){
+    var svg=document.getElementById('chartHours');svg.innerHTML='';
+    var W=720,H=320,L=132,R=54,T=18,B=34,cap=150,max=200;
+    var bw=W-L-R, n=hoursData.length, band=(H-T-B)/n;
+    var x=function(v){return L+v/max*bw;};
+    /* gridlines */
+    [0,50,100,150,200].forEach(function(g){
+      svg.appendChild(el('line',{x1:x(g),x2:x(g),y1:T,y2:H-B,stroke:cs('--line'),'stroke-width':1}));
+      var t=el('text',{x:x(g),y:H-B+18,'text-anchor':'middle','font-size':11,fill:cs('--ink3')});t.textContent=g;svg.appendChild(t);
+    });
+    hoursData.forEach(function(d,i){
+      var y=T+i*band+band*0.22, h=band*0.5;
+      var r=el('rect',{x:L,y:y,width:Math.max(2,x(d.v)-L),height:h,rx:4,fill:cs(d.c)});
+      r.style.cursor='default';
+      r.addEventListener('mousemove',function(e){showTip(e,'<span class="tk">'+d.k+'</span><b>'+d.v+' 小時／月</b><br>'+d.note);});
+      r.addEventListener('mouseleave',hideTip);
+      svg.appendChild(r);
+      var lab=el('text',{x:L-10,y:y+h/2+4,'text-anchor':'end','font-size':12,fill:cs('--ink2')});lab.textContent=d.k;svg.appendChild(lab);
+      var val=el('text',{x:x(d.v)+8,y:y+h/2+4,'font-size':12.5,fill:cs('--ink'),'font-weight':600});val.textContent=d.v+' h';svg.appendChild(val);
+    });
+    /* capacity line */
+    svg.appendChild(el('line',{x1:x(cap),x2:x(cap),y1:T-6,y2:H-B+4,stroke:cs('--ink3'),'stroke-width':1.5,'stroke-dasharray':'5 4'}));
+    var ct=el('text',{x:x(cap),y:T-10,'text-anchor':'middle','font-size':11.5,fill:cs('--ink2')});ct.textContent='單人可承載 150 h';svg.appendChild(ct);
+    var ax=el('text',{x:W-R+6,y:H-B+18,'font-size':11,fill:cs('--ink3')});ax.textContent='小時';svg.appendChild(ax);
+  }
+
+  /* ---------- chart 2: stacked columns, phase headcount ---------- */
+  var roles=[{k:'工地主任',c:'--s1'},{k:'現場工程師',c:'--s2'},{k:'工務行政',c:'--s3'},{k:'職安',c:'--s4'},{k:'品管／測量',c:'--s5'}];
+  var phases=[
+    {k:'前置與開工報備',m:'1–2 月',v:[1,1,1,.5,0]},
+    {k:'假設工程與開挖',m:'4–6 月',v:[1,2,1,1,.5]},
+    {k:'地上結構',m:'8–12 月',v:[1,2,1,1,.5]},
+    {k:'裝修與機電',m:'6–8 月',v:[1,3,1.5,1,0]},
+    {k:'驗收與交屋',m:'2–3 月',v:[1,1.5,1.5,.5,0]}
+  ];
+  function drawPhase(){
+    var lg=document.getElementById('legendPhase');lg.innerHTML='';
+    roles.forEach(function(r){var s=document.createElement('span');s.innerHTML='<i style="background:'+cs(r.c)+'"></i>'+r.k;lg.appendChild(s);});
+    var svg=document.getElementById('chartPhase');svg.innerHTML='';
+    var W=720,H=340,L=44,R=16,T=22,B=54,max=7;
+    var pw=(W-L-R)/phases.length, bw=Math.min(78,pw*0.54);
+    var y=function(v){return H-B-(v/max)*(H-B-T);};
+    [0,1,2,3,4,5,6,7].forEach(function(g){
+      svg.appendChild(el('line',{x1:L,x2:W-R,y1:y(g),y2:y(g),stroke:cs('--line'),'stroke-width':1}));
+      var t=el('text',{x:L-9,y:y(g)+4,'text-anchor':'end','font-size':11,fill:cs('--ink3')});t.textContent=g;svg.appendChild(t);
+    });
+    phases.forEach(function(p,i){
+      var cx=L+pw*i+pw/2, acc=0, tot=p.v.reduce(function(a,b){return a+b;},0);
+      p.v.forEach(function(v,j){
+        if(v<=0)return;
+        var y0=y(acc), y1=y(acc+v), h=Math.max(1,y0-y1-2);
+        var r=el('rect',{x:cx-bw/2,y:y1,width:bw,height:h,rx:2,fill:cs(roles[j].c)});
+        r.addEventListener('mousemove',function(e){showTip(e,'<span class="tk">'+p.k+' · '+p.m+'</span><b>'+roles[j].k+'：'+v+' 人</b><br>該階段合計 '+tot+' 人');});
+        r.addEventListener('mouseleave',hideTip);
+        svg.appendChild(r);
+        acc+=v;
+      });
+      var tl=el('text',{x:cx,y:y(tot)-9,'text-anchor':'middle','font-size':13,'font-weight':600,fill:cs('--ink')});tl.textContent=tot+' 人';svg.appendChild(tl);
+      var l1=el('text',{x:cx,y:H-B+20,'text-anchor':'middle','font-size':11.5,fill:cs('--ink2')});l1.textContent=p.k;svg.appendChild(l1);
+      var l2=el('text',{x:cx,y:H-B+36,'text-anchor':'middle','font-size':11,fill:cs('--ink3')});l2.textContent=p.m;svg.appendChild(l2);
+    });
+    var yl=el('text',{x:L-9,y:T-8,'text-anchor':'end','font-size':11,fill:cs('--ink3')});yl.textContent='人';svg.appendChild(yl);
+  }
+
+  /* ---------- calculator ---------- */
+  var ids=['i_amt','i_dur','i_h','i_dig','i_pk','i_sub','i_vend','i_pub'];
+  function val(id){var e=document.getElementById(id);return e.type==='checkbox'?e.checked:parseFloat(e.value)||0;}
+  function round5(x){return Math.round(x*2)/2;}
+  function calc(){
+    var amt=Math.max(200,val('i_amt')),dur=Math.max(3,val('i_dur')),hgt=val('i_h'),dig=val('i_dig'),
+        pk=Math.max(1,val('i_pk')),sub=val('i_sub'),vend=val('i_vend'),pub=val('i_pub');
+    var dirH=Math.round(133*Math.pow(amt/30000,0.42)+Math.min(20,pk/12));
+    var admH=Math.round(85*Math.pow(amt/30000,0.35)+(sub/dur)*3+vend*0.7+20+(pub?12:0));
+    function setStat(pfx,h){
+      document.getElementById(pfx).textContent=h+' h';
+      var n=h/150, txt;
+      if(h<=110)txt='＝ '+n.toFixed(1)+' 人份，尚有餘裕';
+      else if(h<=150)txt='＝ '+n.toFixed(1)+' 人份，接近滿載';
+      else if(h<=180)txt='＝ '+n.toFixed(1)+' 人份，常態加班';
+      else txt='＝ '+n.toFixed(1)+' 人份，必須加人或分層';
+      document.getElementById(pfx+'_n').textContent=txt;
+      var bar=document.getElementById(pfx+'_bar');
+      bar.style.width=Math.min(100,h/200*100)+'%';
+      bar.style.background=h>180?cs('--crit'):(h>150?cs('--warn'):cs(pfx==='o_dir'?'--s1':'--s3'));
+    }
+    setStat('o_dir',dirH);setStat('o_adm',admH);
+
+    /* legal */
+    var legal=[];
+    var needDir=amt>=5000||hgt>=36||dig>=10;
+    legal.push(needDir
+      ? {t:'必置',c:'crit',s:'工地主任',d:(amt>=5000?'承攬金額達 5,000 萬元；':'')+(hgt>=36?'建築物高度達 36 公尺；':'')+(dig>=10?'地下開挖達 10 公尺；':'')+'施工期間不得兼任其他工地。'}
+      : (amt>=2000?{t:'得指定',c:'warn',s:'工地主任職務',d:'2,000 萬–5,000 萬元，得由專任工程人員或指定專人執行工地主任職務。'}
+                 :{t:'非強制',c:'ok',s:'工地主任',d:'未達門檻，仍建議指定現場負責人並按日填報施工日誌。'}));
+    var osh = pk<30?{s:'丙種職業安全衛生業務主管 1 人',d:'工地勞工總數未滿 30 人，得由現場人員兼任。',c:'ok',t:'可兼任'}
+            : pk<100?{s:'乙種業務主管 1 人＋管理員 1 人',d:'工地勞工總數 30–99 人（含下包、再承攬）。',c:'warn',t:'應設置'}
+            : pk<300?{s:'甲種業務主管 1 人＋管理員 1 人',d:'100 人以上：管理人員須專職常駐，並設專責一級管理單位。',c:'crit',t:'須專職'}
+            : pk<500?{s:'甲種 1＋管理師 1＋管理員 2 人以上',d:'300–499 人，均須專職。',c:'crit',t:'須專職'}
+                    :{s:'甲種 1＋管理師 2＋管理員 2 人以上',d:'500 人以上，均須專職。',c:'crit',t:'須專職'};
+    legal.push(osh);
+    if(pub){
+      legal.push(amt>=20000?{t:'2 人',c:'crit',s:'品管人員',d:'2 億元以上至少 2 人，且須專職、不得跨標案。'}
+        :amt>=5000?{t:'1 人',c:'warn',s:'品管人員',d:'5,000 萬元以上至少 1 人，須專職、不得跨標案。'}
+        :amt>=2000?{t:'1 人',c:'ok',s:'品管人員',d:'2,000 萬–5,000 萬元至少 1 人，得兼其他法規允許職務。'}
+        :{t:'非強制',c:'ok',s:'品管人員',d:'未達 2,000 萬元。'});
+    }else{
+      legal.push({t:'契約定',c:'ok',s:'品管人員',d:'民間建案非強制，惟業主／監造契約常比照品管要點要求配置。'});
+    }
+    if(hgt>=80||dig>=18)legal.push({t:'須審查',c:'crit',s:'丁類危險性工作場所',d:(hgt>=80?'建築物高度達 80 公尺；':'')+(dig>=18?'開挖深度達 18 公尺（且面積 500 m² 以上）；':'')+'作業前須經審查合格，另須專責窗口處理審查文件。'});
+    var ll=document.getElementById('legalList');ll.innerHTML='';
+    legal.forEach(function(x){
+      var li=document.createElement('li');
+      li.innerHTML='<span class="lb" style="color:var(--'+(x.c==='ok'?'good':(x.c==='warn'?'warn':'crit'))+')">'+x.t+'</span><span><b>'+x.s+'</b><br><span style="color:var(--ink2);font-size:13px">'+x.d+'</span></span>';
+      ll.appendChild(li);
+    });
+
+    /* crew */
+    var eng=Math.max(1,Math.round(0.9*Math.sqrt(amt/10000)));
+    var admN=round5(Math.max(0.5,admH/150));
+    var dirN=dirH>180?2:1;
+    var oshN=pk<30?0:(pk<100?1:(pk<300?2:(pk<500?4:5)));
+    var qcN=pub?(amt>=20000?2:(amt>=2000?1:0)):(amt>=30000?0.5:0);
+    var rows=[
+      ['工地主任'+(dirN>1?'（＋所長分層）':''),dirN+' 人',dirH+' h'],
+      ['現場工程師／監工',eng+' 人','約 175 h／人'],
+      ['工務行政',admN+' 人',admH+' h'],
+      ['職安人員',(oshN||'兼任')+(oshN?' 人':''),pk<30?'可由現場人員兼任':(pk<100?'得由現場人員兼辦（非專職）':'須專職常駐')],
+      ['品管／測量',(qcN||'—')+(qcN?' 人':''),pub?'依品管要點':'依契約']
+    ];
+    var cl=document.getElementById('crewList');cl.innerHTML='';
+    rows.forEach(function(r){var li=document.createElement('li');
+      li.innerHTML='<span>'+r[0]+'</span><span class="v">'+r[1]+' <span style="color:var(--ink3)">· '+r[2]+'</span></span>';cl.appendChild(li);});
+    var tot=dirN+eng+admN+(oshN||0)+(qcN||0);
+    document.getElementById('o_total').textContent='工地端常駐合計約 '+tot.toFixed(1).replace(/\.0$/,'')+' 人（不含公司總部工程部、採購與會計；職安、品管若依法須專職則不可與其他職務重複計算）。';
+  }
+  ids.forEach(function(id){var e=document.getElementById(id);e.addEventListener('input',calc);e.addEventListener('change',calc);});
+
+  function drawAll(){drawHours();drawPhase();}
+  drawAll();calc();
+  document.addEventListener('mousemove',function(e){if(tip.style.opacity==1)moveTip(e);});
+  if(window.matchMedia){var mq=window.matchMedia('(prefers-color-scheme: dark)');
+    if(mq.addEventListener)mq.addEventListener('change',function(){drawAll();calc();});}
+})();
+</script>
+
+</body></html>

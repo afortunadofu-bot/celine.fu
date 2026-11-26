@@ -221,7 +221,7 @@ ul.plain b{color:var(--ink)}
 <section class="card">
   <p class="lede">壽星日的優惠有一部分是使用者投稿的。送進來是一段自由文字，
     但資料庫裡「優惠型態／入會方式／類別」三欄是編碼過的選項，現在靠人一筆一筆判斷。
-    這個模型的工作不是取代判斷，是<b>把有把握的那些先填好</b>，其餘留白。</p>
+    這個模型只做一件事：<b>把有把握的那幾欄先填好</b>，其餘留白。</p>
   <p>訓練資料是 575 筆已經標好的優惠，輸入只用投稿當下就有的東西：
     品牌名、優惠內容、條件。五折交叉驗證，所有數字都是 out-of-fold 算的。</p>
 </section><section class="card"><h2>結果：三個任務，差很多</h2>
@@ -259,12 +259,11 @@ ul.plain b{color:var(--ink)}
 </svg>
   <p>模型本身是字元 n-gram TF-IDF ＋ 羅吉斯迴歸（平衡類別）。
     比過 ComplementNB 跟校準過的線性 SVM，三個任務都是這組 macro-F1 最高。
-    不斷詞是刻意的：中文斷詞器對「大麥克或勁辣雞腿堡＋小薯$89」這種混了品名、
+    不斷詞是有理由的：中文斷詞器對「大麥克或勁辣雞腿堡＋小薯$89」這種混了品名、
     數字、符號的句子常切壞，字元 2–4 gram 反而穩。</p>
-</section><section class="card"><h2>真正要挑的是門檻，不是準確率</h2>
+</section><section class="card"><h2>真正要挑的是門檻</h2>
   <p>模型不需要每一筆都答。只要「有把握的那些」夠準，就可以自動預填，
-    其餘留白給人。所以真正要挑的不是準確率，是<b>門檻</b>：
-    信心超過多少才敢填。</p>
+    其餘留白給人。所以要挑的是<b>門檻</b>：信心超過多少才敢填。</p>
   <p class="caption">優惠型態：每一點是一個信心門檻，橫軸是會自動填的比例，
     縱軸是這些自動填的準確率</p>
   <svg class="chart" viewBox="0 0 720 340" role="img" aria-label="覆蓋率與準確率的取捨">
@@ -298,7 +297,7 @@ ul.plain b{color:var(--ink)}
 </svg>
   <p>選的是<b>門檻 0.6：64.0% 的投稿會被自動填，
     這些填的 92.4% 是對的。</b>挑法是「自動填的至少九成正確之下，
-    覆蓋率最大」。九成是自己定的——預填錯一欄的代價是審稿的人改回來，不是災難；
+    覆蓋率最大」。九成是自己定的：預填錯一欄，代價只是審稿的人改回來；
     如果這個欄位錯了會直接影響使用者，門檻要再拉高。</p>
   <p>另外兩個欄位用同一條規則挑，結果是入會方式只敢填 10.5%、
     類別只敢填 13.8%。這就是下一節的事。</p>
@@ -313,13 +312,13 @@ ul.plain b{color:var(--ink)}
     同一個人在同一個畫面填的，投稿當下還不存在。
     <b>會跳 13.1
     個百分點，正好說明這個資訊只能從別的地方來</b>，例如品牌官網或同集團既有品牌。</p>
-  <h3>類別的瓶頸是分類法，不是模型</h3>
+  <h3>瓶頸出在分類法</h3>
   <p>類別只有 57.8%。看混淆矩陣就知道錯在哪：火鍋、燒肉、速食、甜點
     全部往「餐廳」跑。這四類在語意上互相包含——燒肉店也是餐廳，人在標的時候也會猶豫。</p>
   <p>把餐廳／火鍋／燒肉／速食合併成「餐飲」再分一次，準確率從
     57.8% 跳到 69.5%。
     <b>那 11.7
-    個百分點是分類法要負的責任，不是模型不夠強。</b>
+    個百分點要算在分類法頭上。</b>
     產品上的選擇因此變成：要嘛接受細類只能半自動，要嘛重新設計分類（例如主類＋子標籤）。</p>
   <p class="caption">類別的混淆矩陣（橫軸是模型猜的，直軸是實際的；對角線才是對的）</p>
   <table class="matrix"><thead><tr><th></th><th>其他</th><th>娛樂樂園</th><th>火鍋</th><th>燒肉</th><th>甜點烘焙</th><th>速食</th><th>零售美妝</th><th>飲料</th><th>餐廳</th></tr></thead><tbody><tr><th scope="row">其他</th><td style="background:rgba(42,120,214,0.18)">13</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.07)">3</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.13)">8</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.10)">5</td><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.22)">18</td></tr><tr><th scope="row">娛樂樂園</th><td style="background:rgba(42,120,214,0.10)">5</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.10)">5</td></tr><tr><th scope="row">火鍋</th><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.48)">60</td><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.19)">14</td></tr><tr><th scope="row">燒肉</th><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.07)">3</td><td style="background:rgba(42,120,214,0.27)">24</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.12)">7</td></tr><tr><th scope="row">甜點烘焙</th><td style="background:rgba(42,120,214,0.07)">3</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.35)">36</td><td style="background:rgba(42,120,214,0.05)">2</td><td style="background:rgba(42,120,214,0.07)">3</td><td style="background:rgba(42,120,214,0.10)">5</td><td style="background:rgba(42,120,214,0.25)">22</td></tr><tr><th scope="row">速食</th><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.08)">4</td><td style="background:rgba(42,120,214,0.10)">5</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.08)">4</td><td style="background:rgba(42,120,214,0.18)">13</td></tr><tr><th scope="row">零售美妝</th><td style="background:rgba(42,120,214,0.11)">6</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.07)">3</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.10)">5</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.07)">3</td></tr><tr><th scope="row">飲料</th><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.16)">11</td><td style="background:rgba(42,120,214,0.00)">·</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.32)">31</td><td style="background:rgba(42,120,214,0.11)">6</td></tr><tr><th scope="row">餐廳</th><td style="background:rgba(42,120,214,0.16)">11</td><td style="background:rgba(42,120,214,0.03)">1</td><td style="background:rgba(42,120,214,0.13)">8</td><td style="background:rgba(42,120,214,0.18)">13</td><td style="background:rgba(42,120,214,0.25)">22</td><td style="background:rgba(42,120,214,0.11)">6</td><td style="background:rgba(42,120,214,0.08)">4</td><td style="background:rgba(42,120,214,0.12)">7</td><td class="on-fill" style="background:rgba(42,120,214,0.92)">161</td></tr></tbody></table>

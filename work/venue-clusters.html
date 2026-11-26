@@ -226,7 +226,7 @@ ul.plain b{color:var(--ink)}
     再用那 148 個人工商圈當對照組驗收。非監督學習最容易自我感覺良好，
     有人工標準可以對的時候就該對。</p>
 </section><section class="card"><h2>方法與參數</h2>
-  <p>DBSCAN，距離用 haversine（球面距離，不是把經緯度當平面座標），
+  <p>DBSCAN，距離用 haversine（球面距離，沒有把經緯度當平面座標），
     底層走 BallTree。兩個參數要掃：<code>eps</code> 是「多近算鄰居」，
     <code>min_samples</code> 是「幾家店才算一群」。</p>
   <p>另外加一條領域規則：<b>一個商圈至少要有 3 個不同品牌</b>。
@@ -236,7 +236,7 @@ ul.plain b{color:var(--ink)}
     <tbody><tr><th scope="row">100 m / 4</th><td>991</td><td>31.5%</td><td>77.7%</td><td>5</td></tr><tr><th scope="row">100 m / 6</th><td>339</td><td>14.9%</td><td>50.7%</td><td>8</td></tr><tr><th scope="row">100 m / 8</th><td>117</td><td>6.5%</td><td>27.7%</td><td>9</td></tr><tr><th scope="row">150 m / 4</th><td>1149</td><td>50.1%</td><td>79.7%</td><td>6</td></tr><tr><th scope="row">150 m / 6</th><td>568</td><td>32.6%</td><td>69.6%</td><td>8</td></tr><tr><th scope="row">150 m / 8</th><td>278</td><td>20.2%</td><td>52.0%</td><td>11</td></tr><tr><th scope="row">200 m / 4</th><td>1033</td><td>62.8%</td><td>64.2%</td><td>6</td></tr><tr><th scope="row">200 m / 6</th><td>616</td><td>47.7%</td><td>64.9%</td><td>9</td></tr><tr><th scope="row">200 m / 8</th><td>397</td><td>35.1%</td><td>54.7%</td><td>12</td></tr><tr><th scope="row">300 m / 4</th><td>731</td><td>77.8%</td><td>33.8%</td><td>7</td></tr><tr><th scope="row">300 m / 6</th><td>504</td><td>68.9%</td><td>32.4%</td><td>11</td></tr><tr><th scope="row">300 m / 8</th><td>382</td><td>59.8%</td><td>31.8%</td><td>14</td></tr></tbody></table>
   <p><b>半徑放大，反而對不上。</b>eps 從 150 m 拉到 300 m，收進的店從 50% 升到 78%，
     但對上人工商圈的比例從 79.7% 掉到 33.8%——因為相鄰的街區被黏成一大塊，
-    重心飄離原本的商圈中心。這條曲線不是「越大越好」，是有甜蜜點的。</p>
+    重心飄離原本的商圈中心。這條曲線有甜蜜點，不是越大越好。</p>
   <p>最後選 <b>eps = 150 m、min_samples = 4</b>：
     對上人工的比例最高，同分再取收進最多店家的。
     沒有用 silhouette 挑參數——它只看分得乾不乾淨，不管分出來的是不是商圈。</p>
@@ -331,7 +331,7 @@ ul.plain b{color:var(--ink)}
     自動找到 203 個；
     台南 6 對
     82。
-    這正是自動化的用處——不是取代那 148 個手工的，是把其他縣市補起來。</p>
+    自動化要補的就是這一塊，那 148 個手工圈的照樣留著。</p>
 </section><section class="card"><h2>對不上的那些，才是重點</h2>
   <p>30 個人工商圈沒被對上。把它們列出來之後，型態很一致：</p>
   <table class="metrics"><thead><tr><th>人工商圈</th><th>縣市</th>
@@ -339,7 +339,7 @@ ul.plain b{color:var(--ink)}
   <p><b>幾乎全是郊區的大型購物中心</b>（Outlet、夢時代、萬家福、秀泰）。
     它們周圍沒有密集的店家，密度法當然抓不到——一棟樓裡有五十家店，
     但在地圖上那是一個點。</p>
-  <p>所以結論不是「模型不夠好」，是<b>商圈有兩種</b>：街區型（靠密度）
+  <p>所以結論是<b>商圈有兩種</b>：街區型（靠密度）
     跟單點型（一棟建築就是一個商圈）。後者要用別的訊號，例如 OSM 的
     <code>shop=mall</code> 標籤或樓地板面積，密度分群本來就不該處理它。</p>
 </section><section class="card"><h2>資料結構：為什麼不能用暴力法</h2>
@@ -353,7 +353,7 @@ ul.plain b{color:var(--ink)}
   <ul class="plain">
     <li><b>先補六都以外。</b>雙北的人工商圈已經夠細，自動的價值在台中、台南、
       彰化、新竹這些手工還沒做到的地方。</li>
-    <li><b>自動的當草稿，不是直接上線。</b>名字還是要人取——
+    <li><b>自動的只當草稿。</b>名字還是要人取——
       「台北市第 17 群」沒有人看得懂，「中山站・南京西路」才有用。</li>
     <li><b>郊區購物中心另外處理。</b>那 30 個對不上的不要硬塞進密度分群，
       用 OSM 的 mall 標籤直接建一個點。</li>

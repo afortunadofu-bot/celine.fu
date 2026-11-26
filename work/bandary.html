@@ -226,11 +226,11 @@ ul.plain b{color:var(--ink)}
     這一頁講的是「這個產品要怎麼知道做得好不好」。</p>
 </section><section class="card"><h2>已經做出來的東西</h2>
   <div class="stats"><div class="stat"><div class="stat-label">已上架</div><div class="stat-value">1.121.2</div><div class="stat-sub">Google Play，2026-05 開始做</div></div><div class="stat"><div class="stat-label">程式規模</div><div class="stat-value">59,526 行</div><div class="stat-sub">197 個 Kotlin 檔（2026-11-25 實測）</div></div><div class="stat"><div class="stat-label">回饋管道</div><div class="stat-value">App 內建</div><div class="stat-sub">表單直接寫進 Firestore，含 1–5 星滿意度</div></div><div class="stat"><div class="stat-label">後台</div><div class="stat-value">自己做的</div><div class="stat-sub">使用者數、活躍度、Pro 轉換、內容統計</div></div></div>
-  <h3>回饋是自己收的，不是等 Play 評論</h3>
+  <h3>回饋是自己收的，沒有等 Play 評論</h3>
   <p>Play 的評論量少又慢，而且只有已經很不爽或很喜歡的人會留。所以 App 裡做了
     「我的 → 支持與回饋 → 意見回饋」，送出直接寫進 Firestore 的
     <code>feedback</code>：分類（bug／功能／其他）、內容、<b>1–5 星滿意度</b>、
-    選填聯絡方式。滿意度那一欄是刻意加的——沒有它，回饋只能讀，不能算。</p>
+    選填聯絡方式。滿意度那一欄是後來補的，沒有它，回饋只能讀，不能算。</p>
   <p>收集方式跟統計口徑寫在 <code>docs/USER_FEEDBACK.md</code>：
     平均滿意度怎麼算、NPS 近似值怎麼換算、每期要更新哪幾節，
     還有一張「使用者說了什麼 → 哪一版改了什麼 → 之後反應」的迭代表。

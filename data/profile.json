@@ -203,11 +203,12 @@
     "en": "Project size NT$300K–40M; the two largest owned end to end."
    },
    "skills": [
-    "專案組合管理",
-    "相依關係追蹤",
+    "專案管理",
+    "風險管理",
     "利害關係人管理",
+    "跨部門協作",
     "系統整合",
-    "交付排程"
+    "時程管控"
    ],
    "images": [
     {
@@ -260,7 +261,7 @@
       "en": "Problem"
      },
      "v": {
-      "zh": "每案 5 到 20 家下包，加上公家審查單位。難的不是單一案子，是二十件案子的風險跟相依關係散在各自的進度表裡，沒有人看得到全貌。",
+      "zh": "每案 5 到 20 家下包，加上公家審查單位。難的地方在於二十件案子的風險跟相依關係散在各自的進度表裡，沒有人看得到全貌。",
       "en": "Each project carries 5–20 subcontractors plus government reviewers. The hard part is not any one project; it is that risk and dependency live in twenty separate schedules with no shared view."
      }
     },
@@ -367,7 +368,7 @@
       "en": "What I inherited"
      },
      "v": {
-      "zh": "這一包是開工三個月之後換廠商，才找上我們。時程從接手那天就是趕的：送審、備料、人員報備這些前期行政作業全部來不及照正常節奏走，等於後面要用雙倍人力補做前面沒做完的事。議價不是在從容的狀態下談的，是一邊趕工一邊談。",
+      "zh": "這一包是開工三個月之後換廠商，才找上我們。時程從接手那天就是趕的：送審、備料、人員報備這些前期行政作業全部來不及照正常節奏走，等於後面要用雙倍人力補做前面沒做完的事。議價是一邊趕工一邊談的。",
       "en": "We were brought in three months after construction had started, replacing the previous vendor. The schedule was tight from day one: submissions, material lead times and personnel registration could not follow their normal rhythm, so later stages had to be double-staffed to catch up. The negotiation happened under that pressure, not in calm conditions."
      }
     },
@@ -387,7 +388,7 @@
       "en": "Analysis"
      },
      "v": {
-      "zh": "不比總價，先把每一份報價拆回「成本 × 範圍」兩個軸。做一張結構化評分表：每個工項逐一對照，誰有報、報多少、含不含輔料與測試、介面由誰負責。拆完之後才看得出來，價差大部分不是單價差異，是範圍認定不同。",
+      "zh": "不比總價，先把每一份報價拆回「成本 × 範圍」兩個軸。做一張結構化評分表：每個工項逐一對照，誰有報、報多少、含不含輔料與測試、介面由誰負責。拆完才看得出來，價差大部分來自範圍認定不同，不是單價。",
       "en": "Instead of comparing totals, I decomposed every quote onto two axes: cost and scope. A structured scoring sheet listed each work item against every bid — who quoted it, at what price, whether consumables and testing were included, who owned the interface. Once decomposed, it was clear that most of the spread came from differing scope assumptions, not unit prices."
      }
     },
@@ -416,14 +417,16 @@
     "kind": "flow"
    },
    "skills": [
-    "成本與範圍評分框架",
-    "議價與整併",
-    "契約範圍界定",
-    "Excel 建模"
+    "採購發包",
+    "供應商管理",
+    "議價談判",
+    "專案成本控管",
+    "合約管理",
+    "標單審查"
    ],
    "table": {
     "caption": {
-     "zh": "實際標單的前 14 項（全表共 39 項）。單價、複價、經銷價已遮去——評分框架比的是「誰報了什麼範圍」，不是價格本身。",
+     "zh": "實際標單的前 14 項（全表共 39 項）。單價、複價、經銷價已遮去——評分框架比的是「誰報了什麼範圍」。",
      "en": "The first 14 of 39 line items from the actual tender schedule. Unit, extended and dealer prices are withheld."
     },
     "head": [
@@ -631,7 +634,7 @@
       "en": "Analysis"
      },
      "v": {
-      "zh": "把退件意見逐條對回規範條文，發現問題不在規格本身，而在比較表的呈現方式——審查委員沒辦法一眼對上規範與型錄。那是文件結構的問題，不是產品的問題。",
+      "zh": "把退件意見逐條對回規範條文，發現問題不在規格本身，而在比較表的呈現方式——審查委員沒辦法一眼對上規範與型錄。那是文件結構的問題。",
       "en": "Mapping every comment back to its spec clause showed the issue was not the specification but the comparison table: the reviewer could not line up the spec against the catalogue at a glance. A document-structure problem, not a product problem."
      }
     },
@@ -657,10 +660,11 @@
     }
    ],
    "skills": [
-    "公部門送審",
-    "規範比較表",
-    "RFP 撰寫",
-    "審查溝通"
+    "投標文件撰寫 (RFP)",
+    "法規遵循",
+    "公部門標案",
+    "技術文件審查",
+    "政府機關溝通"
    ],
    "images": [
     {
@@ -793,11 +797,12 @@
     "en": "See the billing forecast →"
    },
    "skills": [
-    "現金流建模",
-    "甘特主排程",
-    "跨案風險追蹤",
-    "Excel／試算表",
-    "管理報表設計"
+    "現金流管理",
+    "財務模型",
+    "管理報表",
+    "Excel",
+    "專案成本控管",
+    "時程管控"
    ],
    "images": [
     {
@@ -835,9 +840,11 @@
     "en": "Product in beta; also originated a parking-management IoT project with a Singapore government agency."
    },
    "skills": [
-    "跨國協作（英文）",
-    "產品需求對接",
-    "展會策展"
+    "跨國協作",
+    "英文溝通",
+    "產品需求管理",
+    "客戶關係管理",
+    "展會行銷"
    ]
   },
   {
@@ -949,11 +956,11 @@
     "kind": "tiers"
    },
    "skills": [
-    "GTM 拆解",
-    "財務敘事",
-    "白皮書架構",
-    "投資人 CRM",
-    "Pitch Deck"
+    "商業開發",
+    "市場進入策略 (GTM)",
+    "募資簡報",
+    "投資人關係 (IR)",
+    "財務分析"
    ]
   },
   {
@@ -983,8 +990,9 @@
     "en": "One document served every investor level."
    },
    "skills": [
-    "文件架構",
-    "財務敘事"
+    "技術文件撰寫",
+    "財務敘事",
+    "簡報設計"
    ]
   },
   {
@@ -1015,7 +1023,8 @@
     "en": "Prioritisation became repeatable, and objections became countable."
    },
    "skills": [
-    "CRM 設計",
+    "CRM 系統設計",
+    "銷售漏斗分析",
     "轉換率分析"
    ]
   },
@@ -1047,9 +1056,10 @@
     "en": "A 12-page brief went straight to the board."
    },
    "skills": [
-    "跨境文件分析",
-    "決策摘要",
-    "差異標記"
+    "商業分析 (BA)",
+    "跨境法規研究",
+    "決策支援報告",
+    "競品與市場研究"
    ]
   },
   {
@@ -1080,8 +1090,9 @@
    },
    "skills": [
     "Python",
-    "資料清理",
-    "財務邏輯建模"
+    "ETL",
+    "財務模型",
+    "自動化流程"
    ]
   },
   {
@@ -1112,8 +1123,9 @@
     "en": "Positioning and LP strategy both changed."
    },
    "skills": [
+    "使用者研究",
     "問卷設計",
-    "分群分析",
+    "市場區隔分析",
     "產品定位"
    ]
   },
@@ -1144,9 +1156,10 @@
     "en": "On time, 4.8/5."
    },
    "skills": [
-    "活動統籌",
-    "甘特排程",
-    "跨組協調"
+    "活動企劃",
+    "專案管理",
+    "跨部門協作",
+    "時程管控"
    ]
   },
   {
@@ -1178,8 +1191,9 @@
    },
    "skills": [
     "贊助提案",
-    "受眾 KPI 側寫",
-    "成本談判"
+    "商業簡報",
+    "成本談判",
+    "受眾分析"
    ]
   },
   {
@@ -1340,10 +1354,12 @@
    "skills": [
     "SQL",
     "Python",
-    "資料建模",
-    "指標設計",
+    "資料分析",
+    "資料庫設計",
+    "ETL",
     "API 串接",
-    "資料視覺化"
+    "資料視覺化",
+    "指標設計 (KPI)"
    ]
   },
   {
@@ -1396,11 +1412,12 @@
     }
    ],
    "skills": [
+    "Android 開發",
     "Kotlin",
     "Jetpack Compose",
     "Firebase",
-    "隱私設計",
-    "Play 上架"
+    "產品上架",
+    "個資合規"
    ]
   },
   {
@@ -1506,7 +1523,7 @@
       "en": "The boundary"
      },
      "v": {
-      "zh": "對不上的 30 個全是郊區大型購物中心。一棟樓裡五十家店，在地圖上只是一個點，密度法本來就抓不到。結論是商圈有兩種，不是模型不夠好。",
+      "zh": "對不上的 30 個全是郊區大型購物中心。一棟樓裡五十家店，在地圖上只是一個點，密度法本來就抓不到。結論是商圈有兩種。",
       "en": "All 30 misses are suburban malls: fifty shops in one building is a single point on the map. There are two kinds of district, not one weak model."
      }
     },
@@ -1545,11 +1562,11 @@
    ],
    "skills": [
     "Python",
+    "機器學習",
+    "分群分析 (Clustering)",
     "scikit-learn",
-    "DBSCAN",
-    "空間索引 BallTree",
-    "模型評估",
-    "效能分析"
+    "空間資料分析",
+    "演算法效能優化"
    ]
   },
   {
@@ -1598,10 +1615,11 @@
    ],
    "skills": [
     "Python",
-    "scikit-learn",
-    "TF-IDF",
-    "交叉驗證",
-    "消融實驗"
+    "機器學習",
+    "自然語言處理 (NLP)",
+    "特徵工程",
+    "模型評估",
+    "scikit-learn"
    ]
   },
   {
@@ -1640,10 +1658,55 @@
     }
    ],
    "skills": [
-    "現金流建模",
-    "成本拆解",
-    "情境分析",
+    "財務分析",
+    "現金流管理",
+    "成本分析",
+    "情境模擬",
+    "Excel 建模",
     "資料去識別化"
+   ]
+  },
+  {
+   "id": "j-staffing",
+   "org": "justxtar",
+   "caps": [
+    "delivery",
+    "risk",
+    "data"
+   ],
+   "skills": [
+    "人力資源規劃",
+    "工時分析",
+    "法規遵循",
+    "專案成本控管",
+    "試算模型"
+   ],
+   "title": {
+    "zh": "工務所要幾個人：把職務拆成工時再回推編制",
+    "en": "How many people a site office needs"
+   },
+   "result": {
+    "zh": "小型案 2.5–3.5 人、中型 5–6.5 人、大型 11–16 人，並標出法規強制門檻。",
+    "en": "2.5–3.5 people for a small project, 5–6.5 for mid-size, 11–16 for large, with the statutory thresholds marked."
+   },
+   "s": {
+    "zh": "「工務所要配幾個人」在業界多半靠經驗喊，喊少了做不完、喊多了成本吃掉利潤，而且法規有強制配置的門檻，漏掉會出事。",
+    "en": "Site-office headcount is usually a gut call: too few and the work does not get done, too many and the cost eats the margin — and some roles are required by law."
+   },
+   "a": {
+    "zh": "把工地主任與工務行政的職務各拆成十幾個工項，逐項估每月工時，再用「一人月可承載 150 小時」（名目 176 小時扣掉交通、等待、會議與請假）回推人數；法規門檻另外獨立成一張對照表。",
+    "en": "Decomposed the site manager and site admin roles into a dozen tasks each, estimated monthly hours per task, and divided by a 150-hour person-month (176 nominal, less travel, waiting, meetings and leave). Statutory thresholds are kept in a separate table."
+   },
+   "r": {
+    "zh": "中型案裡工地主任與工務行政都落在 130 小時上下，佔一人月 150 小時的九成，這解釋了為什麼中型案最容易「看起來人夠、實際上天天加班」。另外現場人力的尖峰在結構期、行政文件的尖峰在裝修期，兩條曲線不同步，所以不能用同一條排人。",
+    "en": "On a mid-size project both the site manager and the site admin land around 130 hours, nine tenths of a 150-hour person-month. Field headcount peaks during structure, paperwork peaks during fit-out, and the two do not coincide."
+   },
+   "links": [
+    {
+     "href": "work/staffing-model.html",
+     "zh": "看試算模型（可自己改數字）",
+     "en": "The model"
+    }
    ]
   }
  ],

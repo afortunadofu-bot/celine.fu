@@ -189,6 +189,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   margin-right:6px;font-weight:600}
 .sk{font-size:12.5px;padding:3px 11px;border:1px solid var(--rule);border-radius:2px;
   color:var(--ink);background:var(--card)}
+.skg{display:grid;grid-template-columns:168px 1fr;gap:18px;padding:16px 0;
+  border-top:1px solid var(--line)}
+.skg:first-child{border-top:0;padding-top:4px}
+.skg h3{margin:2px 0 0;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+.sks{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:640px){.skg{grid-template-columns:1fr;gap:10px}}
+.sk2{font-size:13px;padding:4px 12px;border:1px solid var(--line);border-radius:2px;
+  color:var(--ink);background:var(--card);display:inline-flex;gap:7px;align-items:center}
+.sk2 i{font-style:normal;font-size:11px;color:var(--accent);font-variant-numeric:tabular-nums}
 .fc-sk{margin:0 0 12px;font-size:12px;color:var(--muted);letter-spacing:.02em}
 .links{margin:0 0 30px;padding:20px 0 0;border-top:1px solid var(--line)}
 .links-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
@@ -256,6 +265,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
         <li><a href="../index.html"><span class="zh">首頁</span><span class="en">Home</span></a></li>
         <li><a href="../index.html#rest"><span class="zh">其他做過的事</span><span class="en">Everything else</span></a></li>
         <li><a href="../index.html#where"><span class="zh">待過的地方</span><span class="en">Where</span></a></li>
+        <li><a href="../index.html#skills"><span class="zh">技能</span><span class="en">Skills</span></a></li>
         <li><a href="../index.html#think"><span class="zh">怎麼想事情</span><span class="en">How I think</span></a></li>
         <li><a href="../work/"><span class="zh">分析作品集</span><span class="en">Analysis portfolio</span></a></li>
         <li><a href="https://afortunadofu-bot.github.io/celinefubrandpage/">小數據所</a></li>
@@ -270,7 +280,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <p class="kicker"><span class="zh">金流與管控 · 集星資通</span><span class="en">Cash &amp; controls · JustXtar</span><span class="kdot">·</span>2025.11 —</p>
   <h1><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></h1>
   <p class="lead"><span class="zh">內部期限固定提前契約里程碑一週。</span><span class="en">Internal deadlines held one week ahead of contractual milestones.</span></p>
-  <div class="skills"><span class="skills-h"><span class="zh">用到的技能</span><span class="en">Skills</span></span><span class="sk">現金流建模</span><span class="sk">甘特主排程</span><span class="sk">跨案風險追蹤</span><span class="sk">Excel／試算表</span><span class="sk">管理報表設計</span></div>
+  <div class="skills"><span class="skills-h"><span class="zh">用到的技能</span><span class="en">Skills</span></span><span class="sk">現金流管理</span><span class="sk">財務模型</span><span class="sk">管理報表</span><span class="sk">Excel</span><span class="sk">專案成本控管</span><span class="sk">時程管控</span></div>
   <div class="bignum"><span class="bn-v">提前一週</span><span class="zh bn-l">內部期限對契約里程碑</span><span class="en bn-l">internal deadlines vs. contract milestones</span></div>
   <div class="shots shots-1"><figure><img src="../img/jx-billing.jpg" alt="同一套邏輯後來做成單案的請款預估與現金流模型（公司名與廠商名已代號化）" loading="lazy"><figcaption><span class="zh">同一套邏輯後來做成單案的請款預估與現金流模型（公司名與廠商名已代號化）</span><span class="en">The same logic, later built into a single-project billing forecast (names de-identified)</span></figcaption></figure></div>
   
