@@ -205,7 +205,95 @@
    "skills": [
     "專案組合管理",
     "相依關係追蹤",
-    "利害關係人管理"
+    "利害關係人管理",
+    "系統整合",
+    "交付排程"
+   ],
+   "images": [
+    {
+     "src": "../img/jx-arch.jpg",
+     "zh": "其中一案的系統整合架構圖：十個子系統、現場設備到中控室的訊號路徑（圖框已裁去）",
+     "en": "System integration architecture for one project: ten subsystems from field devices to the control room"
+    }
+   ],
+   "featured": 1,
+   "kicker": {
+    "zh": "專案組合管理 · 集星資通",
+    "en": "Portfolio delivery · JustXtar"
+   },
+   "big": {
+    "v": "9,000 萬",
+    "zh": "同時在跑的專案組合總額",
+    "en": "concurrent portfolio value"
+   },
+   "stats": [
+    {
+     "v": "20+",
+     "zh": "件專案同時進行",
+     "en": "concurrent projects"
+    },
+    {
+     "v": "5–20",
+     "zh": "家下包／每案",
+     "en": "subcontractors per project"
+    },
+    {
+     "v": "2",
+     "zh": "件 4,000 萬案從開案帶到交付",
+     "en": "NT$40M programs end to end"
+    }
+   ],
+   "chain": [
+    {
+     "k": {
+      "zh": "背景",
+      "en": "Context"
+     },
+     "v": {
+      "zh": "智慧建築、智慧工廠、硬體採購、公部門物聯網，四種性質不同的案子同時在跑，單案從 30 萬到 4,000 萬都有。",
+      "en": "Smart buildings, smart factories, hardware procurement and public-sector IoT running in parallel, from NT$300K to NT$40M each."
+     }
+    },
+    {
+     "k": {
+      "zh": "問題",
+      "en": "Problem"
+     },
+     "v": {
+      "zh": "每案 5 到 20 家下包，加上公家審查單位。難的不是單一案子，是二十件案子的風險跟相依關係散在各自的進度表裡，沒有人看得到全貌。",
+      "en": "Each project carries 5–20 subcontractors plus government reviewers. The hard part is not any one project; it is that risk and dependency live in twenty separate schedules with no shared view."
+     }
+    },
+    {
+     "k": {
+      "zh": "怎麼分析",
+      "en": "Analysis"
+     },
+     "v": {
+      "zh": "把每一案拆成「我方可控」與「他方決定」兩類節點。可控的自己排，他方決定的（送審、業主決標、廠商交期）標成風險點，集中追。二十件案子的風險點加起來只有十幾個，那才是真正要盯的清單。",
+      "en": "Split every project into nodes we control and nodes others decide. We schedule the former; the latter (approvals, award decisions, vendor lead times) become tracked risk points. Across twenty projects they collapse to about a dozen — that is the real watchlist."
+     }
+    },
+    {
+     "k": {
+      "zh": "解法",
+      "en": "Solution"
+     },
+     "v": {
+      "zh": "每案自己負責利害關係人管理，跨案的風險與相依關係集中追蹤；系統整合的案子先把架構圖定下來，介面責任才切得清楚。",
+      "en": "Stakeholder management per project, with cross-project risks and dependencies tracked centrally; for integration work the architecture is fixed first, so interface ownership is unambiguous."
+     }
+    },
+    {
+     "k": {
+      "zh": "結果",
+      "en": "Outcome"
+     },
+     "v": {
+      "zh": "兩件 4,000 萬元的案子從開案跟到兩年交付結束。",
+      "en": "Two NT$40M programs held from kickoff through a two-year delivery cycle."
+     }
+    }
    ]
   },
   {
@@ -235,7 +323,7 @@
     "zh": "降低 600 萬元（15%），而且範圍責任歸屬變清楚。",
     "en": "NT$6M (15%) saved, with scope ownership finally unambiguous."
    },
-   "featured": 1,
+   "featured": 2,
    "kicker": {
     "zh": "採購與議價 · 集星資通",
     "en": "Sourcing · JustXtar"
@@ -332,7 +420,135 @@
     "議價與整併",
     "契約範圍界定",
     "Excel 建模"
-   ]
+   ],
+   "table": {
+    "caption": {
+     "zh": "實際標單的前 14 項（全表共 39 項）。單價、複價、經銷價已遮去——評分框架比的是「誰報了什麼範圍」，不是價格本身。",
+     "en": "The first 14 of 39 line items from the actual tender schedule. Unit, extended and dealer prices are withheld."
+    },
+    "head": [
+     "項次",
+     "工程項目",
+     "單位",
+     "數量",
+     "單價",
+     "複價"
+    ],
+    "rows": [
+     [
+      "1",
+      "中央監控系統主電腦（基礎）",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "2",
+      "中央監控系統主電腦（進階）",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "3",
+      "22\"LCD螢幕",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "4",
+      "24\"LCD螢幕",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "5",
+      "55型液晶顯示器(電子佈告欄系統使用)",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "6",
+      "24型液晶顯示器(電子佈告欄系統使用)",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "7",
+      "Windows NT中文磁碟作業系統",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "8",
+      "不斷電系統(1.5KV UPS)",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "9",
+      "系統主機通訊傳輸介面器",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "10",
+      "現場信號傳送控制器(二線式)",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "11",
+      "隔離式數位輸入模組（16DI)",
+      "台",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "12",
+      "主動式數位輸出模組(8DO)",
+      "組",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "13",
+      "中央監控系統軟體 smart building system（基礎）\n- 中文輸入/輸出功能\n- 系統目錄全覽\n- 系統彩色中文動態畫面顯示\n- 故障自動偵測機能\n- 系統功能鍵操作功能\n- 啟動.停止運轉程式\n- 設備狀態.警報監視.變化功能\n- 整合給排水系統(內含給排水/污水/雨水)\n- 整合消防系統\n- 送排風系統\n- 燈控系統/排程控制\n- 電力系統\n- 環境安全(緊急壓扣)\n- 對講機管理整合\n＊點位數 : 75-100點位/Mobus及TCPIP串接\n＊無人員限制,可在遠端瀏覽全部的監控資料\n＊支援網路瀏覽器  \n＊權限設定",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ],
+     [
+      "13",
+      "【擴充】中央監控系統軟體 smart building system\n擴充點位授權每100點位",
+      "式",
+      "1",
+      "▒▒▒",
+      "▒▒▒"
+     ]
+    ]
+   }
   },
   {
    "id": "j-public",
@@ -361,7 +577,7 @@
     "zh": "一個月內核准。",
     "en": "Cleared in one month."
    },
-   "featured": 3,
+   "featured": 4,
    "kicker": {
     "zh": "公部門送審 · 集星資通",
     "en": "Public sector · JustXtar"
@@ -440,14 +656,18 @@
      }
     }
    ],
-   "figure": {
-    "kind": "timeline"
-   },
    "skills": [
     "公部門送審",
     "規範比較表",
     "RFP 撰寫",
     "審查溝通"
+   ],
+   "images": [
+    {
+     "src": "../img/jx-spec.jpg",
+     "zh": "重建後的規範比較文件：螢光標記＝契約規範要求的內容，紅字＝規範條號，一頁對得上一條",
+     "en": "The rebuilt specification-comparison package: highlight = contract requirement, red = clause number"
+    }
    ]
   },
   {
@@ -478,7 +698,7 @@
     "zh": "管理層取得「已發包 / 已計價 / 已收款」的單一視圖；各團隊可以直接對照相依關係，不用等開會。",
     "en": "Management gained a single view of committed vs. billed vs. collected cash; teams self-align on dependencies instead of waiting for the meeting."
    },
-   "featured": 2,
+   "featured": 3,
    "kicker": {
     "zh": "金流與管控 · 集星資通",
     "en": "Cash & controls · JustXtar"
@@ -646,7 +866,7 @@
     "zh": "從零建立 10+ 投資人 pipeline。",
     "en": "10+ investor pipeline built from zero."
    },
-   "featured": 6,
+   "featured": 7,
    "kicker": {
     "zh": "策略與募資 · AirQuant",
     "en": "Strategy · AirQuant"
@@ -990,7 +1210,7 @@
     "en": "581 offers live, 98% redemption success rate."
    },
    "link": "work/birthday-deals.html",
-   "featured": 4,
+   "featured": 5,
    "kicker": {
     "zh": "自有產品 · 小數據所",
     "en": "Own product · Small Data Lab"
@@ -1210,7 +1430,7 @@
     "en": "The 30 misses are all suburban malls — the method's boundary, not a model failure."
    },
    "link": "work/venue-clusters.html",
-   "featured": 5,
+   "featured": 6,
    "kicker": {
     "zh": "資料分析 · 小數據所",
     "en": "Data · Small Data Lab"

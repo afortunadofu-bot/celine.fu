@@ -154,6 +154,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 .shots figure{margin:0}
 .shots img{width:100%;max-width:100%;border:1px solid var(--line);border-radius:2px;display:block}
 .shots figcaption{font-size:12px;color:var(--muted);margin-top:7px}
+.doc{margin:0 0 38px;padding:0}
+.doc-t{width:100%;border-collapse:collapse;font-size:13.5px;
+  font-variant-numeric:tabular-nums;background:var(--card);border:1px solid var(--line)}
+.doc-t th,.doc-t td{padding:7px 12px;border-bottom:1px solid var(--line);text-align:left}
+.doc-t thead th{font-size:11.5px;letter-spacing:.06em;color:var(--muted);font-weight:600;
+  background:var(--page)}
+.doc-t td:first-child,.doc-t td:nth-child(3),.doc-t td:nth-child(4){color:var(--muted);width:1%;
+  white-space:nowrap}
+.doc-t td:nth-last-child(-n+2){color:var(--rule);letter-spacing:.14em;width:1%;white-space:nowrap}
+.doc figcaption{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.7}
 .figwrap{margin:0 0 38px;padding:20px;border:1px solid var(--line);border-radius:2px;background:var(--card)}
 .fig{width:100%;height:auto;display:block}
 .fig text{font:13px var(--sans);fill:var(--ink)}
@@ -238,7 +248,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <div class="wrap menu-in">
     <div class="menu-col">
       <p class="menu-h"><span class="zh">精選案例</span><span class="en">Selected cases</span></p>
-      <ol class="menu-cases"><li><a href="../case/j-sourcing.html"><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></a></li><li><a href="../case/j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></a></li><li><a href="../case/j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span></a></li><li><a href="../case/s-birthday.html"><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a></li><li><a href="../case/s-venues.html"><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></li><li><a href="../case/a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span></a></li></ol>
+      <ol class="menu-cases"><li><a href="../case/j-portfolio.html"><span class="zh">20 件專案、9,000 萬元的組合管理</span><span class="en">A 20-project, NT$90M portfolio</span></a></li><li><a href="../case/j-sourcing.html"><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></a></li><li><a href="../case/j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></a></li><li><a href="../case/j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span></a></li><li><a href="../case/s-birthday.html"><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a></li><li><a href="../case/s-venues.html"><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></li><li><a href="../case/a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span></a></li></ol>
     </div>
     <div class="menu-col menu-col-2">
       <p class="menu-h"><span class="zh">頁面</span><span class="en">Pages</span></p>
@@ -262,18 +272,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <p class="lead"><span class="zh">另撰寫標案建議書，取得台電與桃園市政府標案。</span><span class="en">Also authored the RFP responses that won Taipower and Taoyuan City Government awards.</span></p>
   <div class="skills"><span class="skills-h"><span class="zh">用到的技能</span><span class="en">Skills</span></span><span class="sk">公部門送審</span><span class="sk">規範比較表</span><span class="sk">RFP 撰寫</span><span class="sk">審查溝通</span></div>
   <div class="bignum"><span class="bn-v">4 個月 → 1 個月</span><span class="zh bn-l">卡關到核准</span><span class="en bn-l">stalled to approved</span></div>
-  <div class="figwrap"><svg viewBox="0 0 720 180" class="fig" role="img"
-  aria-label="送審卡了四個月，接手後一個月核准">
-  <text x="24" y="34" class="f-h">修改四個月，沒有通過</text>
-  <rect x="24" y="48" width="432" height="18" rx="2" class="f-bar"/>
-  <text x="24" y="86" class="f-n">退件 → 改 → 再送 → 再退。沒有人去問到底是哪一條不過</text>
-  <line x1="472" y1="40" x2="472" y2="140" class="f-rule"/>
-  <text x="472" y="34" class="f-h" text-anchor="middle">接手</text>
-  <text x="496" y="116" class="f-h f-on">一個月內核准</text>
-  <rect x="496" y="126" width="108" height="18" rx="2" class="f-bar-on"/>
-  <text x="24" y="166" class="f-n">同一份文件、同一批規格。改的是比較表的排法，
-    讓審查委員一眼對得上規範與型錄</text>
-</svg></div>
+  <div class="shots shots-1"><figure><img src="../img/jx-spec.jpg" alt="重建後的規範比較文件：螢光標記＝契約規範要求的內容，紅字＝規範條號，一頁對得上一條" loading="lazy"><figcaption><span class="zh">重建後的規範比較文件：螢光標記＝契約規範要求的內容，紅字＝規範條號，一頁對得上一條</span><span class="en">The rebuilt specification-comparison package: highlight = contract requirement, red = clause number</span></figcaption></figure></div>
+  
   <div class="sts"><div class="st"><div class="st-v">4</div><span class="zh st-l">個月沒通過</span><span class="en st-l">months in revision</span></div><div class="st"><div class="st-v">1</div><span class="zh st-l">個月內核准</span><span class="en st-l">month to clear</span></div><div class="st"><div class="st-v">2</div><span class="zh st-l">件標案：台電、桃園市政府</span><span class="en st-l">tenders won</span></div></div>
   <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">桃園市政府的一份材料設備送審文件，在我接手前已經來回修改四個月。</span><span class="en">A Taoyuan City Government material-and-equipment submission that had been going back and forth for four months before I took it over.</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">每退一次就改一次，改完再送、再退。沒有人去問「到底是哪一條不過」。</span><span class="en">Each rejection produced an edit, another submission, another rejection. Nobody had asked which specific clause was failing.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">把退件意見逐條對回規範條文，發現問題不在規格本身，而在比較表的呈現方式——審查委員沒辦法一眼對上規範與型錄。那是文件結構的問題，不是產品的問題。</span><span class="en">Mapping every comment back to its spec clause showed the issue was not the specification but the comparison table: the reviewer could not line up the spec against the catalogue at a glance. A document-structure problem, not a product problem.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">重建規範比較文件，讓每一條規範、投標型錄、送審型號三欄並排對齊；同時重新打通與審查單位的溝通，當面確認理解一致再送。</span><span class="en">Rebuilt the comparison package so spec clause, tendered catalogue and submitted model sat in three aligned columns; reopened the line to the reviewing committee to confirm understanding before resubmitting.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">一個月內核准。後續也由我撰寫標案建議書，取得台電與桃園市政府的標案。</span><span class="en">Cleared in one month. I went on to author the RFP responses that won Taipower and Taoyuan City Government awards.</span></p></section></div>
   
