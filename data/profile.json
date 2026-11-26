@@ -926,23 +926,27 @@
    "big": {
     "v": "581",
     "zh": "筆優惠在線上營運",
-    "en": "offers live"
+    "en": "offers live",
+    "live": "offers"
    },
    "stats": [
     {
      "v": "11,205",
      "zh": "次使用者收藏",
-     "en": "saves"
+     "en": "saves",
+     "live": "wishes"
     },
     {
      "v": "4,784",
      "zh": "次使用回報",
-     "en": "usage reports"
+     "en": "usage reports",
+     "live": "reports"
     },
     {
      "v": "98%",
      "zh": "兌換成功率",
-     "en": "redemption success"
+     "en": "redemption success",
+     "live": "success_rate"
     }
    ],
    "images": [

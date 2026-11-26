@@ -4,29 +4,52 @@
 
 | 路徑 | 內容 | 誰產生的 |
 |---|---|---|
-| `index.html` | 個人網頁（中英雙語）。漢堡選單裡有「分析作品集」那一區 | 手寫 |
-| `work/` | 分析作品集，八頁 | **自動產生，不要手改** |
-| `work/stats.json` | 全站共用的數字；小數據所品牌頁也 fetch 這一份 | 自動產生 |
-| `index0416.html` | 2026-04 的舊版，備查 | 手寫 |
+| `index.html` | 個人網頁首頁（中英雙語） | **自動產生，不要手改** |
+| `case/` | 六件精選案例，一件一頁 | 自動產生 |
+| `data/profile.json` | **內容來源**：經歷、18 件作品、能力分類、聯絡方式 | 手寫，改這個 |
+| `img/` | 產品截圖 | 手放 |
+| `work/` | 分析作品集，八頁 | 自動產生 |
+| `work/stats.json` | 全站共用的數字；個人網頁與小數據所品牌頁都 fetch 這一份 | 自動產生 |
+| `index-2026-11.html`、`index0416.html` | 舊版備查 | 手寫 |
 
-## work/ 怎麼更新
+## 怎麼更新
 
-內容由壽星日 repo 的 `claude/analysis/` 產生，**不要直接改 `work/` 裡的檔案**，
-下次重建就會被蓋掉。
+兩支程式都在壽星日 repo 的 `claude/analysis/`。**不要直接改 `index.html`、`case/`、
+`work/` 裡的檔案**，下次重建會被蓋掉。
 
 ```bash
 cd "<壽星日 repo>/claude/analysis"
-python build_db.py --live      # 要換成最新的線上資料時才跑
-python publish_portfolio.py    # 重建 + 推這個 repo 與壽星日 repo
-```
 
-`publish_portfolio.py` 會把產出寫進這裡的 `work/`，兩個 repo 一起 commit + push。
+# 改個人網頁內容 → 先改 celine.fu/data/profile.json，再：
+python build_profile.py            # 產到 draft/ 預覽
+python build_profile.py --live     # 確定了才換掉正式版
+
+# 改作品集 → 資料或分析有變動時：
+python build_db.py --live          # 要換成最新的線上資料才跑
+python publish_portfolio.py        # 重建 work/ + 推兩個 repo
+```
 
 ---
 
 ## 版本紀錄
 
 由新到舊。
+
+### 2026-11-26　首頁改版：六件精選案例，一件一頁
+
+原本的首頁（讀取動畫、GSAP 捲動特效、彈出視窗、四張大卡片）換掉，舊版留成
+`index-2026-11.html`。
+
+- **主次分明**：六件精選案例（機電議價、跨專案金流管控、市府送審、壽星日、
+  商圈分群、AirQuant 募資）各自一頁，其餘 12 件收成可按能力篩的索引
+- **每頁跑完整的邏輯**：背景 → 業主要求 → 問題 → 怎麼分析 → 解法 → 結果。
+  還不知道的欄位（例如業主的硬性條件）標成「待補」顯示在頁面上，不留白也不編
+- **有畫面**：9 張真實截圖；沒有截圖的案子畫說明圖（報價整併流程、送審時間軸、
+  三層文件、金流三段），不放佔位圖
+- **視覺**：襯線標題配無襯線內文、暖灰紙感底色、細線分隔、單一重點色；
+  精選卡片圖文左右交錯
+- **數字即時**：壽星日案例的四個數字從 `work/stats.json` 抓，跟品牌頁同一份
+- 內容全部移到 `data/profile.json`，版面由 `build_profile.py` 產生
 
 ### 2026-11-25　作品集併進這個站
 

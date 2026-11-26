@@ -249,6 +249,19 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
     root.dataset.theme = dark ? "light" : "dark";
     try { localStorage.setItem("sdl-theme", root.dataset.theme); } catch (e) {}
   });
+  // 數字只在作品集算一次，這裡 fetch 蓋上去；抓不到就留 JSON 裡的值
+  var cells = document.querySelectorAll("[data-live]");
+  if (cells.length && typeof fetch === "function") {
+    fetch("../work/stats.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(0); })
+      .then(function (s) {
+        cells.forEach(function (el) {
+          var k = el.getAttribute("data-live"), v = s[k];
+          if (v == null) return;
+          el.textContent = (k === "success_rate") ? v + "%" : Number(v).toLocaleString("en-US");
+        });
+      }).catch(function () {});
+  }
   var chips = document.querySelectorAll(".chip"), rows = document.querySelectorAll(".row");
   chips.forEach(function (c) {
     c.addEventListener("click", function () {

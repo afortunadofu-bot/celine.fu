@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>21,209 家店的座標，自動長出商圈 — 傅聖嵐</title>
-<meta name="description" content="對上人工圈的商圈 79.7%，並補出台中、台南等手工沒做到的縣市。">
+<title>機電標案議價整併，省下 15% — 傅聖嵐</title>
+<meta name="description" content="較議價前基準降低 600 萬元。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
@@ -194,16 +194,29 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 </header>
 
 <main class="wrap case">
-  <p class="kicker"><span class="zh">資料分析 · 小數據所</span><span class="en">Data · Small Data Lab</span><span class="kdot">·</span>2026.05 —</p>
-  <h1><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></h1>
-  <p class="lead"><span class="zh">對上人工圈的商圈 79.7%，並補出台中、台南等手工沒做到的縣市。</span><span class="en">79.7% match against 148 hand-drawn districts, and filled in the counties the manual list never reached.</span></p>
-  <div class="bignum"><span class="bn-v">79.7%</span><span class="zh bn-l">自動分群對上人工圈的商圈</span><span class="en bn-l">match against hand-drawn districts</span></div>
-  <div class="shots shots-2"><figure><img src="../img/tw-map.jpg" alt="好康地圖的地圖頁" loading="lazy"><figcaption><span class="zh">好康地圖的地圖頁</span><span class="en">The map view</span></figcaption></figure><figure><img src="../img/tw-phone.jpg" alt="手機版清單" loading="lazy"><figcaption><span class="zh">手機版清單</span><span class="en">Mobile list</span></figcaption></figure></div>
-  <div class="sts"><div class="st"><div class="st-v">21,209</div><span class="zh st-l">家店的座標</span><span class="en st-l">store coordinates</span></div><div class="st"><div class="st-v">1,149</div><span class="zh st-l">個自動長出的商圈</span><span class="en st-l">clusters found</span></div><div class="st"><div class="st-v">21×</div><span class="zh st-l">BallTree 比暴力法快</span><span class="en st-l">faster than brute force</span></div></div>
-  <div class="chain"><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">優惠綁在店家上，但使用者問的是「我附近有什麼」。手工圈的 148 個商圈只覆蓋雙北跟幾個大城市，其他縣市等於沒有。</span><span class="en">Offers attach to stores, but users ask what is near them. The 148 hand-drawn districts only covered Taipei and a few cities; everywhere else had none.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">先定義什麼叫商圈：密度夠、而且品牌夠雜。只看密度會把同一條街的五家手搖當成商圈，那是展店策略不是商圈，所以加一條「至少三個不同品牌」。參數掃 12 組，用人工圈的 148 個當對照組驗收，而不是用 silhouette 自我感覺良好。</span><span class="en">First define a district: dense enough, and mixed enough. Density alone would call five branches of one chain a district, which is an expansion strategy, not a district, so clusters need at least three distinct brands. Twelve parameter sets, validated against the 148 manual districts rather than against silhouette alone.</span></p></section><section class="step"><h2><span class="zh">發現</span><span class="en">What it showed</span></h2><p><span class="zh">半徑放大反而對不上：150 公尺拉到 300 公尺，收進的店從 50% 升到 78%，但對上人工的比例從 79.7% 掉到 33.8%——街區被黏成一塊，重心飄走了。</span><span class="en">A bigger radius matched worse: from 150m to 300m, store coverage rose from 50% to 78% but the match rate fell from 79.7% to 33.8%, because neighbouring blocks merged and the centroid drifted.</span></p></section><section class="step"><h2><span class="zh">邊界</span><span class="en">The boundary</span></h2><p><span class="zh">對不上的 30 個全是郊區大型購物中心。一棟樓裡五十家店，在地圖上只是一個點，密度法本來就抓不到。結論是商圈有兩種，不是模型不夠好。</span><span class="en">All 30 misses are suburban malls: fifty shops in one building is a single point on the map. There are two kinds of district, not one weak model.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">台中人工 19 個、自動 203 個；台南 6 對 82。自動化補的正是手工做不動的地方。</span><span class="en">Taichung: 19 manual versus 203 automatic; Tainan 6 versus 82. Automation filled exactly the gap manual work could not reach.</span></p></section></div>
-  <a class="cta" href="../work/venue-clusters.html"><span class="zh">看完整分析 →</span><span class="en">Full analysis →</span></a>
-  <div class="tags"><span class="tag"><span class="zh">資料分析</span><span class="en">Data &amp; Analysis</span></span></div>
-  <nav class="pns"><a class="pn" href="s-birthday.html"><span class="pn-k">←</span><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a><a class="pn pn-r" href="a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span><span class="pn-k">→</span></a></nav>
+  <p class="kicker"><span class="zh">採購與議價 · 集星資通</span><span class="en">Sourcing · JustXtar</span><span class="kdot">·</span>2025.11 —</p>
+  <h1><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></h1>
+  <p class="lead"><span class="zh">較議價前基準降低 600 萬元。</span><span class="en">NT$6M below the pre-negotiation baseline.</span></p>
+  <div class="bignum"><span class="bn-v">600 萬</span><span class="zh bn-l">議價後省下的金額</span><span class="en bn-l">saved after renegotiation</span></div>
+  <div class="figwrap"><svg viewBox="0 0 720 150" class="fig" role="img"
+  aria-label="二十多份分散報價，經過成本與範圍評分，整併成一份契約">
+  <text x="14" y="18" class="f-lbl">20+ 份報價</text><rect x="14" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="29" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="44" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="59" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="74" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="89" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="104" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="119" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="134" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="149" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="164" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="179" y="62" width="11" height="9" rx="2" class="f-dim"/>
+  <text x="14" y="100" class="f-note">範圍重疊、互相漏接</text>
+  <path d="M200,62 H250" class="f-arrow"/>
+  <rect x="258" y="26" width="150" height="62" rx="6" class="f-box"/>
+  <text x="333" y="52" class="f-box-t" text-anchor="middle">成本 × 範圍</text>
+  <text x="333" y="70" class="f-box-s" text-anchor="middle">結構化評分表</text>
+  <path d="M420,62 H470" class="f-arrow"/>
+  <rect x="478" y="26" width="120" height="62" rx="6" class="f-box f-box-on"/>
+  <text x="538" y="52" class="f-box-t f-on" text-anchor="middle">1 份執行契約</text>
+  <text x="538" y="70" class="f-box-s f-on" text-anchor="middle">責任邊界清楚</text>
+  <text x="14" y="134" class="f-foot">4,000 萬 → 省下 600 萬（15%）</text>
+</svg></div>
+  <div class="sts"><div class="st"><div class="st-v">4,000 萬</div><span class="zh st-l">標案金額</span><span class="en st-l">package value</span></div><div class="st"><div class="st-v">20+</div><span class="zh st-l">家下包報價</span><span class="en st-l">subcontractor bids</span></div><div class="st"><div class="st-v">1</div><span class="zh st-l">份整併後的執行契約</span><span class="en st-l">consolidated contract</span></div></div>
+  <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">一件智慧建築案裡的機電工程包，金額 4,000 萬元，是整個案子最大的一包。發包由我負責。</span><span class="en">The MEP package inside a smart-building project — NT$40M, the largest single package in the job. Sourcing was mine to run.</span></p></section><section class="step todo"><h2><span class="zh">業主要求</span><span class="en">The ask</span></h2><p><span class="zh">（待補：業主在成本、工期、廠商資格上給了哪些硬性條件）</span><span class="en">(to fill in: the client&#x27;s hard constraints on cost, schedule and vendor qualification)</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">20 家以上的下包各報各的，報價範圍互相重疊也互相漏接。同一項工作有三家報、另一項沒人報，總價看起來合理，但責任邊界是破的——真的照這樣發包，施工時每個介面都會吵。</span><span class="en">20+ subcontractors each quoted their own scope. The scopes overlapped in places and left gaps in others: three bids for the same work, none for the next item. The total looked reasonable, but the responsibility boundaries were broken — every interface would become a dispute on site.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">不比總價，先把每一份報價拆回「成本 × 範圍」兩個軸。做一張結構化評分表：每個工項逐一對照，誰有報、報多少、含不含輔料與測試、介面由誰負責。拆完之後才看得出來，價差大部分不是單價差異，是範圍認定不同。</span><span class="en">Instead of comparing totals, I decomposed every quote onto two axes: cost and scope. A structured scoring sheet listed each work item against every bid — who quoted it, at what price, whether consumables and testing were included, who owned the interface. Once decomposed, it was clear that most of the spread came from differing scope assumptions, not unit prices.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">用那張表當議價的共同語言：把重疊的部分攤開讓廠商知道我清楚誰在報什麼，再把範圍重新切乾淨，整併成單一份執行契約。</span><span class="en">The sheet became the shared language for negotiation: overlaps were put on the table so vendors knew I could see exactly what each had quoted; scope was then re-cut cleanly and consolidated into one execution contract.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">較議價前基準降低 600 萬元（15%），而且範圍責任歸屬在簽約時就清楚，不留到施工期吵。</span><span class="en">NT$6M (15%) below the pre-negotiation baseline — and scope ownership was unambiguous at signing, not argued during construction.</span></p></section></div>
+  
+  <div class="tags"><span class="tag"><span class="zh">採購與議價</span><span class="en">Sourcing &amp; Negotiation</span></span><span class="tag"><span class="zh">金流與財務</span><span class="en">Cash flow &amp; Finance</span></span></div>
+  <nav class="pns"><a class="pn pn-r" href="j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span><span class="pn-k">→</span></a></nav>
 </main>
 <footer class="wrap foot">
   <p class="foot-links">
@@ -236,6 +249,19 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
     root.dataset.theme = dark ? "light" : "dark";
     try { localStorage.setItem("sdl-theme", root.dataset.theme); } catch (e) {}
   });
+  // 數字只在作品集算一次，這裡 fetch 蓋上去；抓不到就留 JSON 裡的值
+  var cells = document.querySelectorAll("[data-live]");
+  if (cells.length && typeof fetch === "function") {
+    fetch("../work/stats.json", { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(0); })
+      .then(function (s) {
+        cells.forEach(function (el) {
+          var k = el.getAttribute("data-live"), v = s[k];
+          if (v == null) return;
+          el.textContent = (k === "success_rate") ? v + "%" : Number(v).toLocaleString("en-US");
+        });
+      }).catch(function () {});
+  }
   var chips = document.querySelectorAll(".chip"), rows = document.querySelectorAll(".row");
   chips.forEach(function (c) {
     c.addEventListener("click", function () {
