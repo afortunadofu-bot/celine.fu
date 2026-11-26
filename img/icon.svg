@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="傅聖嵐">
+  <!-- 個人網頁：墨底金字。16px 下中文會糊，所以用襯線 F 加一點，
+       跟作品集那顆（長條圖）明顯不同，分頁列上一眼分得出來。 -->
+  <rect width="64" height="64" rx="12" fill="#15140f"/>
+  <path d="M20 16h26v8H28v10h15v8H28v14h-8z" fill="#f0ede5"/>
+  <circle cx="48" cy="46" r="5" fill="#c9a24d"/>
+</svg>
