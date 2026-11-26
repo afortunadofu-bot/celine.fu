@@ -106,6 +106,10 @@ thead th{color:var(--muted); font-weight:600; font-size:12px; white-space:nowrap
 td{color:var(--ink-2)}
 tbody th{font-weight:500; color:var(--ink)}
 table.metrics tbody th{white-space:nowrap}
+table.tools tbody th{white-space:nowrap;vertical-align:top;width:1%;padding-right:18px;
+  font-weight:600;color:var(--ink)}
+table.tools td{color:var(--ink-2);line-height:1.75}
+table.tools tr:first-child th,table.tools tr:first-child td{border-top:1px solid var(--border)}
 table.metrics td:last-child{font-variant-numeric:tabular-nums; white-space:nowrap}
 table.matrix{border-collapse:separate; border-spacing:2px}
 table.matrix td{text-align:center; color:var(--ink); border-radius:3px; border:0}
@@ -189,7 +193,7 @@ ul.plain b{color:var(--ink)}
     <a class="brand" href="../">← 傅聖嵐 Fu Sheng-Lan</a>
     <h1>小數據所｜產品分析作品集</h1>
     <p class="sub">把沒人幫你算的事算出來。三個自己做的產品，跟它們背後的數字。</p>
-    <p class="byline">定位：BA／產品分析　·　內容更新 2026-11-25</p>
+    <p class="byline">定位：BA／產品分析　·　內容更新 2026-11-26</p>
     <nav class="jump"><a href="index.html" class="on">首頁</a><a href="birthday-deals.html">壽星日</a><a href="bandary.html">Bandary</a><a href="relatestats.html">RelateStats</a><a href="ml-autofill.html">ML 預填</a><a href="venue-clusters.html">商圈聚類</a><a href="billing-forecast.html">請款預估</a><a href="sql-report.html">SQL 報告</a></nav>
     <button class="theme" type="button" aria-label="切換深淺色">◐</button>
   </div>
@@ -240,7 +244,7 @@ ul.plain b{color:var(--ink)}
       交叉驗證與 baseline 對照、信心門檻換覆蓋率、消融實驗抓資料洩漏，
       以及一張寫清楚弱點的 model card。重點不是模型多強，是知道哪些任務不該做。</li>
   </ul>
-</section><section class="card"><h2>聯絡</h2>
+</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西，沒用到的不列。</p><table class="tools"><tbody><tr><th scope="row">SQL</th><td>SQLite · CTE · window function · 自己實作統計量</td></tr><tr><th scope="row">Python</th><td>ETL · scikit-learn · 靜態站產生器 · 標準庫為主</td></tr><tr><th scope="row">機器學習</th><td>文字分類 · 非監督分群 · 交叉驗證與 baseline 對照 · 消融實驗</td></tr><tr><th scope="row">資料視覺化</th><td>自製 inline SVG 圖表系統（深色模式、無外部套件）</td></tr><tr><th scope="row">分析方法</th><td>指標設計 · 供需落差 · 成本歸因 · 財務與現金流建模</td></tr><tr><th scope="row">工程</th><td>Git · GitHub Pages · 自動化發布 · 回歸測試 · 資料去識別化</td></tr></tbody></table></section><section class="card"><h2>聯絡</h2>
   <p>這些產品都還在線上跑：<a href="https://birthdaydeals.celine-fu-work.workers.dev/">壽星日</a>（免費方案，人多的時候會慢幾秒）。
     程式碼在 <a href="https://github.com/afortunadofu-bot/birthday-deals">GitHub</a>。</p>
   <p>想聊聊或要更完整的資料，信箱是 <code>celine.fu@gmail.com</code>。</p>

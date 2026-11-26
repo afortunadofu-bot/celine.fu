@@ -32,7 +32,31 @@ body{margin:0;background:var(--page);color:var(--ink);font:16px/1.85 var(--sans)
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .wrap{max-width:940px;margin:0 auto;padding:0 24px}
 a{color:inherit}
-.bar{position:sticky;top:0;z-index:9;background:color-mix(in srgb,var(--page) 88%,transparent);
+.prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:20;
+  transition:width .08s linear}
+.burger{background:none;border:0;padding:8px 2px 8px 10px;cursor:pointer;display:flex;
+  flex-direction:column;gap:5px;margin-left:4px}
+.burger span{display:block;width:18px;height:1.5px;background:var(--ink-2);transition:transform .2s}
+.burger.on span:first-child{transform:translateY(3.2px) rotate(45deg)}
+.burger.on span:last-child{transform:translateY(-3.2px) rotate(-45deg)}
+.menu{position:fixed;inset:49px 0 0;background:var(--page);z-index:19;overflow:auto}
+.menu-in{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;padding-top:54px;padding-bottom:54px}
+.menu-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 18px;font-weight:600}
+.menu-cases{list-style:none;counter-reset:mc;margin:0;padding:0}
+.menu-cases li{border-top:1px solid var(--line)}
+.menu-cases a{display:block;padding:15px 0;text-decoration:none;font-family:var(--serif);
+  font-weight:700;font-size:19px;line-height:1.4}
+.menu-cases a::before{counter-increment:mc;content:counter(mc,decimal-leading-zero);
+  font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);margin-right:14px;
+  font-variant-numeric:tabular-nums}
+.menu-cases a:hover{color:var(--accent)}
+.menu-list{list-style:none;margin:0;padding:0}
+.menu-list li{border-top:1px solid var(--line)}
+.menu-list a{display:block;padding:12px 0;text-decoration:none;font-size:15px;color:var(--ink-2)}
+.menu-list a:hover{color:var(--ink)}
+@media (max-width:760px){.menu-in{grid-template-columns:1fr;gap:34px}}
+.bar{position:sticky;top:0;z-index:18;background:color-mix(in srgb,var(--page) 88%,transparent);
   backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar-in{display:flex;align-items:center;justify-content:space-between;padding:13px 24px}
 .bname{font-family:var(--serif);font-weight:700;letter-spacing:.02em;text-decoration:none;font-size:15px}
@@ -110,39 +134,31 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 .cl dd{margin:0}
 .cl a{text-decoration:none;border-bottom:1px solid var(--line)}
 /* ── 案例頁 ── */
-.case{padding:70px 0 0;max-width:780px}
+.case{padding:40px 0 0;max-width:780px}
+.back{display:inline-block;margin-bottom:30px;font-size:13.5px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
 .case h1{font-size:clamp(28px,4.4vw,42px);line-height:1.32;margin:0 0 18px;max-width:17em}
 .lead{font-size:18px;color:var(--ink-2);margin:0 0 34px;max-width:36em}
 .bignum{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:22px 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:38px}
 .bn-v{font-family:var(--serif);font-size:clamp(34px,6vw,54px);line-height:1;letter-spacing:-.03em}
 .bn-l{color:var(--muted);font-size:14px}
-.shots{display:grid;gap:14px;margin:0 0 38px}
-.shots-2{grid-template-columns:1fr 1fr}
+.shots{display:grid;gap:14px;margin:0 0 38px;justify-items:start}
+.shots-1{grid-template-columns:minmax(0,420px)}
+.shots-2{grid-template-columns:repeat(2,minmax(0,370px))}
 .shots-3{grid-template-columns:repeat(3,1fr)}
 .shots figure{margin:0}
-.shots img{width:100%;border:1px solid var(--line);border-radius:2px;display:block}
+.shots img{width:100%;max-width:100%;border:1px solid var(--line);border-radius:2px;display:block}
 .shots figcaption{font-size:12px;color:var(--muted);margin-top:7px}
 .figwrap{margin:0 0 38px;padding:20px;border:1px solid var(--line);border-radius:2px;background:var(--card)}
 .fig{width:100%;height:auto;display:block}
-.fig text{font:12px var(--sans);fill:var(--ink-2)}
-.fig .f-lbl{font-size:12.5px;font-weight:600;fill:var(--ink)}
-.fig .f-lbl-ok{font-size:12.5px;font-weight:600;fill:var(--good)}
-.fig .f-note,.fig .f-foot,.fig .f-in{fill:var(--muted);font-size:11.5px}
-.fig .f-foot{font-size:12px}
-.fig .f-dim{fill:var(--rule)}
-.fig .f-dim2{fill:var(--line)}
-.fig .f-box{fill:none;stroke:var(--rule)}
-.fig .f-box-on{stroke:var(--accent)}
-.fig .f-paper{fill:var(--card);stroke:var(--rule)}
-.fig .f-box-on2{fill:none;stroke:var(--accent)}
-.fig .f-box-t{font-size:13px;font-weight:600;fill:var(--ink)}
-.fig .f-box-s{font-size:11.5px;fill:var(--muted)}
+.fig text{font:13px var(--sans);fill:var(--ink)}
+.fig .f-h{font-size:13.5px;font-weight:600}
+.fig .f-n{font-size:11.5px;fill:var(--muted)}
 .fig .f-on{fill:var(--accent)}
-.fig .f-arrow{stroke:var(--rule);stroke-width:1;marker-end:none}
-.fig .f-axis{stroke:var(--line)}
-.fig .f-dot{fill:var(--ink)}
-.fig .f-dot-ok{fill:var(--good)}
+.fig .f-bar{fill:var(--rule)}
+.fig .f-bar-on{fill:var(--accent)}
+.fig .f-rule{stroke:var(--line);stroke-width:1}
 .sts{display:flex;flex-wrap:wrap;gap:30px 48px;margin:0 0 42px}
 .st-v{font-family:var(--serif);font-size:24px;line-height:1.2}
 .st-l{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;max-width:17em}
@@ -173,7 +189,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   .fc{grid-template-columns:1fr;gap:18px}
   .fc-flip .fc-img{order:0}
   .fc-img img{height:150px}
-  .shots-3,.shots-2{grid-template-columns:1fr 1fr}
+  .shots-3,.shots-1{grid-template-columns:minmax(0,420px)}
+.shots-2{grid-template-columns:repeat(2,minmax(0,370px))}
   .tl li{grid-template-columns:1fr}
   .tl-r,.tl-n{grid-column:1}
   .hero{padding:56px 0 16px}
@@ -182,6 +199,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 </style>
 </head>
 <body>
+<div class="prog" id="prog"></div>
 <header class="bar">
   <div class="wrap bar-in">
     <a class="bname" href="../index.html"><span class="zh">傅聖嵐</span><span class="en">Fu Sheng-Lan</span></a>
@@ -189,31 +207,55 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
       <button class="lang" data-set="zh">中文</button><span class="sep">·</span>
       <button class="lang" data-set="en">EN</button>
       <button class="tog" type="button" aria-label="切換深淺色">◐</button>
+      <button class="burger" id="burger" aria-label="選單" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </span>
   </div>
 </header>
+<div class="menu" id="menu" hidden>
+  <div class="wrap menu-in">
+    <div class="menu-col">
+      <p class="menu-h"><span class="zh">精選案例</span><span class="en">Selected cases</span></p>
+      <ol class="menu-cases"><li><a href="../case/j-sourcing.html"><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></a></li><li><a href="../case/j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></a></li><li><a href="../case/j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span></a></li><li><a href="../case/s-birthday.html"><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a></li><li><a href="../case/s-venues.html"><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></li><li><a href="../case/a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span></a></li></ol>
+    </div>
+    <div class="menu-col menu-col-2">
+      <p class="menu-h"><span class="zh">頁面</span><span class="en">Pages</span></p>
+      <ul class="menu-list">
+        <li><a href="../index.html"><span class="zh">首頁</span><span class="en">Home</span></a></li>
+        <li><a href="../index.html#rest"><span class="zh">其他做過的事</span><span class="en">Everything else</span></a></li>
+        <li><a href="../index.html#where"><span class="zh">待過的地方</span><span class="en">Where</span></a></li>
+        <li><a href="../index.html#think"><span class="zh">怎麼想事情</span><span class="en">How I think</span></a></li>
+        <li><a href="../work/"><span class="zh">分析作品集</span><span class="en">Analysis portfolio</span></a></li>
+        <li><a href="https://afortunadofu-bot.github.io/celinefubrandpage/">小數據所</a></li>
+        <li><a href="../index.html#contact"><span class="zh">聯絡</span><span class="en">Contact</span></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <main class="wrap case">
+  <a class="back" href="../index.html"><span class="zh">← 回所有案例</span><span class="en">← All cases</span></a>
   <p class="kicker"><span class="zh">採購與議價 · 集星資通</span><span class="en">Sourcing · JustXtar</span><span class="kdot">·</span>2025.11 —</p>
   <h1><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></h1>
   <p class="lead"><span class="zh">較議價前基準降低 600 萬元。</span><span class="en">NT$6M below the pre-negotiation baseline.</span></p>
   <div class="bignum"><span class="bn-v">600 萬</span><span class="zh bn-l">議價後省下的金額</span><span class="en bn-l">saved after renegotiation</span></div>
-  <div class="figwrap"><svg viewBox="0 0 720 150" class="fig" role="img"
-  aria-label="二十多份分散報價，經過成本與範圍評分，整併成一份契約">
-  <text x="14" y="18" class="f-lbl">20+ 份報價</text><rect x="14" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="29" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="44" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="59" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="74" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="89" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="104" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="119" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="134" y="62" width="11" height="9" rx="2" class="f-dim"/><rect x="149" y="30" width="11" height="9" rx="2" class="f-dim"/><rect x="164" y="46" width="11" height="9" rx="2" class="f-dim"/><rect x="179" y="62" width="11" height="9" rx="2" class="f-dim"/>
-  <text x="14" y="100" class="f-note">範圍重疊、互相漏接</text>
-  <path d="M200,62 H250" class="f-arrow"/>
-  <rect x="258" y="26" width="150" height="62" rx="6" class="f-box"/>
-  <text x="333" y="52" class="f-box-t" text-anchor="middle">成本 × 範圍</text>
-  <text x="333" y="70" class="f-box-s" text-anchor="middle">結構化評分表</text>
-  <path d="M420,62 H470" class="f-arrow"/>
-  <rect x="478" y="26" width="120" height="62" rx="6" class="f-box f-box-on"/>
-  <text x="538" y="52" class="f-box-t f-on" text-anchor="middle">1 份執行契約</text>
-  <text x="538" y="70" class="f-box-s f-on" text-anchor="middle">責任邊界清楚</text>
-  <text x="14" y="134" class="f-foot">4,000 萬 → 省下 600 萬（15%）</text>
+  <div class="figwrap"><svg viewBox="0 0 720 230" class="fig" role="img"
+  aria-label="二十多份長短不一、互相重疊的報價，收斂成一份範圍清楚的契約">
+  <text x="24" y="32" class="f-h">20+ 份報價</text>
+  <text x="24" y="48" class="f-n">長度＝各自認定的範圍。彼此重疊，也彼此漏接</text>
+  <rect x="24" y="56" width="196" height="7" rx="1.5" class="f-bar"/><rect x="42" y="70" width="150" height="7" rx="1.5" class="f-bar"/><rect x="60" y="84" width="232" height="7" rx="1.5" class="f-bar"/><rect x="24" y="98" width="118" height="7" rx="1.5" class="f-bar"/><rect x="42" y="112" width="174" height="7" rx="1.5" class="f-bar"/><rect x="60" y="126" width="204" height="7" rx="1.5" class="f-bar"/><rect x="24" y="140" width="136" height="7" rx="1.5" class="f-bar"/>
+  <line x1="340" y1="40" x2="340" y2="170" class="f-rule"/>
+  <text x="364" y="96" class="f-h">成本 × 範圍</text>
+  <text x="364" y="114" class="f-n">每個工項逐一對照：誰有報、含不含</text>
+  <text x="364" y="130" class="f-n">輔料與測試、介面由誰負責</text>
+  <text x="24" y="196" class="f-h f-on">1 份執行契約</text>
+  <rect x="24" y="204" width="356" height="10" rx="2" class="f-bar-on"/>
+  <text x="396" y="213" class="f-n">範圍不重疊、責任有歸屬</text>
+  <text x="24" y="228" class="f-n"></text>
 </svg></div>
   <div class="sts"><div class="st"><div class="st-v">4,000 萬</div><span class="zh st-l">標案金額</span><span class="en st-l">package value</span></div><div class="st"><div class="st-v">20+</div><span class="zh st-l">家下包報價</span><span class="en st-l">subcontractor bids</span></div><div class="st"><div class="st-v">1</div><span class="zh st-l">份整併後的執行契約</span><span class="en st-l">consolidated contract</span></div></div>
-  <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">一件智慧建築案裡的機電工程包，金額 4,000 萬元，是整個案子最大的一包。發包由我負責。</span><span class="en">The MEP package inside a smart-building project — NT$40M, the largest single package in the job. Sourcing was mine to run.</span></p></section><section class="step todo"><h2><span class="zh">業主要求</span><span class="en">The ask</span></h2><p><span class="zh">（待補：業主在成本、工期、廠商資格上給了哪些硬性條件）</span><span class="en">(to fill in: the client&#x27;s hard constraints on cost, schedule and vendor qualification)</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">20 家以上的下包各報各的，報價範圍互相重疊也互相漏接。同一項工作有三家報、另一項沒人報，總價看起來合理，但責任邊界是破的——真的照這樣發包，施工時每個介面都會吵。</span><span class="en">20+ subcontractors each quoted their own scope. The scopes overlapped in places and left gaps in others: three bids for the same work, none for the next item. The total looked reasonable, but the responsibility boundaries were broken — every interface would become a dispute on site.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">不比總價，先把每一份報價拆回「成本 × 範圍」兩個軸。做一張結構化評分表：每個工項逐一對照，誰有報、報多少、含不含輔料與測試、介面由誰負責。拆完之後才看得出來，價差大部分不是單價差異，是範圍認定不同。</span><span class="en">Instead of comparing totals, I decomposed every quote onto two axes: cost and scope. A structured scoring sheet listed each work item against every bid — who quoted it, at what price, whether consumables and testing were included, who owned the interface. Once decomposed, it was clear that most of the spread came from differing scope assumptions, not unit prices.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">用那張表當議價的共同語言：把重疊的部分攤開讓廠商知道我清楚誰在報什麼，再把範圍重新切乾淨，整併成單一份執行契約。</span><span class="en">The sheet became the shared language for negotiation: overlaps were put on the table so vendors knew I could see exactly what each had quoted; scope was then re-cut cleanly and consolidated into one execution contract.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">較議價前基準降低 600 萬元（15%），而且範圍責任歸屬在簽約時就清楚，不留到施工期吵。</span><span class="en">NT$6M (15%) below the pre-negotiation baseline — and scope ownership was unambiguous at signing, not argued during construction.</span></p></section></div>
+  <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">一件智慧建築案裡的機電工程包，金額 4,000 萬元，是整個案子最大的一包。發包由我負責。</span><span class="en">The MEP package inside a smart-building project — NT$40M, the largest single package in the job. Sourcing was mine to run.</span></p></section><section class="step"><h2><span class="zh">接手時的條件</span><span class="en">What I inherited</span></h2><p><span class="zh">這一包是開工三個月之後換廠商，才找上我們。時程從接手那天就是趕的：送審、備料、人員報備這些前期行政作業全部來不及照正常節奏走，等於後面要用雙倍人力補做前面沒做完的事。議價不是在從容的狀態下談的，是一邊趕工一邊談。</span><span class="en">We were brought in three months after construction had started, replacing the previous vendor. The schedule was tight from day one: submissions, material lead times and personnel registration could not follow their normal rhythm, so later stages had to be double-staffed to catch up. The negotiation happened under that pressure, not in calm conditions.</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">20 家以上的下包各報各的，報價範圍互相重疊也互相漏接。同一項工作有三家報、另一項沒人報，總價看起來合理，但責任邊界是破的——真的照這樣發包，施工時每個介面都會吵。</span><span class="en">20+ subcontractors each quoted their own scope. The scopes overlapped in places and left gaps in others: three bids for the same work, none for the next item. The total looked reasonable, but the responsibility boundaries were broken — every interface would become a dispute on site.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">不比總價，先把每一份報價拆回「成本 × 範圍」兩個軸。做一張結構化評分表：每個工項逐一對照，誰有報、報多少、含不含輔料與測試、介面由誰負責。拆完之後才看得出來，價差大部分不是單價差異，是範圍認定不同。</span><span class="en">Instead of comparing totals, I decomposed every quote onto two axes: cost and scope. A structured scoring sheet listed each work item against every bid — who quoted it, at what price, whether consumables and testing were included, who owned the interface. Once decomposed, it was clear that most of the spread came from differing scope assumptions, not unit prices.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">用那張表當議價的共同語言：把重疊的部分攤開讓廠商知道我清楚誰在報什麼，再把範圍重新切乾淨，整併成單一份執行契約。</span><span class="en">The sheet became the shared language for negotiation: overlaps were put on the table so vendors knew I could see exactly what each had quoted; scope was then re-cut cleanly and consolidated into one execution contract.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">較議價前基準降低 600 萬元（15%），而且範圍責任歸屬在簽約時就清楚，不留到施工期吵。</span><span class="en">NT$6M (15%) below the pre-negotiation baseline — and scope ownership was unambiguous at signing, not argued during construction.</span></p></section></div>
   
   <div class="tags"><span class="tag"><span class="zh">採購與議價</span><span class="en">Sourcing &amp; Negotiation</span></span><span class="tag"><span class="zh">金流與財務</span><span class="en">Cash flow &amp; Finance</span></span></div>
   <nav class="pns"><a class="pn pn-r" href="j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span><span class="pn-k">→</span></a></nav>
@@ -262,6 +304,27 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
         });
       }).catch(function () {});
   }
+  var prog = document.getElementById("prog");
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    prog.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+  }
+  addEventListener("scroll", onScroll, { passive: true });
+  addEventListener("resize", onScroll);
+  onScroll();
+
+  var burger = document.getElementById("burger"), menu = document.getElementById("menu");
+  function setMenu(open) {
+    menu.hidden = !open;
+    burger.classList.toggle("on", open);
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  burger.addEventListener("click", function () { setMenu(menu.hidden); });
+  menu.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+
   var chips = document.querySelectorAll(".chip"), rows = document.querySelectorAll(".row");
   chips.forEach(function (c) {
     c.addEventListener("click", function () {

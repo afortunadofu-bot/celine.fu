@@ -270,14 +270,13 @@
     },
     {
      "k": {
-      "zh": "業主要求",
-      "en": "The ask"
+      "zh": "接手時的條件",
+      "en": "What I inherited"
      },
      "v": {
-      "zh": "（待補：業主在成本、工期、廠商資格上給了哪些硬性條件）",
-      "en": "(to fill in: the client's hard constraints on cost, schedule and vendor qualification)"
-     },
-     "todo": 1
+      "zh": "這一包是開工三個月之後換廠商，才找上我們。時程從接手那天就是趕的：送審、備料、人員報備這些前期行政作業全部來不及照正常節奏走，等於後面要用雙倍人力補做前面沒做完的事。議價不是在從容的狀態下談的，是一邊趕工一邊談。",
+      "en": "We were brought in three months after construction had started, replacing the previous vendor. The schedule was tight from day one: submissions, material lead times and personnel registration could not follow their normal rhythm, so later stages had to be double-staffed to catch up. The negotiation happened under that pressure, not in calm conditions."
+     }
     },
     {
      "k": {
@@ -952,18 +951,8 @@
    "images": [
     {
      "src": "../img/bd-01.jpg",
-     "zh": "優惠清單與篩選",
-     "en": "Offer list and filters"
-    },
-    {
-     "src": "../img/bd-02.jpg",
-     "zh": "我省下多少",
-     "en": "How much you saved"
-    },
-    {
-     "src": "../img/bd-03.jpg",
-     "zh": "商圈與地圖",
-     "en": "Districts and map"
+     "zh": "優惠清單：581 筆、依省最多排序、每張卡片帶使用回報與成功率",
+     "en": "The offer list: 581 live offers, sorted by value, each card carrying usage reports and success rate"
     }
    ],
    "chain": [
