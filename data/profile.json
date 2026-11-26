@@ -9,8 +9,8 @@
   "en": "I turn twenty moving projects into one delivered plan."
  },
  "sub": {
-  "zh": "清華大學經濟系，修習資料科學。從公家標案到跨國共同開發，從議價發包到金流管控——需要算的地方，SQL 我自己寫。",
-  "en": "NTHU Economics, data science focus. Public tenders to cross-border product work, sourcing to cash-flow control — and when the numbers matter, I write the SQL myself."
+  "zh": "清華大學經濟學系，修過計量經濟。從公家標案到議價發包、從金流管控到自己上架產品——需要算的地方，SQL 我自己寫。",
+  "en": "B.A. Economics, NTHU, with econometrics coursework. Public tenders to sourcing, cash-flow control to shipping my own products — and when the numbers matter, I write the SQL myself."
  },
  "contact": {
   "email": "afortunado.fu@gmail.com",
@@ -31,12 +31,12 @@
    }
   },
   {
-   "value": "15%",
-   "zh": "單案採購成本降幅",
-   "en": "cut on one package",
+   "value": "4,000 萬",
+   "zh": "單案最大發包金額",
+   "en": "largest package",
    "note": {
-    "zh": "4,000 萬機電案省下 600 萬",
-    "en": "NT$6M off a NT$40M MEP package"
+    "zh": "20 家以上下包整併成單一執行合約",
+    "en": "20+ subcontractors into one contract"
    }
   },
   {
@@ -114,7 +114,8 @@
    "note": {
     "zh": "客戶包含台電、桃園市政府、台泥、伊甸基金會",
     "en": "Clients incl. Taipower, Taoyuan City Government, Taiwan Cement, Eden Foundation"
-   }
+   },
+   "url": "https://www.justxtar.com/"
   },
   {
    "id": "airquant",
@@ -146,8 +147,8 @@
   },
   {
    "id": "meichu",
-   "zh": "梅竹工作會",
-   "en": "Meichu Games Committee",
+   "zh": "國立清華大學梅竹工作會",
+   "en": "NTHU Meichu Games Committee",
    "role": {
     "zh": "活動策畫總召 · 行銷長",
     "en": "Campaign Director · Head of Marketing"
@@ -171,7 +172,8 @@
    "note": {
     "zh": "三個上架產品與背後的分析",
     "en": "Three shipped products and the analysis behind them"
-   }
+   },
+   "url": "https://afortunadofu-bot.github.io/celinefubrandpage/"
   }
  ],
  "work": [
@@ -295,6 +297,24 @@
       "en": "Two NT$40M programs held from kickoff through a two-year delivery cycle."
      }
     }
+   ],
+   "tools": [
+    {
+     "k": "專案組合追蹤",
+     "v": "20+ 案同時在跑，每案拆成「我方可控」與「他方決定」兩類節點，他方決定的集中成一張風險清單"
+    },
+    {
+     "k": "利害關係人",
+     "v": "每案 5–20 家下包加上公家審查單位，各自的窗口、送件期限與決策點分開管"
+    },
+    {
+     "k": "系統整合",
+     "v": "智慧建築與智慧工廠的案子先定架構圖，介面責任照圖切，驗收才有依據"
+    },
+    {
+     "k": "交付",
+     "v": "兩件 4,000 萬元的案子從開案跟到兩年後交付結束"
+    }
    ]
   },
   {
@@ -305,12 +325,12 @@
     "cash"
    ],
    "title": {
-    "zh": "機電標案議價整併，省下 15%",
-    "en": "15% off a NT$40M MEP package"
+    "zh": "4,000 萬機電標案：20 家下包整併成一份執行合約",
+    "en": "Consolidated 20+ subcontractors into one execution contract"
    },
    "result": {
-    "zh": "較議價前基準降低 600 萬元。",
-    "en": "NT$6M below the pre-negotiation baseline."
+    "zh": "範圍責任在簽約時就界定清楚，不留到施工期才吵。",
+    "en": "Scope ownership was settled at signing instead of during construction."
    },
    "s": {
     "zh": "4,000 萬元的機電標案由 20 家以上下包商分散報價，範圍互相重疊。",
@@ -321,8 +341,8 @@
     "en": "Scored every proposal against a structured cost-and-scope framework, then negotiated consolidation into a single execution contract."
    },
    "r": {
-    "zh": "降低 600 萬元（15%），而且範圍責任歸屬變清楚。",
-    "en": "NT$6M (15%) saved, with scope ownership finally unambiguous."
+    "zh": "20 家以上的下包整併成單一執行合約，範圍責任歸屬在簽約時就清楚。",
+    "en": "20+ subcontractors consolidated into a single execution contract, with scope ownership finally unambiguous."
    },
    "featured": 2,
    "kicker": {
@@ -330,9 +350,9 @@
     "en": "Sourcing · JustXtar"
    },
    "big": {
-    "v": "600 萬",
-    "zh": "議價後省下的金額",
-    "en": "saved after renegotiation"
+    "v": "20+ → 1",
+    "zh": "家下包整併成一份執行合約",
+    "en": "subcontractors into one contract"
    },
    "stats": [
     {
@@ -408,8 +428,8 @@
       "en": "Outcome"
      },
      "v": {
-      "zh": "較議價前基準降低 600 萬元（15%），而且範圍責任歸屬在簽約時就清楚，不留到施工期吵。",
-      "en": "NT$6M (15%) below the pre-negotiation baseline — and scope ownership was unambiguous at signing, not argued during construction."
+      "zh": "20 家以上的下包整併成單一執行合約，範圍責任歸屬在簽約時就清楚，不留到施工期吵。",
+      "en": "20+ subcontractors consolidated into a single execution contract, and scope ownership was unambiguous at signing, not argued during construction."
      }
     }
    ],
@@ -551,7 +571,25 @@
       "▒▒▒"
      ]
     ]
-   }
+   },
+   "tools": [
+    {
+     "k": "標單拆解",
+     "v": "把 20 家以上下包的報價逐項拆成同一套工項，才比得出來誰報了什麼範圍"
+    },
+    {
+     "k": "評分框架",
+     "v": "價格之外加上範圍完整度、資格、工期承諾，用同一張表評分"
+    },
+    {
+     "k": "議價",
+     "v": "一邊趕工一邊談，整併成單一執行合約，介面責任在簽約時就定清楚"
+    },
+    {
+     "k": "合約",
+     "v": "範圍認定寫進合約附件，避免施工期才吵「這算誰的」"
+    }
+   ]
   },
   {
    "id": "j-public",
@@ -672,6 +710,24 @@
      "zh": "重建後的規範比較文件：螢光標記＝契約規範要求的內容，紅字＝規範條號，一頁對得上一條",
      "en": "The rebuilt specification-comparison package: highlight = contract requirement, red = clause number"
     }
+   ],
+   "tools": [
+    {
+     "k": "投標文件",
+     "v": "照評選項目逐條對應，缺漏的先列成待補清單再去補"
+    },
+    {
+     "k": "法規",
+     "v": "對照招標文件與相關規範，把硬性資格與技術規格整理成檢核表"
+    },
+    {
+     "k": "技術文件審查",
+     "v": "廠商送來的規格與型錄逐項比對規範，不符的退回重送"
+    },
+    {
+     "k": "公部門溝通",
+     "v": "送審、補件、審查會議的往返紀錄留檔，期限自己盯"
+    }
    ]
   },
   {
@@ -695,8 +751,8 @@
     "en": "No shared view of project cash or schedule — status lived in a weekly verbal meeting."
    },
    "a": {
-    "zh": "建置互動式金流模型與涵蓋全部 20+ 專案的甘特主排程。",
-    "en": "Built an interactive cash-flow model and a Gantt master schedule covering all 20+ active projects."
+    "zh": "把 20+ 個專案的「已發包／已計價／已收款」整理成同一張表，按月對現金流。",
+    "en": "Put committed, certified and collected amounts for all 20+ projects into one monthly cash-flow view."
    },
    "r": {
     "zh": "管理層取得「已發包 / 已計價 / 已收款」的單一視圖；各團隊可以直接對照相依關係，不用等開會。",
@@ -766,8 +822,8 @@
       "en": "Solution"
      },
      "v": {
-      "zh": "建互動式金流模型加上涵蓋全部專案的甘特主排程，兩者用同一組專案編號串起來，管理層與各專案看的是同一份。",
-      "en": "An interactive cash-flow model plus a Gantt master schedule covering every active project, joined on one project key so management and project teams read the same source."
+      "zh": "把每個專案的「已發包／已計價／已收款」與付款期程整理成同一張月報表，全部專案共用一組專案編號，管理層與各專案看的是同一份。",
+      "en": "Committed, certified and collected amounts plus payment timing for every project in one monthly report, joined on a single project key so management and project teams read the same source."
      }
     },
     {
@@ -810,41 +866,24 @@
      "zh": "同一套邏輯後來做成單案的請款預估與現金流模型（公司名與廠商名已代號化）",
      "en": "The same logic, later built into a single-project billing forecast (names de-identified)"
     }
-   ]
-  },
-  {
-   "id": "j-global",
-   "org": "justxtar",
-   "caps": [
-    "global",
-    "product"
    ],
-   "title": {
-    "zh": "與韓國、荷蘭導航夥伴共同開發",
-    "en": "Joint product with iNavi (Korea) and TomTom (Netherlands)"
-   },
-   "result": {
-    "zh": "台灣智慧公廁 POI 圖層串接其全球車用導航產品，目前測試版。",
-    "en": "A Taiwan smart-restroom POI layer feeding their global automotive navigation product, now in beta."
-   },
-   "s": {
-    "zh": "要把台灣的在地資料接進國外車廠用的導航產品。",
-    "en": "Getting Taiwanese local data into a navigation product used by global automakers."
-   },
-   "a": {
-    "zh": "以英文透過 Slack 進行日常技術協作；同時參與 COMPUTEX 的產品發想與攤位客戶接待。",
-    "en": "Day-to-day technical coordination in English over Slack; shaped the COMPUTEX demo concept and hosted clients on-stand."
-   },
-   "r": {
-    "zh": "產品進入測試版，並與新加坡政府單位開啟停車場物聯網專案。",
-    "en": "Product in beta; also originated a parking-management IoT project with a Singapore government agency."
-   },
-   "skills": [
-    "跨國協作",
-    "英文溝通",
-    "產品需求管理",
-    "客戶關係管理",
-    "展會行銷"
+   "tools": [
+    {
+     "k": "現金流",
+     "v": "每個專案的「已發包／已計價／已收款」與付款期程整理成同一張月報表"
+    },
+    {
+     "k": "跨案對照",
+     "v": "全部專案共用一組專案編號，管理層與各專案看的是同一份數字"
+    },
+    {
+     "k": "風險",
+     "v": "把墊款區間標出來：收款與付款的時間差落在哪幾個月"
+    },
+    {
+     "k": "工具",
+     "v": "Excel 建模（多情境參數）· 管理報表格式"
+    }
    ]
   },
   {
@@ -938,7 +977,7 @@
      },
      "v": {
       "zh": "15 頁白皮書加 Pitch Deck，把量化模型翻譯成 LP 讀得懂的財務敘事；GTM 拆成三條軌道分頭推進；投資人 CRM 記 3 個階段、5 類異議、轉換機率。",
-      "en": "A 15-page white paper and pitch deck translating the quant models into LP-readable financial narrative; GTM split into three parallel workstreams; an investor CRM tracking three stages, five objection categories and conversion probability."
+      "en": "A 15-page white paper and pitch deck translating the quant models into LP-readable financial narrative; GTM split into three parallel workstreams; an investor CRM tracking three pipeline stages and conversion probability."
      }
     },
     {
@@ -961,6 +1000,24 @@
     "募資簡報",
     "投資人關係 (IR)",
     "財務分析"
+   ],
+   "tools": [
+    {
+     "k": "募資文件",
+     "v": "15 頁白皮書與簡報，把量化模型翻成投資人讀得懂的財務敘事"
+    },
+    {
+     "k": "GTM",
+     "v": "拆成三條平行工作流，各自有負責人與里程碑"
+    },
+    {
+     "k": "投資人 CRM",
+     "v": "三個 pipeline 階段加上轉換機率分數"
+    },
+    {
+     "k": "財務分析",
+     "v": "模型假設與敏感度一起放進文件，不只給結論"
+    }
    ]
   },
   {
@@ -1015,8 +1072,8 @@
     "en": "Fundraising status lived in conversations and memory."
    },
    "a": {
-    "zh": "設計 3 個 pipeline 階段、5 類異議分類、轉換機率分數。",
-    "en": "Three pipeline stages, five objection categories, conversion probability scores."
+    "zh": "設計 3 個 pipeline 階段與轉換機率分數。",
+    "en": "Three pipeline stages and conversion probability scores."
    },
    "r": {
     "zh": "排序有依據，異議也能回頭統計。",
@@ -1148,8 +1205,8 @@
     "en": "1,000 people, 30+ teams, 5+ sponsors, zero unified tracking."
    },
    "a": {
-    "zh": "甘特儀表板 + 里程碑責任制 + 每週站立會議。",
-    "en": "Gantt dashboard, milestone accountability, weekly standups."
+    "zh": "統一的進度追蹤表 + 里程碑責任制 + 每週站立會議。",
+    "en": "One shared schedule, milestone accountability, weekly standups."
    },
    "r": {
     "zh": "如期交付，滿意度 4.8/5。",
@@ -1360,6 +1417,24 @@
     "API 串接",
     "資料視覺化",
     "指標設計 (KPI)"
+   ],
+   "tools": [
+    {
+     "k": "資料庫",
+     "v": "自己設計 schema 與事件表，SQLite 分析庫另外建，ETL 用標準庫寫"
+    },
+    {
+     "k": "SQL",
+     "v": "十一題查詢全部用 CTE 與 window function，median／quartile／ntile／累計／pivot／Pearson 自己實作"
+    },
+    {
+     "k": "指標設計",
+     "v": "供給、需求、品質、成本四組指標，每一組都要能導向一個決定"
+    },
+    {
+     "k": "資料治理",
+     "v": "來源分級（官方／媒體／部落格／社群）、複查延遲、過期自動下架規則"
+    }
    ]
   },
   {
@@ -1567,6 +1642,24 @@
     "scikit-learn",
     "空間資料分析",
     "演算法效能優化"
+   ],
+   "tools": [
+    {
+     "k": "分群",
+     "v": "DBSCAN + haversine 球面距離，參數掃過一輪再挑操作點"
+    },
+    {
+     "k": "效能",
+     "v": "BallTree 空間索引：21,209 個點從 55.5 秒降到 2.6 秒"
+    },
+    {
+     "k": "評估",
+     "v": "拿 148 個人工圈的商圈當對照組算 recall 與 silhouette"
+    },
+    {
+     "k": "領域規則",
+     "v": "一群至少三個不同品牌，排掉「同一條街五家同品牌」的假商圈"
+    }
    ]
   },
   {
@@ -1706,6 +1799,24 @@
      "href": "work/staffing-model.html",
      "zh": "看試算模型（可自己改數字）",
      "en": "The model"
+    }
+   ],
+   "tools": [
+    {
+     "k": "職務拆解",
+     "v": "工地主任與工務行政各拆成十幾個工項，逐項估每月工時"
+    },
+    {
+     "k": "工時模型",
+     "v": "一人月以 150 小時計（名目 176 扣掉交通、等待、會議與請假）"
+    },
+    {
+     "k": "法規門檻",
+     "v": "工地主任、專任工程人員、品管、職安的強制配置另外做成對照表"
+    },
+    {
+     "k": "尖峰對照",
+     "v": "現場人力尖峰在結構期、行政文件尖峰在裝修期，兩條曲線分開排"
     }
    ]
   }

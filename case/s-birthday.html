@@ -126,13 +126,18 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 .aps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
 .ap h3{font-size:16px;margin:0 0 7px}
 .ap p{margin:0;color:var(--ink-2);font-size:14.5px}
+.tl-a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.tl-a:hover{border-bottom-color:var(--accent)}
 .cta-blk{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-end}
 .cta-blk h2{font-size:25px;margin:0 0 8px}
 .cta-blk p{margin:0;color:var(--ink-2);max-width:33em}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-block;padding:10px 20px;background:var(--ink);color:var(--page);
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+.hero .btns{margin:26px 0 30px}
+.btn{display:inline-block;padding:13px 26px;background:var(--ink);color:var(--page);
   text-decoration:none;font-size:14px;border-radius:2px}
 .btn.ghost{background:none;color:var(--ink-2);border:1px solid var(--line)}
+.cta-blk{padding:26px;border:1px solid var(--line);border-radius:3px;background:var(--card)}
+.cta-blk .btns{margin:18px 0 0}
 .cl{display:grid;grid-template-columns:auto 1fr;gap:9px 24px;margin:0;font-size:15.5px}
 .cl dt{color:var(--muted);font-size:13px;padding-top:3px}
 .cl dd{margin:0}
@@ -148,9 +153,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 .bn-v{font-family:var(--serif);font-size:clamp(34px,6vw,54px);line-height:1;letter-spacing:-.03em}
 .bn-l{color:var(--muted);font-size:14px}
 .shots{display:grid;gap:14px;margin:0 0 38px;justify-items:start}
-.shots-1{grid-template-columns:minmax(0,420px)}
-.shots-2{grid-template-columns:repeat(2,minmax(0,370px))}
-.shots-3{grid-template-columns:repeat(3,1fr)}
+.shots-1{grid-template-columns:minmax(0,620px)}
+.shots-2{grid-template-columns:repeat(2,minmax(0,480px))}
+.shots-3{grid-template-columns:repeat(2,minmax(0,480px))}
 .shots figure{margin:0}
 .shots img{width:100%;max-width:100%;border:1px solid var(--line);border-radius:2px;display:block}
 .shots figcaption{font-size:12px;color:var(--muted);margin-top:7px}
@@ -164,6 +169,18 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   white-space:nowrap}
 .doc-t td:nth-last-child(-n+2){color:var(--rule);letter-spacing:.14em;width:1%;white-space:nowrap}
 .doc figcaption{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.7}
+.tools-b{margin:0 0 38px}
+.tools-h{font-size:11.5px;letter-spacing:.1em;color:var(--muted);margin:0 0 10px;font-weight:600}
+.tools-t{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+  border:1px solid var(--line)}
+.tools-t th,.tools-t td{padding:10px 14px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top}
+.tools-t tr:last-child th,.tools-t tr:last-child td{border-bottom:0}
+.tools-t th{width:118px;white-space:nowrap;font-weight:600;color:var(--accent-ink,var(--ink));
+  font-size:13px}
+.tools-t td{color:var(--ink-2);line-height:1.75}
+@media(max-width:600px){.tools-t th,.tools-t td{display:block;width:auto}
+  .tools-t th{border-bottom:0;padding-bottom:2px}}
 .figwrap{margin:0 0 38px;padding:20px;border:1px solid var(--line);border-radius:2px;background:var(--card)}
 .fig{width:100%;height:auto;display:block}
 .fig text{font:13px var(--sans);fill:var(--ink)}
@@ -229,8 +246,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   .fc{grid-template-columns:1fr;gap:18px}
   .fc-flip .fc-img{order:0}
   .fc-img img{height:150px}
-  .shots-3,.shots-1{grid-template-columns:minmax(0,420px)}
-.shots-2{grid-template-columns:repeat(2,minmax(0,370px))}
+  .shots-3,.shots-2,.shots-1{grid-template-columns:minmax(0,100%)}
   .tl li{grid-template-columns:1fr}
   .tl-r,.tl-n{grid-column:1}
   .hero{padding:56px 0 16px}
@@ -257,7 +273,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <div class="wrap menu-in">
     <div class="menu-col">
       <p class="menu-h"><span class="zh">精選案例</span><span class="en">Selected cases</span></p>
-      <ol class="menu-cases"><li><a href="../case/j-portfolio.html"><span class="zh">20 件專案、9,000 萬元的組合管理</span><span class="en">A 20-project, NT$90M portfolio</span></a></li><li><a href="../case/j-sourcing.html"><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></a></li><li><a href="../case/j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></a></li><li><a href="../case/j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span></a></li><li><a href="../case/s-birthday.html"><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a></li><li><a href="../case/s-venues.html"><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></li><li><a href="../case/a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span></a></li></ol>
+      <ol class="menu-cases"><li><a href="../case/j-portfolio.html"><span class="zh">20 件專案、9,000 萬元的組合管理</span><span class="en">A 20-project, NT$90M portfolio</span></a></li><li><a href="../case/j-sourcing.html"><span class="zh">4,000 萬機電標案：20 家下包整併成一份執行合約</span><span class="en">Consolidated 20+ subcontractors into one execution contract</span></a></li><li><a href="../case/j-cash.html"><span class="zh">公司第一套跨專案金流與排程管控</span><span class="en">The company&#x27;s first portfolio-wide control layer</span></a></li><li><a href="../case/j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span></a></li><li><a href="../case/s-birthday.html"><span class="zh">壽星日：台灣生日優惠整理站</span><span class="en">Birthday Deals</span></a></li><li><a href="../case/s-venues.html"><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></li><li><a href="../case/a-gtm.html"><span class="zh">從 0 建到 10+ 投資人 pipeline</span><span class="en">Built a 10+ investor pipeline from zero</span></a></li></ol>
     </div>
     <div class="menu-col menu-col-2">
       <p class="menu-h"><span class="zh">頁面</span><span class="en">Pages</span></p>
@@ -286,6 +302,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   
   <div class="sts"><div class="st"><div class="st-v" data-live="wishes">11,205</div><span class="zh st-l">次使用者收藏</span><span class="en st-l">saves</span></div><div class="st"><div class="st-v" data-live="reports">4,784</div><span class="zh st-l">次使用回報</span><span class="en st-l">usage reports</span></div><div class="st"><div class="st-v" data-live="success_rate">98%</div><span class="zh st-l">兌換成功率</span><span class="en st-l">redemption success</span></div></div>
   <div class="chain"><section class="step"><h2><span class="zh">為什麼做</span><span class="en">Why</span></h2><p><span class="zh">生日優惠散在各品牌公告、部落格懶人包跟社群貼文裡，而且過期得很快。要用的那一天才去找，通常來不及。</span><span class="en">Birthday offers are scattered across brand announcements, blog round-ups and social posts, and they go stale fast. Searching on the day itself is usually too late.</span></p></section><section class="step"><h2><span class="zh">使用者是誰</span><span class="en">Who it is for</span></h2><p><span class="zh">一年只會用一次的人。這決定了整個產品：留存不能看次日留存，要看「隔年還會不會回來」；提醒要提前，因為一半的優惠當天辦來不及。</span><span class="en">People who use it once a year. That shapes everything: retention is not day-1 but next-year, and reminders must be early, because half the offers cannot be claimed same-day.</span></p></section><section class="step"><h2><span class="zh">規模</span><span class="en">Scale</span></h2><p><span class="zh">581 筆優惠、22 個縣市、4,700 家對得上的門市；154 個版本、92 支回歸測試；企劃、前後端、資料整理與分析都一個人做。</span><span class="en">581 offers, 22 counties, 4,700 matched stores; 154 releases, 92 regression tests; product, front and back end, data and analysis all solo.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">把資料丟進 SQLite 問十一個問題：哪一類最大方、多少優惠其實當天辦來不及、住不同縣市差多少、資料本身有多可信。供給面算完才發現需求跟供給是錯開的——零售美妝只佔 3.3% 的優惠數，卻吃掉 9.3% 的收藏。</span><span class="en">Eleven questions in SQL: which category is most generous, how many offers cannot be claimed same-day, how much location matters, how trustworthy the data is. The supply-demand gap only showed up once both sides were measured: cosmetics is 3.3% of supply but 9.3% of saves.</span></p></section><section class="step"><h2><span class="zh">做了什麼決定</span><span class="en">Decisions</span></h2><p><span class="zh">過期自動下架（靠人記得一定會漏）、來源分級顯示在卡片上、提前提醒、下一批優先談美妝與飲料。都是從上面那些數字推出來的。</span><span class="en">Auto-expiry by valid_until, source tier shown on each card, early reminders, and cosmetics and drinks first in the next sourcing round. Each one follows from a number above.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">11,205 次收藏、4,784 次回報、98% 兌換成功率。全部跑在免費方案上，一次流量超額之後把每日用量砍掉 25%。</span><span class="en">11,205 saves, 4,784 usage reports, 98% redemption success, all on free tiers, with daily usage cut 25% after one quota overrun.</span></p></section></div>
+  <div class="tools-b"><p class="tools-h"><span class="zh">實際做了什麼</span><span class="en">What I actually did</span></p><table class="tools-t"><tbody><tr><th scope="row">資料庫</th><td>自己設計 schema 與事件表，SQLite 分析庫另外建，ETL 用標準庫寫</td></tr><tr><th scope="row">SQL</th><td>十一題查詢全部用 CTE 與 window function，median／quartile／ntile／累計／pivot／Pearson 自己實作</td></tr><tr><th scope="row">指標設計</th><td>供給、需求、品質、成本四組指標，每一組都要能導向一個決定</td></tr><tr><th scope="row">資料治理</th><td>來源分級（官方／媒體／部落格／社群）、複查延遲、過期自動下架規則</td></tr></tbody></table></div>
   <a class="cta" href="../work/birthday-deals.html"><span class="zh">看完整分析 →</span><span class="en">Full analysis →</span></a>
   <div class="links"><p class="links-h"><span class="zh">連結</span><span class="en">Links</span></p><ul><li><a href="https://birthdaydeals.celine-fu-work.workers.dev/"><span class="zh">線上站</span><span class="en">Live site</span></a></li><li><a href="../work/birthday-deals.html"><span class="zh">完整分析</span><span class="en">Full analysis</span></a></li><li><a href="../work/sql-report.html"><span class="zh">SQL 十一題</span><span class="en">SQL report</span></a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals"><span class="zh">原始碼</span><span class="en">Source</span></a></li></ul></div>
   <div class="tags"><span class="tag"><span class="zh">產品與成長</span><span class="en">Product &amp; Growth</span></span><span class="tag"><span class="zh">資料分析</span><span class="en">Data &amp; Analysis</span></span></div>
