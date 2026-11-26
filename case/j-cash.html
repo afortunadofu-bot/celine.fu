@@ -174,6 +174,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   color:var(--rule);font-variant-numeric:tabular-nums}
 .step p{margin:0;font-size:16.5px;line-height:1.95;color:var(--ink-2);max-width:38em}
 .step.todo p{color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
+.links{margin:0 0 30px;padding:20px 0 0;border-top:1px solid var(--line)}
+.links-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 10px;font-weight:600}
+.links ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.links a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.links a::after{content:" ↗";color:var(--muted);font-size:11px}
+.row-l{margin:6px 0 0;font-size:13px}
+.row-l a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.row-l a:hover{border-color:var(--accent)}
 .cta{display:inline-block;margin:6px 0 34px;padding:11px 22px;border:1px solid var(--ink);
   text-decoration:none;font-size:14px;border-radius:2px}
 .cta:hover{background:var(--ink);color:var(--page)}
@@ -248,6 +258,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <div class="sts"><div class="st"><div class="st-v">20+</div><span class="zh st-l">個專案在同一張排程上</span><span class="en st-l">projects on one schedule</span></div><div class="st"><div class="st-v">3</div><span class="zh st-l">種金流狀態：已發包／已計價／已收款</span><span class="en st-l">cash states tracked</span></div><div class="st"><div class="st-v">1</div><span class="zh st-l">套，公司第一個跨案管控層</span><span class="en st-l">the company&#x27;s first control layer</span></div></div>
   <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">公司同時在跑 20 件以上的案子，每件都有自己的計價期程與下包付款條件。</span><span class="en">20+ concurrent projects, each with its own billing cycle and subcontractor payment terms.</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">沒有跨案的金流與排程視圖。進度只存在於每週的口頭會議，收款落後或相依卡住，往往等到開會才知道。</span><span class="en">No portfolio-wide view of cash or schedule. Status lived in a weekly verbal meeting, so late collections and blocked dependencies surfaced only at that meeting.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">先把「錢的狀態」拆成三段：已發包、已計價、已收款。延遲會卡在哪一段，決定要找的人完全不同——卡在計價是我們自己的事，卡在收款是業主的事，卡在發包是採購的事。把三段分開記，問題才有歸屬。</span><span class="en">I split cash into three states: committed, billed, collected. Where a delay sits determines who can unblock it — billing is ours, collection is the client&#x27;s, commitment is sourcing&#x27;s. Separating the three gave every delay an owner.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">建互動式金流模型加上涵蓋全部專案的甘特主排程，兩者用同一組專案編號串起來，管理層與各專案看的是同一份。</span><span class="en">An interactive cash-flow model plus a Gantt master schedule covering every active project, joined on one project key so management and project teams read the same source.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">管理層第一次有單一視圖；團隊自己對照相依關係，不用等每週會議。內部期限固定壓在契約里程碑前一週。</span><span class="en">Management gained a single view; teams self-align on dependencies instead of waiting for the meeting. Internal deadlines now sit a week ahead of contractual milestones.</span></p></section><section class="step"><h2><span class="zh">延伸</span><span class="en">Extension</span></h2><p><span class="zh">同一套邏輯後來被我拿去做單一案子的請款預估與現金流分析——那份有完整的圖表與結論，已去識別化之後放在作品集裡。</span><span class="en">The same logic later became a full billing-forecast and cash-flow analysis for a single project — charted end to end, de-identified and published in the portfolio.</span></p></section></div>
   <a class="cta" href="../work/billing-forecast.html"><span class="zh">看那份請款預估分析（已去識別化）→</span><span class="en">See the billing forecast →</span></a>
+  
   <div class="tags"><span class="tag"><span class="zh">金流與財務</span><span class="en">Cash flow &amp; Finance</span></span><span class="tag"><span class="zh">專案交付</span><span class="en">Delivery</span></span><span class="tag"><span class="zh">資料分析</span><span class="en">Data &amp; Analysis</span></span></div>
   <nav class="pns"><a class="pn" href="j-sourcing.html"><span class="pn-k">←</span><span class="zh">機電標案議價整併，省下 15%</span><span class="en">15% off a NT$40M MEP package</span></a><a class="pn pn-r" href="j-public.html"><span class="zh">卡四個月的市府送審，一個月核准</span><span class="en">A stalled government submission cleared in one month</span><span class="pn-k">→</span></a></nav>
 </main>

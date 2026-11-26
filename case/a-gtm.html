@@ -174,6 +174,16 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   color:var(--rule);font-variant-numeric:tabular-nums}
 .step p{margin:0;font-size:16.5px;line-height:1.95;color:var(--ink-2);max-width:38em}
 .step.todo p{color:var(--muted);border-left:2px solid var(--rule);padding-left:14px}
+.links{margin:0 0 30px;padding:20px 0 0;border-top:1px solid var(--line)}
+.links-h{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  margin:0 0 10px;font-weight:600}
+.links ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+.links a{font-size:14px;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
+.links a:hover{border-color:var(--accent);color:var(--accent)}
+.links a::after{content:" ↗";color:var(--muted);font-size:11px}
+.row-l{margin:6px 0 0;font-size:13px}
+.row-l a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.row-l a:hover{border-color:var(--accent)}
 .cta{display:inline-block;margin:6px 0 34px;padding:11px 22px;border:1px solid var(--ink);
   text-decoration:none;font-size:14px;border-radius:2px}
 .cta:hover{background:var(--ink);color:var(--page)}
@@ -247,6 +257,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
   <div class="figwrap"><svg viewBox="0 0 720 176" class="fig" role="img" aria-label="一份白皮書分三層，服務三種讀者"><text x="24" y="32" class="f-h">一份白皮書，三層深度</text><rect x="24" y="52" width="8" height="24" rx="1.5" class="f-bar-on"/><text x="44" y="63" class="f-h f-on">C-level</text><text x="44" y="80" class="f-n">三分鐘看完結論</text><rect x="44" y="90" width="8" height="24" rx="1.5" class="f-bar"/><text x="64" y="101" class="f-h">投資經理</text><text x="64" y="118" class="f-n">標準化財務指標</text><rect x="64" y="128" width="8" height="24" rx="1.5" class="f-bar"/><text x="84" y="139" class="f-h">技術盡職調查</text><text x="84" y="156" class="f-n">模型細節與附錄</text><line x1="400" y1="52" x2="400" y2="152" class="f-rule"/><text x="424" y="96" class="f-n">改一次，三種讀者同時更新；</text><text x="424" y="113" class="f-n">不用維護三個版本，也不會互相矛盾</text></svg></div>
   <div class="sts"><div class="st"><div class="st-v">15</div><span class="zh st-l">頁白皮書</span><span class="en st-l">page white paper</span></div><div class="st"><div class="st-v">3</div><span class="zh st-l">層文件架構</span><span class="en st-l">document tiers</span></div><div class="st"><div class="st-v">3</div><span class="zh st-l">條 GTM 工作軌道</span><span class="en st-l">GTM workstreams</span></div></div>
   <div class="chain"><section class="step"><h2><span class="zh">背景</span><span class="en">Context</span></h2><p><span class="zh">量化交易新創，技術做得出來，但對外一份材料都沒有，投資人會議是 0。</span><span class="en">A quant trading startup with working technology, zero outbound materials and zero investor meetings.</span></p></section><section class="step"><h2><span class="zh">問題</span><span class="en">Problem</span></h2><p><span class="zh">團隊講得出 Sharpe 跟回撤，但 LP 聽不懂；LP 想問的是「這跟我現在持有的部位比起來如何」。兩邊用的不是同一種語言。</span><span class="en">The team could talk Sharpe and drawdown; LPs could not. LPs wanted to know how it compared with what they already held. The two sides were not speaking the same language.</span></p></section><section class="step"><h2><span class="zh">怎麼分析</span><span class="en">Analysis</span></h2><p><span class="zh">先分清楚讀者層級：C-level 要三分鐘看完結論、投資經理要標準化的財務指標、技術盡職調查要模型細節。同一份東西寫三個版本會立刻不同步，所以改成一份文件分三層。</span><span class="en">Separate the readers: C-suite needs a three-minute conclusion, investment managers need standardised financial metrics, technical DD needs model detail. Three separate versions would drift apart immediately, so one document in three tiers.</span></p></section><section class="step"><h2><span class="zh">解法</span><span class="en">Solution</span></h2><p><span class="zh">15 頁白皮書加 Pitch Deck，把量化模型翻譯成 LP 讀得懂的財務敘事；GTM 拆成三條軌道分頭推進；投資人 CRM 記 3 個階段、5 類異議、轉換機率。</span><span class="en">A 15-page white paper and pitch deck translating the quant models into LP-readable financial narrative; GTM split into three parallel workstreams; an investor CRM tracking three stages, five objection categories and conversion probability.</span></p></section><section class="step"><h2><span class="zh">結果</span><span class="en">Outcome</span></h2><p><span class="zh">從零建立 10+ 投資人 pipeline，一份材料服務所有層級，募資動作有單一事實來源。</span><span class="en">A 10+ investor pipeline from zero, one document serving every reader level, and a single source of truth for fundraising.</span></p></section></div>
+  
   
   <div class="tags"><span class="tag"><span class="zh">產品與成長</span><span class="en">Product &amp; Growth</span></span></div>
   <nav class="pns"><a class="pn" href="s-venues.html"><span class="pn-k">←</span><span class="zh">21,209 家店的座標，自動長出商圈</span><span class="en">Clustering 21,209 stores into districts</span></a></nav>

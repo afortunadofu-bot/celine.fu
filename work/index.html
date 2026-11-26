@@ -177,6 +177,11 @@ pre{
 }
 pre code,code{font:12.5px/1.65 ui-monospace,SFMono-Regular,Consolas,"Noto Sans Mono",monospace}
 code{color:var(--ink-2)}
+ul.links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+ul.links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border);
+  font-size:14px}
+ul.links a:hover{border-color:var(--series-1);color:var(--series-1)}
+ul.links a::after{content:" 97";color:var(--muted);font-size:11px}
 ul.plain{margin:0; padding-left:20px; color:var(--ink-2)}
 ul.plain li{margin-bottom:9px}
 ul.plain b{color:var(--ink)}
@@ -247,7 +252,7 @@ ul.plain b{color:var(--ink)}
       交叉驗證與 baseline 對照、信心門檻換覆蓋率、消融實驗抓資料洩漏，
       以及一張寫清楚弱點的 model card。重點不是模型多強，是知道哪些任務不該做。</li>
   </ul>
-</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西，沒用到的不列。</p><table class="tools"><tbody><tr><th scope="row">SQL</th><td>SQLite · CTE · window function · 自己實作統計量</td></tr><tr><th scope="row">Python</th><td>ETL · scikit-learn · 靜態站產生器 · 標準庫為主</td></tr><tr><th scope="row">機器學習</th><td>文字分類 · 非監督分群 · 交叉驗證與 baseline 對照 · 消融實驗</td></tr><tr><th scope="row">資料視覺化</th><td>自製 inline SVG 圖表系統（深色模式、無外部套件）</td></tr><tr><th scope="row">分析方法</th><td>指標設計 · 供需落差 · 成本歸因 · 財務與現金流建模</td></tr><tr><th scope="row">工程</th><td>Git · GitHub Pages · 自動化發布 · 回歸測試 · 資料去識別化</td></tr></tbody></table></section><section class="card"><h2>聯絡</h2>
+</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西，沒用到的不列。</p><table class="tools"><tbody><tr><th scope="row">SQL</th><td>SQLite · CTE · window function · 自己實作統計量</td></tr><tr><th scope="row">Python</th><td>ETL · scikit-learn · 靜態站產生器 · 標準庫為主</td></tr><tr><th scope="row">機器學習</th><td>文字分類 · 非監督分群 · 交叉驗證與 baseline 對照 · 消融實驗</td></tr><tr><th scope="row">資料視覺化</th><td>自製 inline SVG 圖表系統（深色模式、無外部套件）</td></tr><tr><th scope="row">分析方法</th><td>指標設計 · 供需落差 · 成本歸因 · 財務與現金流建模</td></tr><tr><th scope="row">工程</th><td>Git · GitHub Pages · 自動化發布 · 回歸測試 · 資料去識別化</td></tr></tbody></table></section><section class="card"><h2>連結</h2><ul class="links"><li><a href="../">個人網頁</a></li><li><a href="https://afortunadofu-bot.github.io/celinefubrandpage/">小數據所品牌頁</a></li><li><a href="https://birthdaydeals.celine-fu-work.workers.dev/">壽星日（線上站）</a></li><li><a href="https://tw-deals.pages.dev/">好康地圖（線上站）</a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals/tree/main/analysis">這個站的原始碼</a></li></ul></section><section class="card"><h2>聯絡</h2>
   <p>這些產品都還在線上跑：<a href="https://birthdaydeals.celine-fu-work.workers.dev/">壽星日</a>（免費方案，人多的時候會慢幾秒）。
     程式碼在 <a href="https://github.com/afortunadofu-bot/birthday-deals">GitHub</a>。</p>
   <p>想聊聊或要更完整的資料，信箱是 <code>celine.fu@gmail.com</code>。</p>

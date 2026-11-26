@@ -1021,7 +1021,29 @@
     "href": "../work/birthday-deals.html",
     "zh": "看完整分析 →",
     "en": "Full analysis →"
-   }
+   },
+   "links": [
+    {
+     "href": "https://birthdaydeals.celine-fu-work.workers.dev/",
+     "zh": "線上站",
+     "en": "Live site"
+    },
+    {
+     "href": "../work/birthday-deals.html",
+     "zh": "完整分析",
+     "en": "Full analysis"
+    },
+    {
+     "href": "../work/sql-report.html",
+     "zh": "SQL 十一題",
+     "en": "SQL report"
+    },
+    {
+     "href": "https://github.com/afortunadofu-bot/birthday-deals",
+     "zh": "原始碼",
+     "en": "Source"
+    }
+   ]
   },
   {
    "id": "s-apps",
@@ -1049,7 +1071,29 @@
     "zh": "RelateStats 的取捨是「收不到任何遙測」，所以衡量方式整套要換，這本身就是一個產品決策案例。",
     "en": "RelateStats trades away all telemetry, so the whole measurement approach had to change — a product decision case in itself."
    },
-   "link": "work/relatestats.html"
+   "link": "work/relatestats.html",
+   "links": [
+    {
+     "href": "https://play.google.com/store/apps/details?id=com.bandary.app",
+     "zh": "Bandary · Google Play",
+     "en": "Bandary on Google Play"
+    },
+    {
+     "href": "https://play.google.com/store/apps/details?id=com.relatestats.app",
+     "zh": "RelateStats · Google Play",
+     "en": "RelateStats on Google Play"
+    },
+    {
+     "href": "https://afortunadofu-bot.github.io/relatestats-privacy/",
+     "zh": "RelateStats 隱私權政策",
+     "en": "Privacy policy"
+    },
+    {
+     "href": "https://github.com/afortunadofu-bot/bandary-app",
+     "zh": "Bandary 原始碼",
+     "en": "Bandary source"
+    }
+   ]
   },
   {
    "id": "s-venues",
@@ -1173,7 +1217,24 @@
     "href": "../work/venue-clusters.html",
     "zh": "看完整分析 →",
     "en": "Full analysis →"
-   }
+   },
+   "links": [
+    {
+     "href": "https://tw-deals.pages.dev/",
+     "zh": "好康地圖（資料來源）",
+     "en": "The map product"
+    },
+    {
+     "href": "../work/venue-clusters.html",
+     "zh": "完整分析",
+     "en": "Full analysis"
+    },
+    {
+     "href": "https://github.com/afortunadofu-bot/birthday-deals/tree/main/geo",
+     "zh": "分群程式",
+     "en": "Clustering code"
+    }
+   ]
   },
   {
    "id": "s-ml",
@@ -1201,7 +1262,24 @@
     "zh": "另外兩個欄位做不起來，消融實驗證明原因是資料洩漏與分類法，不是模型。",
     "en": "Two other fields failed; ablations showed the cause was leakage and taxonomy, not the model."
    },
-   "link": "work/ml-autofill.html"
+   "link": "work/ml-autofill.html",
+   "links": [
+    {
+     "href": "../work/ml-autofill.html",
+     "zh": "完整分析",
+     "en": "Full analysis"
+    },
+    {
+     "href": "https://github.com/afortunadofu-bot/birthday-deals/blob/main/ml/MODEL_CARD.md",
+     "zh": "Model card",
+     "en": "Model card"
+    },
+    {
+     "href": "https://github.com/afortunadofu-bot/birthday-deals/tree/main/ml",
+     "zh": "訓練程式",
+     "en": "Training code"
+    }
+   ]
   },
   {
    "id": "s-billing",
@@ -1230,7 +1308,14 @@
     "zh": "每收 100 元的估驗要付出去 86 元——施工期墊錢不是虧損，是在還簽約時收的訂金。順帶抓出四個待確認項目。",
     "en": "Per NT$100 billed, NT$86 goes out — the shortfall is the deposit being repaid, not a loss. Four open items surfaced along the way."
    },
-   "link": "work/billing-forecast.html"
+   "link": "work/billing-forecast.html",
+   "links": [
+    {
+     "href": "../work/billing-forecast.html",
+     "zh": "看那份分析（已去識別化）",
+     "en": "The analysis"
+    }
+   ]
   }
  ],
  "approach": [
