@@ -555,6 +555,9 @@
     "href": "../work/billing-forecast.html",
     "zh": "看那份請款預估分析（已去識別化）→",
     "en": "See the billing forecast →"
+   },
+   "figure": {
+    "kind": "cash"
    }
   },
   {
