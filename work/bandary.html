@@ -212,7 +212,7 @@ ul.plain b{color:var(--ink)}
     <p class="eyebrow"><span>分析案例</span><span class="eyebrow-dot">·</span>傅聖嵐的作品集</p>
     <h1>Bandary 聽團曆</h1>
     <p class="sub">台灣聽團仔的演出記錄：追場次、每日選歌、好友日曆、免費活動共享。</p>
-    <p class="byline">Google Play 已上架　·　版本 1.117.2　·　角色：企劃／開發／上架　·　更新 2026-11-26</p>
+    <p class="byline">Google Play 已上架　·　版本 1.117.2　·　角色：企劃／開發／上架　·　更新 2026-11-27</p>
     <nav class="jump"><a href="index.html">首頁</a><a href="birthday-deals.html">壽星日</a><a href="bandary.html" class="on">Bandary</a><a href="relatestats.html">RelateStats</a><a href="ml-autofill.html">ML 預填</a><a href="venue-clusters.html">商圈聚類</a><a href="billing-forecast.html">請款預估</a><a href="sql-report.html">SQL 報告</a></nav>
     <button class="theme" type="button" aria-label="切換深淺色">◐</button>
   </div>
@@ -250,7 +250,7 @@ ul.plain b{color:var(--ink)}
     要看的是<b>有演出的那一週會不會回來</b>，以及<b>記錄這件事會不會持續</b>。</p>
   <p>它有 Firebase（Firestore ＋ Functions），所以跟 RelateStats 不一樣，
     行為資料是拿得到的，只是還沒有把它接成一套固定在看的指標。</p>
-</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西，沒用到的不列。</p><table class="tools"><tbody><tr><th scope="row">產品分析</th><td>為「不定期使用」的產品設計指標：不看日活、看有演出那週的回訪</td></tr><tr><th scope="row">回饋機制</th><td>App 內意見回饋表單 → Firestore · 1–5 星滿意度欄位 · NPS 近似值定義</td></tr><tr><th scope="row">工具（產品端）</th><td>Kotlin · Jetpack Compose · Room · Hilt · WorkManager · Firebase Auth／Firestore · Google Calendar API</td></tr><tr><th scope="row">待接上</th><td>Play Console 匯出 · Firebase Analytics 事件匯出</td></tr></tbody></table></section><section class="card"><h2>連結</h2><ul class="links"><li><a href="https://play.google.com/store/apps/details?id=com.bandary.app">Google Play</a></li><li><a href="https://github.com/afortunadofu-bot/bandary-app">原始碼（公開快照）</a></li></ul></section><section class="card"><h2>還缺什麼才寫得下去</h2>
+</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西。</p><table class="tools"><tbody><tr><th scope="row">產品分析</th><td>為「不定期使用」的產品設計指標：不看日活、看有演出那週的回訪</td></tr><tr><th scope="row">回饋機制</th><td>App 內意見回饋表單 → Firestore · 1–5 星滿意度欄位 · NPS 近似值定義</td></tr><tr><th scope="row">工具（產品端）</th><td>Kotlin · Jetpack Compose · Room · Hilt · WorkManager · Firebase Auth／Firestore · Google Calendar API</td></tr><tr><th scope="row">待接上</th><td>Play Console 匯出 · Firebase Analytics 事件匯出</td></tr></tbody></table></section><section class="card"><h2>連結</h2><ul class="links"><li><a href="https://play.google.com/store/apps/details?id=com.bandary.app">Google Play</a></li><li><a href="https://github.com/afortunadofu-bot/bandary-app">原始碼（公開快照）</a></li></ul></section><section class="card"><h2>還缺什麼才寫得下去</h2>
   <p>這一頁的數字我手上還沒有，需要的是這幾樣：</p>
   <ul class="plain">
     <li><b>Play Console</b>：安裝／解除安裝、評分、留存那幾張報表的 CSV 匯出。</li>

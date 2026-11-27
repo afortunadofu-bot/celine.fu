@@ -212,7 +212,7 @@ ul.plain b{color:var(--ink)}
     <p class="eyebrow"><span>分析案例</span><span class="eyebrow-dot">·</span>傅聖嵐的作品集</p>
     <h1>自動找出商圈</h1>
     <p class="sub">21,209 家店的座標分群，跟 148 個人工商圈對照。</p>
-    <p class="byline">資料：OpenStreetMap 店家 21,209 家（ODbL）＋壽星日人工商圈 148 個　·　更新 2026-11-26</p>
+    <p class="byline">資料：OpenStreetMap 店家 21,209 家（ODbL）＋壽星日人工商圈 148 個　·　更新 2026-11-27</p>
     <nav class="jump"><a href="index.html">首頁</a><a href="birthday-deals.html">壽星日</a><a href="bandary.html">Bandary</a><a href="relatestats.html">RelateStats</a><a href="ml-autofill.html">ML 預填</a><a href="venue-clusters.html" class="on">商圈聚類</a><a href="billing-forecast.html">請款預估</a><a href="sql-report.html">SQL 報告</a></nav>
     <button class="theme" type="button" aria-label="切換深淺色">◐</button>
   </div>
@@ -349,7 +349,7 @@ ul.plain b{color:var(--ink)}
   <p>這不是純理論的差別：參數要掃 12 組，每一組都要重算一次鄰居。
     用暴力法這一題要跑十分鐘以上，用 BallTree 是 24 秒——
     能不能快速試參數，直接決定你敢不敢多試幾種。</p>
-</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西，沒用到的不列。</p><table class="tools"><tbody><tr><th scope="row">非監督學習</th><td>DBSCAN · haversine 距離 · 參數網格掃描（eps × min_samples 共 12 組）</td></tr><tr><th scope="row">空間資料</th><td>BallTree 空間索引 · 經緯度分群 · 群中心與半徑比對</td></tr><tr><th scope="row">效能</th><td>O(n²) 暴力法 vs O(log n) 索引：21,209 點實測 55.5 秒 → 2.6 秒</td></tr><tr><th scope="row">評估</th><td>以 148 個人工商圈當對照組算 recall · silhouette · 參數取捨曲線</td></tr><tr><th scope="row">領域規則</th><td>一群至少三個不同品牌，排除「同一條街五家同品牌」的假商圈</td></tr><tr><th scope="row">工具</th><td>scikit-learn · numpy · OpenStreetMap 資料（ODbL）· SQLite</td></tr></tbody></table></section><section class="card"><h2>連結</h2><ul class="links"><li><a href="https://tw-deals.pages.dev/">好康地圖（店家資料來源）</a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals/tree/main/geo">分群與效能對照的程式</a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals/blob/main/geo/README.md">說明與授權（OpenStreetMap ODbL）</a></li></ul></section><section class="card"><h2>產品上怎麼用</h2>
+</section><section class="card"><h2>用到的技能與工具</h2><p class="answer">這一頁實際動用到的東西。</p><table class="tools"><tbody><tr><th scope="row">非監督學習</th><td>DBSCAN · haversine 距離 · 參數網格掃描（eps × min_samples 共 12 組）</td></tr><tr><th scope="row">空間資料</th><td>BallTree 空間索引 · 經緯度分群 · 群中心與半徑比對</td></tr><tr><th scope="row">效能</th><td>O(n²) 暴力法 vs O(log n) 索引：21,209 點實測 55.5 秒 → 2.6 秒</td></tr><tr><th scope="row">評估</th><td>以 148 個人工商圈當對照組算 recall · silhouette · 參數取捨曲線</td></tr><tr><th scope="row">領域規則</th><td>一群至少三個不同品牌，排除「同一條街五家同品牌」的假商圈</td></tr><tr><th scope="row">工具</th><td>scikit-learn · numpy · OpenStreetMap 資料（ODbL）· SQLite</td></tr></tbody></table></section><section class="card"><h2>連結</h2><ul class="links"><li><a href="https://tw-deals.pages.dev/">好康地圖（店家資料來源）</a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals/tree/main/geo">分群與效能對照的程式</a></li><li><a href="https://github.com/afortunadofu-bot/birthday-deals/blob/main/geo/README.md">說明與授權（OpenStreetMap ODbL）</a></li></ul></section><section class="card"><h2>產品上怎麼用</h2>
   <ul class="plain">
     <li><b>先補六都以外。</b>雙北的人工商圈已經夠細，自動的價值在台中、台南、
       彰化、新竹這些手工還沒做到的地方。</li>

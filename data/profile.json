@@ -103,8 +103,8 @@
  "orgs": [
   {
    "id": "justxtar",
-   "zh": "集星資通",
-   "en": "JustXtar",
+   "zh": "集星資通股份有限公司",
+   "en": "JustXtar Co., Ltd.",
    "role": {
     "zh": "業務專案經理 · 資訊系統整合",
     "en": "Business Project Manager · Systems Integration"
@@ -133,8 +133,8 @@
   },
   {
    "id": "ctdam",
-   "zh": "燦通國際資產管理",
-   "en": "CTDAM",
+   "zh": "燦通國際資產管理股份有限公司",
+   "en": "CTDAM Co., Ltd.",
    "role": {
     "zh": "數據分析實習生 · 創投",
     "en": "Data Analytics Intern · Venture Capital"
