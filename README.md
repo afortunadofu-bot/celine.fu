@@ -36,6 +36,25 @@ python publish_portfolio.py        # 重建 work/ 與首頁 + 推兩個 repo
 
 由新到舊。
 
+### 2026-11-27　技能標籤補上實際用過的技術
+
+對照 BA／資料分析職缺常出現的工具關鍵字，把 repo 裡找得到證據的補進去，
+關鍵字從 80 個變 91 個，多一組「後端與雲端」。
+
+- **壽星日**（8 → 17 個）：PostgreSQL、Supabase、資料權限設計 (RLS)、
+  Cloudflare Workers、JavaScript、Google Analytics (GA4)、SEO、自動化測試、
+  生成式 AI 工具應用
+- **三個 app**（6 → 9 個）：Capacitor、CI/CD、Google Play Console
+- **商圈分群**（6 → 10 個）：網路爬蟲、地理編碼 (Geocoding)、OpenStreetMap、Cloudflare D1
+- 「API 串接」改成「API 串接 (REST)」，ATS 搜英文也掃得到
+- 兩件案例的「實際做了什麼」各多一列，把技術架構與資料來源講清楚，
+  不讓新關鍵字只是標籤
+
+出處：GA4 追蹤碼在 `index.html`（G-L5LSDESD9F）；SEO 是 sitemap.xml、robots.txt、
+canonical、JSON-LD 與 Search Console 驗證檔；RLS 是 Supabase 的 `create policy`；
+爬蟲與地理編碼在好康地圖的 `crawler/`。沒有證據的（Power BI、Tableau、
+Looker Studio、Axure RP、MS SQL）一個都沒寫。
+
 ### 2026-11-27　每件精選案例都有兩張圖
 
 原本五件只有一張圖、兩件只有示意圖。現在七件都是兩張，截圖與示意圖可以並存

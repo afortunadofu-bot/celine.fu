@@ -1447,13 +1447,22 @@
    ],
    "skills": [
     "SQL",
+    "PostgreSQL",
     "Python",
     "資料分析",
     "資料庫設計",
     "ETL",
-    "API 串接",
+    "API 串接 (REST)",
     "資料視覺化",
-    "指標設計 (KPI)"
+    "指標設計 (KPI)",
+    "Supabase",
+    "Cloudflare Workers",
+    "JavaScript",
+    "Google Analytics (GA4)",
+    "SEO",
+    "資料權限設計 (RLS)",
+    "自動化測試",
+    "生成式 AI 工具應用"
    ],
    "tools": [
     {
@@ -1471,6 +1480,10 @@
     {
      "k": "資料治理",
      "v": "來源分級（官方／媒體／部落格／社群）、複查延遲、過期自動下架規則"
+    },
+    {
+     "k": "技術架構",
+     "v": "Supabase（PostgreSQL，讀寫權限用 RLS policy 分開）· Cloudflare Workers 當前台 · Capacitor 包成 Android · GA4 與自己寫的事件表並行，前者看流量、後者看站內行為 · sitemap、結構化資料與 Search Console 都設好"
     }
    ]
   },
@@ -1528,6 +1541,9 @@
     "Kotlin",
     "Jetpack Compose",
     "Firebase",
+    "Capacitor",
+    "CI/CD",
+    "Google Play Console",
     "產品上架",
     "個資合規"
    ]
@@ -1678,7 +1694,11 @@
     "分群分析 (Clustering)",
     "scikit-learn",
     "空間資料分析",
-    "演算法效能優化"
+    "演算法效能優化",
+    "網路爬蟲",
+    "地理編碼 (Geocoding)",
+    "OpenStreetMap",
+    "Cloudflare D1"
    ],
    "tools": [
     {
@@ -1696,6 +1716,10 @@
     {
      "k": "領域規則",
      "v": "一群至少三個不同品牌，排掉「同一條街五家同品牌」的假商圈"
+    },
+    {
+     "k": "資料來源",
+     "v": "自己寫的爬蟲抓店家、去重後做地理編碼；另外接 OpenStreetMap（ODbL）補點位，成果存在 Cloudflare D1"
     }
    ]
   },
